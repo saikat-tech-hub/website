@@ -2,96 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Saikat Tech Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <style>
-    body {
-      margin: 0;
+    body{
+      margin:0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      text-align: center;
+      background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+      color:#fff;
+      text-align:center;
     }
-
-    header {
-      padding: 80px 20px;
+    header{
+      padding:70px 20px;
     }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    h1{
+      font-size:42px;
+      margin-bottom:10px;
     }
-
-    p {
-      font-size: 1.1rem;
-      opacity: 0.9;
+    p{
+      opacity:.9;
+      font-size:16px;
     }
-
-    .btn {
-      display: inline-block;
-      margin: 12px;
-      padding: 14px 26px;
-      background: #00e5ff;
-      color: #000;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: 0.3s;
+    .btn{
+      display:inline-block;
+      margin:10px;
+      padding:14px 28px;
+      border-radius:30px;
+      text-decoration:none;
+      font-weight:bold;
+      color:#000;
+      background:#00e5ff;
+      transition:.3s;
     }
-
-    .btn:hover {
-      background: #00bcd4;
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 25px rgba(0,0,0,.3);
     }
-
-    section {
-      padding: 60px 20px;
+    .ghost{
+      background:transparent;
+      color:#fff;
+      border:2px solid #00e5ff;
     }
-
-    footer {
-      padding: 20px;
-      font-size: 0.9rem;
-      opacity: 0.7;
+    section{
+      padding:60px 20px;
+    }
+    .card{
+      max-width:500px;
+      margin:0 auto;
+      background:rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:30px;
+    }
+    footer{
+      padding:20px;
+      opacity:.6;
+      font-size:14px;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HERO SECTION -->
-  <header>
-    <h1>🚀 Saikat Tech Hub</h1>
-    <p>Gadget Reviews • Tech News • Online Shop</p>
+<header>
+  <h1>🚀 Saikat Tech Hub</h1>
+  <p>Gadget Reviews • Tech News • Online Shop</p>
 
-    <a class="btn" href="#contact">Contact Us</a>
-    <a class="btn" href="#">Coming Soon</a>
-  </header>
+  <a href="#contact" class="btn">Contact Us</a>
+  <a href="#" class="btn ghost">Coming Soon</a>
+</header>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact">
+<section id="contact">
+  <div class="card">
     <h2>📞 Contact With Us</h2>
-    <p>Email, WhatsApp অথবা Facebook এ সহজেই যোগাযোগ করুন</p>
+    <p>Email, WhatsApp অথবা Facebook দিয়ে যোগাযোগ করুন</p>
 
     <!-- EMAIL -->
-    <a class="btn" href="mailto:saikat712@gmail.com">
-      📧 Email Us
+    <a class="btn" 
+       href="mailto:saikat712@gmail.com?subject=Saikat%20Tech%20Hub%20Inquiry">
+       ✉️ Email Us
     </a>
 
     <!-- WHATSAPP -->
-    <a class="btn" href="https://wa.me/8801682312657" target="_blank">
-      📱 WhatsApp Chat
+    <a class="btn ghost" 
+       href="https://wa.me/8801804676711" 
+       target="_blank">
+       📱 WhatsApp Chat
     </a>
 
     <!-- FACEBOOK -->
-    <a class="btn" href="https://www.facebook.com/share/1HWNWWpWTZ/" target="_blank">
-      📘 Facebook Profile
+    <a class="btn ghost" 
+       href="https://www.facebook.com/share/1HWNWWpWTZ/" 
+       target="_blank">
+       📘 Facebook Profile
     </a>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Saikat Tech Hub | All Rights Reserved
-  </footer>
+<footer>
+  © 2026 Saikat Tech Hub | All Rights Reserved
+</footer>
 
 </body>
 </html>
