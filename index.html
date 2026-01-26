@@ -1,910 +1,820 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#06111A" />
   <title>Saikat Tech Hub — Online Shop & Services</title>
-  <meta name="description" content="Saikat Tech Hub — Gadget Shop + Boosting + Photo/Video Edit + Web Design. Order via WhatsApp/Email." />
   <style>
     :root{
-      --bg1:#071a1f; --bg2:#0b2b35; --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.08); --stroke:rgba(255,255,255,.14);
-      --text:#eaf6ff; --muted:rgba(234,246,255,.72);
-      --brand:#19e3ff; --brand2:#00b7ff; --danger:#ff5e6e;
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
-      --r: 18px;
+      --bg0:#050B10;
+      --bg1:#06131C;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.10);
+      --text:#EAF3FF;
+      --muted:rgba(234,243,255,.72);
+      --muted2:rgba(234,243,255,.55);
+      --brand:#18D7FF;
+      --brand2:#2AE7B0;
+      --warn:#FFC857;
+      --bad:#FF4D6D;
+      --ok:#2AE7B0;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --r:22px;
+      --r2:16px;
+      --max:1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans Bengali", "Noto Sans", sans-serif;
-      color:var(--text);
-      background: radial-gradient(1200px 800px at 20% 20%, #0f3a45 0%, transparent 60%),
-                  radial-gradient(900px 700px at 80% 30%, #0c4b5f 0%, transparent 55%),
-                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% -10%, rgba(24,215,255,.25), transparent 55%),
+        radial-gradient(900px 700px at 85% 10%, rgba(42,231,176,.18), transparent 55%),
+        radial-gradient(900px 900px at 20% 110%, rgba(42,231,176,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
-
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:1100px; margin:0 auto; padding:18px}
-
-    /* topbar */
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 16px}
     .topbar{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(5,12,16,.55);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(16px);
+      background: rgba(5,11,16,.58);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .topbar .row{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+      gap:12px;
+    }
     .brand{
-      display:flex; align-items:center; gap:10px; min-width: 220px;
+      display:flex; align-items:center; gap:10px;
+      min-width: 230px;
     }
-
-    /* inline logo */
     .logo{
       width:44px; height:44px; border-radius:14px;
-      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.25), transparent 55%),
-                  linear-gradient(145deg, rgba(25,227,255,.35), rgba(0,183,255,.12));
-      border:1px solid rgba(25,227,255,.35);
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.28), transparent 60%),
+        linear-gradient(135deg, rgba(24,215,255,.95), rgba(42,231,176,.85));
+      box-shadow: 0 12px 30px rgba(24,215,255,.18);
       display:grid; place-items:center;
-      box-shadow: 0 10px 25px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      flex: 0 0 auto;
     }
-    .logo svg{width:28px; height:28px}
-    .brand h1{font-size:16px; margin:0; line-height:1.05}
-    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+    .logo svg{width:26px; height:26px; opacity:.95}
+    .brand-title{
+      display:flex; flex-direction:column; line-height:1.1;
+    }
+    .brand-title b{font-size:16px; letter-spacing:.2px}
+    .brand-title span{font-size:12px; color:var(--muted2)}
     .nav{
-      display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
     .pill{
-      padding:10px 14px; border-radius:999px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.03);
-      cursor:pointer;
-      transition:.2s ease;
-      font-weight:700;
-      font-size:13px;
-    }
-    .pill:hover{transform: translateY(-1px); border-color: rgba(25,227,255,.35)}
-    .pill.primary{
-      background: linear-gradient(135deg, rgba(25,227,255,.26), rgba(0,183,255,.10));
-      border-color: rgba(25,227,255,.42);
-    }
-    .pill.cart{
-      display:flex; align-items:center; gap:8px;
-    }
-    .badge{
-      display:inline-grid; place-items:center;
-      min-width:22px; height:22px; padding:0 7px;
+      padding:10px 14px;
       border-radius:999px;
-      background: rgba(25,227,255,.18);
-      border:1px solid rgba(25,227,255,.45);
-      font-size:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:600;
+      font-size:13px;
+      display:inline-flex; gap:8px; align-items:center;
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+      user-select:none;
+    }
+    .pill:hover{transform: translateY(-1px); border-color: rgba(24,215,255,.35)}
+    .pill.primary{
+      background: linear-gradient(135deg, rgba(24,215,255,.95), rgba(42,231,176,.85));
+      color:#041016;
+      border-color: rgba(255,255,255,.08);
+    }
+    .pill.ghost{
+      background: rgba(255,255,255,.03);
+    }
+    .pill .dot{
+      width:8px; height:8px; border-radius:999px; background: var(--brand);
+      box-shadow: 0 0 0 4px rgba(24,215,255,.14);
+    }
+    .cartPill{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(24,215,255,.26);
+    }
+    .cartCount{
+      min-width:28px;
+      padding:4px 9px;
+      border-radius:999px;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.14);
       font-weight:800;
+      font-size:12px;
     }
 
-    /* hero */
-    .hero{
-      padding:26px 18px 10px;
-    }
+    .hero{padding:28px 0 14px}
     .heroGrid{
-      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
       align-items:stretch;
     }
-    .heroCard{
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow);
-      padding:22px;
-      position:relative;
-      overflow:hidden;
-    }
-    .glow{
-      position:absolute; inset:-80px;
-      background: radial-gradient(circle at 30% 20%, rgba(25,227,255,.28), transparent 45%),
-                  radial-gradient(circle at 80% 40%, rgba(0,183,255,.18), transparent 50%);
-      pointer-events:none;
-      filter: blur(2px);
-    }
-
-    .kicker{
-      display:inline-flex; align-items:center; gap:8px;
-      font-weight:800; font-size:12px; letter-spacing:.3px;
-      padding:8px 12px; border-radius:999px;
-      background: rgba(25,227,255,.12);
-      border:1px solid rgba(25,227,255,.30);
-      color: rgba(234,246,255,.92);
-      margin-bottom:10px;
-    }
-    .heroTitle{
-      font-size:34px; margin:10px 0 8px; line-height:1.05;
-      letter-spacing:-.5px;
-    }
-    .heroSub{
-      margin:0; color:var(--muted); font-size:14px; line-height:1.55;
-    }
-    .heroBtns{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
-    .btn{
-      border:none; cursor:pointer;
-      padding:12px 16px; border-radius:14px;
-      font-weight:900; font-size:13px;
-      transition:.2s ease;
-      display:inline-flex; align-items:center; gap:10px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      color:var(--text);
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .btn.brand{
-      background: linear-gradient(135deg, rgba(25,227,255,.35), rgba(0,183,255,.14));
-      border:1px solid rgba(25,227,255,.5);
-    }
-    .mini{
-      color:var(--muted); font-size:12px; margin-top:12px;
-      display:flex; gap:12px; flex-wrap:wrap;
-    }
-    .mini span{display:inline-flex; gap:8px; align-items:center}
-
-    /* right info cards */
-    .stack{display:grid; gap:12px}
-    .note{
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: 18px;
-      padding:14px 14px;
-    }
-    .note h3{margin:0 0 6px; font-size:14px}
-    .note p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
-
-    /* sections */
-    .section{padding:12px 18px}
-    .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin: 10px 0 12px;
-    }
-    .sectionHead h2{margin:0; font-size:20px}
-    .sectionHead p{margin:0; color:var(--muted); font-size:13px}
-
-    /* services */
-    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
     .card{
       background: var(--card);
-      border:1px solid rgba(255,255,255,.10);
+      border: 1px solid var(--stroke);
       border-radius: var(--r);
-      box-shadow: 0 12px 30px rgba(0,0,0,.22);
-      padding:14px;
-    }
-    .card h3{margin:0 0 6px; font-size:15px}
-    .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:7px 10px; border-radius:999px;
-      border:1px solid rgba(25,227,255,.35);
-      background: rgba(25,227,255,.10);
-      font-weight:800; font-size:12px;
-      margin-bottom:10px;
-    }
-
-    /* shop */
-    .shopBar{
-      display:flex; gap:10px; flex-wrap:wrap;
-      align-items:center; justify-content:space-between;
-      margin-bottom:12px;
-    }
-    .search{
-      flex:1; min-width:200px;
-      display:flex; gap:10px; align-items:center;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: 14px;
-      padding:10px 12px;
-    }
-    .search input{
-      width:100%; border:none; outline:none;
-      background: transparent; color:var(--text);
-      font-size:13px;
-    }
-    .select{
-      min-width:170px;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-      color:var(--text);
-      border-radius:14px;
-      padding:10px 12px;
-      font-weight:800;
-    }
-
-    .productGrid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-    .p{
-      background: var(--card);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: 18px;
-      overflow:hidden;
-      box-shadow: 0 14px 30px rgba(0,0,0,.22);
-      display:flex; flex-direction:column;
-    }
-    .p .img{
-      height:150px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(25,227,255,.22), transparent 50%),
-        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
-      display:grid; place-items:center;
-      border-bottom: 1px solid rgba(255,255,255,.10);
-      position:relative;
-    }
-    .p .img span{
-      font-size:44px; opacity:.95;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
-    }
-    .p .body{padding:12px}
-    .p h4{margin:0 0 6px; font-size:15px}
-    .p .meta{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
-    .price{font-weight:1000; letter-spacing:.2px}
-    .cat{
-      font-size:12px; color:rgba(234,246,255,.75);
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      padding:6px 10px; border-radius:999px;
-      font-weight:800;
-    }
-    .p .actions{display:flex; gap:10px; margin-top:10px}
-    .p button{
-      flex:1;
-      padding:10px 12px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      color:var(--text);
-      cursor:pointer;
-      font-weight:1000;
-      transition:.2s ease;
-      font-size:13px;
-    }
-    .p button.primary{
-      background: linear-gradient(135deg, rgba(25,227,255,.33), rgba(0,183,255,.14));
-      border-color: rgba(25,227,255,.45);
-    }
-    .p button:hover{transform: translateY(-1px)}
-
-    /* cart drawer */
-    .overlay{
-      position:fixed; inset:0; background: rgba(0,0,0,.55);
-      display:none; z-index:100;
-    }
-    .drawer{
-      position:fixed; right:0; top:0; height:100%; width:min(420px, 92vw);
-      background: rgba(8,18,23,.95);
-      border-left:1px solid rgba(255,255,255,.10);
-      backdrop-filter: blur(12px);
-      transform: translateX(120%);
-      transition:.25s ease;
-      z-index:110;
-      display:flex; flex-direction:column;
-    }
-    .drawer.open{transform: translateX(0)}
-    .overlay.show{display:block}
-    .dHead{
-      padding:14px 14px;
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-    }
-    .dHead h3{margin:0; font-size:16px}
-    .x{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      border-radius:12px;
-      padding:10px 12px;
-      cursor:pointer;
-      font-weight:1000;
-    }
-    .dBody{padding:12px; overflow:auto; flex:1}
-    .line{
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: 16px;
-      padding:12px;
-      display:flex; gap:10px; align-items:center; justify-content:space-between;
-      margin-bottom:10px;
-    }
-    .line .left{display:flex; gap:10px; align-items:center}
-    .ic{
-      width:44px; height:44px; border-radius:14px;
-      background: rgba(25,227,255,.10);
-      border:1px solid rgba(25,227,255,.25);
-      display:grid; place-items:center;
-      font-size:22px;
-    }
-    .line h4{margin:0; font-size:13px}
-    .line p{margin:2px 0 0; color:var(--muted); font-size:12px}
-    .qty{
-      display:flex; gap:8px; align-items:center;
-      font-weight:1000;
-    }
-    .qbtn{
-      width:34px; height:34px; border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      cursor:pointer;
-      font-weight:1000;
-    }
-    .totalBox{
-      padding:12px; border-top:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .totRow{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap}
-    .totRow b{font-size:15px}
-    .checkout{
-      width:100%; margin-top:10px;
-      padding:12px 14px; border-radius:16px;
-      border:1px solid rgba(25,227,255,.50);
-      background: linear-gradient(135deg, rgba(25,227,255,.35), rgba(0,183,255,.14));
-      color:var(--text);
-      font-weight:1000;
-      cursor:pointer;
-      font-size:14px;
-    }
-    .danger{
-      background: rgba(255,94,110,.10);
-      border:1px solid rgba(255,94,110,.35);
-      color: rgba(255,220,225,.95);
-      padding:10px 12px; border-radius:14px;
-      cursor:pointer;
-      font-weight:1000;
-      margin-top:10px;
-      width:100%;
-    }
-
-    /* contact */
-    .contactGrid{display:grid; grid-template-columns: 1.1fr .9fr; gap:12px}
-    .contactCard{
-      background: var(--card2);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: 22px;
-      padding:16px;
       box-shadow: var(--shadow);
     }
-    .contactCard h3{margin:0 0 6px}
-    .contactCard p{margin:0; color:var(--muted); line-height:1.6}
-    .contactBtns{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px}
-    .contactBtns a{
-      display:flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 12px; border-radius:16px;
+    .heroCard{
+      padding:26px;
+      position:relative;
+      overflow:hidden;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 260px at 20% 10%, rgba(24,215,255,.25), transparent 55%),
+                  radial-gradient(700px 320px at 90% 20%, rgba(42,231,176,.16), transparent 55%);
+      pointer-events:none;
+    }
+    .heroCard > *{position:relative}
+    .kicker{
+      display:inline-flex;
+      gap:8px; align-items:center;
+      color: var(--muted);
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:.3px;
+    }
+    .kicker .badge{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      font-size:12px;
+      color: var(--muted);
+    }
+    h1{
+      margin:14px 0 8px;
+      font-size:40px;
+      letter-spacing:-.8px;
+      line-height:1.05;
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      max-width: 62ch;
+    }
+    .heroActions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .miniRow{
+      margin-top:16px;
+      display:flex; flex-wrap:wrap; gap:10px;
+      color: var(--muted2);
+      font-size:13px;
+    }
+    .miniRow .chip{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .miniRow .chip b{color:var(--text)}
+    .sideCard{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .sideCard .box{
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--r2);
+      padding:14px;
+    }
+    .sideCard .box h3{
+      margin:0 0 6px;
+      font-size:14px;
+      letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .sideCard .box p{
+      margin:0;
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    .section{padding:16px 0}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; margin:8px 0 12px;
+    }
+    .sectionTitle h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.2px;
+    }
+    .sectionTitle .hint{
+      color: var(--muted2);
+      font-size:13px;
+    }
+
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .svc{
+      padding:16px;
+      border-radius: var(--r);
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      min-height: 118px;
+    }
+    .svc h3{margin:0 0 8px; font-size:15px; display:flex; gap:10px; align-items:center}
+    .svc p{margin:0; color:var(--muted); font-size:13px; line-height:1.55}
+    .icon{
+      width:32px; height:32px; border-radius:12px;
+      display:grid; place-items:center;
+      background: rgba(24,215,255,.12);
+      border: 1px solid rgba(24,215,255,.28);
+    }
+    .icon svg{width:18px; height:18px}
+
+    .shopBar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      margin:10px 0 12px;
+    }
+    .controls{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      flex:1 1 auto;
+    }
+    .input, select{
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.12);
+      color: var(--text);
+      padding:12px 12px;
+      border-radius: 14px;
+      outline:none;
+      font-size:14px;
+      min-width: 160px;
+    }
+    .input{min-width: 240px}
+    .input::placeholder{color: rgba(234,243,255,.40)}
+    .products{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    .prod{
+      overflow:hidden;
+      border-radius: var(--r);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+      display:flex;
+      flex-direction:column;
+    }
+    .prodTop{
+      aspect-ratio: 16 / 10;
+      background:
+        radial-gradient(180px 120px at 25% 30%, rgba(24,215,255,.25), transparent 60%),
+        radial-gradient(220px 140px at 85% 25%, rgba(42,231,176,.18), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+      border-bottom:1px solid rgba(255,255,255,.10);
+      display:grid;
+      place-items:center;
+      position:relative;
+    }
+    .prodTop img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      opacity:.98;
+    }
+    .prodBody{padding:14px; display:flex; flex-direction:column; gap:10px; flex:1}
+    .prodName{font-weight:800; letter-spacing:.1px}
+    .prodMeta{
+      display:flex; gap:8px; flex-wrap:wrap;
+      color:var(--muted2);
+      font-size:12px;
+    }
+    .tag{
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .priceRow{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-top:auto;
+    }
+    .price{
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.2px;
+    }
+    .price small{font-size:12px; color:var(--muted2); font-weight:800}
+    .btn{
+      border:0;
+      cursor:pointer;
+      padding:11px 14px;
+      border-radius: 14px;
+      font-weight:900;
+      font-size:13px;
+      color:#041016;
+      background: linear-gradient(135deg, rgba(24,215,255,.95), rgba(42,231,176,.85));
+      transition: transform .12s ease, filter .2s ease;
+      display:inline-flex; align-items:center; gap:8px; justify-content:center;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); filter:brightness(1.02)}
+    .btn.secondary{
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    .panel{
+      margin-top:12px;
+      border-radius: var(--r);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+    }
+    .panelHead{
+      padding:14px 16px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .panelHead b{font-size:14px}
+    .panelHead span{color:var(--muted2); font-size:13px}
+    .panelBody{padding:14px 16px}
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+    .step{
+      padding:12px;
+      border-radius: var(--r2);
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .step h4{margin:0 0 6px; font-size:13px; display:flex; gap:8px; align-items:center}
+    .step p{margin:0; color:var(--muted); font-size:12.5px; line-height:1.55}
+
+    .footer{
+      padding:22px 0 34px;
+      color: rgba(234,243,255,.55);
+      font-size:12px;
+      text-align:center;
+    }
+
+    dialog{
+      width:min(720px, 92vw);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: 20px;
+      background: rgba(6,17,26,.92);
+      color: var(--text);
+      box-shadow: 0 30px 90px rgba(0,0,0,.55);
+      padding:0;
+      overflow:hidden;
+      backdrop-filter: blur(18px);
+    }
+    dialog::backdrop{background: rgba(0,0,0,.55)}
+    .dlgHead{
+      padding:14px 16px;
+      display:flex; align-items:center; justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .dlgHead b{font-size:14px}
+    .xbtn{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      border-radius: 12px;
+      width:38px; height:38px;
+      display:grid; place-items:center;
+      cursor:pointer;
+    }
+    .dlgBody{padding:14px 16px}
+    .cartList{display:flex; flex-direction:column; gap:10px}
+    .cartItem{
+      display:grid;
+      grid-template-columns: 56px 1fr auto;
+      gap:10px;
+      align-items:center;
+      padding:10px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .thumb{
+      width:56px; height:42px; border-radius:12px;
+      overflow:hidden;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      font-weight:1000;
-      transition:.2s ease;
     }
-    .contactBtns a:hover{transform: translateY(-1px); border-color: rgba(25,227,255,.35)}
-    .contactBtns a.primary{
-      background: linear-gradient(135deg, rgba(25,227,255,.32), rgba(0,183,255,.14));
-      border-color: rgba(25,227,255,.48);
+    .thumb img{width:100%; height:100%; object-fit:cover; display:block}
+    .ciName{font-weight:800; font-size:13px}
+    .ciSub{color:var(--muted2); font-size:12px; margin-top:2px}
+    .qty{
+      display:flex; align-items:center; gap:8px; justify-content:flex-end;
+      font-family: var(--mono);
+    }
+    .qbtn{
+      width:34px; height:34px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      cursor:pointer;
+      display:grid; place-items:center;
+      font-weight:900;
+    }
+    .sumRow{
+      display:flex; justify-content:space-between; align-items:center;
+      margin-top:12px;
+      padding:12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+    }
+    .sumRow b{font-size:14px}
+    .sumRow span{font-weight:1000; font-size:16px}
+    .formGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    .formGrid .full{grid-column: 1 / -1}
+    label{display:block; font-size:12px; color:var(--muted2); margin:0 0 6px; font-weight:700}
+    textarea{min-height: 90px; resize:vertical}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .note{
+      margin-top:10px;
+      font-size:12px;
+      color: var(--muted2);
+      line-height:1.55;
     }
 
-    footer{
-      padding:22px 18px 30px; color:rgba(234,246,255,.65);
-      text-align:center; font-size:12px
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.55);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: rgba(234,243,255,.92);
+      font-size: 13px;
+      display:none;
+      z-index: 80;
+      backdrop-filter: blur(10px);
     }
 
-    /* responsive */
-    @media (max-width: 920px){
-      .heroGrid{grid-template-columns:1fr}
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns: 1fr}
+      .brand{min-width: unset}
+      h1{font-size:34px}
       .grid3{grid-template-columns:1fr}
-      .productGrid{grid-template-columns:1fr}
-      .contactGrid{grid-template-columns:1fr}
-      .contactBtns{grid-template-columns:1fr}
-      .brand{min-width:auto}
-      .heroTitle{font-size:30px}
+      .products{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .formGrid{grid-template-columns:1fr}
     }
   </style>
 </head>
-
 <body>
-  <div class="topbar">
-    <div class="wrap">
-      <div class="row">
-        <div class="brand">
-          <div class="logo" aria-label="Saikat Tech Hub Logo">
-            <!-- simple premium SVG logo -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2c3.5 2.2 6 6 6 9.7 0 4-2.7 7.3-6 10.3-3.3-3-6-6.3-6-10.3C6 8 8.5 4.2 12 2Z" stroke="rgba(234,246,255,.9)" stroke-width="1.5"/>
-              <path d="M12 6.2c2.1 1.5 3.6 3.9 3.6 6.1 0 2.6-1.8 4.9-3.6 6.6-1.8-1.7-3.6-4-3.6-6.6 0-2.2 1.5-4.6 3.6-6.1Z" fill="rgba(25,227,255,.28)"/>
-              <path d="M12 10.3l1.6 1.7-1.6 4.1-1.6-4.1L12 10.3Z" fill="rgba(25,227,255,.95)"/>
-            </svg>
-          </div>
-          <div>
-            <h1>Saikat Tech Hub</h1>
-            <p>Online Shop • Services • Bangladesh</p>
-          </div>
-        </div>
 
-        <div class="nav">
-          <button class="pill" onclick="scrollToEl('#services')">Services</button>
-          <button class="pill" onclick="scrollToEl('#shop')">Shop</button>
-          <button class="pill" onclick="scrollToEl('#how')">How to Order</button>
-          <button class="pill primary" onclick="scrollToEl('#contact')">Contact</button>
-          <button class="pill cart" onclick="openCart()">
-            🛒 Cart <span class="badge" id="cartCount">0</span>
-          </button>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="Saikat Tech Hub Home">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M13 3l-3 9 5 1-2 8 7-11-6-1 3-6z" fill="rgba(4,16,22,.95)"/>
+            <path d="M4.5 14.2c.8.4 1.8.2 2.4-.5.7-.7.9-1.7.5-2.5-1.3-.3-2.6.1-3.5 1-.9.9-1.3 2.2-.9 3.5z" fill="rgba(4,16,22,.75)"/>
+          </svg>
         </div>
-      </div>
-    </div>
-  </div>
+        <div class="brand-title">
+          <b>Saikat Tech Hub</b>
+          <span>Online Shop • Services • Bangladesh</span>
+        </div>
+      </a>
 
-  <header class="hero">
-    <div class="wrap">
-      <div class="heroGrid">
-        <div class="heroCard">
-          <div class="glow"></div>
-          <div class="kicker">🚀 Trusted • Fast Response • Best Price</div>
-          <h2 class="heroTitle">Gadget Shop + Premium Digital Services</h2>
-          <p class="heroSub">
-            Gadgets, accessories এবং আপনার সব digital কাজ—এক জায়গায়।
-            <b>Cart → Checkout</b> করলে অর্ডারটা আপনার WhatsApp/Email এ চলে যাবে।
-          </p>
-          <div class="heroBtns">
-            <button class="btn brand" onclick="scrollToEl('#shop')">🛍️ Shop Products</button>
-            <button class="btn" onclick="openCart()">🧾 View Cart</button>
-            <button class="btn" onclick="scrollToEl('#contact')">☎️ Contact Now</button>
-          </div>
-          <div class="mini">
-            <span>📍 Dhaka New Market, 1205</span>
-            <span>⚡ Order via WhatsApp / Email</span>
-            <span>🔒 GitHub Pages Free Hosting</span>
-          </div>
-        </div>
-
-        <div class="stack">
-          <div class="note">
-            <h3>📌 আজকের অফার</h3>
-            <p>নতুন প্রোডাক্ট আসছে—Best price & trusted support.</p>
-          </div>
-          <div class="note" id="how">
-            <h3>🧾 অর্ডার কীভাবে যাবে?</h3>
-            <p><b>Search → Add to Cart → Checkout</b><br>Checkout দিলে WhatsApp/Email এ অর্ডার মেসেজ যাবে।</p>
-          </div>
-          <div class="note">
-            <h3>✅ কেন নিরাপদ?</h3>
-            <p>এটা শুধু ওয়েবসাইট—আপনার অর্ডার সরাসরি আপনার <b>WhatsApp/Email</b> এ আসে।</p>
-          </div>
-        </div>
-      </div>
+      <nav class="nav" aria-label="Primary">
+        <a class="pill ghost" href="#services">Services</a>
+        <a class="pill ghost" href="#shop">Shop</a>
+        <a class="pill ghost" href="#how">How to Order</a>
+        <a class="pill ghost" href="#contact"><span class="dot" aria-hidden="true"></span>Contact</a>
+        <button class="pill cartPill" id="openCartBtn" type="button" aria-label="Open cart">
+          🛒 Cart <span class="cartCount" id="cartCount">0</span>
+        </button>
+      </nav>
     </div>
   </header>
 
-  <!-- SERVICES -->
-  <section class="section" id="services">
-    <div class="wrap">
-      <div class="sectionHead">
-        <div>
-          <h2>💼 Services</h2>
-          <p>Boosting, Editing, Design & Development — সব একসাথে</p>
+  <main id="top" class="wrap">
+
+    <section class="hero">
+      <div class="heroGrid">
+        <div class="card heroCard">
+          <div class="kicker">
+            <span class="badge">Trusted • Fast Response</span>
+            <span class="badge">Dhaka New Market, 1205</span>
+          </div>
+          <h1>Gadgets, Tech Services & Smart Deals — এক জায়গায়</h1>
+          <p class="subtitle">
+            Earbuds, Charger, Powerbank, Accessories সহ আপনার দরকারি গ্যাজেট— সাথে
+            Boosting, Photo Edit, Video Edit, Web Design সার্ভিস। দ্রুত অর্ডার দিন— WhatsApp বা Email এ কনফার্মেশন পাবেন।
+          </p>
+          <div class="heroActions">
+            <a class="pill primary" href="#shop">🛍️ Shop Now</a>
+            <a class="pill ghost" href="#contact">☎️ Contact</a>
+            <button class="pill ghost" id="comingSoonBtn" type="button">🚀 Coming Soon</button>
+          </div>
+          <div class="miniRow">
+            <span class="chip">✅ <b>Cash on Delivery</b> (Available by area)</span>
+            <span class="chip">⚡ <b>Quick Support</b> via WhatsApp</span>
+            <span class="chip">🛡️ <b>Trusted</b> order confirmation</span>
+          </div>
         </div>
-        <p style="color:rgba(234,246,255,.6); font-size:12px;">Need custom package? WhatsApp করুন</p>
+
+        <div class="card sideCard">
+          <div class="box">
+            <h3>📌 আজকের অফার</h3>
+            <p>নতুন প্রোডাক্ট আসছে— Best price & trusted support.</p>
+          </div>
+          <div class="box">
+            <h3>🧾 অর্ডার কীভাবে যাবে?</h3>
+            <p>Cart → Checkout → WhatsApp/Email এ অর্ডার মেসেজ যাবে।</p>
+          </div>
+          <div class="box">
+            <h3>🔒 নিরাপদ কেন?</h3>
+            <p>GitHub Pages ফ্রি হোস্টিং। অর্ডার সরাসরি আপনার WhatsApp/Email এ যাবে।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="sectionTitle">
+        <h2>✨ Services</h2>
+        <div class="hint">Boosting • Photo Edit • Video Edit • Web Design • আরও</div>
       </div>
 
       <div class="grid3">
-        <div class="card">
-          <div class="tag">📈 Boosting</div>
-          <h3>Social / Page Boosting</h3>
-          <p>Facebook boosting, engagement, reach support (package অনুযায়ী).</p>
+        <div class="svc">
+          <h3><span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17l10-10" stroke="rgba(24,215,255,.95)" stroke-width="2" stroke-linecap="round"/><path d="M7 7h10v10" stroke="rgba(24,215,255,.95)" stroke-width="2" stroke-linecap="round"/></svg>
+          </span> Boosting</h3>
+          <p>Safe, fast boosting service. Details & price জানতে WhatsApp করুন।</p>
         </div>
-
-        <div class="card">
-          <div class="tag">🖼️ Photo Edit</div>
-          <h3>Photo Editing & Retouch</h3>
-          <p>Background remove, color correction, banner/post design, premium retouch.</p>
+        <div class="svc">
+          <h3><span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="rgba(24,215,255,.95)" stroke-width="2"/><path d="M8 11l2 2 4-4" stroke="rgba(42,231,176,.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span> Photo Editing</h3>
+          <p>Professional retouch, background remove, banner/post design।</p>
         </div>
-
-        <div class="card">
-          <div class="tag">🎬 Video Edit</div>
-          <h3>Video Editing</h3>
-          <p>Reels/Shorts edit, captions, transitions, thumbnail & social-ready export.</p>
+        <div class="svc">
+          <h3><span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="rgba(24,215,255,.95)" stroke-width="2"/><path d="M10 9l6 3-6 3V9z" fill="rgba(42,231,176,.85)"/></svg>
+          </span> Video Editing</h3>
+          <p>Reels/Shorts edit, subtitles, transitions, ads video তৈরি।</p>
         </div>
-
-        <div class="card">
-          <div class="tag">🌐 Web Design</div>
-          <h3>Website Design</h3>
-          <p>Modern responsive website, landing page, portfolio, shop-style catalog.</p>
+        <div class="svc">
+          <h3><span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z" stroke="rgba(24,215,255,.95)" stroke-width="2"/><path d="M7 8h10M7 12h6M7 16h8" stroke="rgba(42,231,176,.95)" stroke-width="2" stroke-linecap="round"/></svg>
+          </span> Web Design</h3>
+          <p>Business website, landing page, portfolio — modern & responsive।</p>
         </div>
-
-        <div class="card">
-          <div class="tag">🧩 Graphics</div>
-          <h3>Logo & Brand Kit</h3>
-          <p>Logo, banner, cover photo, brand colors & typography setup.</p>
+        <div class="svc">
+          <h3><span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v10l-7 4-7-4V7l7-4z" stroke="rgba(24,215,255,.95)" stroke-width="2"/><path d="M9.5 12h5" stroke="rgba(42,231,176,.95)" stroke-width="2" stroke-linecap="round"/></svg>
+          </span> Tech Support</h3>
+          <p>Device setup, app issues, online support— দ্রুত সমাধান।</p>
         </div>
-
-        <div class="card">
-          <div class="tag">🛠️ Support</div>
-          <h3>Tech Support</h3>
-          <p>Setup help, product listing, website update, quick fixes & guidance.</p>
+        <div class="svc">
+          <h3><span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.6 7-11a7 7 0 10-14 0c0 6.4 7 11 7 11z" stroke="rgba(24,215,255,.95)" stroke-width="2"/><path d="M9 10h6" stroke="rgba(42,231,176,.95)" stroke-width="2" stroke-linecap="round"/></svg>
+          </span> Shop Delivery</h3>
+          <p>Dhaka/BD area অনুযায়ী delivery & confirmation system।</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SHOP -->
-  <section class="section" id="shop">
-    <div class="wrap">
-      <div class="sectionHead">
-        <div>
-          <h2>🛍️ Shop Products</h2>
-          <p>Search + Add to Cart → Checkout</p>
-        </div>
-        <p style="color:rgba(234,246,255,.6); font-size:12px;"></p>
+    <section id="shop" class="section">
+      <div class="sectionTitle">
+        <h2>🛍️ Shop Products</h2>
+        <div class="hint">Search → Add to Cart → Checkout</div>
       </div>
 
       <div class="shopBar">
-        <div class="search">
-          🔎
-          <input id="q" type="text" placeholder="Search product (e.g., earbuds, charger, mouse)" oninput="renderProducts()" />
+        <div class="controls">
+          <input id="search" class="input" type="search" placeholder="Search product (ex: earbuds, charger, powerbank)" />
+          <select id="category">
+            <option value="all">All Categories</option>
+          </select>
+          <select id="sort">
+            <option value="popular">Sort: Popular</option>
+            <option value="low">Price: Low → High</option>
+            <option value="high">Price: High → Low</option>
+            <option value="new">Newest</option>
+          </select>
         </div>
-
-        <select class="select" id="cat" onchange="renderProducts()">
-          <option value="all">All Categories</option>
-        </select>
-
-        <select class="select" id="sort" onchange="renderProducts()">
-          <option value="popular">Sort: Popular</option>
-          <option value="low">Price: Low to High</option>
-          <option value="high">Price: High to Low</option>
-        </select>
-      </div>
-
-      <div class="productGrid" id="grid"></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="wrap">
-      <div class="sectionHead">
         <div>
-          <h2>☎️ Contact With Us</h2>
-          <p>Email, WhatsApp অথবা Facebook দিয়ে সহজেই যোগাযোগ করুন</p>
+          <button class="btn secondary" id="clearCartBtn" type="button">Clear Cart</button>
         </div>
-        <p style="color:rgba(234,246,255,.6); font-size:12px;">Reply Fast ✅</p>
       </div>
 
-      <div class="contactGrid">
-        <div class="contactCard">
-          <h3>📍 Address</h3>
-          <p><b>Dhaka New Market, 1205</b></p>
-          <p style="margin-top:8px">
-            <span style="color:rgba(234,246,255,.85)">Order/Service request</span> দিলে আমরা দ্রুত কনফার্ম করি।
-          </p>
+      <div class="products" id="products"></div>
 
-          <div class="contactBtns">
-            <a class="primary" id="emailBtn" href="#">✉️ Email Us</a>
-            <a id="waBtn" href="#">💬 WhatsApp Chat</a>
-            <a id="fbBtn" href="#">📘 Facebook Profile</a>
-          </div>
+      <div id="how" class="panel">
+        <div class="panelHead">
+          <b>🧾 How to Order</b>
+          <span>Simple & Fast</span>
         </div>
-
-        <div class="contactCard">
-          <h3>🧾 Quick Info</h3>
-          <p>
-            ✅ Shop অর্ডার: Checkout করলে <b>WhatsApp/Email</b> এ চলে যাবে<br>
-            ✅ Services: Boosting / Photo Edit / Video Edit / Web Design<br>
-            ✅ Payment/Delivery: WhatsApp এ কথা বলে 
-          </p>
-          <div style="margin-top:12px; padding:12px; border-radius:18px; border:1px dashed rgba(255,255,255,.18); color:rgba(234,246,255,.75)">
-            
+        <div class="panelBody">
+          <div class="steps">
+            <div class="step">
+              <h4>1) 🛒 Cart</h4>
+              <p>পছন্দের প্রোডাক্ট Add to Cart করুন। Quantity বাড়াতে/কমাতে পারবেন।</p>
+            </div>
+            <div class="step">
+              <h4>2) ✅ Checkout</h4>
+              <p>নাম, ফোন, ঠিকানা দিন। তারপর WhatsApp/Email এ অর্ডার মেসেজ তৈরি হবে।</p>
+            </div>
+            <div class="step">
+              <h4>3) 📩 Confirmation</h4>
+              <p>আপনার অর্ডার সরাসরি আমাদের কাছে যাবে। আমরা দ্রুত কনফার্ম করব।</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    © <span id="y"></span> Saikat Tech Hub | All Rights Reserved
+    <section id="contact" class="section">
+      <div class="sectionTitle">
+        <h2>☎️ Contact With Us</h2>
+        <div class="hint">Email • WhatsApp • Facebook</div>
+      </div>
+
+      <div class="panel">
+        <div class="panelBody">
+          <div class="grid3">
+            <div class="svc">
+              <h3><span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="rgba(24,215,255,.95)" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="rgba(42,231,176,.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>Email</h3>
+              <p><b>saikat712@gmail.com</b></p>
+              <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
+                <a class="btn" id="emailBtn" href="#">✉️ Email Now</a>
+                <button class="btn secondary" type="button" id="copyEmail">Copy</button>
+              </div>
+            </div>
+
+            <div class="svc">
+              <h3><span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M6.5 3.5l3 2-1 3c1 2 3 4 5 5l3-1 2 3c-1.5 2.5-5 3.5-8.5 2-4.2-1.8-8.2-5.8-10-10-1.5-3.5-.5-7 2-8.5z" stroke="rgba(24,215,255,.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>WhatsApp</h3>
+              <p><b>01804676711</b></p>
+              <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
+                <a class="btn" id="waBtn" href="#">💬 WhatsApp Chat</a>
+                <button class="btn secondary" type="button" id="copyPhone">Copy</button>
+              </div>
+            </div>
+
+            <div class="svc">
+              <h3><span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h4v4h-4z" fill="rgba(24,215,255,.35)"/><path d="M5 9h14v12H5z" stroke="rgba(24,215,255,.95)" stroke-width="2"/><path d="M9 13h6" stroke="rgba(42,231,176,.95)" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>Address</h3>
+              <p><b>Dhaka New Market, 1205</b></p>
+              <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
+                <a class="btn secondary" target="_blank" rel="noopener" href="https://maps.google.com/?q=Dhaka%20New%20Market%201205">📍 Open Map</a>
+                <a class="btn" target="_blank" rel="noopener" href="https://www.facebook.com/share/1HWNWWpWTZ/">📘 Facebook</a>
+              </div>
+            </div>
+          </div>
+
+          <p class="note">
+            © <span id="yr"></span> Saikat Tech Hub • All Rights Reserved
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    Built on GitHub Pages • Fast • Secure • Modern UI
   </footer>
 
-  <!-- CART UI -->
-  <div class="overlay" id="ov" onclick="closeCart()"></div>
-  <aside class="drawer" id="drawer" aria-label="Cart Drawer">
-    <div class="dHead">
-      <h3>🛒 Your Cart</h3>
-      <button class="x" onclick="closeCart()">✕</button>
+  <dialog id="cartDlg">
+    <div class="dlgHead">
+      <b>🛒 Cart & Checkout</b>
+      <button class="xbtn" id="closeCartBtn" type="button" aria-label="Close">✕</button>
     </div>
-    <div class="dBody" id="cartLines"></div>
-    <div class="totalBox">
-      <div class="totRow">
-        <span style="color:rgba(234,246,255,.72)">Total</span>
-        <b id="total">৳0</b>
+    <div class="dlgBody">
+      <div class="cartList" id="cartList"></div>
+
+      <div class="sumRow">
+        <b>Total</b>
+        <span id="totalPrice">৳0</span>
       </div>
-      <button class="checkout" onclick="checkout()">✅ Checkout (Send Order)</button>
-      <button class="danger" onclick="clearCart()">🗑️ Clear Cart</button>
-      <p style="margin:10px 0 0; color:rgba(234,246,255,.55); font-size:12px; line-height:1.5">
-        Checkout দিলে অর্ডার মেসেজ WhatsApp/Email এ যাবে।  
-       
-      </p>
+
+      <div class="formGrid" style="margin-top:14px">
+        <div>
+          <label for="cName">Your Name</label>
+          <input id="cName" class="input" type="text" autocomplete="name" placeholder="আপনার নাম" />
+        </div>
+        <div>
+          <label for="cPhone">Phone</label>
+          <input id="cPhone" class="input" type="tel" autocomplete="tel" placeholder="01XXXXXXXXX" />
+        </div>
+        <div class="full">
+          <label for="cAddr">Delivery Address</label>
+          <input id="cAddr" class="input" type="text" autocomplete="street-address" placeholder="ঠিকানা লিখুন (যেমন: Dhaka New Market, 1205 / আপনার লোকেশন)" />
+        </div>
+        <div class="full">
+          <label for="cNote">Order Note (optional)</label>
+          <textarea id="cNote" class="input" placeholder="Color/Variant/Delivery note ইত্যাদি"></textarea>
+        </div>
+      </div>
+
+      <div class="ctaRow">
+        <button class="btn" id="checkoutWA" type="button">💬 Send Order via WhatsApp</button>
+        <button class="btn secondary" id="checkoutEmail" type="button">✉️ Send Order via Email</button>
+      </div>
+
+      <div class="note" id="orderHint">
+        WhatsApp/Email এ অর্ডার পাঠালে আমরা দ্রুত কনফার্ম করব। Payment method (COD/bKash) কনফার্মেশনে জানিয়ে দেয়া হবে।
+      </div>
     </div>
-  </aside>
+  </dialog>
+
+  <div class="toast" id="toast"></div>
 
   <script>
-    // ====== Your Contact Data (EDIT HERE if needed) ======
-    const CONTACT = {
-      whatsappNumber: "01804676711",
+    const SHOP = {
+      name: "Saikat Tech Hub",
+      phone: "01804676711",
       email: "saikat712@gmail.com",
       facebook: "https://www.facebook.com/share/1HWNWWpWTZ/",
       address: "Dhaka New Market, 1205"
     };
 
-    // ====== Products (EDIT HERE to add your real products) ======
-    // Tip: image = emoji for now. Later you can use real images by adding /assets/your-image.jpg and set imageType:"file"
+    const svgPlaceholder = (title) => {
+      const t = (title || "Product").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#18D7FF" stop-opacity=".35"/>
+              <stop offset="1" stop-color="#2AE7B0" stop-opacity=".25"/>
+            </linearGradient>
+            <radialGradient id="r" cx="30%" cy="25%" r="70%">
+              <stop offset="0" stop-color="#ffffff" stop-opacity=".16"/>
+              <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1200" height="750" fill="#071521"/>
+          <rect width="1200" height="750" fill="url(#g)"/>
+          <rect width="1200" height="750" fill="url(#r)"/>
+          <g fill="none" stroke="#EAF3FF" stroke-opacity=".14">
+            <path d="M80 540 C 240 420, 360 640, 520 520 S 820 380, 1120 520" stroke-width="6"/>
+            <path d="M120 260 C 260 160, 420 320, 580 240 S 840 120, 1080 260" stroke-width="4"/>
+          </g>
+          <g>
+            <rect x="70" y="70" rx="28" ry="28" width="1060" height="610" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)"/>
+            <text x="120" y="170" fill="#EAF3FF" font-size="52" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-weight="800">${t}</text>
+            <text x="120" y="230" fill="rgba(234,243,255,.70)" font-size="28" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-weight="600">Saikat Tech Hub • Best Price & Trusted Support</text>
+            <g transform="translate(120, 290)">
+              <rect rx="18" ry="18" width="280" height="56" fill="rgba(24,215,255,.16)" stroke="rgba(24,215,255,.30)"/>
+              <text x="22" y="38" fill="#EAF3FF" font-size="22" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-weight="800">Ready to Order</text>
+            </g>
+          </g>
+        </svg>`;
+      return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+    };
+
     const PRODUCTS = [
-      {id:"p1", name:"Wireless Earbuds (Premium)", price:1499, category:"Audio", image:"🎧", popular: 10},
-      {id:"p2", name:"Fast Charger 33W (Type-C)", price:799, category:"Charger", image:"🔌", popular: 9},
-      {id:"p3", name:"Power Bank 10000mAh", price:1299, category:"Power", image:"🔋", popular: 8},
-      {id:"p4", name:"Gaming Mouse RGB", price:699, category:"Accessories", image:"🖱️", popular: 7},
-      {id:"p5", name:"Bluetooth Speaker Mini", price:999, category:"Audio", image:"🔊", popular: 6},
-      {id:"p6", name:"Phone Cover (Shockproof)", price:199, category:"Accessories", image:"📱", popular: 5}
-    ];
-
-    // Optional: Services as products (if you want)
-    // PRODUCTS.push({id:"s1", name:"Photo Editing Package", price:499, category:"Service", image:"🖼️", popular: 10});
-
-    // ====== Cart State ======
-    const cart = new Map(); // id -> qty
-
-    // ====== Helpers ======
-    const money = n => "৳" + Number(n).toLocaleString("en-BD");
-    const byId = id => document.getElementById(id);
-
-    function scrollToEl(sel){
-      const el = document.querySelector(sel);
-      if(!el) return;
-      el.scrollIntoView({behavior:"smooth", block:"start"});
-    }
-
-    function openCart(){
-      byId("ov").classList.add("show");
-      byId("drawer").classList.add("open");
-      renderCart();
-    }
-    function closeCart(){
-      byId("ov").classList.remove("show");
-      byId("drawer").classList.remove("open");
-    }
-
-    function addToCart(id){
-      cart.set(id, (cart.get(id)||0) + 1);
-      renderCartBadge();
-      toast("✅ Added to cart");
-    }
-    function removeFromCart(id){
-      const q = cart.get(id)||0;
-      if(q<=1) cart.delete(id);
-      else cart.set(id, q-1);
-      renderCart();
-      renderCartBadge();
-    }
-    function incCart(id){
-      cart.set(id, (cart.get(id)||0)+1);
-      renderCart();
-      renderCartBadge();
-    }
-    function clearCart(){
-      cart.clear();
-      renderCart();
-      renderCartBadge();
-      toast("🗑️ Cart cleared");
-    }
-    function renderCartBadge(){
-      let count = 0;
-      for(const q of cart.values()) count += q;
-      byId("cartCount").textContent = count;
-    }
-
-    // ====== Products Rendering ======
-    function initCategories(){
-      const cats = Array.from(new Set(PRODUCTS.map(p=>p.category))).sort();
-      const sel = byId("cat");
-      cats.forEach(c=>{
-        const o = document.createElement("option");
-        o.value = c;
-        o.textContent = c;
-        sel.appendChild(o);
-      });
-    }
-
-    function renderProducts(){
-      const q = (byId("q").value || "").trim().toLowerCase();
-      const cat = byId("cat").value;
-      const sort = byId("sort").value;
-
-      let items = PRODUCTS.filter(p=>{
-        const okQ = !q || p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
-        const okC = (cat==="all") || (p.category===cat);
-        return okQ && okC;
-      });
-
-      if(sort==="low") items.sort((a,b)=>a.price-b.price);
-      else if(sort==="high") items.sort((a,b)=>b.price-a.price);
-      else items.sort((a,b)=> (b.popular||0) - (a.popular||0));
-
-      const grid = byId("grid");
-      grid.innerHTML = "";
-
-      items.forEach(p=>{
-        const card = document.createElement("div");
-        card.className = "p";
-        card.innerHTML = `
-          <div class="img"><span>${p.image || "🛍️"}</span></div>
-          <div class="body">
-            <h4>${escapeHtml(p.name)}</h4>
-            <div class="meta">
-              <div class="price">${money(p.price)}</div>
-              <div class="cat">${escapeHtml(p.category)}</div>
-            </div>
-            <div class="actions">
-              <button class="primary" onclick="addToCart('${p.id}')">Add to Cart</button>
-              <button onclick="quickOrder('${p.id}')">Order Now</button>
-            </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-
-      if(items.length===0){
-        grid.innerHTML = `<div class="card" style="grid-column:1/-1">
-          <h3 style="margin:0 0 6px">No product found</h3>
-          <p style="margin:0; color:rgba(234,246,255,.72)">Search keyword change করে দেখো.</p>
-        </div>`;
-      }
-    }
-
-    function quickOrder(id){
-      cart.set(id, (cart.get(id)||0)+1);
-      renderCartBadge();
-      checkout();
-    }
-
-    // ====== Cart Rendering ======
-    function renderCart(){
-      const box = byId("cartLines");
-      box.innerHTML = "";
-
-      let total = 0;
-      if(cart.size===0){
-        box.innerHTML = `<div class="card">
-          <h3 style="margin:0 0 6px">Your cart is empty</h3>
-          <p style="margin:0; color:rgba(234,246,255,.72)">Shop থেকে product add করো ✅</p>
-        </div>`;
-      } else {
-        for(const [id, qty] of cart.entries()){
-          const p = PRODUCTS.find(x=>x.id===id);
-          if(!p) continue;
-          const sub = p.price * qty;
-          total += sub;
-
-          const line = document.createElement("div");
-          line.className = "line";
-          line.innerHTML = `
-            <div class="left">
-              <div class="ic">${p.image || "🛍️"}</div>
-              <div>
-                <h4>${escapeHtml(p.name)}</h4>
-                <p>${money(p.price)} × ${qty} = <b>${money(sub)}</b></p>
-              </div>
-            </div>
-            <div class="qty">
-              <button class="qbtn" onclick="removeFromCart('${id}')">−</button>
-              <span>${qty}</span>
-              <button class="qbtn" onclick="incCart('${id}')">+</button>
-            </div>
-          `;
-          box.appendChild(line);
-        }
-      }
-
-      byId("total").textContent = money(total);
-      renderCartBadge();
-    }
-
-    // ====== Checkout to WhatsApp + Email ======
-    function checkout(){
-      if(cart.size===0){
-        toast("🛒 Cart empty");
-        openCart();
-        return;
-      }
-
-      const lines = [];
-      let total = 0;
-      for(const [id, qty] of cart.entries()){
-        const p = PRODUCTS.find(x=>x.id===id);
-        if(!p) continue;
-        const sub = p.price * qty;
-        total += sub;
-        lines.push(`• ${p.name}  |  ${money(p.price)} × ${qty} = ${money(sub)}`);
-      }
-
-      const message =
-`🛒 New Order — Saikat Tech Hub
-
-Customer Info:
-Name: __________________
-Phone: __________________
-Address/Delivery: __________________
-
-Order Items:
-${lines.join("\n")}
-
-Total: ${money(total)}
-
-Pickup/Shop Address: ${CONTACT.address}
-(Confirm availability & delivery via chat)`;
-
-      // WhatsApp wa.me format
-      const wa = "https://wa.me/88" + CONTACT.whatsappNumber.replace(/\D/g,"") + "?text=" + encodeURIComponent(message);
-
-      // Email mailto format
-      const subject = "New Order — Saikat Tech Hub";
-      const mail = "mailto:" + encodeURIComponent(CONTACT.email)
-        + "?subject=" + encodeURIComponent(subject)
-        + "&body=" + encodeURIComponent(message);
-
-      // Try WhatsApp first; user can choose email too
-      const pick = confirm("WhatsApp এ অর্ডার পাঠাবো? OK = WhatsApp, Cancel = Email");
-      if(pick) window.open(wa, "_blank");
-      else window.open(mail, "_blank");
-
-      openCart();
-    }
-
-    // ====== Contact Buttons ======
-    function initContacts(){
-      const waLink = "https://wa.me/88" + CONTACT.whatsappNumber.replace(/\D/g,"") + "?text=" +
-        encodeURIComponent("Assalamu Alaikum! আমি Saikat Tech Hub থেকে যোগাযোগ করতে চাই 🙂");
-      byId("waBtn").href = waLink;
-
-      byId("emailBtn").href = "mailto:" + CONTACT.email + "?subject=" +
-        encodeURIComponent("Saikat Tech Hub — Inquiry") +
-        "&body=" + encodeURIComponent("Assalamu Alaikum! আমি আপনার সার্ভিস/প্রোডাক্ট সম্পর্কে জানতে চাই।");
-
-      byId("fbBtn").href = CONTACT.facebook;
-    }
-
-    // ====== Small Utilities ======
-    function escapeHtml(str){
-      return String(str)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
-
-    function toast(txt){
-      const t = document.createElement("div");
-      t.textContent = txt;
-      t.style.position="fixed";
-      t.style.left="50%";
-      t.style.bottom="18px";
-      t.style.transform="translateX(-50%)";
-      t.style.background="rgba(0,0,0,.55)";
-      t.style.border="1px solid rgba(255,255,255,.18)";
-      t.style.color="rgba(234,246,255,.92)";
-      t.style.padding="10px 12px";
-      t.style.borderRadius="14px";
-      t.style.backdropFilter="blur(10px)";
-      t.style.zIndex="999";
-      t.style.fontWeight="900";
-      t.style.fontSize="13px";
-      document.body.appendChild(t);
-      setTimeout(()=>{ t.style.opacity="0"; t.style.transition=".25s"; }, 1100);
-      setTimeout(()=>t.remove(), 1450);
-    }
-
-    // init
-    document.getElementById("y").textContent = new Date().getFullYear();
-    initCategories();
-    initContacts();
-    renderProducts();
-    renderCartBadge();
-  </script>
-</body>
-</html>
+      { id:"p1", name:"TWS Wireless Earbuds (Bass Edition)", price:1290, category
