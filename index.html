@@ -3,156 +3,213 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saikat Tech Hub | All Digital Services</title>
+
+<title>Saikat Tech Hub | Trusted Digital Services</title>
+
+<meta name="description" content="Saikat Tech Hub - Facebook Boosting, Video Editing, Photo Editing, Digital Marketing. Safe & Trusted Service.">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
---bg:#0b1220;--text:#e8eefc;--muted:#a8b3d6;
+--bg:#0b1220;
+--card:#111a2e;
+--text:#e8eefc;
+--muted:#a8b3d6;
+--brand:#3b82f6;
+--green:#22c55e;
+--pink:#ff5bd6;
 --line:rgba(255,255,255,.08);
---brand:#3b82f6;--green:#22c55e;--pink:#ff5bd6;
 --radius:18px;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text)}
-.container{max-width:1100px;margin:auto;padding:16px}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:'Poppins',system-ui;
+background:var(--bg);
+color:var(--text);
+}
 a{text-decoration:none;color:inherit}
+.container{max-width:1150px;margin:auto;padding:18px}
 
-.header{position:sticky;top:0;background:#0b1220f2;border-bottom:1px solid var(--line)}
-.header-inner{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.logo{font-size:18px;font-weight:900}
-.nav a{padding:8px 12px;border-radius:12px;color:var(--muted);font-weight:700}
-.nav a:hover{background:rgba(255,255,255,.08);color:var(--text)}
+/* HEADER */
+header{
+position:sticky;top:0;z-index:99;
+background:rgba(11,18,32,.9);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--line);
+}
+.header-inner{
+display:flex;align-items:center;gap:14px;flex-wrap:wrap
+}
+.logo{
+font-size:20px;font-weight:800;letter-spacing:.3px
+}
+nav a{
+padding:10px 14px;
+border-radius:12px;
+font-weight:600;
+color:var(--muted)
+}
+nav a:hover{background:rgba(255,255,255,.08);color:var(--text)}
+.btn{
+padding:10px 16px;
+border-radius:14px;
+font-weight:700;
+border:1px solid var(--line);
+background:rgba(255,255,255,.08);
+cursor:pointer
+}
+.btn.primary{
+background:linear-gradient(135deg,var(--brand),#2563eb);
+border:none
+}
+.btn.success{
+background:linear-gradient(135deg,var(--green),#16a34a);
+border:none
+}
 
-.btn{padding:10px 14px;border-radius:14px;border:1px solid var(--line);
-background:rgba(255,255,255,.08);color:var(--text);font-weight:800;cursor:pointer}
-.btn.primary{background:linear-gradient(135deg,var(--brand),#2563eb);border:none}
-.btn.success{background:linear-gradient(135deg,var(--green),#16a34a);border:none}
+/* HERO */
+.hero{
+padding:40px 0
+}
+.hero-box{
+background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+border:1px solid var(--line);
+border-radius:var(--radius);
+padding:28px
+}
+.hero h1{margin:0 0 10px;font-size:32px}
+.hero p{color:var(--muted);line-height:1.7}
 
-.hero{padding:30px 0}
-.hero-box{background:rgba(255,255,255,.06);border:1px solid var(--line);
-border-radius:var(--radius);padding:22px}
-
-.section{padding:28px 0}
+/* SECTIONS */
+.section{padding:35px 0}
+.title{font-size:22px;margin-bottom:6px}
 .sub{color:var(--muted);font-size:14px}
 
-.box{background:rgba(255,255,255,.05);border:1px solid var(--line);
-border-radius:var(--radius);padding:18px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 
-.pkg{background:rgba(15,23,42,.7);border:1px solid var(--line);
-border-radius:16px;padding:16px;max-width:360px}
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:16px;
+padding:18px
+}
 
-.badge{display:inline-block;padding:6px 10px;border-radius:999px;
-font-size:12px;font-weight:900;background:rgba(59,130,246,.2)}
+.price{font-size:26px;font-weight:800;margin:10px 0}
+select,input{
+width:100%;
+padding:11px;
+border-radius:12px;
+border:1px solid var(--line);
+background:#0f172a;
+color:var(--text);
+margin-top:8px
+}
 
-.field{margin:12px 0}
-select{width:100%;padding:10px;border-radius:12px;
-background:#111827;color:white;border:1px solid var(--line)}
-
-.price{font-size:28px;font-weight:900;margin:10px 0}
-
-.offer{background:linear-gradient(135deg,#22c55e,#16a34a);
-padding:14px;border-radius:16px;font-weight:900;margin-bottom:20px}
-
-.footer{text-align:center;color:var(--muted);padding:30px 0;border-top:1px solid var(--line)}
+.footer{
+border-top:1px solid var(--line);
+padding:30px 0;
+text-align:center;
+color:var(--muted)
+}
 </style>
 </head>
 
 <body>
 
-<header class="header">
+<header>
 <div class="container header-inner">
 <div class="logo">Saikat Tech Hub</div>
-<nav class="nav">
+<nav>
+<a href="#home">Home</a>
 <a href="#services">Services</a>
 <a href="#order">Order</a>
 <a href="#contact">Contact</a>
 </nav>
 <a class="btn success" href="https://wa.me/8801804676711" target="_blank">WhatsApp</a>
+<a class="btn" href="https://www.facebook.com/share/1AWbo99RjN/" target="_blank">Facebook</a>
 </div>
 </header>
 
-<section class="hero">
+<!-- HOME -->
+<section class="hero" id="home">
 <div class="container">
 <div class="hero-box">
-<h1>All-in-One Digital Service Platform</h1>
-<p class="sub">Followers • Reactions • Editing • Marketing • AI Content</p>
+<h1>Assalamu Alaikum</h1>
+<p>
+Saikat Tech Hub এ আপনাকে স্বাগতম।  
+আমরা ভরসা ও সততার সাথে Facebook Boosting, Video Editing, Photo Editing ও Digital Marketing সার্ভিস প্রদান করি।  
+<br><br>
+✅ No Password Required  
+✅ Safe & Trusted Process  
+✅ Fast Delivery  
+✅ WhatsApp Support
+</p>
 </div>
 </div>
 </section>
 
+<!-- SERVICES -->
+<section class="section" id="services">
+<div class="container">
+<h2 class="title">Our Services</h2>
+<p class="sub">এক ক্লিকে নতুন সেকশন খুলবে — নতুন পেজের মতো ফিল</p>
+
+<div class="grid">
+<div class="card">📌 Facebook Followers</div>
+<div class="card">📌 Facebook Reactions</div>
+<div class="card">🎬 Video Editing</div>
+<div class="card">🖼️ Photo Editing</div>
+<div class="card">📢 Facebook Marketing</div>
+<div class="card">🤖 AI Content & Caption</div>
+</div>
+</div>
+</section>
+
+<!-- ORDER -->
 <section class="section" id="order">
 <div class="container">
+<h2 class="title">Place Your Order</h2>
+<p class="sub">Payment করে Transaction ID দিন</p>
 
-<div class="offer">🔥 PROMO: Safe service • Fast delivery • No password</div>
+<div class="grid">
 
-<!-- FOLLOWERS -->
-<div class="box">
-<h3>📌 Facebook Followers</h3>
+<div class="card">
+<h3>Facebook Followers</h3>
 <p class="sub">1K = ৳120</p>
-<div class="pkg">
-<span class="badge">Popular</span>
-<div class="field">
-<select id="followersQty"><option value="">Select Quantity</option></select>
-</div>
-<div class="price" id="followersPrice">৳0</div>
-<button class="btn primary" onclick="order('Followers')">Order</button>
-</div>
+<select id="fQty"></select>
+<div class="price" id="fPrice">৳0</div>
+<p class="sub"><b>bKash:</b> +8801344-486384<br><b>Nagad:</b> 01620992903</p>
+<input id="fTrx" placeholder="Transaction ID">
+<button class="btn primary" onclick="order('Followers')">Order Now</button>
 </div>
 
-<!-- REACTIONS -->
-<div class="box">
-<h3>📌 Facebook Reactions</h3>
+<div class="card">
+<h3>Facebook Reactions</h3>
 <p class="sub">100 = ৳80</p>
-<div class="pkg">
-<span class="badge" style="background:rgba(255,91,214,.2)">Engagement</span>
-<div class="field">
-<select id="reactionQty"><option value="">Select Quantity</option></select>
-</div>
-<div class="price" id="reactionPrice">৳0</div>
-<button class="btn primary" onclick="order('Reactions')">Order</button>
-</div>
+<select id="rQty"></select>
+<div class="price" id="rPrice">৳0</div>
+<p class="sub"><b>bKash:</b> +8801344-486384<br><b>Nagad:</b> 01620992903</p>
+<input id="rTrx" placeholder="Transaction ID">
+<button class="btn primary" onclick="order('Reactions')">Order Now</button>
 </div>
 
-<!-- VIDEO -->
-<div class="box">
-<h3>🎬 Video Editing</h3>
-<p class="sub">Reels • Shorts • Long Video</p>
-<div class="pkg">
-<div class="price">From ৳150</div>
-<button class="btn primary" onclick="simpleOrder('Video Editing')">Order</button>
 </div>
-</div>
-
-<!-- PHOTO -->
-<div class="box">
-<h3>🖼️ Photo Editing</h3>
-<p class="sub">Background remove • Retouch</p>
-<div class="pkg">
-<div class="price">From ৳50</div>
-<button class="btn primary" onclick="simpleOrder('Photo Editing')">Order</button>
-</div>
-</div>
-
-<!-- MARKETING -->
-<div class="box">
-<h3>📢 Facebook Marketing</h3>
-<p class="sub">Ads • Page Growth • Content</p>
-<div class="pkg">
-<div class="price">Discuss</div>
-<button class="btn primary" onclick="simpleOrder('Facebook Marketing')">Order</button>
-</div>
-</div>
-
 </div>
 </section>
 
+<!-- CONTACT -->
 <section class="section" id="contact">
 <div class="container">
-<h2>Contact</h2>
+<h2 class="title">Contact Information</h2>
 <p class="sub">
-WhatsApp: 01804676711<br>
-Email: saikat712@gmail.com<br>
-Dhaka New Market
+📍 Dhaka New Market, 1205<br>
+📧 Email: <a href="mailto:saikat712@gmail.com">saikat712@gmail.com</a><br>
+📞 WhatsApp: 01804676711<br>
+🔵 Facebook: <a href="https://www.facebook.com/share/1AWbo99RjN/" target="_blank">Visit Page</a>
 </p>
 </div>
 </section>
@@ -163,32 +220,32 @@ Dhaka New Market
 
 <script>
 const WA="8801804676711";
-const followerUnits=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,70];
-const reactionUnits=[1,2,3,5,10,20,30,50];
+const fOpt=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,70];
+const rOpt=[1,2,3,5,10,20,30,50];
 
-const fSel=document.getElementById("followersQty");
-const rSel=document.getElementById("reactionQty");
+const fQty=document.getElementById("fQty");
+const rQty=document.getElementById("rQty");
 
-followerUnits.forEach(k=>fSel.innerHTML+=`<option value="${k}">${k}K</option>`);
-reactionUnits.forEach(h=>rSel.innerHTML+=`<option value="${h}">${h*100}</option>`);
+fOpt.forEach(k=>fQty.innerHTML+=`<option value="${k}">${k}K Followers</option>`);
+rOpt.forEach(h=>rQty.innerHTML+=`<option value="${h}">${h*100} Reactions</option>`);
 
-fSel.onchange=()=>document.getElementById("followersPrice").innerText=
-fSel.value?`৳${fSel.value*120}`:"৳0";
-
-rSel.onchange=()=>document.getElementById("reactionPrice").innerText=
-rSel.value?`৳${rSel.value*80}`:"৳0";
+fQty.onchange=()=>document.getElementById("fPrice").innerText=`৳${fQty.value*120}`;
+rQty.onchange=()=>document.getElementById("rPrice").innerText=`৳${rQty.value*80}`;
 
 function order(type){
-let qty=type=="Followers"?fSel.value:rSel.value;
-if(!qty)return alert("Quantity select করুন");
-let price=type=="Followers"?qty*120:qty*80;
-let unit=type=="Followers"?`${qty}K Followers`:`${qty*100} Reactions`;
-let msg=`${type} Order\n${unit}\nPrice: ৳${price}\nURL:`;
-window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`);
-}
+let qty=type=="Followers"?fQty.value:rQty.value;
+let trx=type=="Followers"?fTrx.value:rTrx.value;
+if(!trx)return alert("Transaction ID দিন");
 
-function simpleOrder(service){
-let msg=`${service} Order\nDetails:\n`;
+let unit=type=="Followers"?`${qty}K Followers`:`${qty*100} Reactions`;
+let price=type=="Followers"?qty*120:qty*80;
+
+let msg=`${type} Order
+Package: ${unit}
+Price: ৳${price}
+TrxID: ${trx}
+URL:`;
+
 window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`);
 }
 </script>
