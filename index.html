@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saikat Tech Hub | Premium Digital Services</title>
+<title>Saikat Tech Hub | All Digital Services</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
 --pink:#ec4899;
 --orange:#f59e0b;
 --radius:20px;
---shadow:0 20px 40px rgba(0,0,0,.4);
+--shadow:0 20px 40px rgba(0,0,0,.45);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -27,8 +27,8 @@ body{
 margin:0;
 font-family:'Poppins',system-ui;
 background:
-radial-gradient(800px 500px at 10% -10%,rgba(59,130,246,.25),transparent 60%),
-radial-gradient(700px 500px at 90% 0%,rgba(236,72,153,.25),transparent 60%),
+radial-gradient(900px 600px at 10% -10%,rgba(59,130,246,.25),transparent 60%),
+radial-gradient(800px 600px at 90% 0%,rgba(236,72,153,.25),transparent 60%),
 var(--bg);
 color:var(--text);
 }
@@ -69,7 +69,7 @@ box-shadow:var(--shadow);
 /* HERO */
 .hero{padding:50px 0}
 .hero-box{
-background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));
+background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.05));
 border:1px solid rgba(255,255,255,.1);
 border-radius:var(--radius);
 padding:35px;
@@ -98,10 +98,10 @@ border:1px solid rgba(255,255,255,.08);
 }
 
 .price{
-font-size:30px;font-weight:800;
+font-size:28px;font-weight:800;
 background:linear-gradient(135deg,#60a5fa,#f472b6);
 -webkit-background-clip:text;color:transparent;
-margin:10px 0;
+margin:8px 0;
 }
 
 select,input{
@@ -141,58 +141,93 @@ color:var(--muted)
 </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
 <div class="container">
 <div class="hero-box">
 <h1>Assalamu Alaikum 👋</h1>
 <p>
 Saikat Tech Hub এ আপনাকে স্বাগতম।  
-আমরা বিশ্বাস ও সততার সাথে Facebook Boosting, Video Editing, Photo Editing ও Digital Marketing সার্ভিস দিয়ে থাকি।
+আমরা সততা ও বিশ্বাসের সাথে Facebook Boosting, Video Editing, Photo Editing ও Digital Marketing সার্ভিস প্রদান করি।
+<br><br>
+✅ No Password Required • ✅ Safe Service • ✅ Fast Delivery • ✅ WhatsApp Support
 </p>
 </div>
 </div>
 </section>
 
+<!-- SERVICES -->
 <section class="section" id="services">
 <div class="container">
-<h2 class="title">🎯 Our Premium Services</h2>
-<p class="sub">সব সার্ভিস button system • WhatsApp order</p>
+<h2 class="title">🚀 All Services</h2>
+<p class="sub">সব সার্ভিস একসাথে • সবগুলোর WhatsApp Order Button আছে</p>
 
 <div class="grid">
 
+<!-- FB FOLLOWERS -->
+<div class="card">
+<h3>📌 Facebook Followers</h3>
+<p class="sub">1K = ৳120</p>
+<select id="fQty"></select>
+<div class="price" id="fPrice">৳0</div>
+<p class="sub"><b>bKash:</b> +8801344-486384<br><b>Nagad:</b> 01620992903</p>
+<input id="fTrx" placeholder="Transaction ID লিখুন">
+<button class="btn order" onclick="orderFollowers()">
+<i class="fab fa-whatsapp"></i> Order Followers
+</button>
+</div>
+
+<!-- FB REACTIONS -->
+<div class="card">
+<h3>❤️ Facebook Reactions</h3>
+<p class="sub">100 = ৳80</p>
+<select id="rQty"></select>
+<div class="price" id="rPrice">৳0</div>
+<p class="sub"><b>bKash:</b> +8801344-486384<br><b>Nagad:</b> 01620992903</p>
+<input id="rTrx" placeholder="Transaction ID লিখুন">
+<button class="btn order" onclick="orderReactions()">
+<i class="fab fa-whatsapp"></i> Order Reactions
+</button>
+</div>
+
+<!-- VIDEO EDIT -->
 <div class="card">
 <h3>🎬 Video Editing</h3>
-<p class="sub">Market standard pricing</p>
-<p>Reels / Shorts (30–60s)</p>
-<div class="price">৳200</div>
-<p>Pro Reels (Caption + Effects)</p>
-<div class="price">৳350</div>
-<p>Long Video (5–10 min)</p>
-<div class="price">৳900</div>
+<p>Reels / Shorts (30–60s)</p><div class="price">৳200</div>
+<p>Pro Reels (Caption + Effects)</p><div class="price">৳350</div>
+<p>Long Video (5–10 min)</p><div class="price">৳900</div>
 <button class="btn order" onclick="simpleOrder('Video Editing')">
-<i class="fab fa-whatsapp"></i> Order Now
+<i class="fab fa-whatsapp"></i> Order Video Editing
 </button>
 </div>
 
+<!-- PHOTO -->
 <div class="card">
 <h3>🖼️ Photo Editing</h3>
-<p>Single Photo</p>
-<div class="price">৳70</div>
-<p>10 Photos Package</p>
-<div class="price">৳600</div>
+<p>Single Photo</p><div class="price">৳70</div>
+<p>10 Photos Package</p><div class="price">৳600</div>
 <button class="btn order" onclick="simpleOrder('Photo Editing')">
-<i class="fab fa-whatsapp"></i> Order Now
+<i class="fab fa-whatsapp"></i> Order Photo Editing
 </button>
 </div>
 
+<!-- AI -->
 <div class="card">
-<h3>🤖 AI Content</h3>
-<p>10 Captions</p>
-<div class="price">৳250</div>
-<p>AI Images (10 pcs)</p>
-<div class="price">৳400</div>
-<button class="btn order" onclick="simpleOrder('AI Content')">
-<i class="fab fa-whatsapp"></i> Order Now
+<h3>🤖 AI Content & Image</h3>
+<p>10 Captions</p><div class="price">৳250</div>
+<p>10 AI Images</p><div class="price">৳400</div>
+<button class="btn order" onclick="simpleOrder('AI Content / AI Image')">
+<i class="fab fa-whatsapp"></i> Order AI Service
+</button>
+</div>
+
+<!-- MARKETING -->
+<div class="card">
+<h3>📢 Facebook Marketing</h3>
+<p class="sub">Ads • Page Growth • Content Strategy</p>
+<div class="price">Discuss</div>
+<button class="btn order" onclick="simpleOrder('Facebook Marketing')">
+<i class="fab fa-whatsapp"></i> Contact for Marketing
 </button>
 </div>
 
@@ -200,6 +235,7 @@ Saikat Tech Hub এ আপনাকে স্বাগতম।
 </div>
 </section>
 
+<!-- CONTACT -->
 <section class="section" id="contact">
 <div class="container">
 <h2 class="title">📞 Contact</h2>
@@ -213,11 +249,43 @@ Saikat Tech Hub এ আপনাকে স্বাগতম।
 </section>
 
 <footer class="footer">
-© 2026 Saikat Tech Hub — Premium Digital Services
+© 2026 Saikat Tech Hub — All Rights Reserved
 </footer>
 
 <script>
 const WA="8801804676711";
+const fOpt=[1,2,3,4,5,6,7,8,9,10,20,30,40,50,70];
+const rOpt=[1,2,3,5,10,20,30,50];
+
+const fQty=document.getElementById("fQty");
+const rQty=document.getElementById("rQty");
+
+fOpt.forEach(k=>fQty.innerHTML+=`<option value="${k}">${k}K Followers</option>`);
+rOpt.forEach(h=>rQty.innerHTML+=`<option value="${h}">${h*100} Reactions</option>`);
+
+fQty.onchange=()=>document.getElementById("fPrice").innerText=`৳${fQty.value*120}`;
+rQty.onchange=()=>document.getElementById("rPrice").innerText=`৳${rQty.value*80}`;
+
+function orderFollowers(){
+if(!fQty.value||!fTrx.value) return alert("Quantity ও Transaction ID দিন");
+let msg=`Facebook Followers Order
+Package: ${fQty.value}K
+Price: ৳${fQty.value*120}
+TrxID: ${fTrx.value}
+Page/Profile URL:`;
+window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`);
+}
+
+function orderReactions(){
+if(!rQty.value||!rTrx.value) return alert("Quantity ও Transaction ID দিন");
+let msg=`Facebook Reactions Order
+Package: ${rQty.value*100}
+Price: ৳${rQty.value*80}
+TrxID: ${rTrx.value}
+Post URL:`;
+window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`);
+}
+
 function simpleOrder(service){
 let msg=`Assalamu Alaikum,
 I want to order:
