@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Facebook Followers Service | YourBrand</title>
+  <title>Saikat Tech Hub | Digital Services</title>
+  <meta name="description" content="Saikat Tech Hub — Facebook Boosting, Photo Editing, Video Editing, Web Design. Order via WhatsApp/Email." />
+  <meta name="theme-color" content="#0b1220" />
   <style>
     :root{
       --bg:#0b1220;
@@ -14,6 +16,7 @@
       --line:rgba(255,255,255,.08);
       --brand:#3b82f6;
       --brand2:#22c55e;
+      --pink:#ff5bd6;
       --warn:#f59e0b;
       --danger:#ef4444;
       --shadow: 0 18px 45px rgba(0,0,0,.35);
@@ -23,28 +26,27 @@
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(1000px 600px at 20% -10%, rgba(59,130,246,.25), transparent 60%),
-                  radial-gradient(900px 600px at 90% 0%, rgba(34,197,94,.18), transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(1000px 600px at 20% -10%, rgba(59,130,246,.25), transparent 60%),
+        radial-gradient(900px 600px at 90% 0%, rgba(34,197,94,.18), transparent 55%),
+        radial-gradient(900px 700px at 60% 110%, rgba(255,91,214,.12), transparent 60%),
+        var(--bg);
       color:var(--text);
     }
     a{color:inherit;text-decoration:none}
     .container{max-width:1100px;margin:0 auto;padding:0 18px}
 
-    /* Header */
     .header{
       position:sticky;top:0;z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(11,18,32,.75);
+      background: rgba(11,18,32,.78);
       border-bottom:1px solid var(--line);
     }
     .header-inner{
       display:flex;align-items:center;gap:14px;
-      padding:14px 0;
+      padding:14px 0;flex-wrap:wrap;
     }
-    .logo{
-      display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;
-    }
+    .logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.2px}
     .logo-badge{
       width:34px;height:34px;border-radius:12px;
       background: linear-gradient(135deg, var(--brand), rgba(59,130,246,.35));
@@ -56,6 +58,7 @@
     }
     .nav a{
       padding:10px 10px;border-radius:12px;color:var(--muted);
+      font-weight:700;font-size:13px;
     }
     .nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
     .search{
@@ -65,6 +68,7 @@
       border-radius:14px;
       padding:10px 12px;
       min-width:260px;
+      flex: 1;
     }
     .search input{
       width:100%;
@@ -75,12 +79,13 @@
     .btn{
       border:0;cursor:pointer;
       padding:11px 14px;border-radius:14px;
-      font-weight:700;
+      font-weight:800;
       color:var(--text);
       background: rgba(255,255,255,.08);
       border:1px solid var(--line);
       transition:.15s ease;
       display:inline-flex;align-items:center;gap:10px;
+      white-space:nowrap;
     }
     .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.12)}
     .btn.primary{
@@ -93,10 +98,15 @@
       border:0;
       box-shadow: 0 14px 30px rgba(34,197,94,.18);
     }
+    .btn.pink{
+      background: linear-gradient(135deg, rgba(255,91,214,.95), rgba(255,170,232,.65));
+      border:0;
+      box-shadow: 0 14px 30px rgba(255,91,214,.18);
+      color:#140014;
+      font-weight:900;
+    }
 
-    /* Hero */
     .hero{padding:26px 0 8px}
-    .breadcrumb{color:var(--muted);font-size:13px;margin:10px 0 14px}
     .hero-grid{
       display:grid;grid-template-columns: 1.2fr .8fr;gap:18px;
     }
@@ -115,6 +125,7 @@
       padding:8px 10px;border-radius:999px;
       background:rgba(255,255,255,.06);
       border:1px solid var(--line);
+      font-weight:800;
     }
     .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .hero-right{padding:18px}
@@ -124,8 +135,8 @@
       border-radius: 16px;
       padding:14px;margin-bottom:12px;
     }
-    .stat .k{color:var(--muted);font-size:12px}
-    .stat .v{font-weight:900;font-size:18px;margin-top:6px}
+    .stat .k{color:var(--muted);font-size:12px;font-weight:800}
+    .stat .v{font-weight:950;font-size:18px;margin-top:6px}
     .note{
       color:var(--muted);font-size:13px;line-height:1.6;
       margin-top:10px;
@@ -133,22 +144,22 @@
       padding-top:10px;
     }
 
-    /* Sections */
     .section{padding:14px 0}
     .section-title{font-size:18px;margin:0 0 10px}
+    .subline{color:var(--muted);font-size:13px;line-height:1.7;margin:0 0 12px}
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .box{padding:18px;background: rgba(15,23,42,.55);border:1px solid var(--line);border-radius:16px}
     .ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.8}
     .ul li{margin:6px 0}
+
     .pill{
       display:inline-block;
       padding:8px 10px;border-radius:999px;
       background:rgba(59,130,246,.12);
       border:1px solid rgba(59,130,246,.25);
-      color:#dbeafe;font-size:12px;font-weight:700;
+      color:#dbeafe;font-size:12px;font-weight:800;
     }
 
-    /* Packages */
     .packages{
       display:grid;grid-template-columns: repeat(3, 1fr);gap:14px;
     }
@@ -161,18 +172,19 @@
     .pkg.popular{border:1px solid rgba(59,130,246,.35);box-shadow:0 18px 45px rgba(59,130,246,.14)}
     .badge{
       position:absolute;top:14px;right:14px;
-      font-size:11px;font-weight:800;
+      font-size:11px;font-weight:900;
       padding:7px 10px;border-radius:999px;
       background:rgba(59,130,246,.18);
       border:1px solid rgba(59,130,246,.3);
       color:#dbeafe;
+      white-space:nowrap;
     }
     .pkg h3{margin:0 0 8px;font-size:16px}
     .price{font-size:26px;font-weight:950;margin:6px 0 8px}
     .small{color:var(--muted);font-size:13px;line-height:1.6}
     .pkg ul{margin:10px 0 14px;padding-left:18px;color:var(--muted);line-height:1.8}
+    .pkg .btn{margin-right:8px;margin-top:8px}
 
-    /* FAQ */
     .faq-item{
       border:1px solid var(--line);
       border-radius:16px;
@@ -186,7 +198,7 @@
       background:transparent;
       color:var(--text);
       border:0;cursor:pointer;text-align:left;
-      font-weight:800;
+      font-weight:900;
       display:flex;justify-content:space-between;align-items:center;
     }
     .faq-a{
@@ -199,7 +211,16 @@
     .faq-item.open .chev{transform: rotate(180deg)}
     .chev{transition:.15s ease}
 
-    /* Footer */
+    .contact{
+      display:grid;grid-template-columns: 1.2fr .8fr;gap:14px;
+    }
+    .contact-card{padding:18px;background: rgba(15,23,42,.55);border:1px solid var(--line);border-radius:18px}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .kv{padding:12px 12px;border-radius:16px;border:1px solid var(--line);background: rgba(255,255,255,.05);margin-top:10px}
+    .kv b{display:block;font-size:13px}
+    .kv span{display:block;color:var(--muted);font-size:13px;margin-top:4px;line-height:1.6}
+    .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
     .footer{
       padding:26px 0 40px;
       border-top:1px solid var(--line);
@@ -210,7 +231,6 @@
     .footer a{color:var(--muted)}
     .footer a:hover{color:var(--text)}
 
-    /* Modal */
     .overlay{
       position:fixed;inset:0;
       background: rgba(0,0,0,.55);
@@ -234,11 +254,9 @@
     }
     .modal-head b{font-size:15px}
     .modal-body{padding:16px}
-    .form{
-      display:grid;grid-template-columns:1fr 1fr;gap:12px;
-    }
+    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .field{display:flex;flex-direction:column;gap:6px}
-    .field label{font-size:12px;color:var(--muted);font-weight:700}
+    .field label{font-size:12px;color:var(--muted);font-weight:800}
     .field input,.field select,.field textarea{
       background: rgba(255,255,255,.06);
       border:1px solid var(--line);
@@ -254,236 +272,327 @@
     .close-x{background:transparent;border:0;color:var(--muted);cursor:pointer;font-size:18px}
     .close-x:hover{color:var(--text)}
 
-    /* Responsive */
     @media (max-width: 920px){
       .hero-grid{grid-template-columns:1fr}
       .packages{grid-template-columns:1fr}
       .form{grid-template-columns:1fr}
-      .search{min-width: 180px;flex: 1}
-      .nav{width:100%}
-      .header-inner{flex-wrap:wrap}
+      .contact{grid-template-columns:1fr}
+      .search{min-width: 180px}
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
+  <header class="header" id="top">
     <div class="container">
       <div class="header-inner">
-        <a class="logo" href="index.html">
+        <a class="logo" href="#top">
           <span class="logo-badge" aria-hidden="true"></span>
-          <span>YourBrand</span>
+          <span>Saikat Tech Hub</span>
         </a>
 
         <nav class="nav" aria-label="Main navigation">
-          <a href="index.html#services">সার্ভিসসমূহ</a>
-          <a href="pricing.html">প্রাইসিং</a>
-          <a href="index.html#reviews">রিভিউ</a>
-          <a href="contact.html">যোগাযোগ</a>
+          <a href="#services">Services</a>
+          <a href="#packages">Packages</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
         </nav>
 
-        <div class="search" title="সার্ভিস/FAQ সার্চ">
+        <div class="search" title="Search packages/FAQ">
           <span aria-hidden="true">🔍</span>
-          <input id="searchInput" type="search" placeholder="সার্চ করুন: package, delivery, safe..." />
+          <input id="searchInput" type="search" placeholder="Search: followers, likes, editing, delivery..." />
         </div>
 
         <button class="btn primary" id="openOrderTop">Order Now</button>
-        <a class="btn" href="#support">Support</a>
+        <a class="btn success" id="waTop" target="_blank" rel="noreferrer" href="#">WhatsApp</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="breadcrumb">হোম / সার্ভিস / <b>Facebook Followers</b></div>
-
       <div class="hero-grid">
         <div class="card hero-left">
-          <span class="pill">Popular Service</span>
-          <h1>Facebook Followers Service</h1>
+          <span class="pill">Trusted Service • ভরসার সাথে কাজ</span>
+          <h1>Digital Services for Growth & Branding</h1>
           <p class="lead">
-            আপনার পেজ/প্রোফাইলে <b>রিয়েল & টার্গেটেড ফলোয়ার</b> যোগ করে ব্র্যান্ড ট্রাস্ট এবং অনলাইন উপস্থিতি বাড়ান।
-            <br/>✅ No password needed • ✅ Safe delivery • ✅ Quick support
+            Assalamu Alaikum — welcome to <b>Saikat Tech Hub</b>.
+            Choose your package and click <b>Order</b> to send details on WhatsApp.
+            <br/>✅ No password needed • ✅ Safe process • ✅ Fast support
           </p>
 
           <div class="chips">
-            <span class="chip">⚡ দ্রুত ডেলিভারি</span>
-            <span class="chip">🛡️ নিরাপদ পদ্ধতি</span>
-            <span class="chip">🎯 টার্গেটেড অডিয়েন্স</span>
-            <span class="chip">💬 24/7 সাপোর্ট</span>
+            <span class="chip">⚡ Quick Delivery</span>
+            <span class="chip">🛡️ Safe Method</span>
+            <span class="chip">💬 WhatsApp Support</span>
+            <span class="chip">✅ Affordable Price • সাশ্রয়ী</span>
           </div>
 
           <div class="hero-actions">
-            <button class="btn primary" id="openOrderHero">এখনই অর্ডার করুন</button>
-            <a class="btn success" id="waBtn" target="_blank" rel="noreferrer" href="https://wa.me/8801XXXXXXXXX">
-              WhatsApp এ কথা বলুন
-            </a>
-            <a class="btn" href="#packages">প্যাকেজ দেখুন</a>
+            <button class="btn primary" id="openOrderHero">Order Popular</button>
+            <a class="btn pink" href="#packages">View Packages</a>
+            <a class="btn" href="#contact">Contact</a>
           </div>
         </div>
 
         <aside class="card hero-right">
           <div class="stat">
-            <div class="k">ডেলিভারি টাইম</div>
-            <div class="v">1–24 Hours</div>
+            <div class="k">Delivery Time</div>
+            <div class="v">Fast (as discussed)</div>
           </div>
           <div class="stat">
-            <div class="k">সেফটি</div>
-            <div class="v">No Password Needed</div>
+            <div class="k">Safety</div>
+            <div class="v">No Password</div>
           </div>
           <div class="stat">
-            <div class="k">সাপোর্ট</div>
-            <div class="v">Live Chat / WhatsApp</div>
+            <div class="k">Location</div>
+            <div class="v">Dhaka New Market, 1205</div>
           </div>
 
           <div class="note">
-            <b>নোট:</b> অর্ডার করার আগে আপনার ফেসবুক লিংক (Page/Profile URL) ঠিকভাবে দিন।
-            প্রাইভেট/লকড সেটিংস থাকলে ডেলিভারিতে সময় লাগতে পারে।
+            <b>Note:</b> Order করার সময় link/page/profile/post/video URL ঠিকভাবে দিন।
           </div>
         </aside>
       </div>
     </div>
   </section>
 
-  <!-- Details -->
-  <section class="section">
+  <section class="section" id="services">
     <div class="container">
-      <h2 class="section-title">সার্ভিস ডিটেইলস</h2>
+      <h2 class="section-title">Services (সার্ভিসসমূহ)</h2>
+      <p class="subline">Boosting • Photo Editing • Video Editing • Web Design — all in one place.</p>
+
       <div class="grid-2">
         <div class="box">
-          <h3 style="margin:0 0 8px">আপনি কী পাবেন</h3>
+          <h3 style="margin:0 0 8px">Boosting</h3>
           <ul class="ul">
-            <li>রিয়েল/অ্যাক্টিভ ফলোয়ার (আপনার টার্গেট অনুযায়ী)</li>
-            <li>প্রফেশনাল হ্যান্ডলিং ও সেফ ডেলিভারি</li>
-            <li>কাস্টম প্যাকেজ (আপনার বাজেট/চাহিদা অনুযায়ী)</li>
-            <li>ডেলিভারির আপডেট + সাপোর্ট</li>
+            <li>Facebook Followers</li>
+            <li>Facebook Likes</li>
+            <li>Post Reactions / Comments / Shares</li>
+            <li>Video Views</li>
           </ul>
         </div>
         <div class="box">
-          <h3 style="margin:0 0 8px">যা লাগবে (Order Requirements)</h3>
+          <h3 style="margin:0 0 8px">Creative</h3>
           <ul class="ul">
-            <li>Facebook Page/Profile URL</li>
-            <li>আপনি কোন দেশের অডিয়েন্স চান (ঐচ্ছিক)</li>
-            <li>ফলোয়ার সংখ্যা (1000/5000/Custom)</li>
-            <li>বিশেষ নোট (যদি থাকে)</li>
+            <li>Photo Editing (Background remove, retouch)</li>
+            <li>Video Editing (Reels/Shorts, long video)</li>
+            <li>Landing / Business Website Design</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Packages -->
   <section class="section" id="packages">
     <div class="container">
-      <h2 class="section-title">প্যাকেজসমূহ</h2>
+      <h2 class="section-title">Packages & Price (প্যাকেজ)</h2>
+      <p class="subline">Tap <b>Order</b> → WhatsApp message will open automatically.</p>
 
       <div class="packages">
-        <div class="pkg" data-pkg="Starter (1,000)">
-          <h3>Starter</h3>
-          <div class="small">১,০০০ ফলোয়ার</div>
-          <div class="price">৳ 999</div>
+
+        <div class="pkg popular" data-search="facebook followers 1k 2k 5k 10k boosting">
+          <span class="badge">Facebook Followers</span>
+          <h3>Followers Packages</h3>
+          <div class="small">Profile/Page followers</div>
+          <div class="price">From ৳100</div>
           <ul>
-            <li>ডেলিভারি: 1–24 Hours</li>
-            <li>Safe method</li>
-            <li>Basic support</li>
+            <li>1K — ৳100</li>
+            <li>2K — ৳200</li>
+            <li>5K — ৳450</li>
+            <li>10K — ৳900</li>
           </ul>
-          <button class="btn primary openOrder" data-pkg="Starter (1,000)">Order Starter</button>
+          <button class="btn primary openOrder" data-service="Facebook Followers" data-pkg="1K" data-price="৳100">Order 1K</button>
+          <button class="btn openOrder" data-service="Facebook Followers" data-pkg="5K" data-price="৳450">Order 5K</button>
         </div>
 
-        <div class="pkg popular" data-pkg="Popular (5,000)">
-          <span class="badge">Best Value</span>
-          <h3>Popular</h3>
-          <div class="small">৫,০০০ ফলোয়ার</div>
-          <div class="price">৳ 3999</div>
+        <div class="pkg" data-search="facebook likes 1k 2k 5k boosting">
+          <span class="badge" style="background:rgba(34,197,94,.18);border-color:rgba(34,197,94,.35);color:#dcfce7">Facebook Likes</span>
+          <h3>Likes Packages</h3>
+          <div class="small">Page/Post likes</div>
+          <div class="price">From ৳80</div>
           <ul>
-            <li>ডেলিভারি: 1–24 Hours</li>
-            <li>Priority processing</li>
-            <li>Fast support</li>
+            <li>1K — ৳80</li>
+            <li>2K — ৳150</li>
+            <li>5K — ৳250</li>
           </ul>
-          <button class="btn primary openOrder" data-pkg="Popular (5,000)">Order Popular</button>
+          <button class="btn primary openOrder" data-service="Facebook Likes" data-pkg="1K" data-price="৳80">Order 1K</button>
+          <button class="btn openOrder" data-service="Facebook Likes" data-pkg="5K" data-price="৳250">Order 5K</button>
         </div>
 
-        <div class="pkg" data-pkg="Custom">
-          <h3>Custom</h3>
-          <div class="small">আপনার চাহিদা অনুযায়ী</div>
-          <div class="price">Contact</div>
+        <div class="pkg" data-search="post reactions like love wow 1k 2k 5k engagement">
+          <span class="badge" style="background:rgba(255,91,214,.16);border-color:rgba(255,91,214,.30);color:#ffe4fb">Reactions</span>
+          <h3>Post Reactions</h3>
+          <div class="small">Like/Love/Wow</div>
+          <div class="price">From ৳120</div>
           <ul>
-            <li>কাস্টম পরিমাণ</li>
-            <li>দেশ/টার্গেট সেটআপ</li>
-            <li>Dedicated support</li>
+            <li>1K — ৳120</li>
+            <li>2K — ৳220</li>
+            <li>5K — ৳500</li>
           </ul>
-          <button class="btn primary openOrder" data-pkg="Custom">Request Custom</button>
+          <button class="btn primary openOrder" data-service="Post Reactions" data-pkg="1K" data-price="৳120">Order 1K</button>
+          <button class="btn openOrder" data-service="Post Reactions" data-pkg="5K" data-price="৳500">Order 5K</button>
         </div>
+
+        <div class="pkg" data-search="video views 10k 50k 100k facebook growth">
+          <span class="badge">Video Views</span>
+          <h3>Video Views</h3>
+          <div class="small">Send video link</div>
+          <div class="price">From ৳150</div>
+          <ul>
+            <li>10K — ৳150</li>
+            <li>50K — ৳650</li>
+            <li>100K — ৳1200</li>
+          </ul>
+          <button class="btn primary openOrder" data-service="Video Views" data-pkg="10K" data-price="৳150">Order 10K</button>
+          <button class="btn openOrder" data-service="Video Views" data-pkg="50K" data-price="৳650">Order 50K</button>
+        </div>
+
+        <div class="pkg" data-search="post shares 100 300 500 boosting reach">
+          <span class="badge" style="background:rgba(245,158,11,.18);border-color:rgba(245,158,11,.35);color:#fffbeb">Shares</span>
+          <h3>Post Shares</h3>
+          <div class="small">Boost reach</div>
+          <div class="price">From ৳60</div>
+          <ul>
+            <li>100 Shares — ৳60</li>
+            <li>300 Shares — ৳170</li>
+            <li>500 Shares — ৳260</li>
+          </ul>
+          <button class="btn primary openOrder" data-service="Post Shares" data-pkg="100" data-price="৳60">Order 100</button>
+          <button class="btn openOrder" data-service="Post Shares" data-pkg="500" data-price="৳260">Order 500</button>
+        </div>
+
+        <div class="pkg" data-search="photo editing background remove retouch product">
+          <span class="badge" style="background:rgba(34,197,94,.18);border-color:rgba(34,197,94,.35);color:#dcfce7">Photo Editing</span>
+          <h3>Photo Editing</h3>
+          <div class="small">Background remove / Retouch</div>
+          <div class="price">From ৳50</div>
+          <ul>
+            <li>1 Photo — ৳50</li>
+            <li>10 Photos — ৳400</li>
+            <li>30 Photos — ৳999</li>
+          </ul>
+          <button class="btn primary openOrder" data-service="Photo Editing" data-pkg="10 Photos" data-price="৳400">Order 10</button>
+          <button class="btn openOrder" data-service="Photo Editing" data-pkg="30 Photos" data-price="৳999">Order 30</button>
+        </div>
+
+        <div class="pkg" data-search="video editing reels shorts long video">
+          <span class="badge" style="background:rgba(59,130,246,.18);border-color:rgba(59,130,246,.35);color:#dbeafe">Video Editing</span>
+          <h3>Video Editing</h3>
+          <div class="small">Reels/Shorts / Long video</div>
+          <div class="price">From ৳150</div>
+          <ul>
+            <li>Reels (30-60s) — ৳150</li>
+            <li>Reels Pro (with captions) — ৳250</li>
+            <li>Long Video (5-10min) — ৳700</li>
+          </ul>
+          <button class="btn primary openOrder" data-service="Video Editing" data-pkg="Reels (30-60s)" data-price="৳150">Order Reels</button>
+          <button class="btn openOrder" data-service="Video Editing" data-pkg="Long Video (5-10min)" data-price="৳700">Order Long</button>
+        </div>
+
+        <div class="pkg" data-search="web design landing page business website">
+          <span class="badge" style="background:rgba(255,91,214,.16);border-color:rgba(255,91,214,.30);color:#ffe4fb">Web Design</span>
+          <h3>Website Design</h3>
+          <div class="small">Landing/Business website</div>
+          <div class="price">From ৳1500</div>
+          <ul>
+            <li>One Page Landing — ৳1500</li>
+            <li>Business Site (3 Pages) — ৳3500</li>
+            <li>Custom (E-commerce) — Discuss</li>
+          </ul>
+          <button class="btn primary openOrder" data-service="Website Design" data-pkg="One Page Landing" data-price="৳1500">Order Landing</button>
+          <button class="btn openOrder" data-service="Website Design" data-pkg="Business Site (3 Pages)" data-price="৳3500">Order Business</button>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Support -->
-  <section class="section" id="support">
+  <section class="section" id="faq">
     <div class="container">
-      <h2 class="section-title">সাপোর্ট অপশন</h2>
-      <div class="grid-2">
-        <div class="box">
-          <h3 style="margin:0 0 8px">দ্রুত সাহায্য</h3>
-          <p class="small" style="margin:0 0 12px">
-            অর্ডার/ডেলিভারি/পেমেন্ট নিয়ে যেকোনো প্রশ্ন থাকলে সাথে সাথে যোগাযোগ করুন।
-          </p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn success" target="_blank" rel="noreferrer" href="https://wa.me/8801XXXXXXXXX">WhatsApp</a>
-            <button class="btn" onclick="alert('Live chat সংযোগ দিন: আপনি চাইলে এখানে Tawk.to/Chatwoot ইন্টিগ্রেশন বসাতে পারবেন')">Live Chat</button>
-            <a class="btn" href="mailto:support@yourbrand.com">Email</a>
+      <h2 class="section-title">FAQ (প্রশ্নোত্তর)</h2>
+      <p class="subline">সাধারণ প্রশ্নগুলোর উত্তর নিচে দেওয়া আছে।</p>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>পাসওয়ার্ড লাগবে?</span>
+          <span class="chev">▾</span>
+        </button>
+        <div class="faq-a">না। শুধু আপনার Page/Profile/Post/Video URL দিলেই হবে।</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>ডেলিভারি টাইম কত?</span>
+          <span class="chev">▾</span>
+        </button>
+        <div class="faq-a">সাধারণত দ্রুত ডেলিভারি করা হয়। অর্ডার ভলিউম অনুযায়ী সময় কম/বেশি হতে পারে।</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>অর্ডার কীভাবে করবো?</span>
+          <span class="chev">▾</span>
+        </button>
+        <div class="faq-a">যে প্যাকেজ চান সেটায় <b>Order</b> চাপুন → ফর্মে তথ্য দিন → WhatsApp এ মেসেজ ওপেন হবে।</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>পেমেন্ট কীভাবে?</span>
+          <span class="chev">▾</span>
+        </button>
+        <div class="faq-a">Bkash/Nagad/Bank (আপনার সাথে কথা বলে কনফার্ম করা হবে)।</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact (যোগাযোগ)</h2>
+      <p class="subline">WhatsApp/Email এ দ্রুত যোগাযোগ করুন।</p>
+
+      <div class="contact">
+        <div class="contact-card">
+          <h3 style="margin:0 0 8px">Quick Contact</h3>
+          <div class="row">
+            <a class="btn success" id="waContact" target="_blank" rel="noreferrer" href="#">WhatsApp</a>
+            <a class="btn" href="mailto:saikat6711@gmail.com">Email</a>
+            <button class="btn primary" id="openOrderContact">Place Order</button>
+          </div>
+
+          <div class="kv">
+            <b>Location</b>
+            <span>Dhaka New Market, 1205</span>
+          </div>
+
+          <div class="kv">
+            <b>Working Hours</b>
+            <span>Everyday • 10:00 AM – 10:00 PM</span>
           </div>
         </div>
 
-        <div class="box">
-          <h3 style="margin:0 0 8px">FAQ (সবচেয়ে বেশি জিজ্ঞেস করা প্রশ্ন)</h3>
-
-          <div class="faq-item">
-            <button class="faq-q" type="button">
-              <span>ফলোয়ার কি রিয়েল হবে?</span>
-              <span class="chev">▾</span>
-            </button>
-            <div class="faq-a">
-              আমরা রিয়েল/অ্যাক্টিভ টাইপ ফলোয়ার দেওয়ার চেষ্টা করি। তবে “রিয়েল” মানে সবসময় ১০০% একই আচরণ করবে এমন গ্যারান্টি নয়—সাপোর্টে আপনার টার্গেট জানালে আমরা বেস্ট ম্যাচ করি।
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-q" type="button">
-              <span>পাসওয়ার্ড লাগবে?</span>
-              <span class="chev">▾</span>
-            </button>
-            <div class="faq-a">
-              না। শুধু আপনার Page/Profile এর লিংক লাগবে।
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-q" type="button">
-              <span>ডেলিভারি কত সময়?</span>
-              <span class="chev">▾</span>
-            </button>
-            <div class="faq-a">
-              সাধারণত ১–২৪ ঘণ্টার মধ্যে। অর্ডার ভলিউম/সেটিংস অনুযায়ী সময় কম-বেশি হতে পারে।
-            </div>
-          </div>
-
+        <div class="contact-card">
+          <h3 style="margin:0 0 8px">Why Saikat Tech Hub?</h3>
+          <ul class="ul">
+            <li>✅ সাশ্রয়ী দামে সার্ভিস</li>
+            <li>✅ দ্রুত সাপোর্ট (WhatsApp)</li>
+            <li>✅ নিরাপদ প্রসেস (No password)</li>
+            <li>✅ কাস্টম প্যাকেজ সুবিধা</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div>© <span id="year"></span> YourBrand — All rights reserved.</div>
+        <div>© <span id="year"></span> Saikat Tech Hub — All rights reserved.</div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-          <a href="contact.html">Contact</a>
+          <a href="#top">Top</a>
+          <a href="#packages">Packages</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
     </div>
@@ -493,7 +602,7 @@
   <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Order form">
     <div class="modal">
       <div class="modal-head">
-        <b>Order: <span id="pkgName">—</span></b>
+        <b>Order: <span id="mService">—</span> • <span id="mPkg">—</span> • <span id="mPrice">—</span></b>
         <button class="close-x" id="closeModal" aria-label="Close">✕</button>
       </div>
 
@@ -502,7 +611,7 @@
           <div class="form">
             <div class="field">
               <label>আপনার নাম</label>
-              <input required name="name" placeholder="Saikat / Your Name" />
+              <input required name="name" placeholder="Your Name" />
             </div>
             <div class="field">
               <label>মোবাইল/WhatsApp</label>
@@ -510,20 +619,25 @@
             </div>
 
             <div class="field" style="grid-column:1/-1">
-              <label>Facebook Page/Profile URL</label>
-              <input required name="url" placeholder="https://facebook.com/yourpage" />
+              <label>Link (Page/Profile/Post/Video URL)</label>
+              <input required name="url" placeholder="https://facebook.com/..." />
             </div>
 
             <div class="field">
-              <label>প্যাকেজ</label>
-              <select name="package" id="pkgSelect">
-                <option>Starter (1,000)</option>
-                <option>Popular (5,000)</option>
-                <option>Custom</option>
-              </select>
+              <label>Service</label>
+              <input readonly name="service" id="serviceInput" />
             </div>
             <div class="field">
-              <label>Country Target (Optional)</label>
+              <label>Package</label>
+              <input readonly name="package" id="pkgInput" />
+            </div>
+
+            <div class="field">
+              <label>Price</label>
+              <input readonly name="price" id="priceInput" />
+            </div>
+            <div class="field">
+              <label>Country/Target (Optional)</label>
               <input name="country" placeholder="Bangladesh / USA / ..." />
             </div>
 
@@ -539,8 +653,8 @@
           </div>
 
           <div class="hint">
-            ✅ “WhatsApp এ পাঠান” দিলে আপনার অর্ডারের ডিটেইলস কপি হয়ে WhatsApp-এ ওপেন হবে।  
-            (WhatsApp নম্বর/লিংক আপনারটা দিয়ে পরিবর্তন করবেন: <code>wa.me/8801XXXXXXXXX</code>)
+            ✅ আপনি “WhatsApp এ পাঠান” চাপলে অর্ডারের ডিটেইলস সহ WhatsApp ওপেন হবে।  
+            🔧 আপনার নম্বর সেট করুন: <code>YOUR_WA_NUMBER</code> ভ্যারিয়েবল।
           </div>
         </form>
       </div>
@@ -548,26 +662,37 @@
   </div>
 
   <script>
-    // ====== Helpers
-    const $ = (s) => document.querySelector(s);
-    const $$ = (s) => document.querySelectorAll(s);
+    // ====== CONFIG (Change these)
+    const YOUR_WA_NUMBER = "8801XXXXXXXXX"; // ✅ এখানে নিজের WhatsApp নম্বর দিন (country code সহ, 8801...)
+    const WA_LINK = `https://wa.me/${YOUR_WA_NUMBER}`;
+
+    // Update top/contact WhatsApp links
+    document.getElementById("waTop").href = WA_LINK;
+    document.getElementById("waContact").href = WA_LINK;
 
     // Year
-    $("#year").textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Modal controls
-    const overlay = $("#overlay");
-    const pkgName = $("#pkgName");
-    const pkgSelect = $("#pkgSelect");
+    // Modal elements
+    const overlay = document.getElementById("overlay");
+    const closeModalBtn = document.getElementById("closeModal");
+    const serviceEl = document.getElementById("mService");
+    const pkgEl = document.getElementById("mPkg");
+    const priceEl = document.getElementById("mPrice");
 
-    function openModal(pkg){
-      pkgName.textContent = pkg || "—";
-      // sync select
-      if(pkg){
-        const options = Array.from(pkgSelect.options).map(o => o.value);
-        if(options.includes(pkg)) pkgSelect.value = pkg;
-        else if(pkg.toLowerCase().includes("custom")) pkgSelect.value = "Custom";
-      }
+    const serviceInput = document.getElementById("serviceInput");
+    const pkgInput = document.getElementById("pkgInput");
+    const priceInput = document.getElementById("priceInput");
+
+    function openModal(service, pkg, price){
+      serviceEl.textContent = service || "—";
+      pkgEl.textContent = pkg || "—";
+      priceEl.textContent = price || "—";
+
+      serviceInput.value = service || "";
+      pkgInput.value = pkg || "";
+      priceInput.value = price || "";
+
       overlay.classList.add("show");
       document.body.style.overflow = "hidden";
     }
@@ -576,32 +701,40 @@
       document.body.style.overflow = "";
     }
 
-    $("#openOrderTop").addEventListener("click", ()=> openModal("Popular (5,000)"));
-    $("#openOrderHero").addEventListener("click", ()=> openModal("Popular (5,000)"));
-    $("#closeModal").addEventListener("click", closeModal);
+    // Open modal buttons
+    document.getElementById("openOrderTop").addEventListener("click", ()=> openModal("Custom Order", "Discuss", "—"));
+    document.getElementById("openOrderHero").addEventListener("click", ()=> openModal("Facebook Followers", "5K", "৳450"));
+    document.getElementById("openOrderContact").addEventListener("click", ()=> openModal("Custom Order", "Discuss", "—"));
+
+    // Close modal
+    closeModalBtn.addEventListener("click", closeModal);
     overlay.addEventListener("click", (e)=> { if(e.target === overlay) closeModal(); });
 
-    $$(".openOrder").forEach(btn=>{
-      btn.addEventListener("click", ()=> openModal(btn.dataset.pkg));
+    // Open modal from package buttons
+    document.querySelectorAll(".openOrder").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        openModal(btn.dataset.service, btn.dataset.pkg, btn.dataset.price);
+      });
     });
 
     // FAQ accordion
-    $$(".faq-item").forEach(item=>{
+    document.querySelectorAll(".faq-item").forEach(item=>{
       item.querySelector(".faq-q").addEventListener("click", ()=>{
         item.classList.toggle("open");
       });
     });
 
-    // Search filter (packages + FAQ)
-    const searchInput = $("#searchInput");
-    const pkgCards = $$(".pkg");
-    const faqItems = $$(".faq-item");
+    // Search (packages + FAQ + services section text)
+    const searchInput = document.getElementById("searchInput");
+    const pkgCards = document.querySelectorAll(".pkg");
+    const faqItems = document.querySelectorAll(".faq-item");
+    const serviceBoxes = document.querySelectorAll("#services .box");
 
     searchInput.addEventListener("input", ()=>{
       const q = searchInput.value.trim().toLowerCase();
 
       pkgCards.forEach(card=>{
-        const text = card.innerText.toLowerCase();
+        const text = (card.innerText + " " + (card.getAttribute("data-search")||"")).toLowerCase();
         card.style.display = text.includes(q) ? "" : "none";
       });
 
@@ -609,54 +742,56 @@
         const text = item.innerText.toLowerCase();
         item.style.display = text.includes(q) ? "" : "none";
       });
+
+      serviceBoxes.forEach(box=>{
+        const text = box.innerText.toLowerCase();
+        box.style.opacity = q && !text.includes(q) ? 0.35 : 1;
+      });
     });
 
-    // Order -> WhatsApp message
-    function buildOrderMessage(data){
-      return [
-        "✅ New Order (Facebook Followers)",
-        "------------------------------",
-        `Name: ${data.name}`,
-        `Phone/WhatsApp: ${data.phone}`,
-        `URL: ${data.url}`,
-        `Package: ${data.package}`,
-        `Country Target: ${data.country || "N/A"}`,
-        `Note: ${data.note || "N/A"}`,
-        "------------------------------",
-        "Please confirm price & delivery time."
-      ].join("\n");
-    }
-
+    // Build WhatsApp order message
     function formToData(form){
       const fd = new FormData(form);
       return Object.fromEntries(fd.entries());
     }
+    function buildOrderMessage(data){
+      return [
+        "✅ New Order — Saikat Tech Hub",
+        "------------------------------",
+        `Name: ${data.name}`,
+        `Phone/WhatsApp: ${data.phone}`,
+        `Service: ${data.service}`,
+        `Package: ${data.package}`,
+        `Price: ${data.price}`,
+        `Link: ${data.url}`,
+        `Country/Target: ${data.country || "N/A"}`,
+        `Note: ${data.note || "N/A"}`,
+        "------------------------------",
+        "Please confirm price & delivery time."
+      ].join("\\n");
+    }
 
-    const YOUR_WA_NUMBER = "8801XXXXXXXXX"; // <-- এখানে আপনার WhatsApp নম্বর দিন (country code সহ, 8801...)
-    const WA_LINK = `https://wa.me/${YOUR_WA_NUMBER}`;
+    const orderForm = document.getElementById("orderForm");
 
-    $("#orderForm").addEventListener("submit", (e)=>{
+    orderForm.addEventListener("submit", (e)=>{
       e.preventDefault();
-      const data = formToData(e.target);
+      const data = formToData(orderForm);
       const msg = buildOrderMessage(data);
       const url = WA_LINK + "?text=" + encodeURIComponent(msg);
       window.open(url, "_blank");
       closeModal();
     });
 
-    $("#copyMsg").addEventListener("click", ()=>{
-      const data = formToData($("#orderForm"));
+    document.getElementById("copyMsg").addEventListener("click", ()=>{
+      const data = formToData(orderForm);
       const msg = buildOrderMessage(data);
+
       navigator.clipboard.writeText(msg).then(()=>{
         alert("Order message কপি হয়েছে ✅ এখন WhatsApp-এ পেস্ট করতে পারবেন।");
       }).catch(()=>{
         alert("Copy করা যায়নি। আপনার ব্রাউজার পারমিশন চেক করুন।");
       });
     });
-
-    // Update WhatsApp button link in hero/support
-    $("#waBtn").href = WA_LINK;
-    // Support WhatsApp link already same pattern in HTML; you can also update it there.
   </script>
 </body>
 </html>
