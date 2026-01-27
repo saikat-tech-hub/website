@@ -1,973 +1,662 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Saikat Tech Hub | Shop & Services</title>
-  <meta name="description" content="Saikat Tech Hub — Gadget Shop, Facebook Boosting, Photo Editing, Video Editing, Web Design. Order via WhatsApp/Email." />
-  <meta name="theme-color" content="#08151a" />
-
+  <title>Facebook Followers Service | YourBrand</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Inter:wght@400;600;700;800;900&display=swap');
-
     :root{
-      --bg0:#061216;
-      --bg1:#071a1f;
-      --bg2:#0b2c34;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.08);
-      --stroke: rgba(255,255,255,.12);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --brand: #22e6ff;
-      --brand2:#00b7ff;
-      --pink:#ff5bd6;
-      --lime:#4dff88;
-      --warn:#ffcf5a;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --shadow2: 0 10px 30px rgba(0,0,0,.28);
-      --r: 22px;
+      --bg:#0b1220;
+      --card:#111a2e;
+      --card2:#0f172a;
+      --text:#e8eefc;
+      --muted:#a8b3d6;
+      --line:rgba(255,255,255,.08);
+      --brand:#3b82f6;
+      --brand2:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius: 18px;
     }
-
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
     body{
       margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1000px 600px at 20% -10%, rgba(59,130,246,.25), transparent 60%),
+                  radial-gradient(900px 600px at 90% 0%, rgba(34,197,94,.18), transparent 55%),
+                  var(--bg);
       color:var(--text);
-      font-family: "Inter","Hind Siliguri",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        radial-gradient(1000px 700px at 15% 10%, rgba(34,230,255,.20), transparent 60%),
-        radial-gradient(900px 700px at 85% 20%, rgba(255,91,214,.14), transparent 60%),
-        radial-gradient(800px 600px at 40% 90%, rgba(77,255,136,.10), transparent 60%),
-        linear-gradient(135deg, var(--bg0), var(--bg1), var(--bg2));
-      overflow-x:hidden;
     }
-
     a{color:inherit;text-decoration:none}
-    .container{width:min(1120px, 92vw); margin:0 auto}
+    .container{max-width:1100px;margin:0 auto;padding:0 18px}
 
-    /* Topbar */
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      background: rgba(6,18,22,.58);
+    /* Header */
+    .header{
+      position:sticky;top:0;z-index:50;
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(11,18,32,.75);
+      border-bottom:1px solid var(--line);
     }
-    .topbar .inner{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:12px 0;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 230px;
+    .header-inner{
+      display:flex;align-items:center;gap:14px;
+      padding:14px 0;
     }
     .logo{
-      width:44px; height:44px; border-radius:16px;
-      border:1px solid rgba(34,230,255,.30);
-      background:
-        radial-gradient(circle at 30% 25%, rgba(255,255,255,.22), transparent 55%),
-        linear-gradient(145deg, rgba(34,230,255,.28), rgba(0,183,255,.10));
-      box-shadow: 0 12px 28px rgba(0,0,0,.35);
-      display:grid; place-items:center;
-      flex:0 0 auto;
+      display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;
     }
-    .logo svg{width:26px;height:26px}
-    .brand .t{
-      display:flex; flex-direction:column; gap:2px;
-      line-height:1.05;
+    .logo-badge{
+      width:34px;height:34px;border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), rgba(59,130,246,.35));
+      box-shadow: 0 10px 25px rgba(59,130,246,.25);
     }
-    .brand .t b{font-size:15px; letter-spacing:.2px}
-    .brand .t span{font-size:12px; color:var(--muted); font-weight:700}
-
     .nav{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; align-items:center;
+      margin-left:auto;
+      display:flex;align-items:center;gap:12px;flex-wrap:wrap;
     }
-    .pill{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      font-weight:800;
-      font-size:13px;
-      cursor:pointer;
-      transition:.2s ease;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
+    .nav a{
+      padding:10px 10px;border-radius:12px;color:var(--muted);
     }
-    .pill:hover{transform:translateY(-1px); border-color: rgba(34,230,255,.35)}
-    .pill.primary{
+    .nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .search{
+      display:flex;align-items:center;gap:10px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px 12px;
+      min-width:260px;
+    }
+    .search input{
+      width:100%;
+      background:transparent;border:0;outline:0;
+      color:var(--text);
+      font-size:14px;
+    }
+    .btn{
+      border:0;cursor:pointer;
+      padding:11px 14px;border-radius:14px;
+      font-weight:700;
+      color:var(--text);
+      background: rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      transition:.15s ease;
+      display:inline-flex;align-items:center;gap:10px;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.12)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand), rgba(59,130,246,.65));
       border:0;
-      color:#001015;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 12px 30px rgba(0,183,255,.22);
+      box-shadow: 0 14px 30px rgba(59,130,246,.22);
+    }
+    .btn.success{
+      background: linear-gradient(135deg, var(--brand2), rgba(34,197,94,.65));
+      border:0;
+      box-shadow: 0 14px 30px rgba(34,197,94,.18);
     }
 
     /* Hero */
-    .hero{padding:28px 0 14px}
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:16px;
-      align-items:stretch;
+    .hero{padding:26px 0 8px}
+    .breadcrumb{color:var(--muted);font-size:13px;margin:10px 0 14px}
+    .hero-grid{
+      display:grid;grid-template-columns: 1.2fr .8fr;gap:18px;
     }
-    @media (max-width: 920px){ .heroGrid{grid-template-columns:1fr} }
-
-    .heroCard{
-      position:relative;
-      border-radius: 26px;
-      background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.10);
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow:hidden;
-      padding:22px;
     }
-    .heroCard:before{
-      content:"";
-      position:absolute; inset:-60px;
-      background:
-        radial-gradient(circle at 25% 25%, rgba(34,230,255,.22), transparent 55%),
-        radial-gradient(circle at 75% 35%, rgba(255,91,214,.16), transparent 60%),
-        radial-gradient(circle at 45% 90%, rgba(77,255,136,.10), transparent 60%);
-      pointer-events:none;
+    .hero-left{padding:22px}
+    h1{margin:0 0 10px;font-size:34px;line-height:1.2}
+    .lead{margin:0 0 16px;color:var(--muted);font-size:15px;line-height:1.7}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 6px}
+    .chip{
+      font-size:12px;color:var(--text);
+      padding:8px 10px;border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--line);
     }
-    .heroTop{
-      position:relative;
-      display:flex; gap:12px; align-items:flex-start; justify-content:space-between;
-      flex-wrap:wrap;
-    }
-    .badge{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(34,230,255,.28);
-      background: rgba(34,230,255,.10);
-      font-weight:900;
-      font-size:12px;
-      color: rgba(255,255,255,.90);
-    }
-    .badge i{
-      width:10px;height:10px;border-radius:999px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      display:inline-block;
-      box-shadow: 0 0 0 6px rgba(34,230,255,.10);
-    }
-
-    h1{
-      position:relative;
-      margin:10px 0 8px;
-      font-size: clamp(28px, 4.2vw, 46px);
-      letter-spacing: -.6px;
-      line-height:1.07;
-    }
-    .welcome{
-      position:relative;
-      margin:0;
-      color: var(--muted);
-      font-family: "Hind Siliguri","Inter",sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      max-width: 62ch;
-    }
-
-    .heroBtns{
-      position:relative;
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top:16px;
-    }
-    .btn{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color: var(--text);
-      padding:12px 16px;
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .hero-right{padding:18px}
+    .stat{
+      background: rgba(15,23,42,.65);
+      border:1px solid var(--line);
       border-radius: 16px;
-      font-weight:1000;
-      font-size:13px;
-      cursor:pointer;
-      transition:.2s ease;
-      display:inline-flex; gap:10px; align-items:center; justify-content:center;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-      min-width: 160px;
+      padding:14px;margin-bottom:12px;
     }
-    .btn:hover{transform:translateY(-1px); border-color: rgba(34,230,255,.28)}
-    .btn.primary{
-      border:0;
-      color:#001015;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 14px 34px rgba(0,183,255,.22);
+    .stat .k{color:var(--muted);font-size:12px}
+    .stat .v{font-weight:900;font-size:18px;margin-top:6px}
+    .note{
+      color:var(--muted);font-size:13px;line-height:1.6;
+      margin-top:10px;
+      border-top:1px dashed var(--line);
+      padding-top:10px;
     }
-    .btn.pink{
-      border:0;
-      color:#120014;
-      background: linear-gradient(135deg, rgba(255,91,214,.95), rgba(255,170,232,.65));
-      box-shadow: 0 14px 34px rgba(255,91,214,.18);
-    }
-
-    .sideStack{display:grid; gap:12px}
-    .miniCard{
-      border-radius: 20px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow2);
-      padding:14px;
-    }
-    .miniCard b{display:block; font-size:14px; margin-bottom:6px}
-    .miniCard p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
 
     /* Sections */
-    section{padding:10px 0 22px}
-    .head{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:10px; margin: 12px 0;
-    }
-    .head h2{
-      margin:0;
-      font-size:20px;
-      letter-spacing:-.2px;
-    }
-    .head span{
-      color: var(--muted);
-      font-size:12px;
-      font-weight:800;
+    .section{padding:14px 0}
+    .section-title{font-size:18px;margin:0 0 10px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .box{padding:18px;background: rgba(15,23,42,.55);border:1px solid var(--line);border-radius:16px}
+    .ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.8}
+    .ul li{margin:6px 0}
+    .pill{
+      display:inline-block;
+      padding:8px 10px;border-radius:999px;
+      background:rgba(59,130,246,.12);
+      border:1px solid rgba(59,130,246,.25);
+      color:#dbeafe;font-size:12px;font-weight:700;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
+    /* Packages */
+    .packages{
+      display:grid;grid-template-columns: repeat(3, 1fr);gap:14px;
     }
-    @media (max-width: 980px){ .grid{grid-template-columns: repeat(2,1fr);} }
-    @media (max-width: 640px){ .grid{grid-template-columns:1fr;} }
+    .pkg{
+      padding:18px;border-radius:18px;
+      background: rgba(15,23,42,.6);
+      border:1px solid var(--line);
+      position:relative;
+    }
+    .pkg.popular{border:1px solid rgba(59,130,246,.35);box-shadow:0 18px 45px rgba(59,130,246,.14)}
+    .badge{
+      position:absolute;top:14px;right:14px;
+      font-size:11px;font-weight:800;
+      padding:7px 10px;border-radius:999px;
+      background:rgba(59,130,246,.18);
+      border:1px solid rgba(59,130,246,.3);
+      color:#dbeafe;
+    }
+    .pkg h3{margin:0 0 8px;font-size:16px}
+    .price{font-size:26px;font-weight:950;margin:6px 0 8px}
+    .small{color:var(--muted);font-size:13px;line-height:1.6}
+    .pkg ul{margin:10px 0 14px;padding-left:18px;color:var(--muted);line-height:1.8}
 
-    .card{
-      border-radius: var(--r);
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow2);
+    /* FAQ */
+    .faq-item{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(15,23,42,.55);
+      margin-bottom:10px;
       overflow:hidden;
     }
+    .faq-q{
+      width:100%;
+      padding:14px 16px;
+      background:transparent;
+      color:var(--text);
+      border:0;cursor:pointer;text-align:left;
+      font-weight:800;
+      display:flex;justify-content:space-between;align-items:center;
+    }
+    .faq-a{
+      padding:0 16px 14px;
+      color:var(--muted);
+      display:none;
+      line-height:1.7;
+    }
+    .faq-item.open .faq-a{display:block}
+    .faq-item.open .chev{transform: rotate(180deg)}
+    .chev{transition:.15s ease}
 
-    .cardTop{
-      padding:14px 14px 12px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      background:
-        radial-gradient(500px 180px at 20% 30%, rgba(34,230,255,.16), transparent 60%),
-        radial-gradient(500px 200px at 80% 20%, rgba(255,91,214,.12), transparent 60%),
-        rgba(255,255,255,.03);
+    /* Footer */
+    .footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      margin-top:18px;
     }
-    .titleRow{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-    }
-    .titleRow b{font-size:15px}
-    .tag{
-      font-size:12px;
-      font-weight:1000;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.88);
-      white-space:nowrap;
-    }
-    .tag.good{border-color: rgba(77,255,136,.25); background: rgba(77,255,136,.10)}
-    .tag.hot{border-color: rgba(255,91,214,.25); background: rgba(255,91,214,.10)}
-    .tag.pro{border-color: rgba(34,230,255,.28); background: rgba(34,230,255,.10)}
+    .footer-grid{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .footer a{color:var(--muted)}
+    .footer a:hover{color:var(--text)}
 
-    .cardBody{padding:12px 14px 14px}
-    .pack{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      padding:10px 10px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.10);
-      margin-top:10px;
+    /* Modal */
+    .overlay{
+      position:fixed;inset:0;
+      background: rgba(0,0,0,.55);
+      display:none;
+      align-items:center;justify-content:center;
+      padding:18px;z-index:100;
     }
-    .pack:first-child{margin-top:0}
-    .pack .left{
-      display:flex; flex-direction:column; gap:2px;
-    }
-    .pack .left span{font-weight:1000; font-size:13px}
-    .pack .left small{color:var(--muted); font-size:12px; font-weight:800}
-    .price{
-      font-weight:1000;
-      color: rgba(255,255,255,.92);
-      font-size:13px;
-      white-space:nowrap;
-    }
-    .order{
-      border:0;
-      cursor:pointer;
-      padding:10px 12px;
-      border-radius: 14px;
-      font-weight:1000;
-      font-size:12px;
-      color:#001015;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 10px 22px rgba(0,183,255,.18);
-      white-space:nowrap;
-    }
-    .order.alt{
-      background: linear-gradient(135deg, rgba(255,91,214,.95), rgba(255,170,232,.65));
-      color:#140014;
-      box-shadow: 0 10px 22px rgba(255,91,214,.16);
-    }
-
-    /* Contact */
-    .contactWrap{
-      border-radius: 26px;
-      background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.10);
+    .overlay.show{display:flex}
+    .modal{
+      width:100%;max-width:560px;
+      background: rgba(17,26,46,.92);
+      border:1px solid var(--line);
+      border-radius: 20px;
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .contactTop{
-      padding:16px 16px 14px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      background:
-        radial-gradient(700px 240px at 20% 20%, rgba(34,230,255,.18), transparent 60%),
-        radial-gradient(700px 260px at 80% 30%, rgba(255,91,214,.12), transparent 60%),
-        rgba(255,255,255,.03);
+    .modal-head{
+      padding:14px 16px;
+      display:flex;align-items:center;justify-content:space-between;
+      border-bottom:1px solid var(--line);
     }
-    .contactTop h2{margin:0 0 6px; font-size:20px}
-    .contactTop p{margin:0; color:var(--muted); line-height:1.6; font-family:"Hind Siliguri","Inter",sans-serif}
-
-    .contactGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:0;
+    .modal-head b{font-size:15px}
+    .modal-body{padding:16px}
+    .form{
+      display:grid;grid-template-columns:1fr 1fr;gap:12px;
     }
-    @media (max-width: 920px){ .contactGrid{grid-template-columns:1fr;} }
-
-    .contactLeft, .contactRight{
-      padding:14px 16px 16px;
-    }
-    .contactRight{
-      border-left:1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.10);
-    }
-    @media (max-width: 920px){ .contactRight{border-left:0; border-top:1px solid rgba(255,255,255,.08);} }
-
-    .infoLine{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px 12px;
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      margin-top:10px;
-    }
-    .infoLine:first-child{margin-top:0}
-    .ico{
-      width:38px;height:38px;border-radius:14px;
-      display:grid;place-items:center;
-      background: rgba(34,230,255,.10);
-      border:1px solid rgba(34,230,255,.22);
-      flex:0 0 auto;
-    }
-    .infoLine b{display:block; font-size:13px}
-    .infoLine span{display:block; color:var(--muted); font-size:12px; margin-top:2px; line-height:1.5}
-
-    .contactBtns{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:10px;
-      margin-top:12px;
-    }
-    @media (max-width: 720px){ .contactBtns{grid-template-columns:1fr;} }
-    .contactBtn{
-      padding:12px 12px;
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      font-weight:1000;
-      display:flex; align-items:center; justify-content:center; gap:10px;
-      cursor:pointer;
-      transition:.2s ease;
-    }
-    .contactBtn:hover{transform:translateY(-1px); border-color: rgba(34,230,255,.28)}
-    .contactBtn.primary{
-      border:0;
-      color:#001015;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 14px 34px rgba(0,183,255,.18);
-    }
-    .contactBtn.pink{
-      border:0;
-      color:#150014;
-      background: linear-gradient(135deg, rgba(255,91,214,.95), rgba(255,170,232,.65));
-      box-shadow: 0 14px 34px rgba(255,91,214,.16);
-    }
-
-    /* Footer */
-    footer{
-      padding:26px 0 34px;
-      color: rgba(255,255,255,.60);
-      text-align:center;
-      font-size:12px;
-    }
-
-    /* Floating */
-    .floatWrap{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      z-index:80;
-    }
-    .floatBtn{
-      width:56px;height:56px;
-      border-radius: 20px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(6,18,22,.55);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 18px 50px rgba(0,0,0,.45);
-      display:grid; place-items:center;
-      cursor:pointer;
-      font-size:20px;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .floatBtn.brand{
-      border-color: rgba(34,230,255,.28);
-      background: rgba(34,230,255,.10);
-    }
-
-    /* Toast */
-    .toast{
-      position:fixed;
-      left:50%;
-      transform:translateX(-50%);
-      bottom:18px;
-      background: rgba(0,0,0,.50);
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(10px);
-      color: rgba(255,255,255,.92);
-      padding:10px 12px;
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field label{font-size:12px;color:var(--muted);font-weight:700}
+    .field input,.field select,.field textarea{
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
       border-radius: 14px;
-      font-weight:1000;
-      font-size:13px;
-      display:none;
-      z-index:90;
-      box-shadow: 0 18px 50px rgba(0,0,0,.45);
+      padding:11px 12px;
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    .field textarea{grid-column:1/-1;min-height:90px;resize:vertical}
+    .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}
+    .hint{color:var(--muted);font-size:12px;line-height:1.6;margin-top:10px}
+    .close-x{background:transparent;border:0;color:var(--muted);cursor:pointer;font-size:18px}
+    .close-x:hover{color:var(--text)}
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      .packages{grid-template-columns:1fr}
+      .form{grid-template-columns:1fr}
+      .search{min-width: 180px;flex: 1}
+      .nav{width:100%}
+      .header-inner{flex-wrap:wrap}
     }
   </style>
 </head>
-
 <body>
-  <div class="topbar">
-    <div class="container inner">
-      <div class="brand" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">
-        <div class="logo">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 2c3.5 2.2 6 6 6 9.7 0 4-2.7 7.3-6 10.3-3.3-3-6-6.3-6-10.3C6 8 8.5 4.2 12 2Z" stroke="rgba(255,255,255,.90)" stroke-width="1.5"/>
-            <path d="M12 6.2c2.1 1.5 3.6 3.9 3.6 6.1 0 2.6-1.8 4.9-3.6 6.6-1.8-1.7-3.6-4-3.6-6.6 0-2.2 1.5-4.6 3.6-6.1Z" fill="rgba(34,230,255,.28)"/>
-            <path d="M12 10.3l1.6 1.7-1.6 4.1-1.6-4.1L12 10.3Z" fill="rgba(34,230,255,.95)"/>
-          </svg>
-        </div>
-        <div class="t">
-          <b>Saikat Tech Hub</b>
-          <span>Shop • Boosting • Editing • Web Design</span>
-        </div>
-      </div>
 
-      <div class="nav">
-        <button class="pill" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</button>
-        <button class="pill" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">Packages</button>
-        <button class="pill" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
-        <button class="pill primary" onclick="openWhatsApp('আসসালামু আলাইকুম! আমি Saikat Tech Hub থেকে সার্ভিস নিতে চাই 🙂')">WhatsApp</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="top" class="hero">
-    <div class="container heroGrid">
-      <div class="heroCard">
-        <div class="heroTop">
-          <div class="badge"><i></i> Trusted & Fast Support</div>
-          <div class="badge" style="border-color:rgba(255,91,214,.26); background: rgba(255,91,214,.10)"><i style="background:linear-gradient(135deg,var(--pink),#ffd0f2)"></i> Premium Quality</div>
-        </div>
-
-        <h1>স্বাগতম! Saikat Tech Hub</h1>
-        <p class="welcome">
-          আসসালামু আলাইকুম। আমাদের ওয়েবসাইটে আপনাকে স্বাগতম।<br>
-          এখানে আপনি <b>Facebook Boosting</b>, <b>Photo Editing</b>, <b>Video Editing</b>, এবং <b>Landing/Business Website Design</b>—সবকিছুই সাশ্রয়ী দামে পাবেন।
-          আপনার প্রয়োজনীয় প্যাকেজ সিলেক্ট করে <b>Order</b> চাপলেই অর্ডার মেসেজ আমাদের WhatsApp-এ চলে যাবে।
-        </p>
-
-        <div class="heroBtns">
-          <button class="btn primary" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">📦 View Packages</button>
-          <button class="btn pink" onclick="openWhatsApp('আসসালামু আলাইকুম! আমি সার্ভিস নিতে চাই। বিস্তারিত জানতে চাই 🙂')">💬 Ask on WhatsApp</button>
-          <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">☎️ Contact</button>
-        </div>
-      </div>
-
-      <div class="sideStack">
-        <div class="miniCard">
-          <b>📍 Location</b>
-          <p>Dhaka New Market, 1205</p>
-        </div>
-        <div class="miniCard">
-          <b>⚡ Order Process</b>
-          <p>Package নির্বাচন → Order → WhatsApp এ তথ্য/লিংক দিন → আমরা কনফার্ম করব</p>
-        </div>
-        <div class="miniCard">
-          <b>✅ Quick Support</b>
-          <p>WhatsApp / Email এ দ্রুত রিপ্লাই</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section id="services">
+  <!-- Header -->
+  <header class="header">
     <div class="container">
-      <div class="head">
-        <h2>🛠️ What We Provide</h2>
-        <span>All-in-one digital solutions</span>
-      </div>
+      <div class="header-inner">
+        <a class="logo" href="index.html">
+          <span class="logo-badge" aria-hidden="true"></span>
+          <span>YourBrand</span>
+        </a>
 
-      <div class="grid">
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>📈 Boosting Services</b>
-              <span class="tag pro">Popular</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>Facebook Followers & Likes</span><small>Fast & reliable packages</small></div>
-              <div class="price">Instant Order</div>
-            </div>
-            <div class="pack">
-              <div class="left"><span>Reactions / Views / Shares</span><small>Post & video growth</small></div>
-              <div class="price">Instant Order</div>
-            </div>
-          </div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html#services">সার্ভিসসমূহ</a>
+          <a href="pricing.html">প্রাইসিং</a>
+          <a href="index.html#reviews">রিভিউ</a>
+          <a href="contact.html">যোগাযোগ</a>
+        </nav>
+
+        <div class="search" title="সার্ভিস/FAQ সার্চ">
+          <span aria-hidden="true">🔍</span>
+          <input id="searchInput" type="search" placeholder="সার্চ করুন: package, delivery, safe..." />
         </div>
 
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>🖼️ Photo Editing</b>
-              <span class="tag good">Premium</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>Background Remove</span><small>Clean & professional</small></div>
-              <div class="price">Fast Delivery</div>
-            </div>
-            <div class="pack">
-              <div class="left"><span>Retouch / Color Fix</span><small>Social-ready look</small></div>
-              <div class="price">Best Quality</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>🎬 Video Editing</b>
-              <span class="tag hot">Trending</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>Reels / Shorts Edit</span><small>Captions + transitions</small></div>
-              <div class="price">Pro Style</div>
-            </div>
-            <div class="pack">
-              <div class="left"><span>Long Video Edit</span><small>Clean storytelling</small></div>
-              <div class="price">Smooth Export</div>
-            </div>
-          </div>
-        </div>
+        <button class="btn primary" id="openOrderTop">Order Now</button>
+        <a class="btn" href="#support">Support</a>
       </div>
     </div>
-  </section>
+  </header>
 
-  <section id="packages">
+  <!-- Hero -->
+  <section class="hero">
     <div class="container">
-      <div class="head">
-        <h2>📦 Packages & Price</h2>
-        <span>Tap Order → WhatsApp message</span>
-      </div>
+      <div class="breadcrumb">হোম / সার্ভিস / <b>Facebook Followers</b></div>
 
-      <div class="grid">
-        <!-- FB Followers -->
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>👥 Facebook Followers</b>
-              <span class="tag pro">Best Seller</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>1K Followers</span><small>প্রোফাইল/পেজ লিংক দিন</small></div>
-              <div class="price">৳100</div>
-              <button class="order" onclick="orderWA('Facebook Followers','1K','৳100')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>2K Followers</span><small>প্রোফাইল/পেজ লিংক দিন</small></div>
-              <div class="price">৳200</div>
-              <button class="order" onclick="orderWA('Facebook Followers','2K','৳200')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>5K Followers</span><small>প্রোফাইল/পেজ লিংক দিন</small></div>
-              <div class="price">৳450</div>
-              <button class="order" onclick="orderWA('Facebook Followers','5K','৳450')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>10K Followers</span><small>প্রোফাইল/পেজ লিংক দিন</small></div>
-              <div class="price">৳900</div>
-              <button class="order" onclick="orderWA('Facebook Followers','10K','৳900')">Order</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- FB Likes -->
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>👍 Facebook Likes</b>
-              <span class="tag good">Low Price</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>1K Likes</span><small>পেজ/পোস্ট লিংক দিন</small></div>
-              <div class="price">৳80</div>
-              <button class="order" onclick="orderWA('Facebook Likes','1K','৳80')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>2K Likes</span><small>পেজ/পোস্ট লিংক দিন</small></div>
-              <div class="price">৳150</div>
-              <button class="order" onclick="orderWA('Facebook Likes','2K','৳150')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>5K Likes</span><small>পেজ/পোস্ট লিংক দিন</small></div>
-              <div class="price">৳250</div>
-              <button class="order" onclick="orderWA('Facebook Likes','5K','৳250')">Order</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Reactions -->
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>❤️ Post Reactions</b>
-              <span class="tag hot">Engagement</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>1K Reactions</span><small>Reaction type: Like/Love/Wow</small></div>
-              <div class="price">৳120</div>
-              <button class="order alt" onclick="orderWA('Post Reactions','1K','৳120')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>2K Reactions</span><small>Reaction type: Like/Love/Wow</small></div>
-              <div class="price">৳220</div>
-              <button class="order alt" onclick="orderWA('Post Reactions','2K','৳220')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>5K Reactions</span><small>Reaction type: Like/Love/Wow</small></div>
-              <div class="price">৳500</div>
-              <button class="order alt" onclick="orderWA('Post Reactions','5K','৳500')">Order</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Video Views -->
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>🎥 Video Views</b>
-              <span class="tag pro">Growth</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>10K Views</span><small>ভিডিও লিংক দিন</small></div>
-              <div class="price">৳150</div>
-              <button class="<button class="order" onclick="orderWA('Video Views','10K','৳150')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>50K Views</span><small>ভিডিও লিংক দিন</small></div>
-              <div class="price">৳650</div>
-              <button class="order" onclick="orderWA('Video Views','50K','৳650')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>100K Views</span><small>ভিডিও লিংক দিন</small></div>
-              <div class="price">৳1200</div>
-              <button class="order" onclick="orderWA('Video Views','100K','৳1200')">Order</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Post Shares -->
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>🔁 Post Shares</b>
-              <span class="tag good">Boost</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>100 Shares</span><small>পোস্ট লিংক দিন</small></div>
-              <div class="price">৳150</div>
-              <button class="order" onclick="orderWA('Post Shares','100','৳150')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>300 Shares</span><small>পোস্ট লিংক দিন</small></div>
-              <div class="price">৳420</div>
-              <button class="order" onclick="orderWA('Post Shares','300','৳420')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>500 Shares</span><small>পোস্ট লিংক দিন</small></div>
-              <div class="price">৳650</div>
-              <button class="order" onclick="orderWA('Post Shares','500','৳650')">Order</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Post Comments -->
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>💬 Post Comments</b>
-              <span class="tag hot">Engage</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>100 Comments</span><small>Random/Custom (WhatsApp এ লিখুন)</small></div>
-              <div class="price">৳120</div>
-              <button class="order alt" onclick="orderWA('Post Comments','100','৳120')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>200 Comments</span><small>Random/Custom (WhatsApp এ লিখুন)</small></div>
-              <div class="price">৳220</div>
-              <button class="order alt" onclick="orderWA('Post Comments','200','৳220')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>500 Comments</span><small>Random/Custom (WhatsApp এ লিখুন)</small></div>
-              <div class="price">৳520</div>
-              <button class="order alt" onclick="orderWA('Post Comments','500','৳520')">Order</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Photo Editing -->
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>🖼️ Photo Editing</b>
-              <span class="tag pro">Premium</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>Basic (1 Photo)</span><small>Background remove / basic fix</small></div>
-              <div class="price">৳100</div>
-              <button class="order" onclick="orderWA('Photo Editing','Basic 1 Photo','৳100')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>Standard (5 Photos)</span><small>Clean social look</small></div>
-              <div class="price">৳450</div>
-              <button class="order" onclick="orderWA('Photo Editing','Standard 5 Photos','৳450')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>Pro (10 Photos)</span><small>Premium retouch + color</small></div>
-              <div class="price">৳800</div>
-              <button class="order" onclick="orderWA('Photo Editing','Pro 10 Photos','৳800')">Order</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Video Editing -->
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>🎬 Video Editing</b>
-              <span class="tag hot">Trending</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>Short / Reel (Up to 30s)</span><small>Caption + smooth cuts</small></div>
-              <div class="price">৳300</div>
-              <button class="order alt" onclick="orderWA('Video Editing','Reel 30s','৳300')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>Short (Up to 60s)</span><small>Transitions + color</small></div>
-              <div class="price">৳450</div>
-              <button class="order alt" onclick="orderWA('Video Editing','Short 60s','৳450')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>Long Video (Up to 10 min)</span><small>Clean storytelling edit</small></div>
-              <div class="price">৳800</div>
-              <button class="order alt" onclick="orderWA('Video Editing','Long 10 min','৳800')">Order</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Web Design -->
-        <div class="card">
-          <div class="cardTop">
-            <div class="titleRow">
-              <b>🌐 Web Design</b>
-              <span class="tag good">Best Value</span>
-            </div>
-          </div>
-          <div class="cardBody">
-            <div class="pack">
-              <div class="left"><span>Landing Page</span><small>1 page modern design</small></div>
-              <div class="price">৳2500</div>
-              <button class="order" onclick="orderWA('Web Design','Landing Page','৳2500')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>Business Website</span><small>Multi section + contact</small></div>
-              <div class="price">৳5000</div>
-              <button class="order" onclick="orderWA('Web Design','Business Website','৳5000')">Order</button>
-            </div>
-            <div class="pack">
-              <div class="left"><span>Shop Style Website</span><small>Product listing + order</small></div>
-              <div class="price">৳7500</div>
-              <button class="order" onclick="orderWA('Web Design','Shop Style Website','৳7500')">Order</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <div class="contactWrap">
-        <div class="contactTop">
-          <h2>📞 Contact & Support</h2>
-          <p>
-            আমরা দ্রুত রিপ্লাই দিই। অর্ডার করার পর আপনার <b>লিংক/ডিটেইলস</b> WhatsApp-এ পাঠিয়ে দিন।
+      <div class="hero-grid">
+        <div class="card hero-left">
+          <span class="pill">Popular Service</span>
+          <h1>Facebook Followers Service</h1>
+          <p class="lead">
+            আপনার পেজ/প্রোফাইলে <b>রিয়েল & টার্গেটেড ফলোয়ার</b> যোগ করে ব্র্যান্ড ট্রাস্ট এবং অনলাইন উপস্থিতি বাড়ান।
+            <br/>✅ No password needed • ✅ Safe delivery • ✅ Quick support
           </p>
-        </div>
 
-        <div class="contactGrid">
-          <div class="contactLeft">
-            <div class="infoLine">
-              <div class="ico">📍</div>
-              <div>
-                <b>Address</b>
-                <span>Dhaka New Market, 1205</span>
-              </div>
-            </div>
-
-            <div class="infoLine">
-              <div class="ico">🟢</div>
-              <div>
-                <b>WhatsApp</b>
-                <span>01804676711</span>
-              </div>
-            </div>
-
-            <div class="infoLine">
-              <div class="ico">✉️</div>
-              <div>
-                <b>Email</b>
-                <span>saikat712@gmail.com</span>
-              </div>
-            </div>
-
-            <div class="infoLine">
-              <div class="ico">📘</div>
-              <div>
-                <b>Facebook</b>
-                <span>facebook.com/share/1HWNWWpWTZ</span>
-              </div>
-            </div>
-
-            <div class="contactBtns">
-              <a class="contactBtn primary" href="https://wa.me/8801804676711?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%87%E0%A6%95%E0%A7%81%E0%A6%AE!%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20Saikat%20Tech%20Hub%20%E0%A6%A5%E0%A7%87%E0%A6%95%E0%A7%87%20%E0%A6%B8%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%AD%E0%A6%BF%E0%A6%B8%20%E0%A6%A8%E0%A6%BF%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%20%F0%9F%99%82" target="_blank">WhatsApp</a>
-
-              <a class="contactBtn" href="mailto:saikat712@gmail.com?subject=Saikat%20Tech%20Hub%20-%20Inquiry&body=Assalamu%20Alaikum!%20Ami%20service%20nite%20chai.%20Details%20bolben." target="_blank">Email</a>
-
-              <a class="contactBtn pink" href="https://www.facebook.com/share/1HWNWWpWTZ/" target="_blank">Facebook</a>
-            </div>
+          <div class="chips">
+            <span class="chip">⚡ দ্রুত ডেলিভারি</span>
+            <span class="chip">🛡️ নিরাপদ পদ্ধতি</span>
+            <span class="chip">🎯 টার্গেটেড অডিয়েন্স</span>
+            <span class="chip">💬 24/7 সাপোর্ট</span>
           </div>
 
-          <div class="contactRight">
-            <div class="miniCard" style="margin:0">
-              <b>✅ অর্ডার তথ্য (WhatsApp এ পাঠাবেন)</b>
-              <p>
-                • Name<br>
-                • Link (Page/Profile/Post/Video)<br>
-                • Package (যেটা সিলেক্ট করেছেন)<br>
-                • Time/Note (যদি থাকে)
-              </p>
-            </div>
-
-            <div class="miniCard" style="margin:12px 0 0">
-              <b>⚡ দ্রুত সাপোর্ট</b>
-              <p>যেকোনো প্রশ্ন থাকলে WhatsApp এ মেসেজ করুন—আমরা দ্রুত রিপ্লাই দেব।</p>
-            </div>
+          <div class="hero-actions">
+            <button class="btn primary" id="openOrderHero">এখনই অর্ডার করুন</button>
+            <a class="btn success" id="waBtn" target="_blank" rel="noreferrer" href="https://wa.me/8801XXXXXXXXX">
+              WhatsApp এ কথা বলুন
+            </a>
+            <a class="btn" href="#packages">প্যাকেজ দেখুন</a>
           </div>
         </div>
 
+        <aside class="card hero-right">
+          <div class="stat">
+            <div class="k">ডেলিভারি টাইম</div>
+            <div class="v">1–24 Hours</div>
+          </div>
+          <div class="stat">
+            <div class="k">সেফটি</div>
+            <div class="v">No Password Needed</div>
+          </div>
+          <div class="stat">
+            <div class="k">সাপোর্ট</div>
+            <div class="v">Live Chat / WhatsApp</div>
+          </div>
+
+          <div class="note">
+            <b>নোট:</b> অর্ডার করার আগে আপনার ফেসবুক লিংক (Page/Profile URL) ঠিকভাবে দিন।
+            প্রাইভেট/লকড সেটিংস থাকলে ডেলিভারিতে সময় লাগতে পারে।
+          </div>
+        </aside>
       </div>
     </div>
   </section>
 
-  <footer>
-    © <span id="year"></span> Saikat Tech Hub • Dhaka, Bangladesh
+  <!-- Details -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">সার্ভিস ডিটেইলস</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3 style="margin:0 0 8px">আপনি কী পাবেন</h3>
+          <ul class="ul">
+            <li>রিয়েল/অ্যাক্টিভ ফলোয়ার (আপনার টার্গেট অনুযায়ী)</li>
+            <li>প্রফেশনাল হ্যান্ডলিং ও সেফ ডেলিভারি</li>
+            <li>কাস্টম প্যাকেজ (আপনার বাজেট/চাহিদা অনুযায়ী)</li>
+            <li>ডেলিভারির আপডেট + সাপোর্ট</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3 style="margin:0 0 8px">যা লাগবে (Order Requirements)</h3>
+          <ul class="ul">
+            <li>Facebook Page/Profile URL</li>
+            <li>আপনি কোন দেশের অডিয়েন্স চান (ঐচ্ছিক)</li>
+            <li>ফলোয়ার সংখ্যা (1000/5000/Custom)</li>
+            <li>বিশেষ নোট (যদি থাকে)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section class="section" id="packages">
+    <div class="container">
+      <h2 class="section-title">প্যাকেজসমূহ</h2>
+
+      <div class="packages">
+        <div class="pkg" data-pkg="Starter (1,000)">
+          <h3>Starter</h3>
+          <div class="small">১,০০০ ফলোয়ার</div>
+          <div class="price">৳ 999</div>
+          <ul>
+            <li>ডেলিভারি: 1–24 Hours</li>
+            <li>Safe method</li>
+            <li>Basic support</li>
+          </ul>
+          <button class="btn primary openOrder" data-pkg="Starter (1,000)">Order Starter</button>
+        </div>
+
+        <div class="pkg popular" data-pkg="Popular (5,000)">
+          <span class="badge">Best Value</span>
+          <h3>Popular</h3>
+          <div class="small">৫,০০০ ফলোয়ার</div>
+          <div class="price">৳ 3999</div>
+          <ul>
+            <li>ডেলিভারি: 1–24 Hours</li>
+            <li>Priority processing</li>
+            <li>Fast support</li>
+          </ul>
+          <button class="btn primary openOrder" data-pkg="Popular (5,000)">Order Popular</button>
+        </div>
+
+        <div class="pkg" data-pkg="Custom">
+          <h3>Custom</h3>
+          <div class="small">আপনার চাহিদা অনুযায়ী</div>
+          <div class="price">Contact</div>
+          <ul>
+            <li>কাস্টম পরিমাণ</li>
+            <li>দেশ/টার্গেট সেটআপ</li>
+            <li>Dedicated support</li>
+          </ul>
+          <button class="btn primary openOrder" data-pkg="Custom">Request Custom</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section class="section" id="support">
+    <div class="container">
+      <h2 class="section-title">সাপোর্ট অপশন</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3 style="margin:0 0 8px">দ্রুত সাহায্য</h3>
+          <p class="small" style="margin:0 0 12px">
+            অর্ডার/ডেলিভারি/পেমেন্ট নিয়ে যেকোনো প্রশ্ন থাকলে সাথে সাথে যোগাযোগ করুন।
+          </p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn success" target="_blank" rel="noreferrer" href="https://wa.me/8801XXXXXXXXX">WhatsApp</a>
+            <button class="btn" onclick="alert('Live chat সংযোগ দিন: আপনি চাইলে এখানে Tawk.to/Chatwoot ইন্টিগ্রেশন বসাতে পারবেন')">Live Chat</button>
+            <a class="btn" href="mailto:support@yourbrand.com">Email</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3 style="margin:0 0 8px">FAQ (সবচেয়ে বেশি জিজ্ঞেস করা প্রশ্ন)</h3>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span>ফলোয়ার কি রিয়েল হবে?</span>
+              <span class="chev">▾</span>
+            </button>
+            <div class="faq-a">
+              আমরা রিয়েল/অ্যাক্টিভ টাইপ ফলোয়ার দেওয়ার চেষ্টা করি। তবে “রিয়েল” মানে সবসময় ১০০% একই আচরণ করবে এমন গ্যারান্টি নয়—সাপোর্টে আপনার টার্গেট জানালে আমরা বেস্ট ম্যাচ করি।
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span>পাসওয়ার্ড লাগবে?</span>
+              <span class="chev">▾</span>
+            </button>
+            <div class="faq-a">
+              না। শুধু আপনার Page/Profile এর লিংক লাগবে।
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              <span>ডেলিভারি কত সময়?</span>
+              <span class="chev">▾</span>
+            </button>
+            <div class="faq-a">
+              সাধারণত ১–২৪ ঘণ্টার মধ্যে। অর্ডার ভলিউম/সেটিংস অনুযায়ী সময় কম-বেশি হতে পারে।
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>© <span id="year"></span> YourBrand — All rights reserved.</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <div class="floatWrap">
-    <div class="floatBtn brand" onclick="openWhatsApp('আসসালামু আলাইকুম! আমি Saikat Tech Hub থেকে সার্ভিস নিতে চাই 🙂')" title="WhatsApp">🟢</div>
-    <div class="floatBtn" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})" title="Packages">📦</div>
-    <div class="floatBtn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" title="Contact">☎️</div>
+  <!-- Order Modal -->
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Order form">
+    <div class="modal">
+      <div class="modal-head">
+        <b>Order: <span id="pkgName">—</span></b>
+        <button class="close-x" id="closeModal" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="orderForm">
+          <div class="form">
+            <div class="field">
+              <label>আপনার নাম</label>
+              <input required name="name" placeholder="Saikat / Your Name" />
+            </div>
+            <div class="field">
+              <label>মোবাইল/WhatsApp</label>
+              <input required name="phone" placeholder="+8801XXXXXXXXX" />
+            </div>
+
+            <div class="field" style="grid-column:1/-1">
+              <label>Facebook Page/Profile URL</label>
+              <input required name="url" placeholder="https://facebook.com/yourpage" />
+            </div>
+
+            <div class="field">
+              <label>প্যাকেজ</label>
+              <select name="package" id="pkgSelect">
+                <option>Starter (1,000)</option>
+                <option>Popular (5,000)</option>
+                <option>Custom</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Country Target (Optional)</label>
+              <input name="country" placeholder="Bangladesh / USA / ..." />
+            </div>
+
+            <div class="field" style="grid-column:1/-1">
+              <label>নোট (Optional)</label>
+              <textarea name="note" placeholder="যেমন: দ্রুত ডেলিভারি দরকার / টার্গেট অডিয়েন্স..."></textarea>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn" id="copyMsg">Copy Message</button>
+            <button type="submit" class="btn success">WhatsApp এ পাঠান</button>
+          </div>
+
+          <div class="hint">
+            ✅ “WhatsApp এ পাঠান” দিলে আপনার অর্ডারের ডিটেইলস কপি হয়ে WhatsApp-এ ওপেন হবে।  
+            (WhatsApp নম্বর/লিংক আপনারটা দিয়ে পরিবর্তন করবেন: <code>wa.me/8801XXXXXXXXX</code>)
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
-  <div class="toast" id="toast">Done</div>
-
   <script>
-    const OWNER = {
-      whatsapp: "8801804676711"
-    };
+    // ====== Helpers
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => document.querySelectorAll(s);
 
-    function openWhatsApp(message){
-      const msg = encodeURIComponent(message || "");
-      window.open("https://wa.me/" + OWNER.whatsapp + "?text=" + msg, "_blank");
+    // Year
+    $("#year").textContent = new Date().getFullYear();
+
+    // Modal controls
+    const overlay = $("#overlay");
+    const pkgName = $("#pkgName");
+    const pkgSelect = $("#pkgSelect");
+
+    function openModal(pkg){
+      pkgName.textContent = pkg || "—";
+      // sync select
+      if(pkg){
+        const options = Array.from(pkgSelect.options).map(o => o.value);
+        if(options.includes(pkg)) pkgSelect.value = pkg;
+        else if(pkg.toLowerCase().includes("custom")) pkgSelect.value = "Custom";
+      }
+      overlay.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal(){
+      overlay.classList.remove("show");
+      document.body.style.overflow = "";
     }
 
-    function orderWA(service, pack, price){
-      const text =
-`আসসালামু আলাইকুম! আমি অর্ডার করতে চাই ✅
+    $("#openOrderTop").addEventListener("click", ()=> openModal("Popular (5,000)"));
+    $("#openOrderHero").addEventListener("click", ()=> openModal("Popular (5,000)"));
+    $("#closeModal").addEventListener("click", closeModal);
+    overlay.addEventListener("click", (e)=> { if(e.target === overlay) closeModal(); });
 
-Service: ${service}
-Package: ${pack}
-Price: ${price}
+    $$(".openOrder").forEach(btn=>{
+      btn.addEventListener("click", ()=> openModal(btn.dataset.pkg));
+    });
 
-Name:
-Link:
-Note:`;
-      openWhatsApp(text);
-      toast("WhatsApp খুলছে ✅");
+    // FAQ accordion
+    $$(".faq-item").forEach(item=>{
+      item.querySelector(".faq-q").addEventListener("click", ()=>{
+        item.classList.toggle("open");
+      });
+    });
+
+    // Search filter (packages + FAQ)
+    const searchInput = $("#searchInput");
+    const pkgCards = $$(".pkg");
+    const faqItems = $$(".faq-item");
+
+    searchInput.addEventListener("input", ()=>{
+      const q = searchInput.value.trim().toLowerCase();
+
+      pkgCards.forEach(card=>{
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(q) ? "" : "none";
+      });
+
+      faqItems.forEach(item=>{
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(q) ? "" : "none";
+      });
+    });
+
+    // Order -> WhatsApp message
+    function buildOrderMessage(data){
+      return [
+        "✅ New Order (Facebook Followers)",
+        "------------------------------",
+        `Name: ${data.name}`,
+        `Phone/WhatsApp: ${data.phone}`,
+        `URL: ${data.url}`,
+        `Package: ${data.package}`,
+        `Country Target: ${data.country || "N/A"}`,
+        `Note: ${data.note || "N/A"}`,
+        "------------------------------",
+        "Please confirm price & delivery time."
+      ].join("\n");
     }
 
-    function toast(t){
-      const el = document.getElementById("toast");
-      el.textContent = t || "Done";
-      el.style.display = "block";
-      clearTimeout(window.__to);
-      window.__to = setTimeout(()=> el.style.display = "none", 1500);
+    function formToData(form){
+      const fd = new FormData(form);
+      return Object.fromEntries(fd.entries());
     }
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const YOUR_WA_NUMBER = "8801XXXXXXXXX"; // <-- এখানে আপনার WhatsApp নম্বর দিন (country code সহ, 8801...)
+    const WA_LINK = `https://wa.me/${YOUR_WA_NUMBER}`;
+
+    $("#orderForm").addEventListener("submit", (e)=>{
+      e.preventDefault();
+      const data = formToData(e.target);
+      const msg = buildOrderMessage(data);
+      const url = WA_LINK + "?text=" + encodeURIComponent(msg);
+      window.open(url, "_blank");
+      closeModal();
+    });
+
+    $("#copyMsg").addEventListener("click", ()=>{
+      const data = formToData($("#orderForm"));
+      const msg = buildOrderMessage(data);
+      navigator.clipboard.writeText(msg).then(()=>{
+        alert("Order message কপি হয়েছে ✅ এখন WhatsApp-এ পেস্ট করতে পারবেন।");
+      }).catch(()=>{
+        alert("Copy করা যায়নি। আপনার ব্রাউজার পারমিশন চেক করুন।");
+      });
+    });
+
+    // Update WhatsApp button link in hero/support
+    $("#waBtn").href = WA_LINK;
+    // Support WhatsApp link already same pattern in HTML; you can also update it there.
   </script>
 </body>
 </html>
