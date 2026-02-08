@@ -1255,7 +1255,31 @@ ${notes}
 
   <!-- Part-2 + Part-3 will continue here -->
 </body>
-</html>
+</html>/* ===== Admin Modal Scroll Fix ===== */
+.overlay .modal{
+  max-height: calc(100vh - 36px);
+  display:flex;
+  flex-direction:column;
+}
+
+.overlay .modal-body{
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: calc(100vh - 160px); /* header+footer space */
+}
+
+/* Save/Close area always visible */
+.overlay .modal-actions{
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+}@media (max-width: 980px){
+  .overlay{ padding: 10px; }
+  .modal-body{ padding: 14px; }
+  .modal-actions{ padding: 12px 14px; }
+}
 <!-- =========================
      PART 1 END
 ========================= -->
