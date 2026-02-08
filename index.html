@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Saikat Tech Hub Store</title>
-  <meta name="description" content="Products + Services, WhatsApp checkout, Admin panel (Shopify-like), Logo/Cover change, image upload." />
+  <meta name="description" content="Products + Services, WhatsApp checkout, Admin panel (login), logo/cover change, image upload." />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -26,7 +26,6 @@
       --shadow2: 0 16px 40px rgba(0,0,0,.42);
       --max: 1180px;
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -84,7 +83,6 @@
       white-space:nowrap;
     }
 
-    /* topbar */
     .topbar{border-bottom:1px solid var(--line);background:rgba(0,0,0,.14);backdrop-filter: blur(10px);}
     .topbar .inner{
       max-width:var(--max);margin:0 auto;padding:10px 18px;
@@ -92,7 +90,6 @@
       font-size:13px;color:var(--muted);
     }
 
-    /* header */
     header{
       position:sticky;top:0;z-index:60;
       background:rgba(7,11,24,.86);
@@ -153,7 +150,6 @@
     }
     .mnav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
 
-    /* search */
     .search{
       flex: 1 1 320px;
       display:flex;gap:10px;align-items:center;
@@ -172,7 +168,6 @@
       font-size:14px;
     }
 
-    /* cart button */
     .cart-btn{
       position:relative;
       display:inline-flex;align-items:center;gap:10px;
@@ -193,7 +188,6 @@
       font-size:12px;font-weight:900;
     }
 
-    /* hero */
     .hero{padding:18px 0 10px}
     .heroCard{
       border-radius: calc(var(--radius) + 6px);
@@ -243,7 +237,6 @@
     .kv b{display:block;font-size:12px;color:var(--muted);font-weight:900}
     .kv span{display:block;margin-top:6px;font-weight:900;font-size:14.5px}
 
-    /* tabs */
     .tabsRow{
       margin-top:14px;
       display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;
@@ -267,13 +260,11 @@
       color: var(--text);
     }
 
-    /* sections */
     .section{padding:16px 0 40px}
     .titleRow{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
     .section h2{margin:0;font-size:22px}
     .section p{margin:8px 0 0;color:var(--muted);line-height:1.8}
 
-    /* toolbar */
     .toolbar{
       margin-top:14px;
       display:flex;gap:10px;flex-wrap:wrap;align-items:center;
@@ -291,7 +282,6 @@
     .input{flex: 1 1 260px;font-weight:700}
     .select{flex: 0 0 220px}
 
-    /* collection grid */
     .colGrid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -330,7 +320,6 @@
     .colCard h3{margin:10px 0 6px;font-size:16px}
     .colCard .small{font-size:12.5px;color:var(--muted);line-height:1.6}
 
-    /* item grids */
     .grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -398,7 +387,6 @@
     .reg{color:var(--muted);text-decoration:line-through;font-size:12.5px}
     .actions{display:flex;gap:10px;flex-wrap:wrap}
 
-    /* footer */
     footer{
       border-top:1px solid var(--line);
       background: rgba(0,0,0,.12);
@@ -408,7 +396,6 @@
     }
     .footRow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
 
-    /* drawer */
     .drawerOverlay{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.62);display:none;}
     .drawerOverlay.show{display:block}
     .drawer{
@@ -501,7 +488,6 @@
     }
     .field textarea{min-height:90px;resize:vertical}
 
-    /* modal */
     .overlay{
       position:fixed;inset:0;z-index:200;
       display:none;align-items:center;justify-content:center;
@@ -538,7 +524,6 @@
       padding:14px;
     }
 
-    /* detail hero */
     .pHero{
       border-radius:20px;border:1px solid var(--line);
       height:240px;
@@ -568,7 +553,6 @@
       white-space:nowrap;
     }
 
-    /* toast */
     .toastWrap{
       position:fixed;right:14px;bottom:14px;z-index:260;
       display:flex;flex-direction:column;gap:10px;
@@ -596,7 +580,6 @@
     @keyframes toastIn{from{transform:translateY(6px);opacity:0}to{transform:translateY(0);opacity:1}}
     @keyframes toastOut{to{transform:translateY(6px);opacity:0}}
 
-    /* admin table */
     .adminTop{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .adminTabs{display:inline-flex;gap:8px;flex-wrap:wrap;border:1px solid var(--line);background:rgba(255,255,255,.05);padding:8px;border-radius:999px}
     .adminTab{border:0;cursor:pointer;padding:10px 12px;border-radius:999px;background:transparent;color:var(--muted);font-weight:900}
@@ -622,7 +605,27 @@
     .miniBtn.ok{border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.12); color:#bbf7d0}
     .miniBtn.warn{border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.12); color:#fde68a}
 
-    /* responsive */
+    /* Shopify-like login card */
+    .loginCard{
+      border-radius:22px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      padding:16px;
+      box-shadow: var(--shadow2);
+    }
+    .loginRow{display:grid;grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px;}
+    .loginHint{font-size:12.5px;color:var(--muted);line-height:1.65;margin-top:10px}
+    .securePill{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(34,197,94,.25);
+      background: rgba(34,197,94,.10);
+      color:#bbf7d0;
+      font-weight:900;
+      font-size:12.5px;
+      margin-top:12px;
+    }
+
     @media (max-width: 980px){
       .heroCard{grid-template-columns:1fr}
       .grid{grid-template-columns:repeat(2,1fr)}
@@ -632,6 +635,7 @@
       .search{max-width:100%;flex:1 1 100%}
       .two{grid-template-columns:1fr}
       .brand{min-width:auto}
+      .loginRow{grid-template-columns:1fr}
     }
     @media (max-width: 560px){
       .grid{grid-template-columns:1fr}
@@ -660,7 +664,7 @@
     const ADMIN_SESSION_KEY = "saikat_admin_session_v1";
 
     /***********************
-     *  CONFIG (YOUR DETAILS)
+     *  YOUR DETAILS (keep same)
      ***********************/
     const SAIKAT = {
       brandName: "Saikat Tech Hub Store",
@@ -669,57 +673,33 @@
       email: "saikat712@gmail.com",
       fb: "https://www.facebook.com/share/1AWbo99RjN/",
       address: "Dhaka New Market, 1205",
-      payment: {
-        bkash: "+8801344-486384",
-        nagad: "01682312657"
-      }
+      payment: { bkash: "+8801344-486384", nagad: "01682312657" }
     };
 
-    /***********************
-     * Delivery Zones
-     ***********************/
     const DELIVERY_ZONES = [
       { id:"inside_dhaka", label:"Inside Dhaka", charge: 60 },
       { id:"outside_dhaka", label:"Outside Dhaka", charge: 120 },
       { id:"pickup", label:"Pickup (New Market)", charge: 0 }
     ];
 
-    /***********************
-     * DEFAULT STORE SETTINGS
-     * (logo + cover image editable from Admin)
-     ***********************/
-    const DEFAULT_STORE_SETTINGS = {
-      brandName: SAIKAT.brandName,
-      logoDataUrl: "",   // base64 data url
-      coverDataUrl: ""   // base64 data url
-    };
+    const DEFAULT_STORE_SETTINGS = { brandName: SAIKAT.brandName, logoDataUrl: "", coverDataUrl: "" };
 
-    /***********************
-     * DEFAULT PRODUCTS
-     ***********************/
     const DEFAULT_PRODUCTS = [
       { id:"p1", title:"Mobile Phone Holder", desc:"Strong grip • Universal", type:"product", collection:"Trending", price:95, regular:240, image:"", tags:["Hot","Deal"] },
       { id:"p2", title:"Body Massager", desc:"Relax • Easy use", type:"product", collection:"Trending", price:320, regular:550, image:"", tags:["Popular"] },
       { id:"p3", title:"Key Ring (Name/Phone)", desc:"Custom text", type:"product", collection:"Trending", price:148, regular:390, image:"", tags:["Gift"] },
       { id:"p4", title:"Router Stand", desc:"Wall mount", type:"product", collection:"Trending", price:499, regular:980, image:"", tags:["Premium"] },
-
       { id:"p5", title:"Bluetooth Speaker", desc:"Loud sound", type:"product", collection:"New Arrival", price:399, regular:null, image:"", tags:["New"] },
       { id:"p6", title:"Neck Shoulder Massager", desc:"Comfortable", type:"product", collection:"New Arrival", price:2690, regular:2990, image:"", tags:["Premium"] },
       { id:"p7", title:"LED Night Lamp", desc:"Soft light", type:"product", collection:"New Arrival", price:249, regular:399, image:"", tags:["New"] },
       { id:"p8", title:"Mini Tripod Stand", desc:"Portable", type:"product", collection:"New Arrival", price:199, regular:299, image:"", tags:["Deal"] },
-
       { id:"p9", title:"Premium Watch Strap", desc:"Quality material", type:"product", collection:"Signature", price:499, regular:799, image:"", tags:["Premium"] },
       { id:"p10",title:"Luxury Wallet", desc:"Elegant", type:"product", collection:"Signature", price:650, regular:980, image:"", tags:["Best"] },
-
       { id:"p11",title:"Stock Clearance Item", desc:"Limited", type:"product", collection:"Clearance", price:99, regular:250, image:"", tags:["Clearance"] },
-
       { id:"p12",title:"Best Selling Combo", desc:"Combo pack", type:"product", collection:"Best Selling", price:899, regular:1299, image:"", tags:["Best"] }
     ];
 
-    /***********************
-     * DEFAULT SERVICES (YOUR ORIGINAL)
-     * Admin can edit/add + image upload
-     ***********************/
+    /* আপনার Services (সম্পূর্ণ add করা) */
     const DEFAULT_SERVICES = [
       { id:"fb_followers", type:"service", category:"Facebook", title:"Facebook Followers", desc:"Page/Profile followers • Safe • No password", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,4,5,6,7,8,9,10,20,30,40,50,70], tags:["Popular","Fast","Safe"], image:"" },
       { id:"fb_likes", type:"service", category:"Facebook", title:"Facebook Likes", desc:"Page/Post likes • Social proof boost", unitType:"K", pricePerUnit:90, qtyList:[1,2,3,5,10,20,30,50], tags:["Trending","Quick","Boost"], image:"" },
@@ -758,16 +738,10 @@
       }
     ];
 
-    /***********************
-     * STORAGE KEYS
-     ***********************/
     const LS_SETTINGS = "saikat_store_settings_v1";
     const LS_PRODUCTS = "saikat_store_products_v1";
     const LS_SERVICES = "saikat_store_services_v1";
 
-    /***********************
-     * HELPERS
-     ***********************/
     const money = n => `${Number(n||0).toLocaleString("en-US")} Tk`;
     const escapeHtml = (str)=> String(str ?? "")
       .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
@@ -813,7 +787,6 @@
         reader.readAsDataURL(file);
       });
     }
-
     function makeId(prefix="id"){
       return `${prefix}_${Math.random().toString(16).slice(2)}_${Date.now().toString(16)}`;
     }
@@ -995,7 +968,7 @@
     </div>
   </footer>
 
-  <!-- CART DRAWER (Products checkout) -->
+  <!-- CART DRAWER -->
   <div class="drawerOverlay" id="drawerOverlay"></div>
   <aside class="drawer" id="drawer" aria-label="Cart Drawer">
     <div class="drawerHead">
@@ -1051,7 +1024,7 @@
     </div>
   </aside>
 
-  <!-- ITEM DETAILS MODAL (Products or Services) -->
+  <!-- DETAILS MODAL -->
   <div class="overlay" id="detailOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
       <div class="modalHead">
@@ -1091,13 +1064,13 @@
 
               <div class="actions" style="margin-top:12px">
                 <button class="btn pink" id="detailAdd"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                <button class="btn.wa btn wa" id="detailBuy"><i class="fa-brands fa-whatsapp"></i> Buy Now</button>
+                <button class="btn wa" id="detailBuy"><i class="fa-brands fa-whatsapp"></i> Buy Now</button>
                 <button class="btn ghost" id="detailGoCart"><i class="fa-solid fa-bag-shopping"></i> Open Cart</button>
               </div>
             </div>
 
             <div id="detailServiceArea" style="display:none;margin-top:12px">
-              <div class="field">
+              <div class="field" id="svcQtyWrap">
                 <label id="svcQtyLabel">Quantity</label>
                 <select id="svcQty"></select>
               </div>
@@ -1156,18 +1129,22 @@
   <div class="overlay" id="adminOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
       <div class="modalHead">
-        <b id="adminTitle"><i class="fa-solid fa-shield-halved"></i> Admin Panel (Login Required)</b>
+        <b id="adminTitle"><i class="fa-solid fa-shield-halved"></i> Admin Panel</b>
         <button class="xbtn" id="closeAdmin" aria-label="Close">✕</button>
       </div>
 
       <div class="modalBody">
-        <!-- Login View -->
-        <div id="adminLoginView" class="box">
-          <div class="muted" style="line-height:1.7">
-            Admin access only. Enter username/password.
+        <!-- Login -->
+        <div id="adminLoginView" class="loginCard">
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+            <div>
+              <b style="font-size:16px"><i class="fa-solid fa-lock"></i> Login Required</b>
+              <div class="muted" style="margin-top:4px;line-height:1.6">Only you can access settings, products, services, images.</div>
+            </div>
+            <div class="securePill"><i class="fa-solid fa-shield-halved"></i> Protected Admin Access</div>
           </div>
 
-          <div class="two" style="margin-top:12px">
+          <div class="loginRow">
             <div class="box">
               <div class="field">
                 <label>Username</label>
@@ -1177,29 +1154,33 @@
                 <label>Password</label>
                 <input id="adminPass" type="password" placeholder="••••••••" />
               </div>
-              <div class="actions" style="margin-top:12px">
+
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
                 <button class="btn primary" id="adminLoginBtn"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
-                <button class="btn ghost" id="adminLogoutBtn" style="display:none"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
               </div>
-              <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-                Tip: Login হলে এই ব্রাউজারে session থাকবে (Escape চাপলে modal close)।
+
+              <div class="loginHint">
+                ✅ Login করার পর আপনি Admin panel থেকে <b>Logo/Cover</b> + <b>Product/Service image</b> upload করতে পারবেন।
               </div>
             </div>
 
             <div class="box">
-              <div style="font-weight:900;margin-bottom:8px"><i class="fa-solid fa-gear"></i> You can manage</div>
-              <div class="muted" style="line-height:1.7">
-                ✅ Logo + Cover image change<br/>
+              <b><i class="fa-solid fa-list-check"></i> You can manage</b>
+              <div class="muted" style="margin-top:8px;line-height:1.75">
+                ✅ Store branding (Logo/Cover/Name)<br/>
                 ✅ Products add/edit/delete + images<br/>
                 ✅ Services add/edit/delete + images<br/>
-                ✅ Prices, description, tags, qty/packages, etc.<br/>
-                ✅ Save/Reset
+                ✅ Prices, description, tags, qty/packages<br/>
+                ✅ Reset default (if needed)
+              </div>
+              <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
+                Tip: Escape চাপলে modal বন্ধ হবে।
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Panel View -->
+        <!-- Panel -->
         <div id="adminPanelView" style="display:none">
           <div class="adminTop">
             <div class="adminTabs">
@@ -1214,16 +1195,7 @@
           </div>
 
           <div class="two" style="margin-top:12px">
-            <!-- left -->
             <div class="box">
-              <b>Quick Actions</b>
-              <div class="muted" style="margin-top:8px;line-height:1.7">
-                <i class="fa-solid fa-circle-check"></i> Change logo/cover (images)<br/>
-                <i class="fa-solid fa-circle-check"></i> Add new items with images<br/>
-                <i class="fa-solid fa-circle-check"></i> Prices/Descriptions update instantly
-              </div>
-              <div class="hr" style="height:1px;background:var(--line);margin:12px 0"></div>
-
               <div id="adminStoreBox">
                 <b><i class="fa-solid fa-image"></i> Store Branding</b>
 
@@ -1235,7 +1207,7 @@
                 <div class="two" style="margin-top:10px">
                   <div class="box">
                     <b>Logo Image</b>
-                    <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Upload logo (square recommended)</div>
+                    <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Square recommended</div>
                     <div class="field" style="margin-top:10px">
                       <label>Upload</label>
                       <input type="file" id="setLogoFile" accept="image/*" />
@@ -1248,7 +1220,7 @@
 
                   <div class="box">
                     <b>Cover Image</b>
-                    <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Upload hero cover/banner</div>
+                    <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Hero banner/cover</div>
                     <div class="field" style="margin-top:10px">
                       <label>Upload</label>
                       <input type="file" id="setCoverFile" accept="image/*" />
@@ -1265,14 +1237,13 @@
                 </div>
 
                 <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-                  Note: Images browser storage এ save হয়। খুব বড় file দিলে save নাও হতে পারে।
+                  Note: Images browser storage এ save হয় (খুব বড় file হলে save নাও হতে পারে)।
                 </div>
               </div>
 
               <div id="adminFormBox" style="display:none;margin-top:10px"></div>
             </div>
 
-            <!-- right -->
             <div class="box">
               <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;align-items:center">
                 <b id="adminListTitle">Products List</b>
@@ -1300,7 +1271,7 @@
               </div>
 
               <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-                Tip: Edit করলে live update হবে। Save করার সাথে সাথে storefront এ দেখাবে।
+                Tip: Save করার সাথে সাথে storefront এ দেখাবে।
               </div>
             </div>
           </div>
@@ -1316,16 +1287,10 @@
   <div class="toastWrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
 
   <script>
-    /***********************
-     * DATA (load from storage)
-     ***********************/
     let storeSettings = readJSON(LS_SETTINGS, DEFAULT_STORE_SETTINGS);
     let products = readJSON(LS_PRODUCTS, DEFAULT_PRODUCTS);
     let services = readJSON(LS_SERVICES, DEFAULT_SERVICES);
 
-    /***********************
-     * INIT UI BASIC LINKS
-     ***********************/
     const waBase = `https://wa.me/${SAIKAT.waNumber}`;
     document.getElementById("waHeader").href = waBase;
     document.getElementById("waContact").href = waBase;
@@ -1342,23 +1307,16 @@
     document.getElementById("svcBkash").textContent = SAIKAT.payment.bkash;
     document.getElementById("svcNagad").textContent = SAIKAT.payment.nagad;
 
-    /***********************
-     * MOBILE MENU
-     ***********************/
     const menuBtn = document.getElementById("menuBtn");
     const mnav = document.getElementById("mnav");
     menuBtn.addEventListener("click", ()=> mnav.classList.toggle("show"));
     mnav.addEventListener("click", (e)=>{ if(e.target.tagName==="A") mnav.classList.remove("show"); });
 
-    /***********************
-     * STORE BRANDING APPLY
-     ***********************/
     function applyBranding(){
       const brandName = storeSettings.brandName || SAIKAT.brandName;
       document.getElementById("brandTitle").textContent = brandName;
       document.getElementById("footBrand").textContent = brandName;
 
-      // logo
       const logoImg = document.getElementById("logoImg");
       const logoFallback = document.getElementById("logoFallback");
       if(storeSettings.logoDataUrl){
@@ -1371,7 +1329,6 @@
         logoFallback.textContent = (brandName||"S").trim().slice(0,1).toUpperCase();
       }
 
-      // cover
       const cover = document.getElementById("heroCoverImg");
       if(storeSettings.coverDataUrl){
         cover.style.backgroundImage = `url('${storeSettings.coverDataUrl}')`;
@@ -1380,10 +1337,7 @@
       }
     }
 
-    /***********************
-     * TABS (Products / Services)
-     ***********************/
-    let activeMode = "products"; // or "services"
+    let activeMode = "products";
     const tabProducts = document.getElementById("tabProducts");
     const tabServices = document.getElementById("tabServices");
 
@@ -1392,9 +1346,6 @@
       tabProducts.classList.toggle("active", mode==="products");
       tabServices.classList.toggle("active", mode==="services");
       document.getElementById("browseTitle").textContent = mode==="products" ? "Browse Products" : "Browse Services";
-      document.getElementById("browseChip").innerHTML = mode==="products"
-        ? `<i class="fa-solid fa-filter"></i> Search + Filter`
-        : `<i class="fa-solid fa-filter"></i> Search + Filter`;
       renderCollections();
       rebuildCategoryOptions();
       renderMainGrid();
@@ -1402,34 +1353,24 @@
     tabProducts.addEventListener("click", ()=> setMode("products"));
     tabServices.addEventListener("click", ()=> setMode("services"));
 
-    /***********************
-     * FILTERS
-     ***********************/
     let currentCollection = "ALL";
     const qHeader = document.getElementById("qHeader");
     const qBrowse = document.getElementById("qBrowse");
     const catBrowse = document.getElementById("catBrowse");
 
-    qHeader.addEventListener("input", ()=>{
-      qBrowse.value = qHeader.value;
-      renderMainGrid();
-    });
+    qHeader.addEventListener("input", ()=>{ qBrowse.value = qHeader.value; renderMainGrid(); });
     qBrowse.addEventListener("input", ()=> renderMainGrid());
 
     document.getElementById("clearFilter").addEventListener("click", ()=>{
-      qBrowse.value = "";
-      qHeader.value = "";
-      currentCollection = "ALL";
-      catBrowse.value = "ALL";
-      renderCollections();
-      renderMainGrid();
+      qBrowse.value = ""; qHeader.value = "";
+      currentCollection = "ALL"; catBrowse.value = "ALL";
+      renderCollections(); renderMainGrid();
       toast("Cleared", "Filter reset ✅", "success", 1400);
     });
 
     catBrowse.addEventListener("change", ()=>{
       currentCollection = catBrowse.value || "ALL";
-      renderCollections();
-      renderMainGrid();
+      renderCollections(); renderMainGrid();
     });
 
     function uniqueCollectionsFrom(list){
@@ -1449,9 +1390,6 @@
       currentCollection = catBrowse.value;
     }
 
-    /***********************
-     * COLLECTION CARDS
-     ***********************/
     const colGrid = document.getElementById("colGrid");
 
     function renderCollections(){
@@ -1484,9 +1422,6 @@
       };
     }
 
-    /***********************
-     * MAIN GRID (Products or Services)
-     ***********************/
     const gridMain = document.getElementById("gridMain");
 
     function matchesQuery(it, q){
@@ -1580,11 +1515,8 @@
       }
     }
 
-    /***********************
-     * CART (PRODUCTS)
-     ***********************/
-    const cart = new Map(); // id -> qty
-
+    /* CART */
+    const cart = new Map();
     function getProduct(id){ return products.find(p=>p.id===id); }
     function cartCount(){ let c=0; for(const q of cart.values()) c+=q; return c; }
     function cartSubtotal(){
@@ -1656,9 +1588,6 @@
       toast("Added", "Cart এ যোগ হয়েছে ✅", "success", 1400);
     }
 
-    /***********************
-     * CART DRAWER OPEN/CLOSE
-     ***********************/
     const openCartBtn = document.getElementById("openCart");
     const closeCartBtn = document.getElementById("closeCart");
     const drawer = document.getElementById("drawer");
@@ -1673,7 +1602,6 @@
       else toast("Service", "Service order করতে card খুলে Order দিন ✅", "info", 2200);
     });
 
-    // zone init
     const zoneSelect = document.getElementById("zoneSelect");
     zoneSelect.innerHTML = DELIVERY_ZONES.map(z=>(
       `<option value="${escapeHtml(z.id)}">${escapeHtml(z.label)} (+${money(z.charge)})</option>`
@@ -1681,14 +1609,12 @@
     zoneSelect.value = DELIVERY_ZONES[0]?.id || "inside_dhaka";
     zoneSelect.addEventListener("change", renderCart);
 
-    // payment method
     const paySelect = document.getElementById("paySelect");
     const trxField = document.getElementById("trxField");
     paySelect.addEventListener("change", ()=>{
       trxField.style.display = (paySelect.value==="COD") ? "none" : "block";
     });
 
-    // cart actions
     document.getElementById("cartBody").addEventListener("click", (e)=>{
       const inc = e.target.closest("[data-inc]");
       const dec = e.target.closest("[data-dec]");
@@ -1710,7 +1636,6 @@
       }
     });
 
-    // whatsapp checkout (products)
     document.getElementById("checkoutDrawer").addEventListener("click", ()=>{
       if(cart.size===0){ toast("Empty","Cart খালি আছে","error"); return; }
       const zId = zoneSelect.value;
@@ -1756,9 +1681,7 @@ Nagad: ${SAIKAT.payment.nagad}
       window.open(`${waBase}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
     });
 
-    /***********************
-     * DETAILS MODAL (PRODUCT/SERVICE)
-     ***********************/
+    /* DETAILS MODAL (Products + Services) */
     const detailOverlay = document.getElementById("detailOverlay");
     const closeDetail = document.getElementById("closeDetail");
     const detailCloseBtn = document.getElementById("detailCloseBtn");
@@ -1782,6 +1705,7 @@ Nagad: ${SAIKAT.payment.nagad}
     const detailBuy = document.getElementById("detailBuy");
     const detailGoCart = document.getElementById("detailGoCart");
 
+    const svcQtyWrap = document.getElementById("svcQtyWrap");
     const svcQtyLabel = document.getElementById("svcQtyLabel");
     const svcQty = document.getElementById("svcQty");
     const svcPkgField = document.getElementById("svcPkgField");
@@ -1793,7 +1717,7 @@ Nagad: ${SAIKAT.payment.nagad}
     const svcNote = document.getElementById("svcNote");
     const svcSend = document.getElementById("svcSend");
 
-    let currentDetail = null; // {mode:'product'|'service', id}
+    let currentDetail = null;
     let svcComputed = { label:"", price:0 };
 
     function openDetailForProduct(p){
@@ -1804,17 +1728,10 @@ Nagad: ${SAIKAT.payment.nagad}
       detailName.textContent = p.title || "Product";
       detailDesc.textContent = p.desc || "";
 
-      // image
-      if(p.image){
-        detailImg.style.backgroundImage = `url('${p.image}')`;
-        detailImg.style.display = "block";
-      }else{
-        detailImg.style.backgroundImage = "";
-        detailImg.style.display = "none";
-      }
+      if(p.image){ detailImg.style.backgroundImage = `url('${p.image}')`; detailImg.style.display = "block"; }
+      else { detailImg.style.backgroundImage = ""; detailImg.style.display = "none"; }
       detailIcon.className = "fa-solid fa-box";
 
-      // tags
       const tags = Array.isArray(p.tags) ? p.tags : [];
       detailTags.innerHTML = [
         `<span class="spec"><i class="fa-solid fa-tag"></i> ${escapeHtml(p.collection||"General")}</span>`,
@@ -1825,17 +1742,12 @@ Nagad: ${SAIKAT.payment.nagad}
       detailServiceArea.style.display = "none";
 
       detailSale.textContent = money(p.price);
-      if(p.regular){
-        detailReg.style.display = "inline";
-        detailReg.textContent = money(p.regular);
-      }else{
-        detailReg.style.display = "none";
-      }
+      if(p.regular){ detailReg.style.display = "inline"; detailReg.textContent = money(p.regular); }
+      else { detailReg.style.display = "none"; }
       const off = percentOff(p.price,p.regular);
       detailOff.textContent = off ? `${off}% OFF available` : "";
 
       detailQty.value = "1";
-
       detailOverlay.classList.add("show");
       detailOverlay.setAttribute("aria-hidden","false");
     }
@@ -1850,13 +1762,8 @@ Nagad: ${SAIKAT.payment.nagad}
       detailName.textContent = s.title || "Service";
       detailDesc.textContent = s.desc || "";
 
-      if(s.image){
-        detailImg.style.backgroundImage = `url('${s.image}')`;
-        detailImg.style.display = "block";
-      }else{
-        detailImg.style.backgroundImage = "";
-        detailImg.style.display = "none";
-      }
+      if(s.image){ detailImg.style.backgroundImage = `url('${s.image}')`; detailImg.style.display = "block"; }
+      else { detailImg.style.backgroundImage = ""; detailImg.style.display = "none"; }
       detailIcon.className = "fa-solid fa-bolt";
 
       const tags = Array.isArray(s.tags) ? s.tags : [];
@@ -1868,38 +1775,31 @@ Nagad: ${SAIKAT.payment.nagad}
       detailProductArea.style.display = "none";
       detailServiceArea.style.display = "block";
 
-      // reset fields
       svcUrl.value = "";
       svcPay.value = "";
       svcTrx.value = "";
       svcNote.value = "";
       svcPrice.value = "Tk 0";
 
-      // qty/package UI
       if(s.unitType==="PACK"){
         svcPkgField.style.display = "block";
-        svcQty.parentElement.style.display = "none";
+        svcQtyWrap.style.display = "none";
         svcPkg.innerHTML = `<option value="">Select package</option>` + (s.packages||[]).map((p,idx)=>(
           `<option value="${idx}">${escapeHtml(p.label)} — ${money(p.price)}</option>`
         )).join("");
-        svcComputed = { label:"", price:0 };
       }else{
         svcPkgField.style.display = "none";
-        svcQty.parentElement.style.display = "block";
-
+        svcQtyWrap.style.display = "flex";
         if(s.unitType==="K"){
           svcQtyLabel.textContent = "Quantity (K)";
           svcQty.innerHTML = `<option value="">Select quantity</option>` + (s.qtyList||[]).map(q=>(
             `<option value="${q}">${q}K</option>`
           )).join("");
-        }else if(s.unitType==="100"){
+        }else{
           svcQtyLabel.textContent = "Quantity (x100)";
           svcQty.innerHTML = `<option value="">Select quantity</option>` + (s.qtyList||[]).map(q=>(
             `<option value="${q}">${q*100}</option>`
           )).join("");
-        }else{
-          svcQtyLabel.textContent = "Quantity";
-          svcQty.innerHTML = `<option value="">Select</option>`;
         }
       }
 
@@ -1912,7 +1812,6 @@ Nagad: ${SAIKAT.payment.nagad}
       detailOverlay.setAttribute("aria-hidden","true");
       currentDetail = null;
     }
-
     closeDetail.addEventListener("click", closeDetailFn);
     detailCloseBtn.addEventListener("click", closeDetailFn);
     detailOverlay.addEventListener("click", (e)=>{ if(e.target===detailOverlay) closeDetailFn(); });
@@ -1969,7 +1868,6 @@ Nagad: ${SAIKAT.payment.nagad}
       showDrawer();
     });
 
-    // service compute
     svcQty.addEventListener("change", ()=>{
       if(!currentDetail || currentDetail.mode!=="service") return;
       const s = services.find(x=>x.id===currentDetail.id);
@@ -1979,11 +1877,8 @@ Nagad: ${SAIKAT.payment.nagad}
       if(s.unitType==="K"){
         svcComputed.label = `${v}K`;
         svcComputed.price = v * Number(s.pricePerUnit||0);
-      }else if(s.unitType==="100"){
-        svcComputed.label = `${v*100}`;
-        svcComputed.price = v * Number(s.pricePerUnit||0);
       }else{
-        svcComputed.label = `${v}`;
+        svcComputed.label = `${v*100}`;
         svcComputed.price = v * Number(s.pricePerUnit||0);
       }
       svcPrice.value = money(svcComputed.price);
@@ -2004,12 +1899,9 @@ Nagad: ${SAIKAT.payment.nagad}
       const s = services.find(x=>x.id===currentDetail.id);
       if(!s) return;
 
-      // validate
-      if(s.unitType==="PACK"){
-        if(!svcPkg.value) return alert("Package select করুন");
-      }else{
-        if(!svcQty.value) return alert("Quantity select করুন");
-      }
+      if(s.unitType==="PACK"){ if(!svcPkg.value) return alert("Package select করুন"); }
+      else { if(!svcQty.value) return alert("Quantity select করুন"); }
+
       if(!svcUrl.value.trim()) return alert("Link/URL দিন");
       if(!svcPay.value) return alert("Payment method select করুন (bKash/Nagad)");
       if(!svcTrx.value.trim()) return alert("Transaction ID দিন");
@@ -2046,9 +1938,6 @@ Nagad: ${SAIKAT.payment.nagad}
       window.open(`${waBase}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
     });
 
-    /***********************
-     * GLOBAL CLICK HANDLERS
-     ***********************/
     document.addEventListener("click", (e)=>{
       const resetTmp = e.target.closest("#resetBtnTmp");
       if(resetTmp){
@@ -2063,42 +1952,36 @@ Nagad: ${SAIKAT.payment.nagad}
       const infoBtn = e.target.closest("[data-info]");
       const openCard = e.target.closest("[data-open]");
 
-      if(addBtn){
-        e.preventDefault();
-        addToCart(addBtn.getAttribute("data-add"), 1);
-        return;
-      }
+      if(addBtn){ e.preventDefault(); addToCart(addBtn.getAttribute("data-add"), 1); return; }
+
       if(detailsBtn){
         e.preventDefault();
         const id = detailsBtn.getAttribute("data-details");
-        if(activeMode==="products"){
-          const p = getProduct(id); if(p) openDetailForProduct(p);
-        }else{
-          const s = services.find(x=>x.id===id); if(s) openDetailForService(s);
-        }
+        if(activeMode==="products"){ const p = getProduct(id); if(p) openDetailForProduct(p); }
+        else { const s = services.find(x=>x.id===id); if(s) openDetailForService(s); }
         return;
       }
+
       if(infoBtn){
         e.preventDefault();
         const id = infoBtn.getAttribute("data-info");
         const s = services.find(x=>x.id===id);
         if(!s) return;
+
         let details = `${s.title}\n\n${s.desc}\n\nCategory: ${(s.category||s.collection||"Service")}\n`;
         if(s.unitType==="PACK"){
           details += "\nPackages:\n" + (s.packages||[]).map(p=>`- ${p.label}: ${money(p.price)} (${p.note||""})`).join("\n");
         }else{
-          details += `\nPricing:\n- Rate: ${money(s.pricePerUnit)} per ${s.unitType==="K" ? "1K" : (s.unitType==="100" ? "100" : "unit")}\n`;
+          details += `\nPricing:\n- Rate: ${money(s.pricePerUnit)} per ${s.unitType==="K" ? "1K" : "100"}\n`;
         }
         alert(details);
         return;
       }
+
       if(openCard && !e.target.closest("button")){
         const id = openCard.getAttribute("data-open");
-        if(activeMode==="products"){
-          const p = getProduct(id); if(p) openDetailForProduct(p);
-        }else{
-          const s = services.find(x=>x.id===id); if(s) openDetailForService(s);
-        }
+        if(activeMode==="products"){ const p = getProduct(id); if(p) openDetailForProduct(p); }
+        else { const s = services.find(x=>x.id===id); if(s) openDetailForService(s); }
         return;
       }
     });
@@ -2109,41 +1992,45 @@ Nagad: ${SAIKAT.payment.nagad}
         closeDetailFn();
         closeAdminModal();
       }
-      if(e.key==="Enter"){
-        const active = document.activeElement;
-        if(active && active.matches("[data-open]")){
-          const id = active.getAttribute("data-open");
-          if(activeMode==="products"){
-            const p = getProduct(id); if(p) openDetailForProduct(p);
-          }else{
-            const s = services.find(x=>x.id===id); if(s) openDetailForService(s);
-          }
-        }
-      }
     });
 
-    /***********************
-     * ADMIN MODAL + AUTH
-     ***********************/
+    /* ADMIN AUTH + PANEL */
     const adminOverlay = document.getElementById("adminOverlay");
     const openAdminBtn = document.getElementById("openAdmin");
     const closeAdminBtn = document.getElementById("closeAdmin");
     const adminCloseBtn = document.getElementById("adminCloseBtn");
-
     const adminLoginView = document.getElementById("adminLoginView");
     const adminPanelView = document.getElementById("adminPanelView");
     const adminUser = document.getElementById("adminUser");
     const adminPass = document.getElementById("adminPass");
     const adminLoginBtn = document.getElementById("adminLoginBtn");
-    const adminLogoutBtn = document.getElementById("adminLogoutBtn");
     const adminLogout = document.getElementById("adminLogout");
 
-    function isAdmin(){
-      return sessionStorage.getItem(ADMIN_SESSION_KEY)==="1";
-    }
-    function setAdminSession(on){
-      sessionStorage.setItem(ADMIN_SESSION_KEY, on ? "1" : "0");
-    }
+    const adminTabStore = document.getElementById("adminTabStore");
+    const adminTabProducts = document.getElementById("adminTabProducts");
+    const adminTabServices = document.getElementById("adminTabServices");
+    const adminStoreBox = document.getElementById("adminStoreBox");
+    const adminFormBox = document.getElementById("adminFormBox");
+    const adminListTitle = document.getElementById("adminListTitle");
+    const adminTbody = document.getElementById("adminTbody");
+    const adminAddNew = document.getElementById("adminAddNew");
+    const adminSearch = document.getElementById("adminSearch");
+    const adminResetAll = document.getElementById("adminResetAll");
+
+    const setBrandName = document.getElementById("setBrandName");
+    const setBrandSave = document.getElementById("setBrandSave");
+    const setLogoFile = document.getElementById("setLogoFile");
+    const setCoverFile = document.getElementById("setCoverFile");
+    const setLogoSave = document.getElementById("setLogoSave");
+    const setCoverSave = document.getElementById("setCoverSave");
+    const setLogoClear = document.getElementById("setLogoClear");
+    const setCoverClear = document.getElementById("setCoverClear");
+
+    let adminMode = "store";
+    let editingId = null;
+
+    function isAdmin(){ return sessionStorage.getItem(ADMIN_SESSION_KEY)==="1"; }
+    function setAdminSession(on){ sessionStorage.setItem(ADMIN_SESSION_KEY, on ? "1" : "0"); }
 
     function openAdminModal(){
       adminOverlay.classList.add("show");
@@ -2179,24 +2066,13 @@ Nagad: ${SAIKAT.payment.nagad}
       refreshAdminUI();
     }
     adminLogout.addEventListener("click", doLogout);
-    adminLogoutBtn.addEventListener("click", doLogout);
 
-    /***********************
-     * ADMIN TABS
-     ***********************/
-    const adminTabStore = document.getElementById("adminTabStore");
-    const adminTabProducts = document.getElementById("adminTabProducts");
-    const adminTabServices = document.getElementById("adminTabServices");
-    const adminStoreBox = document.getElementById("adminStoreBox");
-    const adminFormBox = document.getElementById("adminFormBox");
-    const adminListTitle = document.getElementById("adminListTitle");
-    const adminTbody = document.getElementById("adminTbody");
-    const adminAddNew = document.getElementById("adminAddNew");
-    const adminSearch = document.getElementById("adminSearch");
-    const adminResetAll = document.getElementById("adminResetAll");
-
-    let adminMode = "products"; // products/services/store
-    let editingId = null; // current editing item id
+    function persistData(){
+      writeJSON(LS_SETTINGS, storeSettings);
+      writeJSON(LS_PRODUCTS, products);
+      writeJSON(LS_SERVICES, services);
+      applyBranding();
+    }
 
     function setAdminTab(tab){
       adminMode = tab;
@@ -2222,49 +2098,24 @@ Nagad: ${SAIKAT.payment.nagad}
     adminTabProducts.addEventListener("click", ()=> setAdminTab("products"));
     adminTabServices.addEventListener("click", ()=> setAdminTab("services"));
 
-    adminAddNew.addEventListener("click", ()=>{
-      renderAdminForm({ _new:true });
-      toast("Admin","Fill form then Save ✅","info", 1600);
-    });
-
-    adminSearch.addEventListener("input", renderAdminList);
-
     adminResetAll.addEventListener("click", ()=>{
       if(!confirm("Reset সব ডাটা default এ যাবে. Continue?")) return;
       storeSettings = structuredClone(DEFAULT_STORE_SETTINGS);
       products = structuredClone(DEFAULT_PRODUCTS);
       services = structuredClone(DEFAULT_SERVICES);
-
-      writeJSON(LS_SETTINGS, storeSettings);
-      writeJSON(LS_PRODUCTS, products);
-      writeJSON(LS_SERVICES, services);
-
-      applyBranding();
+      persistData();
       rebuildCategoryOptions();
       renderCollections();
       renderMainGrid();
+      cart.clear();
       renderCart();
-
       refreshAdminUI();
       toast("Reset","All restored to default ✅","success", 2000);
     });
 
-    /***********************
-     * ADMIN STORE SETTINGS (logo/cover/brand)
-     ***********************/
-    const setBrandName = document.getElementById("setBrandName");
-    const setBrandSave = document.getElementById("setBrandSave");
-    const setLogoFile = document.getElementById("setLogoFile");
-    const setCoverFile = document.getElementById("setCoverFile");
-    const setLogoSave = document.getElementById("setLogoSave");
-    const setCoverSave = document.getElementById("setCoverSave");
-    const setLogoClear = document.getElementById("setLogoClear");
-    const setCoverClear = document.getElementById("setCoverClear");
-
     setBrandSave.addEventListener("click", ()=>{
       storeSettings.brandName = setBrandName.value.trim() || SAIKAT.brandName;
-      writeJSON(LS_SETTINGS, storeSettings);
-      applyBranding();
+      persistData();
       toast("Saved","Brand name updated ✅","success", 1600);
     });
 
@@ -2273,13 +2124,10 @@ Nagad: ${SAIKAT.payment.nagad}
       if(!f) return toast("Missing","Select a logo file first","error", 2200);
       try{
         storeSettings.logoDataUrl = await fileToDataUrl(f);
-        writeJSON(LS_SETTINGS, storeSettings);
-        applyBranding();
+        persistData();
         toast("Saved","Logo updated ✅","success", 1600);
         setLogoFile.value = "";
-      }catch{
-        toast("Error","Logo upload failed","error", 2200);
-      }
+      }catch{ toast("Error","Logo upload failed","error", 2200); }
     });
 
     setCoverSave.addEventListener("click", async ()=>{
@@ -2287,63 +2135,35 @@ Nagad: ${SAIKAT.payment.nagad}
       if(!f) return toast("Missing","Select a cover file first","error", 2200);
       try{
         storeSettings.coverDataUrl = await fileToDataUrl(f);
-        writeJSON(LS_SETTINGS, storeSettings);
-        applyBranding();
+        persistData();
         toast("Saved","Cover updated ✅","success", 1600);
         setCoverFile.value = "";
-      }catch{
-        toast("Error","Cover upload failed","error", 2200);
-      }
+      }catch{ toast("Error","Cover upload failed","error", 2200); }
     });
 
-    setLogoClear.addEventListener("click", ()=>{
-      storeSettings.logoDataUrl = "";
-      writeJSON(LS_SETTINGS, storeSettings);
-      applyBranding();
-      toast("Removed","Logo removed ✅","success", 1400);
-    });
+    setLogoClear.addEventListener("click", ()=>{ storeSettings.logoDataUrl=""; persistData(); toast("Removed","Logo removed ✅","success", 1400); });
+    setCoverClear.addEventListener("click", ()=>{ storeSettings.coverDataUrl=""; persistData(); toast("Removed","Cover removed ✅","success", 1400); });
 
-    setCoverClear.addEventListener("click", ()=>{
-      storeSettings.coverDataUrl = "";
-      writeJSON(LS_SETTINGS, storeSettings);
-      applyBranding();
-      toast("Removed","Cover removed ✅","success", 1400);
-    });
-
-    /***********************
-     * ADMIN LIST RENDER
-     ***********************/
     function listItemThumb(img){
       if(!img) return `<span class="tag"><i class="fa-solid fa-image"></i> No</span>`;
       return `<span class="tag"><i class="fa-solid fa-image"></i> Yes</span>`;
     }
 
     function renderAdminList(){
-      if(!isAdmin()){
-        adminTbody.innerHTML = "";
-        return;
-      }
-      if(adminMode==="store"){
-        adminTbody.innerHTML = "";
-        return;
-      }
+      if(!isAdmin()){ adminTbody.innerHTML = ""; return; }
+      if(adminMode==="store"){ adminTbody.innerHTML = ""; return; }
 
       const q = (adminSearch.value||"").trim().toLowerCase();
       const list = (adminMode==="products" ? products : services).filter(it=>{
         if(!q) return true;
-        const hay = [
-          it.title, it.desc, it.collection, it.category,
-          Array.isArray(it.tags) ? it.tags.join(" ") : ""
-        ].join(" ").toLowerCase();
+        const hay = [it.title, it.desc, it.collection, it.category, (it.tags||[]).join(" ")].join(" ").toLowerCase();
         return hay.includes(q);
       });
 
       adminTbody.innerHTML = list.map(it=>{
         const coll = (adminMode==="products") ? (it.collection||"") : (it.category||it.collection||"");
-        const priceText = adminMode==="products"
-          ? money(it.price)
+        const priceText = adminMode==="products" ? money(it.price)
           : (it.unitType==="PACK" ? "PACK" : `Rate: ${money(it.pricePerUnit)}`);
-
         return `
           <tr>
             <td>${listItemThumb(it.image)}</td>
@@ -2364,7 +2184,6 @@ Nagad: ${SAIKAT.payment.nagad}
         `;
       }).join("");
 
-      // click actions
       adminTbody.onclick = (e)=>{
         const edit = e.target.closest("[data-aedit]");
         const del = e.target.closest("[data-adel]");
@@ -2390,12 +2209,8 @@ Nagad: ${SAIKAT.payment.nagad}
         if(del){
           const id = del.getAttribute("data-adel");
           if(!confirm("Delete this item?")) return;
-          if(adminMode==="products"){
-            products = products.filter(x=>x.id!==id);
-            cart.delete(id);
-          }else{
-            services = services.filter(x=>x.id!==id);
-          }
+          if(adminMode==="products"){ products = products.filter(x=>x.id!==id); cart.delete(id); }
+          else { services = services.filter(x=>x.id!==id); }
           persistData();
           renderAdminList();
           renderMainGrid();
@@ -2405,30 +2220,29 @@ Nagad: ${SAIKAT.payment.nagad}
       };
     }
 
-    /***********************
-     * ADMIN FORM (SHOPIFY-LIKE)
-     ***********************/
+    adminSearch.addEventListener("input", renderAdminList);
+
+    adminAddNew.addEventListener("click", ()=>{
+      renderAdminForm({ _new:true });
+      toast("Admin","Fill form then Save ✅","info", 1600);
+    });
+
     function renderAdminForm(item){
-      if(!isAdmin()){
-        adminFormBox.innerHTML = "";
-        return;
-      }
-      if(adminMode==="store"){
-        adminFormBox.innerHTML = "";
-        return;
-      }
+      if(!isAdmin()){ adminFormBox.innerHTML=""; return; }
+      if(adminMode==="store"){ adminFormBox.innerHTML=""; return; }
 
       const isNew = !!(item && item._new);
       const it = item ? structuredClone(item) : null;
-
       editingId = (it && !isNew) ? it.id : null;
 
       if(adminMode==="products"){
-        const v = it || { id: makeId("p"), type:"product", title:"", desc:"", collection:"", price:0, regular:null, image:"", tags:[] };
+        const v = it || { id: makeId("p"), type:"product", title:"", desc:"", collection:"General", price:0, regular:null, image:"", tags:[] };
+        adminFormBox.style.display = "block";
         adminFormBox.innerHTML = productFormHTML(v, isNew);
         wireProductForm(v, isNew);
       }else{
         const v = it || { id: makeId("s"), type:"service", category:"", title:"", desc:"", unitType:"K", pricePerUnit:0, qtyList:[1,2,3,5,10], packages:[], tags:[], image:"" };
+        adminFormBox.style.display = "block";
         adminFormBox.innerHTML = serviceFormHTML(v, isNew);
         wireServiceForm(v, isNew);
       }
@@ -2472,7 +2286,7 @@ Nagad: ${SAIKAT.payment.nagad}
                 <button class="miniBtn danger" id="pfImageClear"><i class="fa-solid fa-trash"></i> Remove</button>
               </div>
 
-              <div class="hr" style="height:1px;background:var(--line);margin:12px 0"></div>
+              <div style="height:1px;background:var(--line);margin:12px 0"></div>
               <div class="field">
                 <label>Sale Price (Tk)</label>
                 <input id="pfPrice" type="number" value="${Number(v.price||0)}" />
@@ -2485,10 +2299,6 @@ Nagad: ${SAIKAT.payment.nagad}
               <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
                 <button class="btn primary" id="pfSave"><i class="fa-solid fa-floppy-disk"></i> Save Product</button>
                 <button class="btn ghost" id="pfCancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
-              </div>
-
-              <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-                Tip: Regular price দিলে discount badge দেখাবে।
               </div>
             </div>
           </div>
@@ -2511,18 +2321,10 @@ Nagad: ${SAIKAT.payment.nagad}
       pfImageSave.addEventListener("click", async ()=>{
         const f = pfImageFile.files?.[0];
         if(!f) return toast("Missing","Select an image first","error", 2200);
-        try{
-          v.image = await fileToDataUrl(f);
-          pfImageFile.value = "";
-          toast("Saved","Image attached ✅","success", 1400);
-        }catch{
-          toast("Error","Image upload failed","error", 2200);
-        }
+        try{ v.image = await fileToDataUrl(f); pfImageFile.value = ""; toast("Saved","Image attached ✅","success", 1400); }
+        catch{ toast("Error","Image upload failed","error", 2200); }
       });
-      pfImageClear.addEventListener("click", ()=>{
-        v.image = "";
-        toast("Removed","Image removed ✅","success", 1400);
-      });
+      pfImageClear.addEventListener("click", ()=>{ v.image=""; toast("Removed","Image removed ✅","success", 1400); });
 
       document.getElementById("pfSave").addEventListener("click", ()=>{
         const title = pfTitle.value.trim();
@@ -2535,25 +2337,17 @@ Nagad: ${SAIKAT.payment.nagad}
         v.price = Number(pfPrice.value||0);
         v.regular = (pfRegular.value.trim()==="") ? null : Number(pfRegular.value);
 
-        // save to list
-        if(isNew){
-          products.unshift(v);
-        }else{
-          products = products.map(x=> x.id===v.id ? v : x);
-        }
-        persistData();
-        rebuildCategoryOptions();
-        renderCollections();
-        renderMainGrid();
-        renderCart();
-        renderAdminList();
-        renderAdminForm(null);
+        if(isNew) products.unshift(v);
+        else products = products.map(x=> x.id===v.id ? v : x);
 
+        persistData();
+        rebuildCategoryOptions(); renderCollections(); renderMainGrid(); renderCart(); renderAdminList();
+        adminFormBox.style.display="none"; adminFormBox.innerHTML="";
         toast("Saved","Product updated ✅","success", 1600);
       });
 
       document.getElementById("pfCancel").addEventListener("click", ()=>{
-        renderAdminForm(null);
+        adminFormBox.style.display="none"; adminFormBox.innerHTML="";
       });
     }
 
@@ -2600,7 +2394,7 @@ Nagad: ${SAIKAT.payment.nagad}
                 <button class="miniBtn danger" id="sfImageClear"><i class="fa-solid fa-trash"></i> Remove</button>
               </div>
 
-              <div class="hr" style="height:1px;background:var(--line);margin:12px 0"></div>
+              <div style="height:1px;background:var(--line);margin:12px 0"></div>
 
               <div class="field">
                 <label>Unit Type</label>
@@ -2662,18 +2456,10 @@ Nagad: ${SAIKAT.payment.nagad}
       sfImageSave.addEventListener("click", async ()=>{
         const f = sfImageFile.files?.[0];
         if(!f) return toast("Missing","Select an image first","error", 2200);
-        try{
-          v.image = await fileToDataUrl(f);
-          sfImageFile.value = "";
-          toast("Saved","Image attached ✅","success", 1400);
-        }catch{
-          toast("Error","Image upload failed","error", 2200);
-        }
+        try{ v.image = await fileToDataUrl(f); sfImageFile.value=""; toast("Saved","Image attached ✅","success", 1400); }
+        catch{ toast("Error","Image upload failed","error", 2200); }
       });
-      sfImageClear.addEventListener("click", ()=>{
-        v.image = "";
-        toast("Removed","Image removed ✅","success", 1400);
-      });
+      sfImageClear.addEventListener("click", ()=>{ v.image=""; toast("Removed","Image removed ✅","success", 1400); });
 
       sfUnit.addEventListener("change", ()=>{
         v.unitType = sfUnit.value;
@@ -2697,83 +2483,41 @@ Nagad: ${SAIKAT.payment.nagad}
           try{
             const parsed = JSON.parse(sfPackages.value || "[]");
             if(!Array.isArray(parsed)) throw new Error("Packages must be array");
-            v.packages = parsed.map(p=>({
-              label: String(p.label||"Package"),
-              price: Number(p.price||0),
-              note: String(p.note||"")
-            }));
-            v.pricePerUnit = 0;
-            v.qtyList = [];
+            v.packages = parsed.map(p=>({ label:String(p.label||"Package"), price:Number(p.price||0), note:String(p.note||"") }));
+            v.pricePerUnit = 0; v.qtyList = [];
           }catch(err){
             toast("Invalid","Packages JSON error: " + (err?.message||"Invalid"),"error", 3800);
             return;
           }
         }else{
           v.pricePerUnit = Number(sfRate.value||0);
-          v.qtyList = (sfQtyList.value||"")
-            .split(",")
-            .map(x=>Number(String(x).trim()))
-            .filter(n=>Number.isFinite(n) && n>0);
+          v.qtyList = (sfQtyList.value||"").split(",").map(x=>Number(String(x).trim())).filter(n=>Number.isFinite(n) && n>0);
           v.packages = [];
-          if(v.qtyList.length===0){
-            toast("Missing","Qty list required (e.g. 1,2,3,5)","error", 2600);
-            return;
-          }
+          if(v.qtyList.length===0) return toast("Missing","Qty list required (e.g. 1,2,3,5)","error", 2600);
         }
 
-        // save
-        if(isNew){
-          services.unshift(v);
-        }else{
-          services = services.map(x=> x.id===v.id ? v : x);
-        }
+        if(isNew) services.unshift(v);
+        else services = services.map(x=> x.id===v.id ? v : x);
+
         persistData();
-        rebuildCategoryOptions();
-        renderCollections();
-        renderMainGrid();
-        renderAdminList();
-        renderAdminForm(null);
-
+        rebuildCategoryOptions(); renderCollections(); renderMainGrid(); renderAdminList();
+        adminFormBox.style.display="none"; adminFormBox.innerHTML="";
         toast("Saved","Service updated ✅","success", 1600);
       });
 
       document.getElementById("sfCancel").addEventListener("click", ()=>{
-        renderAdminForm(null);
+        adminFormBox.style.display="none"; adminFormBox.innerHTML="";
       });
     }
 
-    /***********************
-     * ADMIN UI REFRESH
-     ***********************/
     function refreshAdminUI(){
       const authed = isAdmin();
       adminLoginView.style.display = authed ? "none" : "block";
       adminPanelView.style.display = authed ? "block" : "none";
-      adminLogoutBtn.style.display = authed ? "inline-flex" : "none";
-
-      // fill store fields
       setBrandName.value = storeSettings.brandName || SAIKAT.brandName;
-
-      if(authed){
-        // default tab
-        if(adminMode!=="store" && adminMode!=="products" && adminMode!=="services") adminMode="products";
-        setAdminTab(adminMode==="store" ? "store" : adminMode);
-      }
+      if(authed) setAdminTab(adminMode);
     }
 
-    /***********************
-     * PERSIST (save to storage)
-     ***********************/
-    function persistData(){
-      writeJSON(LS_SETTINGS, storeSettings);
-      writeJSON(LS_PRODUCTS, products);
-      writeJSON(LS_SERVICES, services);
-      applyBranding();
-    }
-
-    /***********************
-     * BOOT
-     ***********************/
     applyBranding();
     setMode("products");
     rebuildCategoryOptions();
@@ -2781,7 +2525,7 @@ Nagad: ${SAIKAT.payment.nagad}
     renderMainGrid();
     updateCartBadge();
     renderCart();
-    toast("Welcome", "Store ready ✅ (Admin + Logo/Cover + Images)", "success", 2400);
+    toast("Welcome", "Store ready ✅ (Admin + Logo/Cover + Images)", "success", 2200);
   </script>
 </body>
 </html>
