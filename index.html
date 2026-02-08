@@ -11,17 +11,20 @@
 
   <style>
     :root{
-      --bg:#0b1220;
+      --bg:#070b18;
       --text:#f8fafc;
       --muted:#a8b3d6;
       --line:rgba(255,255,255,.12);
-      --card1:#0f172a;
-      --card2:#020617;
+
       --brand:#3b82f6;
-      --green:#22c55e;
       --pink:#ec4899;
-      --radius:24px;
-      --shadow:0 26px 70px rgba(0,0,0,.48);
+      --green:#22c55e;
+
+      --radius:22px;
+      --shadow: 0 28px 80px rgba(0,0,0,.55);
+      --shadow2: 0 16px 40px rgba(0,0,0,.42);
+
+      --max: 1180px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -30,705 +33,1233 @@
       font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;
       color:var(--text);
       background:
-        radial-gradient(1100px 720px at 12% -10%, rgba(59,130,246,.34), transparent 62%),
-        radial-gradient(1000px 700px at 92% 0%, rgba(236,72,153,.30), transparent 60%),
-        radial-gradient(900px 700px at 50% 120%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(900px 650px at 10% -10%, rgba(59,130,246,.35), transparent 60%),
+        radial-gradient(900px 650px at 95% 0%, rgba(236,72,153,.28), transparent 60%),
+        radial-gradient(900px 650px at 50% 120%, rgba(34,197,94,.18), transparent 60%),
         var(--bg);
+      overflow-x:hidden;
     }
     a{color:inherit;text-decoration:none}
-    .container{max-width:1240px;margin:0 auto;padding:22px}
+    .container{max-width:var(--max);margin:0 auto;padding:18px}
+
+    /* Topbar */
+    .topbar{
+      border-bottom:1px solid var(--line);
+      background: rgba(0,0,0,.14);
+      backdrop-filter: blur(10px);
+    }
+    .topbar .inner{
+      max-width:var(--max);margin:0 auto;
+      padding:10px 18px;
+      display:flex;gap:10px;align-items:center;justify-content:space-between;
+      color:var(--muted);font-size:13px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      font-weight:800;color:#e5e7eb;
+      white-space:nowrap;
+    }
 
     /* Header */
     header{
       position:sticky;top:0;z-index:50;
-      background:rgba(11,18,32,.86);
-      backdrop-filter: blur(12px);
+      background:rgba(7,11,24,.86);
+      backdrop-filter: blur(14px);
       border-bottom:1px solid var(--line);
     }
-    .header-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:16px 0}
+    .header-inner{
+      display:flex;align-items:center;gap:14px;
+      padding:14px 0;
+    }
     .logo{
-      font-size:26px;font-weight:900;letter-spacing:.2px;
-      background:linear-gradient(135deg,#60a5fa,#ec4899);
-      -webkit-background-clip:text;color:transparent;
       display:flex;align-items:center;gap:12px;
+      font-size:22px;font-weight:900;letter-spacing:.2px;
+      white-space:nowrap;
     }
     .logo .mark{
       width:40px;height:40px;border-radius:16px;
-      background:linear-gradient(135deg, rgba(96,165,250,.95), rgba(236,72,153,.86));
-      box-shadow:0 20px 45px rgba(59,130,246,.22);
+      background:linear-gradient(135deg, rgba(96,165,250,.95), rgba(236,72,153,.88));
+      box-shadow:0 18px 45px rgba(59,130,246,.22);
+      position:relative;
+      overflow:hidden;
     }
-    nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+    .logo .mark:after{
+      content:"";
+      position:absolute;inset:-60%;
+      background: radial-gradient(circle, rgba(255,255,255,.35), transparent 55%);
+      transform: rotate(20deg);
+    }
+    .logo span{
+      background:linear-gradient(135deg,#60a5fa,#ec4899);
+      -webkit-background-clip:text;color:transparent;
+    }
+
+    nav{
+      margin-left:auto;
+      display:flex;gap:10px;align-items:center;
+    }
     nav a{
-      padding:12px 14px;border-radius:16px;
-      font-weight:800;color:var(--muted);font-size:15px;
+      padding:11px 12px;border-radius:14px;
+      font-weight:900;color:var(--muted);font-size:14px;
     }
     nav a:hover{background:rgba(255,255,255,.10);color:var(--text)}
 
-    /* Buttons */
+    /* Mobile menu */
+    .menu-btn{
+      display:none;
+      margin-left:auto;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      border-radius:14px;
+      padding:10px 12px;
+      cursor:pointer;
+      font-weight:900;
+    }
+
+    .nav-actions{display:flex;gap:10px;align-items:center}
     .btn{
       display:inline-flex;align-items:center;gap:10px;
       border:0;cursor:pointer;
-      padding:14px 18px;border-radius:999px;
+      padding:12px 14px;border-radius:999px;
       font-weight:900;color:#fff;
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow2);
       transition:.15s ease;
       white-space:nowrap;
-      font-size:15px;
+      font-size:14px;
     }
     .btn:hover{transform: translateY(-1px)}
     .btn.wa{background:linear-gradient(135deg,#22c55e,#16a34a)}
     .btn.fb{background:linear-gradient(135deg,#3b82f6,#2563eb)}
     .btn.order{background:linear-gradient(135deg,#ec4899,#f472b6)}
     .btn.ghost{
-      background:rgba(255,255,255,.10);
+      background:rgba(255,255,255,.08);
       border:1px solid var(--line);
       box-shadow:none;
       color:var(--text);
     }
+    .btn.small{padding:10px 12px;font-size:13px}
+
+    /* Mobile dropdown nav panel */
+    .mnav{
+      display:none;
+      border-top:1px solid var(--line);
+      padding:10px 0 14px;
+    }
+    .mnav.show{display:block}
+    .mnav a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      color: var(--muted);
+      font-weight:900;
+    }
+    .mnav a:hover{background: rgba(255,255,255,.06); color: var(--text)}
 
     /* Hero */
-    .hero{padding:42px 0 10px}
+    .hero{padding:22px 0 8px}
     .hero-card{
-      border-radius:var(--radius);
+      border-radius: calc(var(--radius) + 6px);
       border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
-      box-shadow:var(--shadow);
-      padding:30px;
-      display:grid;grid-template-columns: 1.2fr .8fr;
-      gap:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
+      box-shadow: var(--shadow);
+      padding:22px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      overflow:hidden;
+      position:relative;
     }
-    .hero h1{margin:0 0 12px;font-size:44px;line-height:1.12}
-    .hero p{margin:0;color:var(--muted);line-height:1.9;font-size:16px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .hero-card:before{
+      content:"";
+      position:absolute;inset:-1px;
+      background:
+        radial-gradient(600px 260px at 0% 0%, rgba(59,130,246,.18), transparent 60%),
+        radial-gradient(600px 260px at 100% 0%, rgba(236,72,153,.16), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-left, .hero-right{position:relative;z-index:1}
+    .hero h1{
+      margin:0 0 10px;
+      font-size:40px;line-height:1.12;
+      letter-spacing:-.3px;
+    }
+    .hero p{margin:0;color:var(--muted);line-height:1.85;font-size:15px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+
     .hero-right{
-      border-radius:22px;
+      border-radius: var(--radius);
       border:1px solid var(--line);
-      background:rgba(2,6,23,.55);
-      padding:18px;
+      background: rgba(2,6,23,.55);
+      padding:14px;
     }
     .kv{
-      padding:14px 14px;border-radius:18px;
+      padding:12px 12px;border-radius:16px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.07);
-      margin-bottom:12px;
+      background:rgba(255,255,255,.06);
+      margin-bottom:10px;
     }
-    .kv b{display:block;font-size:13px;color:var(--muted);font-weight:900}
-    .kv span{display:block;margin-top:7px;font-weight:900;font-size:16px}
-    .mini{font-size:13px;color:var(--muted);line-height:1.7}
+    .kv b{display:block;font-size:12px;color:var(--muted);font-weight:900}
+    .kv span{display:block;margin-top:6px;font-weight:900;font-size:15px}
+    .mini{font-size:12.5px;color:var(--muted);line-height:1.65}
 
     /* Sections */
-    .section{padding:22px 0 46px}
-    .section-title{font-size:26px;margin:0 0 12px}
-    .subline{margin:0 0 16px;color:var(--muted);line-height:1.8;font-size:16px}
+    .section{padding:16px 0 42px}
+    .section-title{font-size:24px;margin:0 0 10px}
+    .subline{margin:0 0 14px;color:var(--muted);line-height:1.8;font-size:15px}
+
+    /* Search / filter bar */
+    .toolbar{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+      margin-bottom:14px;
+    }
+    .input{
+      flex: 1 1 260px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding:12px 14px;
+      outline:none;
+      font-weight:700;
+    }
+    .select{
+      flex: 0 0 180px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding:12px 14px;
+      outline:none;
+      font-weight:800;
+    }
 
     .grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-    @media (max-width: 980px){
-      .hero-card{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      nav{margin-left:0}
-      .hero h1{font-size:36px}
+      gap:14px;
     }
 
-    .svc{
-      border-radius:var(--radius);
+    /* Featured carousel (new) */
+    .featured-wrap{
+      border-radius: calc(var(--radius) + 6px);
       border:1px solid var(--line);
-      background:linear-gradient(180deg, var(--card1), var(--card2));
-      box-shadow:var(--shadow);
-      padding:20px;
+      background: rgba(255,255,255,.05);
+      box-shadow: var(--shadow2);
+      padding:14px;
+      margin-bottom:16px;
+      overflow:hidden;
+    }
+    .featured-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      margin-bottom:10px;
+    }
+    .featured-head h3{margin:0;font-size:16px}
+    .featured-row{
+      display:flex;gap:12px;
+      overflow:auto;
+      padding-bottom:6px;
+      scroll-snap-type:x mandatory;
+    }
+    .featured-row::-webkit-scrollbar{height:10px}
+    .featured-row::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:999px}
+    .fcard{
+      flex: 0 0 320px;
+      scroll-snap-align:start;
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,23,42,.9), rgba(2,6,23,.9));
+      box-shadow: var(--shadow2);
+      padding:14px;
+      min-width: 280px;
+    }
+    .f-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:6px}
+    .fcard h4{margin:0 0 6px;font-size:15px;line-height:1.25}
+    .fcard p{margin:0 0 10px;color:var(--muted);font-size:12.8px;line-height:1.6}
+
+    /* Cards */
+    .svc{
+      border-radius: calc(var(--radius) + 2px);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,23,42,.92), rgba(2,6,23,.92));
+      box-shadow: var(--shadow2);
+      padding:16px;
       transition:.15s ease;
       position:relative;
       overflow:hidden;
     }
     .svc:hover{transform: translateY(-2px)}
-    .svc h3{margin:0 0 8px;font-size:18px}
-    .svc p{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.75}
-    .svc .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .svc .top{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+      margin-bottom:8px;
+    }
+    .svc h3{margin:0 0 6px;font-size:17px;line-height:1.25}
+    .svc p{margin:0 0 12px;color:var(--muted);font-size:13.5px;line-height:1.7}
+    .svc .actions{display:flex;gap:10px;flex-wrap:wrap}
     .tag{
       display:inline-flex;align-items:center;gap:8px;
-      padding:8px 12px;border-radius:999px;
+      padding:7px 10px;border-radius:999px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.07);
-      font-weight:900;font-size:12px;
+      background:rgba(255,255,255,.06);
+      font-weight:900;font-size:11.5px;
       color:#e5e7eb;
-      margin-bottom:12px;
+      white-space:nowrap;
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:999px;
+      background: rgba(59,130,246,.14);
+      border:1px solid rgba(59,130,246,.25);
+      color:#dbeafe;
+      font-weight:900;font-size:12px;
+      white-space:nowrap;
     }
 
-    /* Modal */
+    /* Footer */
+    .footer{
+      margin-top:18px;
+      border-top:1px solid var(--line);
+      padding-top:14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Modals */
     .overlay{
       position:fixed;inset:0;z-index:200;
       display:none;align-items:center;justify-content:center;
       background:rgba(0,0,0,.66);
-      padding:18px;
+      padding:16px;
     }
     .overlay.show{display:flex}
     .modal{
-      width:100%;max-width:820px;
+      width:100%;max-width:900px;
       border-radius:28px;
       border:1px solid var(--line);
-      background:rgba(12,18,33,.94);
+      background:rgba(10,14,28,.96);
       box-shadow:var(--shadow);
       overflow:hidden;
     }
     .modal-head{
-      padding:16px 18px;
+      padding:14px 16px;
       display:flex;align-items:center;justify-content:space-between;gap:12px;
       border-bottom:1px solid var(--line);
     }
-    .modal-head b{font-size:18px}
+    .modal-head b{font-size:17px}
     .close-x{
       border:0;background:transparent;color:var(--muted);
-      font-size:24px;cursor:pointer;
+      font-size:24px;cursor:pointer;line-height:1;
+      padding:6px 10px;border-radius:14px;
     }
-    .close-x:hover{color:var(--text)}
-    .modal-body{padding:18px}
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .close-x:hover{color:var(--text);background:rgba(255,255,255,.06)}
+    .modal-body{padding:16px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .box{
       border-radius:22px;
       border:1px solid var(--line);
-      background:rgba(2,6,23,.55);
-      padding:16px;
+      background:rgba(255,255,255,.05);
+      padding:14px;
     }
-    .field{display:flex;flex-direction:column;gap:8px;margin-top:12px}
-    .field label{font-size:13px;color:var(--muted);font-weight:900}
+    .field{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+    .field label{font-size:12px;color:var(--muted);font-weight:900}
     .field select,.field input,.field textarea{
       border-radius:16px;border:1px solid var(--line);
-      background:rgba(255,255,255,.07);
+      background:rgba(255,255,255,.06);
       color:var(--text);
-      padding:13px 14px;
+      padding:12px 12px;
       outline:none;
-      font-size:15px;
+      font-size:14px;
       font-family:inherit;
     }
-    .field textarea{min-height:100px;resize:vertical}
-    .summary{display:flex;flex-direction:column;gap:10px;color:var(--muted);font-size:14px}
-    .summary .big{font-size:24px;font-weight:900;color:var(--text)}
+    .field textarea{min-height:96px;resize:vertical}
+    .summary{display:flex;flex-direction:column;gap:8px;color:var(--muted);font-size:13px}
+    .summary .big{font-size:22px;font-weight:900;color:var(--text);line-height:1.2}
     .pay-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .pay-badge{
       display:inline-flex;align-items:center;gap:10px;
-      padding:12px 14px;border-radius:18px;
+      padding:10px 12px;border-radius:16px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.07);
-      font-weight:900;font-size:14px;
+      background:rgba(255,255,255,.06);
+      font-weight:900;font-size:13px;
     }
     .modal-actions{
-      display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;
-      padding:16px 18px;
+      display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;
+      padding:14px 16px;
       border-top:1px solid var(--line);
-      background:rgba(0,0,0,.12);
+      background:rgba(0,0,0,.14);
     }
-    .hint{margin-top:12px;color:var(--muted);font-size:13px;line-height:1.7}
+    .hint{margin-top:10px;color:var(--muted);font-size:12.5px;line-height:1.6}
+
+    /* Details modal (new) */
+    .details{
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .details .row{
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    }
+    .details .k{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding:10px 12px;
+      font-weight:900;
+      color:#e5e7eb;
+      display:inline-flex;gap:8px;align-items:center;
+      font-size:13px;
+    }
+    .details ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.75}
+    .details .priceBox{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      border-radius: 18px;
+      padding:12px 12px;
+    }
+    .details .priceBox b{display:block;font-size:12px;color:var(--muted)}
+    .details .priceBox span{display:block;margin-top:6px;font-size:18px;font-weight:900;color:var(--text)}
+
+    /* Toast (new) */
+    .toast-wrap{
+      position:fixed;
+      right:14px;bottom:14px;
+      z-index:999;
+      display:flex;flex-direction:column;gap:10px;
+      max-width:min(420px, calc(100vw - 28px));
+    }
+    .toast{
+      border-radius:18px;
+      border:1px solid var(--line);
+      background: rgba(10,14,28,.94);
+      box-shadow: var(--shadow2);
+      padding:12px 12px;
+      display:flex;gap:10px;align-items:flex-start;
+      animation: toastIn .18s ease-out;
+    }
+    .toast i{margin-top:2px}
+    .toast .t{flex:1}
+    .toast .t b{display:block;font-size:13px}
+    .toast .t span{display:block;color:var(--muted);font-size:12.5px;line-height:1.55;margin-top:3px}
+    .toast .x{
+      border:0;background:transparent;color:var(--muted);
+      cursor:pointer;font-size:18px;line-height:1;
+      padding:4px 6px;border-radius:10px;
+    }
+    .toast .x:hover{color:var(--text);background:rgba(255,255,255,.06)}
+    @keyframes toastIn{
+      from{transform:translateY(6px);opacity:0}
+      to{transform:translateY(0);opacity:1}
+    }
+    @keyframes toastOut{
+      to{transform:translateY(6px);opacity:0}
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-card{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .hero h1{font-size:34px}
+    }
+    @media (max-width: 640px){
+      nav{display:none}
+      .menu-btn{display:inline-flex}
+      .nav-actions{gap:8px}
+      .btn{padding:11px 12px;font-size:13px}
+      .grid{grid-template-columns:1fr}
+      .hero h1{font-size:30px}
+      .two{grid-template-columns:1fr}
+      .overlay{padding:10px}
+      .modal{border-radius:22px}
+      .modal-body{padding:12px}
+      .modal-head{padding:12px 12px}
+      .modal-actions{padding:12px}
+      .fcard{flex-basis: 86vw}
+    }
   </style>
 </head>
 
 <body>
 
-<script>
-  // FIXED CONFIG
-  const SAIKAT = {
-    waNumber: "8801804676711",
-    waRaw: "01804676711",
-    email: "saikat712@gmail.com",
-    fb: "https://www.facebook.com/share/1AWbo99RjN/",
-    address: "Dhaka New Market, 1205",
-    payment: {
-      bkash: "+8801344-486384",
-      nagad: "01682312657"
-    }
-  };
+  <div class="topbar">
+    <div class="inner">
+      <div class="chip"><i class="fa-solid fa-shield-halved"></i> No password • Safe process</div>
+      <div class="chip"><i class="fa-solid fa-headset"></i> Fast support on WhatsApp</div>
+      <div class="chip"><i class="fa-solid fa-bolt"></i> Premium services</div>
+    </div>
+  </div>
 
-  // All services (one catalog)
-  const SERVICES = [
-    // FACEBOOK
-    { id:"fb_followers", category:"Facebook", icon:"fa-brands fa-facebook", title:"Facebook Followers", desc:"Page/Profile followers • Safe • No password", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,4,5,6,7,8,9,10,20,30,40,50,70], tags:["Popular","Fast","Safe"] },
-    { id:"fb_likes", category:"Facebook", icon:"fa-brands fa-facebook", title:"Facebook Likes", desc:"Page/Post likes • Social proof boost", unitType:"K", pricePerUnit:90, qtyList:[1,2,3,5,10,20,30,50], tags:["Trending","Quick","Boost"] },
-    { id:"fb_reacts", category:"Facebook", icon:"fa-solid fa-heart", title:"Facebook Post Reactions", desc:"Like/Love/Wow • Engagement boost", unitType:"100", pricePerUnit:80, qtyList:[1,2,3,5,10,20,30,50], tags:["Engagement","Safe","Hot"] },
-    { id:"fb_views", category:"Facebook", icon:"fa-solid fa-play", title:"Facebook Video Views", desc:"Views for video • Reach boost", unitType:"K", pricePerUnit:25, qtyList:[10,20,50,100,200], tags:["Reach","Fast","Boost"] },
+  <script>
+    // ✅ আপনার নাম/নাম্বার/সব কনফিগ এক জায়গায় (এগুলো একই থাকবে)
+    const SAIKAT = {
+      waNumber: "8801804676711",
+      waRaw: "01804676711",
+      email: "saikat712@gmail.com",
+      fb: "https://www.facebook.com/share/1AWbo99RjN/",
+      address: "Dhaka New Market, 1205",
+      payment: {
+        bkash: "+8801344-486384",
+        nagad: "01682312657"
+      }
+    };
 
-    // YOUTUBE
-    { id:"yt_subs", category:"YouTube", icon:"fa-brands fa-youtube", title:"YouTube Subscribers", desc:"Channel subs • Promotional growth", unitType:"K", pricePerUnit:350, qtyList:[1,2,3,5,10], tags:["YouTube","Growth","Safe"] },
-    { id:"yt_views", category:"YouTube", icon:"fa-brands fa-youtube", title:"YouTube Views", desc:"Video views • Improve reach", unitType:"K", pricePerUnit:60, qtyList:[10,20,50,100,200], tags:["Views","Reach","Fast"] },
+    // ✅ Services
+    const SERVICES = [
+      // FACEBOOK
+      { id:"fb_followers", category:"Facebook", icon:"fa-brands fa-facebook", title:"Facebook Followers", desc:"Page/Profile followers • Safe • No password", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,4,5,6,7,8,9,10,20,30,40,50,70], tags:["Popular","Fast","Safe"] },
+      { id:"fb_likes", category:"Facebook", icon:"fa-brands fa-facebook", title:"Facebook Likes", desc:"Page/Post likes • Social proof boost", unitType:"K", pricePerUnit:90, qtyList:[1,2,3,5,10,20,30,50], tags:["Trending","Quick","Boost"] },
+      { id:"fb_reacts", category:"Facebook", icon:"fa-solid fa-heart", title:"Facebook Post Reactions", desc:"Like/Love/Wow • Engagement boost", unitType:"100", pricePerUnit:80, qtyList:[1,2,3,5,10,20,30,50], tags:["Engagement","Safe","Hot"] },
+      { id:"fb_views", category:"Facebook", icon:"fa-solid fa-play", title:"Facebook Video Views", desc:"Views for video • Reach boost", unitType:"K", pricePerUnit:25, qtyList:[10,20,50,100,200], tags:["Reach","Fast","Boost"] },
 
-    // INSTAGRAM
-    { id:"ig_followers", category:"Instagram", icon:"fa-brands fa-instagram", title:"Instagram Followers", desc:"Followers • Boost profile", unitType:"K", pricePerUnit:220, qtyList:[1,2,3,5,10,20], tags:["IG","Popular","Safe"] },
-    { id:"ig_likes", category:"Instagram", icon:"fa-brands fa-instagram", title:"Instagram Likes", desc:"Post likes • Social proof", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,5,10,20], tags:["Likes","Quick","Boost"] },
+      // YOUTUBE
+      { id:"yt_subs", category:"YouTube", icon:"fa-brands fa-youtube", title:"YouTube Subscribers", desc:"Channel subs • Promotional growth", unitType:"K", pricePerUnit:350, qtyList:[1,2,3,5,10], tags:["YouTube","Growth","Safe"] },
+      { id:"yt_views", category:"YouTube", icon:"fa-brands fa-youtube", title:"YouTube Views", desc:"Video views • Improve reach", unitType:"K", pricePerUnit:60, qtyList:[10,20,50,100,200], tags:["Views","Reach","Fast"] },
 
-    // TIKTOK
-    { id:"tt_followers", category:"TikTok", icon:"fa-brands fa-tiktok", title:"TikTok Followers", desc:"Followers • Boost account", unitType:"K", pricePerUnit:250, qtyList:[1,2,3,5,10,20], tags:["TikTok","Growth","Fast"] },
-    { id:"tt_likes", category:"TikTok", icon:"fa-brands fa-tiktok", title:"TikTok Likes", desc:"Video likes • Improve engagement", unitType:"K", pricePerUnit:140, qtyList:[1,2,3,5,10,20], tags:["Engagement","Boost","Hot"] },
+      // INSTAGRAM
+      { id:"ig_followers", category:"Instagram", icon:"fa-brands fa-instagram", title:"Instagram Followers", desc:"Followers • Boost profile", unitType:"K", pricePerUnit:220, qtyList:[1,2,3,5,10,20], tags:["IG","Popular","Safe"] },
+      { id:"ig_likes", category:"Instagram", icon:"fa-brands fa-instagram", title:"Instagram Likes", desc:"Post likes • Social proof", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,5,10,20], tags:["Likes","Quick","Boost"] },
 
-    // MARKETING / MANAGER / BOOST
-    { id:"boosting", category:"Marketing", icon:"fa-solid fa-bolt", title:"Boosting / Promotion", desc:"Boost post/page • Reach & engagement", unitType:"PACK",
-      packages:[{label:"Basic Boost",price:300,note:"Target + basic setup"},{label:"Standard Boost",price:700,note:"Better reach + optimize"},{label:"Premium Boost",price:1500,note:"Best reach + guidance"}],
-      tags:["Boosting","Ads","Support"]
-    },
-    { id:"ad_manager", category:"Marketing", icon:"fa-solid fa-rectangle-ad", title:"Ads Manager / Campaign Setup", desc:"Ad setup + audience + optimization", unitType:"PACK",
-      packages:[{label:"Single Campaign Setup",price:1200,note:"1 campaign + 1 adset"},{label:"Full Funnel Setup",price:2500,note:"Multiple adset + optimize"},{label:"Monthly Management",price:6000,note:"Weekly optimize + report"}],
-      tags:["Ad Manager","Pro","Strategy"]
-    },
+      // TIKTOK
+      { id:"tt_followers", category:"TikTok", icon:"fa-brands fa-tiktok", title:"TikTok Followers", desc:"Followers • Boost account", unitType:"K", pricePerUnit:250, qtyList:[1,2,3,5,10,20], tags:["TikTok","Growth","Fast"] },
+      { id:"tt_likes", category:"TikTok", icon:"fa-brands fa-tiktok", title:"TikTok Likes", desc:"Video likes • Improve engagement", unitType:"K", pricePerUnit:140, qtyList:[1,2,3,5,10,20], tags:["Engagement","Boost","Hot"] },
 
-    // EDITING
-    { id:"video_edit", category:"Editing", icon:"fa-solid fa-scissors", title:"Video Editing", desc:"Reels/Shorts + Long video editing", unitType:"PACK",
-      packages:[{label:"Reels/Shorts (30–60s)",price:200,note:"Clean cut + music sync"},{label:"Reels Pro (Caption + Effects)",price:350,note:"Captions + transitions"},{label:"Long Video (5–10 min)",price:900,note:"Pro edit + HD export"}],
-      tags:["Creator","Premium","Fast"]
-    },
-    { id:"photo_edit", category:"Editing", icon:"fa-solid fa-image", title:"Photo Editing", desc:"Background remove • Retouch • Product edit", unitType:"PACK",
-      packages:[{label:"1 Photo",price:70,note:"Basic clean edit"},{label:"10 Photos",price:600,note:"Best value"},{label:"30 Photos",price:1600,note:"Bulk + priority"}],
-      tags:["Clean","Pro","Value"]
-    },
-    { id:"ai_content", category:"AI", icon:"fa-solid fa-wand-magic-sparkles", title:"AI Content / Caption / Hashtags", desc:"Brand tone captions & content", unitType:"PACK",
-      packages:[{label:"10 Captions",price:250,note:"Hashtags included"},{label:"30 Captions",price:650,note:"Consistent brand tone"},{label:"10 AI Images",price:450,note:"Social-ready images"}],
-      tags:["AI","Unique","Quick"]
-    }
-  ];
-</script>
+      // MARKETING / MANAGER / BOOST
+      { id:"boosting", category:"Marketing", icon:"fa-solid fa-bolt", title:"Boosting / Promotion", desc:"Boost post/page • Reach & engagement", unitType:"PACK",
+        packages:[{label:"Basic Boost",price:300,note:"Target + basic setup"},{label:"Standard Boost",price:700,note:"Better reach + optimize"},{label:"Premium Boost",price:1500,note:"Best reach + guidance"}],
+        tags:["Boosting","Ads","Support","Popular"]
+      },
+      { id:"ad_manager", category:"Marketing", icon:"fa-solid fa-rectangle-ad", title:"Ads Manager / Campaign Setup", desc:"Ad setup + audience + optimization", unitType:"PACK",
+        packages:[{label:"Single Campaign Setup",price:1200,note:"1 campaign + 1 adset"},{label:"Full Funnel Setup",price:2500,note:"Multiple adset + optimize"},{label:"Monthly Management",price:6000,note:"Weekly optimize + report"}],
+        tags:["Ad Manager","Pro","Strategy"]
+      },
 
-<header>
-  <div class="container">
-    <div class="header-inner">
-      <div class="logo"><span class="mark" aria-hidden="true"></span>Saikat Tech Hub</div>
+      // EDITING
+      { id:"video_edit", category:"Editing", icon:"fa-solid fa-scissors", title:"Video Editing", desc:"Reels/Shorts + Long video editing", unitType:"PACK",
+        packages:[{label:"Reels/Shorts (30–60s)",price:200,note:"Clean cut + music sync"},{label:"Reels Pro (Caption + Effects)",price:350,note:"Captions + transitions"},{label:"Long Video (5–10 min)",price:900,note:"Pro edit + HD export"}],
+        tags:["Creator","Premium","Fast","Trending"]
+      },
+      { id:"photo_edit", category:"Editing", icon:"fa-solid fa-image", title:"Photo Editing", desc:"Background remove • Retouch • Product edit", unitType:"PACK",
+        packages:[{label:"1 Photo",price:70,note:"Basic clean edit"},{label:"10 Photos",price:600,note:"Best value"},{label:"30 Photos",price:1600,note:"Bulk + priority"}],
+        tags:["Clean","Pro","Value"]
+      },
+      { id:"ai_content", category:"AI", icon:"fa-solid fa-wand-magic-sparkles", title:"AI Content / Caption / Hashtags", desc:"Brand tone captions & content", unitType:"PACK",
+        packages:[{label:"10 Captions",price:250,note:"Hashtags included"},{label:"30 Captions",price:650,note:"Consistent brand tone"},{label:"10 AI Images",price:450,note:"Social-ready images"}],
+        tags:["AI","Unique","Quick"]
+      }
+    ];
 
-      <nav aria-label="Main navigation">
+    // ✅ Featured rules (এখানে যেগুলো "Popular/Trending/Premium/Pro" আছে সেগুলো Featured হবে)
+    const FEATURE_TAGS = new Set(["Popular","Trending","Premium","Pro"]);
+  </script>
+
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="mark" aria-hidden="true"></span>
+          <span>Saikat Tech Hub</span>
+        </div>
+
+        <nav aria-label="Main navigation" id="navDesk">
+          <a href="#featured">Featured</a>
+          <a href="#services">Services</a>
+          <a href="#how">How it works</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i> Menu
+        </button>
+
+        <div class="nav-actions">
+          <a class="btn wa" id="waBtnTop" target="_blank" rel="noreferrer" href="#">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <a class="btn fb" id="fbBtnTop" target="_blank" rel="noreferrer" href="#">
+            <i class="fa-brands fa-facebook"></i> Facebook
+          </a>
+        </div>
+      </div>
+
+      <div class="mnav" id="mnav" aria-label="Mobile navigation">
+        <a href="#featured">Featured</a>
         <a href="#services">Services</a>
         <a href="#how">How it works</a>
         <a href="#contact">Contact</a>
-      </nav>
+      </div>
+    </div>
+  </header>
 
-      <a class="btn wa" id="waBtnTop" target="_blank" rel="noreferrer" href="#">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-      </a>
-      <a class="btn fb" id="fbBtnTop" target="_blank" rel="noreferrer" href="#">
-        <i class="fa-brands fa-facebook"></i> Facebook
-      </a>
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-left">
+          <h1>Assalamu Alaikum 👋<br/>All Social & Digital Services</h1>
+          <p>
+            Saikat Tech Hub এ আপনাকে স্বাগতম। যেকোন সার্ভিসে <b>Order</b> চাপুন—তারপর <b>Order/Payment</b> ওপেন হবে।
+            Quantity/Package, Payment Method এবং Transaction ID দিয়ে WhatsApp এ অটো অর্ডার পাঠাতে পারবেন।
+            <br/>✅ No password • ✅ Safe process • ✅ Fast support
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn order" href="#services"><i class="fa-solid fa-layer-group"></i> View Services</a>
+            <a class="btn ghost" href="#how"><i class="fa-solid fa-circle-info"></i> How it works</a>
+            <a class="btn ghost" href="#contact"><i class="fa-solid fa-headset"></i> Contact</a>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="kv">
+            <b>WhatsApp</b>
+            <span id="waShow"></span>
+          </div>
+          <div class="kv">
+            <b>Email</b>
+            <span id="emailShow"></span>
+          </div>
+          <div class="kv">
+            <b>Address</b>
+            <span id="addrShow"></span>
+          </div>
+
+          <div class="kv">
+            <b>Payment</b>
+            <span style="font-size:13px;line-height:1.7;color:var(--muted);font-weight:700">
+              bKash: <span id="bkashShow" style="color:var(--text);font-weight:900"></span><br/>
+              Nagad: <span id="nagadShow" style="color:var(--text);font-weight:900"></span>
+            </span>
+          </div>
+
+          <div class="mini">
+            <b>Note:</b> Order করার সময় URL ঠিকভাবে দিন। কাজ দ্রুত করতে Screenshot/Example দিলে ভালো হয়।
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ FEATURED (new) -->
+  <section class="section" id="featured">
+    <div class="container">
+      <h2 class="section-title">Featured / Popular Services</h2>
+      <p class="subline">সবচেয়ে বেশি অর্ডার হওয়া / ট্রেন্ডিং সার্ভিসগুলো এখানে।</p>
+
+      <div class="featured-wrap">
+        <div class="featured-head">
+          <h3><i class="fa-solid fa-star"></i> Top Picks</h3>
+          <span class="chip"><i class="fa-solid fa-hand-pointer"></i> Swipe / Scroll</span>
+        </div>
+        <div class="featured-row" id="featuredRow"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <h2 class="section-title">All Services (সব একসাথে)</h2>
+      <p class="subline">
+        সার্ভিস কার্ডে Payment/TrxID দেখাবে না। শুধু <b>Order</b> চাপলে নতুন Order/Payment পেজ ওপেন হবে।
+      </p>
+
+      <div class="toolbar">
+        <input class="input" id="searchInput" placeholder="Search service (e.g. followers, views, editing...)" />
+        <select class="select" id="catSelect">
+          <option value="All">All Categories</option>
+        </select>
+      </div>
+
+      <div class="grid" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+      <p class="subline">3 স্টেপ: Service → Payment Page → WhatsApp Submit</p>
+
+      <div class="grid">
+        <div class="svc">
+          <div class="top">
+            <span class="pill"><i class="fa-solid fa-hand-pointer"></i> Step 1</span>
+            <span class="tag"><i class="fa-solid fa-shield"></i> Safe</span>
+          </div>
+          <h3>Service Select</h3>
+          <p>যেকোন সার্ভিসে Order চাপুন।</p>
+        </div>
+        <div class="svc">
+          <div class="top">
+            <span class="pill"><i class="fa-solid fa-credit-card"></i> Step 2</span>
+            <span class="tag"><i class="fa-solid fa-bolt"></i> Fast</span>
+          </div>
+          <h3>Order/Payment Page</h3>
+          <p>Quantity/Package, Payment Method, Transaction ID, URL দিন।</p>
+        </div>
+        <div class="svc">
+          <div class="top">
+            <span class="pill"><i class="fa-brands fa-whatsapp"></i> Step 3</span>
+            <span class="tag"><i class="fa-solid fa-headset"></i> Support</span>
+          </div>
+          <h3>WhatsApp Submit</h3>
+          <p>Submit করলে WhatsApp এ অটো অর্ডার মেসেজ চলে যাবে।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="subline">এখানে ক্লিক করলেই সরাসরি ওপেন হবে</p>
+
+      <div class="grid">
+        <div class="svc">
+          <h3><i class="fa-brands fa-whatsapp"></i> WhatsApp</h3>
+          <p>Tap করলে WhatsApp chat ওপেন হবে।</p>
+          <div class="actions">
+            <a class="btn wa" id="waBtnContact" target="_blank" rel="noreferrer" href="#">
+              <i class="fa-brands fa-whatsapp"></i> Chat Now
+            </a>
+          </div>
+        </div>
+
+        <div class="svc">
+          <h3><i class="fa-brands fa-facebook"></i> Facebook Page</h3>
+          <p>Tap করলে Facebook Page ওপেন হবে।</p>
+          <div class="actions">
+            <a class="btn fb" id="fbBtnContact" target="_blank" rel="noreferrer" href="#">
+              <i class="fa-brands fa-facebook"></i> Visit Page
+            </a>
+          </div>
+        </div>
+
+        <div class="svc">
+          <h3><i class="fa-solid fa-envelope"></i> Email</h3>
+          <p>Tap করলে Email compose ওপেন হবে।</p>
+          <div class="actions">
+            <a class="btn ghost" id="emailBtn" href="#">
+              <i class="fa-solid fa-envelope"></i> Send Email
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <div>© 2026 Saikat Tech Hub — All Rights Reserved</div>
+          <div><a href="#top" class="chip"><i class="fa-solid fa-arrow-up"></i> Back to top</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ ORDER / PAYMENT MODAL -->
+  <div class="overlay" id="orderOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+      <div class="modal-head">
+        <b id="orderModalTitle">Order & Payment</b>
+        <button class="close-x" id="closeOrder" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="two">
+          <div class="box">
+            <div class="summary">
+              <div class="big" id="mServiceName">Service Name</div>
+              <div id="mServiceDesc">Service description</div>
+              <div class="mini" id="mCategory">Category</div>
+            </div>
+
+            <div class="field" id="qtyField">
+              <label id="qtyLabel">Quantity</label>
+              <select id="qtySelect"></select>
+            </div>
+
+            <div class="field" id="pkgField" style="display:none">
+              <label>Package</label>
+              <select id="pkgSelect"></select>
+            </div>
+
+            <div class="field">
+              <label>Price</label>
+              <input id="priceShow" readonly />
+            </div>
+
+            <div class="field">
+              <label>Link / URL (Page/Profile/Post/Video)</label>
+              <input id="urlInput" placeholder="Paste your URL here" />
+            </div>
+
+            <div class="hint">
+              ✅ Password লাগবে না।<br/>
+              ✅ URL ঠিক দিলে কাজ দ্রুত হবে।
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="summary">
+              <div class="big">Payment</div>
+              <div>Payment complete করে Transaction ID দিন।</div>
+            </div>
+
+            <div class="pay-badges" style="margin-top:12px">
+              <div class="pay-badge"><i class="fa-solid fa-wallet"></i> bKash: <span id="mBkash"></span></div>
+              <div class="pay-badge"><i class="fa-solid fa-money-bill-wave"></i> Nagad: <span id="mNagad"></span></div>
+            </div>
+
+            <div class="field">
+              <label>Payment Method</label>
+              <select id="payMethod">
+                <option value="">Select</option>
+                <option value="bKash">bKash</option>
+                <option value="Nagad">Nagad</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>Transaction ID (TrxID)</label>
+              <input id="trxInput" placeholder="e.g. A1B2C3D4" />
+            </div>
+
+            <div class="field">
+              <label>Extra Notes (optional)</label>
+              <textarea id="noteInput" placeholder="Target country / speed / any notes..."></textarea>
+            </div>
+
+            <div class="hint">
+              Payment proof (screenshot) চাইলে WhatsApp এ পাঠাতে পারবেন।
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn ghost" id="cancelOrder"><i class="fa-solid fa-xmark"></i> Cancel</button>
+        <button class="btn order" id="sendWaBtn"><i class="fa-brands fa-whatsapp"></i> Send Order to WhatsApp</button>
+      </div>
     </div>
   </div>
-</header>
 
-<section class="hero" id="top">
-  <div class="container">
-    <div class="hero-card">
-      <div>
-        <h1>Assalamu Alaikum 👋<br/>All Social & Digital Services</h1>
-        <p>
-          Saikat Tech Hub এ আপনাকে স্বাগতম। যেকোন সার্ভিসে <b>Order</b> চাপুন—তারপর আলাদা <b>Order/Payment Page</b> ওপেন হবে।
-          সেখানে Quantity/Package, Payment Method এবং Transaction ID দিয়ে WhatsApp এ অটো অর্ডার পাঠাতে পারবেন।
-          <br/>✅ No password • ✅ Safe process • ✅ Fast support
-        </p>
+  <!-- ✅ DETAILS MODAL (new) -->
+  <div class="overlay" id="infoOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
+      <div class="modal-head">
+        <b id="infoModalTitle">Service Details</b>
+        <button class="close-x" id="closeInfo" aria-label="Close">✕</button>
+      </div>
 
-        <div class="hero-actions">
-          <a class="btn order" href="#services"><i class="fa-solid fa-layer-group"></i> View Services</a>
-          <a class="btn ghost" href="#how"><i class="fa-solid fa-circle-info"></i> How it works</a>
-          <a class="btn ghost" href="#contact"><i class="fa-solid fa-headset"></i> Contact</a>
+      <div class="modal-body">
+        <div class="details">
+          <div class="row" style="justify-content:space-between;gap:12px">
+            <div>
+              <div style="font-size:22px;font-weight:900;line-height:1.2" id="dTitle">Title</div>
+              <div style="color:var(--muted);margin-top:6px" id="dDesc">Desc</div>
+            </div>
+            <div class="row">
+              <span class="k"><i class="fa-solid fa-layer-group"></i> <span id="dCat">Category</span></span>
+              <span class="k"><i class="fa-solid fa-tag"></i> <span id="dType">Type</span></span>
+            </div>
+          </div>
+
+          <div class="priceBox">
+            <b>Pricing</b>
+            <span id="dPricing">—</span>
+            <div style="margin-top:8px;color:var(--muted);font-size:12.8px;line-height:1.6" id="dPricingNote"></div>
+          </div>
+
+          <div class="row" style="flex-wrap:wrap" id="dTags"></div>
+
+          <div class="box" style="padding:14px">
+            <div style="font-weight:900;margin-bottom:8px"><i class="fa-solid fa-circle-check"></i> Quick Notes</div>
+            <ul id="dBullets">
+              <li>No password needed</li>
+              <li>URL ঠিক দিলে কাজ দ্রুত হবে</li>
+              <li>প্রয়োজনে screenshot/proof WhatsApp এ পাঠাতে পারবেন</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <aside class="hero-right">
-        <div class="kv">
-          <b>WhatsApp</b>
-          <span id="waShow"></span>
-        </div>
-        <div class="kv">
-          <b>Email</b>
-          <span id="emailShow"></span>
-        </div>
-        <div class="kv">
-          <b>Address</b>
-          <span id="addrShow"></span>
-        </div>
-
-        <div class="kv">
-          <b>Payment</b>
-          <span style="font-size:14px;line-height:1.7;color:var(--muted);font-weight:700">
-            bKash: <span id="bkashShow" style="color:var(--text);font-weight:900"></span><br/>
-            Nagad: <span id="nagadShow" style="color:var(--text);font-weight:900"></span>
-          </span>
-        </div>
-
-        <div class="mini">
-          <b>Note:</b> Order করার সময় URL ঠিকভাবে দিন। কাজ দ্রুত করতে Screenshot/Example দিলে ভালো হয়।
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="services">
-  <div class="container">
-    <h2 class="section-title">All Services (সব একসাথে)</h2>
-    <p class="subline">
-      সার্ভিস কার্ডে Payment/TrxID দেখাবে না। শুধু <b>Order</b> চাপলে নতুন Order/Payment Page ওপেন হবে।
-    </p>
-
-    <div class="grid" id="servicesGrid"></div>
-  </div>
-</section>
-
-<section class="section" id="how">
-  <div class="container">
-    <h2 class="section-title">How it works</h2>
-    <p class="subline">3 স্টেপ: Service → Payment Page → WhatsApp Submit</p>
-
-    <div class="grid">
-      <div class="svc">
-        <span class="tag"><i class="fa-solid fa-hand-pointer"></i> Step 1</span>
-        <h3>Service Select</h3>
-        <p>যেকোন সার্ভিসে Order চাপুন।</p>
-      </div>
-      <div class="svc">
-        <span class="tag"><i class="fa-solid fa-credit-card"></i> Step 2</span>
-        <h3>Order/Payment Page</h3>
-        <p>Quantity/Package, Payment Method, Transaction ID, URL দিন।</p>
-      </div>
-      <div class="svc">
-        <span class="tag"><i class="fa-brands fa-whatsapp"></i> Step 3</span>
-        <h3>WhatsApp Submit</h3>
-        <p>Submit করলে WhatsApp এ অটো অর্ডার মেসেজ চলে যাবে।</p>
+      <div class="modal-actions">
+        <button class="btn ghost" id="infoCloseBtn"><i class="fa-solid fa-xmark"></i> Close</button>
+        <button class="btn order" id="infoOrderBtn"><i class="fa-solid fa-cart-shopping"></i> Order This</button>
       </div>
     </div>
   </div>
-</section>
 
-<section class="section" id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <p class="subline">এখানে ক্লিক করলেই সরাসরি ওপেন হবে</p>
+  <!-- ✅ Toast container -->
+  <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
 
-    <div class="grid">
-      <div class="svc">
-        <h3><i class="fa-brands fa-whatsapp"></i> WhatsApp</h3>
-        <p>Tap করলে WhatsApp chat ওপেন হবে।</p>
-        <div class="actions">
-          <a class="btn wa" id="waBtnContact" target="_blank" rel="noreferrer" href="#">
-            <i class="fa-brands fa-whatsapp"></i> Chat Now
-          </a>
-        </div>
-      </div>
+  <script>
+    /* ========== LINKS / HEADER ========== */
+    const waLinkBase = `https://wa.me/${SAIKAT.waNumber}`;
+    document.getElementById("waShow").textContent = SAIKAT.waRaw;
+    document.getElementById("emailShow").textContent = SAIKAT.email;
+    document.getElementById("addrShow").textContent = SAIKAT.address;
+    document.getElementById("bkashShow").textContent = SAIKAT.payment.bkash;
+    document.getElementById("nagadShow").textContent = SAIKAT.payment.nagad;
 
-      <div class="svc">
-        <h3><i class="fa-brands fa-facebook"></i> Facebook Page</h3>
-        <p>Tap করলে Facebook Page ওপেন হবে।</p>
-        <div class="actions">
-          <a class="btn fb" id="fbBtnContact" target="_blank" rel="noreferrer" href="#">
-            <i class="fa-brands fa-facebook"></i> Visit Page
-          </a>
-        </div>
-      </div>
+    document.getElementById("waBtnTop").href = waLinkBase;
+    document.getElementById("waBtnContact").href = waLinkBase;
 
-      <div class="svc">
-        <h3><i class="fa-solid fa-envelope"></i> Email</h3>
-        <p>Tap করলে Email compose ওপেন হবে।</p>
-        <div class="actions">
-          <a class="btn ghost" id="emailBtn" href="#">
-            <i class="fa-solid fa-envelope"></i> Send Email
-          </a>
-        </div>
-      </div>
-    </div>
+    document.getElementById("fbBtnTop").href = SAIKAT.fb;
+    document.getElementById("fbBtnContact").href = SAIKAT.fb;
 
-    <div class="footer" style="margin-top:18px">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>© 2026 Saikat Tech Hub — All Rights Reserved</div>
-        <div><a href="#top">Back to top</a></div>
-      </div>
-    </div>
-  </div>
-</section>
+    document.getElementById("emailBtn").href =
+      `mailto:${SAIKAT.email}?subject=${encodeURIComponent("Service Inquiry - Saikat Tech Hub")}`;
 
-<!-- ORDER / PAYMENT MODAL -->
-<div class="overlay" id="overlay" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-head">
-      <b id="modalTitle">Order & Payment</b>
-      <button class="close-x" id="closeModal" aria-label="Close">✕</button>
-    </div>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById("menuBtn");
+    const mnav = document.getElementById("mnav");
+    menuBtn.addEventListener("click", ()=> mnav.classList.toggle("show"));
+    mnav.addEventListener("click", (e)=>{ if(e.target.tagName === "A") mnav.classList.remove("show"); });
 
-    <div class="modal-body">
-      <div class="two">
-        <div class="box">
-          <div class="summary">
-            <div class="big" id="mServiceName">Service Name</div>
-            <div id="mServiceDesc">Service description</div>
-            <div class="mini" id="mCategory">Category</div>
+    /* ========== TOAST (new) ========== */
+    const toastWrap = document.getElementById("toastWrap");
+    function toast(title, message, type="info", ms=2600){
+      const icon = type==="success" ? "fa-circle-check" : type==="error" ? "fa-triangle-exclamation" : "fa-circle-info";
+      const el = document.createElement("div");
+      el.className = "toast";
+      el.innerHTML = `
+        <i class="fa-solid ${icon}"></i>
+        <div class="t"><b>${escapeHtml(title)}</b><span>${escapeHtml(message)}</span></div>
+        <button class="x" aria-label="Close">✕</button>
+      `;
+      const close = ()=> {
+        el.style.animation = "toastOut .16s ease-in forwards";
+        setTimeout(()=> el.remove(), 160);
+      };
+      el.querySelector(".x").addEventListener("click", close);
+      toastWrap.appendChild(el);
+      setTimeout(close, ms);
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    /* ========== FEATURED (new) ========== */
+    const featuredRow = document.getElementById("featuredRow");
+    function isFeatured(s){
+      const tags = (s.tags||[]);
+      return tags.some(t => FEATURE_TAGS.has(t));
+    }
+    function pricingHint(s){
+      if(s.unitType === "PACK") return { pill:`Packages`, note:`Choose package in order page.` };
+      if(s.unitType === "K") return { pill:`৳${s.pricePerUnit}/1K`, note:`Quantity is in K.` };
+      return { pill:`৳${s.pricePerUnit}/100`, note:`Quantity is in x100.` };
+    }
+    function renderFeatured(){
+      const list = SERVICES.filter(isFeatured).slice(0, 10);
+      featuredRow.innerHTML = list.map(s=>{
+        const ph = pricingHint(s);
+        const t1 = (s.tags||[])[0] ? `<span class="tag"><i class="${s.icon}"></i> ${(s.tags||[])[0]}</span>` : "";
+        return `
+          <div class="fcard">
+            <div class="f-top">
+              <span class="tag"><i class="${s.icon}"></i> ${s.category}</span>
+              <span class="pill"><i class="fa-solid fa-tag"></i> ${ph.pill}</span>
+            </div>
+            <h4>${s.title}</h4>
+            <p>${s.desc}</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+              ${t1}
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn order small" data-order="${s.id}"><i class="fa-solid fa-cart-shopping"></i> Order</button>
+              <button class="btn ghost small" data-info="${s.id}"><i class="fa-solid fa-circle-info"></i> Details</button>
+            </div>
           </div>
-
-          <div class="field" id="qtyField">
-            <label id="qtyLabel">Quantity</label>
-            <select id="qtySelect"></select>
-          </div>
-
-          <div class="field" id="pkgField" style="display:none">
-            <label>Package</label>
-            <select id="pkgSelect"></select>
-          </div>
-
-          <div class="field">
-            <label>Price</label>
-            <input id="priceShow" readonly />
-          </div>
-
-          <div class="field">
-            <label>Link / URL (Page/Profile/Post/Video)</label>
-            <input id="urlInput" placeholder="Paste your URL here" />
-          </div>
-
-          <div class="hint">
-            ✅ Password লাগবে না।<br/>
-            ✅ URL ঠিক দিলে কাজ দ্রুত হবে।
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="summary">
-            <div class="big">Payment</div>
-            <div>Payment complete করে Transaction ID দিন।</div>
-          </div>
-
-          <div class="pay-badges" style="margin-top:12px">
-            <div class="pay-badge"><i class="fa-solid fa-wallet"></i> bKash: <span id="mBkash"></span></div>
-            <div class="pay-badge"><i class="fa-solid fa-money-bill-wave"></i> Nagad: <span id="mNagad"></span></div>
-          </div>
-
-          <div class="field">
-            <label>Payment Method</label>
-            <select id="payMethod">
-              <option value="">Select</option>
-              <option value="bKash">bKash</option>
-              <option value="Nagad">Nagad</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Transaction ID (TrxID)</label>
-            <input id="trxInput" placeholder="e.g. A1B2C3D4" />
-          </div>
-
-          <div class="field">
-            <label>Extra Notes (optional)</label>
-            <textarea id="noteInput" placeholder="Target country / speed / any notes..."></textarea>
-          </div>
-
-          <div class="hint">
-            Payment proof (screenshot) চাইলে WhatsApp এ পাঠাতে পারবেন।
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal-actions">
-      <button class="btn ghost" id="cancelBtn"><i class="fa-solid fa-xmark"></i> Cancel</button>
-      <button class="btn order" id="sendWaBtn"><i class="fa-brands fa-whatsapp"></i> Send Order to WhatsApp</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Top links
-  document.getElementById("waShow").textContent = SAIKAT.waRaw;
-  document.getElementById("emailShow").textContent = SAIKAT.email;
-  document.getElementById("addrShow").textContent = SAIKAT.address;
-  document.getElementById("bkashShow").textContent = SAIKAT.payment.bkash;
-  document.getElementById("nagadShow").textContent = SAIKAT.payment.nagad;
-
-  const waLink = `https://wa.me/${SAIKAT.waNumber}`;
-  document.getElementById("waBtnTop").href = waLink;
-  document.getElementById("waBtnContact").href = waLink;
-
-  document.getElementById("fbBtnTop").href = SAIKAT.fb;
-  document.getElementById("fbBtnContact").href = SAIKAT.fb;
-
-  document.getElementById("emailBtn").href = `mailto:${SAIKAT.email}?subject=${encodeURIComponent("Service Inquiry - Saikat Tech Hub")}`;
-
-  // Render services
-  const grid = document.getElementById("servicesGrid");
-  grid.innerHTML = SERVICES.map(s => {
-    const tags = (s.tags || []).slice(0,3).map(t => `<span class="tag"><i class="${s.icon}"></i> ${t}</span>`).join("");
-    return `
-      <div class="svc">
-        <span class="tag"><i class="${s.icon}"></i> ${s.category}</span>
-        <h3>${s.title}</h3>
-        <p>${s.desc}</p>
-        ${tags ? `<div style="display:flex;gap:10px;flex-wrap:wrap">${tags}</div>` : ""}
-        <div class="actions" style="margin-top:14px">
-          <button class="btn order" data-order="${s.id}">
-            <i class="fa-solid fa-cart-shopping"></i> Order
-          </button>
-          <button class="btn ghost" data-info="${s.id}">
-            <i class="fa-solid fa-circle-info"></i> Details
-          </button>
-        </div>
-      </div>
-    `;
-  }).join("");
-
-  // Modal elements
-  const overlay = document.getElementById("overlay");
-  const closeModal = document.getElementById("closeModal");
-  const cancelBtn = document.getElementById("cancelBtn");
-  const sendWaBtn = document.getElementById("sendWaBtn");
-
-  const mServiceName = document.getElementById("mServiceName");
-  const mServiceDesc = document.getElementById("mServiceDesc");
-  const mCategory = document.getElementById("mCategory");
-  const mBkash = document.getElementById("mBkash");
-  const mNagad = document.getElementById("mNagad");
-
-  const qtyField = document.getElementById("qtyField");
-  const qtyLabel = document.getElementById("qtyLabel");
-  const qtySelect = document.getElementById("qtySelect");
-
-  const pkgField = document.getElementById("pkgField");
-  const pkgSelect = document.getElementById("pkgSelect");
-
-  const priceShow = document.getElementById("priceShow");
-  const urlInput = document.getElementById("urlInput");
-  const payMethod = document.getElementById("payMethod");
-  const trxInput = document.getElementById("trxInput");
-  const noteInput = document.getElementById("noteInput");
-
-  let currentService = null;
-  let currentComputed = { label:"", price:0 };
-
-  function openModal(service){
-    currentService = service;
-    currentComputed = { label:"", price:0 };
-
-    mServiceName.textContent = service.title;
-    mServiceDesc.textContent = service.desc;
-    mCategory.textContent = `Category: ${service.category}`;
-    mBkash.textContent = SAIKAT.payment.bkash;
-    mNagad.textContent = SAIKAT.payment.nagad;
-
-    urlInput.value = "";
-    payMethod.value = "";
-    trxInput.value = "";
-    noteInput.value = "";
-
-    if(service.unitType === "PACK"){
-      qtyField.style.display = "none";
-      pkgField.style.display = "block";
-      pkgSelect.innerHTML = `<option value="">Select package</option>` + service.packages.map((p,idx)=>{
-        return `<option value="${idx}">${p.label} — ৳${p.price}</option>`;
+        `;
       }).join("");
-      priceShow.value = "৳0";
-    } else {
-      qtyField.style.display = "block";
-      pkgField.style.display = "none";
 
-      if(service.unitType === "K"){
-        qtyLabel.textContent = "Quantity (K)";
-        qtySelect.innerHTML = `<option value="">Select quantity</option>` + service.qtyList.map(q=>{
-          return `<option value="${q}">${q}K</option>`;
-        }).join("");
-      } else if(service.unitType === "100"){
-        qtyLabel.textContent = "Quantity (x100)";
-        qtySelect.innerHTML = `<option value="">Select quantity</option>` + service.qtyList.map(q=>{
-          return `<option value="${q}">${q*100}</option>`;
-        }).join("");
+      if(!list.length){
+        featuredRow.innerHTML = `<div class="fcard"><h4>No featured items</h4><p>Tags এ Popular/Trending/Premium/Pro থাকলে এখানে দেখাবে।</p></div>`;
       }
-
-      priceShow.value = "৳0";
     }
 
-    overlay.classList.add("show");
-    overlay.setAttribute("aria-hidden","false");
-  }
+    /* ========== CATEGORY + SEARCH ========== */
+    const catSelect = document.getElementById("catSelect");
+    [...new Set(SERVICES.map(s=>s.category))].forEach(cat=>{
+      const opt = document.createElement("option");
+      opt.value = cat;
+      opt.textContent = cat;
+      catSelect.appendChild(opt);
+    });
 
-  function closeModalFn(){
-    overlay.classList.remove("show");
-    overlay.setAttribute("aria-hidden","true");
-    currentService = null;
-  }
+    const grid = document.getElementById("servicesGrid");
+    const searchInput = document.getElementById("searchInput");
 
-  qtySelect.addEventListener("change", ()=>{
-    if(!currentService) return;
-    const v = qtySelect.value ? Number(qtySelect.value) : 0;
-    if(!v){ priceShow.value = "৳0"; currentComputed = { label:"", price:0 }; return; }
+    function renderServices(){
+      const q = (searchInput.value || "").trim().toLowerCase();
+      const cat = catSelect.value;
 
-    let label = "";
-    let price = 0;
+      const list = SERVICES.filter(s=>{
+        const okCat = (cat === "All") ? true : s.category === cat;
+        const hay = `${s.title} ${s.desc} ${s.category} ${(s.tags||[]).join(" ")}`.toLowerCase();
+        const okQ = q ? hay.includes(q) : true;
+        return okCat && okQ;
+      });
 
-    if(currentService.unitType === "K"){
-      label = `${v}K`;
-      price = v * Number(currentService.pricePerUnit);
-    } else if(currentService.unitType === "100"){
-      label = `${v*100}`;
-      price = v * Number(currentService.pricePerUnit);
+      grid.innerHTML = list.map(s => {
+        const tags = (s.tags || []).slice(0,3)
+          .map(t => `<span class="tag"><i class="${s.icon}"></i> ${t}</span>`).join("");
+
+        const ph = pricingHint(s);
+        const pill =
+          s.unitType === "PACK"
+            ? `<span class="pill"><i class="fa-solid fa-box"></i> ${ph.pill}</span>`
+            : `<span class="pill"><i class="fa-solid fa-tag"></i> ${ph.pill}</span>`;
+
+        return `
+          <div class="svc">
+            <div class="top">
+              <span class="tag"><i class="${s.icon}"></i> ${s.category}</span>
+              ${pill}
+            </div>
+            <h3>${s.title}</h3>
+            <p>${s.desc}</p>
+            ${tags ? `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">${tags}</div>` : ""}
+            <div class="actions">
+              <button class="btn order" data-order="${s.id}">
+                <i class="fa-solid fa-cart-shopping"></i> Order
+              </button>
+              <button class="btn ghost" data-info="${s.id}">
+                <i class="fa-solid fa-circle-info"></i> Details
+              </button>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      if(!list.length){
+        grid.innerHTML = `<div class="svc" style="grid-column:1/-1">
+          <h3>No services found</h3>
+          <p>Search/Category change করে আবার দেখুন।</p>
+        </div>`;
+      }
     }
 
-    currentComputed = { label, price };
-    priceShow.value = `৳${price}`;
-  });
+    searchInput.addEventListener("input", renderServices);
+    catSelect.addEventListener("change", renderServices);
 
-  pkgSelect.addEventListener("change", ()=>{
-    if(!currentService) return;
-    const idx = pkgSelect.value ? Number(pkgSelect.value) : -1;
-    if(idx < 0){ priceShow.value = "৳0"; currentComputed = { label:"", price:0 }; return; }
-    const p = currentService.packages[idx];
-    currentComputed = { label: p.label, price: Number(p.price) };
-    priceShow.value = `৳${p.price}`;
-  });
+    /* ========== ORDER MODAL ========== */
+    const orderOverlay = document.getElementById("orderOverlay");
+    const closeOrder = document.getElementById("closeOrder");
+    const cancelOrder = document.getElementById("cancelOrder");
+    const sendWaBtn = document.getElementById("sendWaBtn");
 
-  grid.addEventListener("click", (e)=>{
-    const orderBtn = e.target.closest("[data-order]");
-    const infoBtn = e.target.closest("[data-info]");
+    const mServiceName = document.getElementById("mServiceName");
+    const mServiceDesc = document.getElementById("mServiceDesc");
+    const mCategory = document.getElementById("mCategory");
+    const mBkash = document.getElementById("mBkash");
+    const mNagad = document.getElementById("mNagad");
 
-    if(orderBtn){
-      const id = orderBtn.getAttribute("data-order");
-      const service = SERVICES.find(x=>x.id===id);
-      if(service) openModal(service);
-    }
+    const qtyField = document.getElementById("qtyField");
+    const qtyLabel = document.getElementById("qtyLabel");
+    const qtySelect = document.getElementById("qtySelect");
 
-    if(infoBtn){
-      const id = infoBtn.getAttribute("data-info");
-      const service = SERVICES.find(x=>x.id===id);
-      if(!service) return;
+    const pkgField = document.getElementById("pkgField");
+    const pkgSelect = document.getElementById("pkgSelect");
 
-      let details = `${service.title}\n\n${service.desc}\n\nCategory: ${service.category}\n`;
+    const priceShow = document.getElementById("priceShow");
+    const urlInput = document.getElementById("urlInput");
+    const payMethod = document.getElementById("payMethod");
+    const trxInput = document.getElementById("trxInput");
+    const noteInput = document.getElementById("noteInput");
+
+    let currentService = null;
+    let currentComputed = { label:"", price:0 };
+
+    function openOrderModal(service){
+      currentService = service;
+      currentComputed = { label:"", price:0 };
+
+      mServiceName.textContent = service.title;
+      mServiceDesc.textContent = service.desc;
+      mCategory.textContent = `Category: ${service.category}`;
+      mBkash.textContent = SAIKAT.payment.bkash;
+      mNagad.textContent = SAIKAT.payment.nagad;
+
+      urlInput.value = "";
+      payMethod.value = "";
+      trxInput.value = "";
+      noteInput.value = "";
+
+      qtySelect.innerHTML = "";
+      pkgSelect.innerHTML = "";
+
       if(service.unitType === "PACK"){
-        details += "\nPackages:\n" + service.packages.map(p=>`- ${p.label}: ৳${p.price} (${p.note})`).join("\n");
+        qtyField.style.display = "none";
+        pkgField.style.display = "block";
+        pkgSelect.innerHTML =
+          `<option value="">Select package</option>` +
+          service.packages.map((p,idx)=> `<option value="${idx}">${p.label} — ৳${p.price}</option>`).join("");
+        priceShow.value = "৳0";
       } else {
-        details += `\nPricing Rule:\n- Rate: ৳${service.pricePerUnit} per ${service.unitType === "K" ? "1K" : "100"}\n`;
+        qtyField.style.display = "block";
+        pkgField.style.display = "none";
+
+        if(service.unitType === "K"){
+          qtyLabel.textContent = "Quantity (K)";
+          qtySelect.innerHTML =
+            `<option value="">Select quantity</option>` +
+            service.qtyList.map(q=> `<option value="${q}">${q}K</option>`).join("");
+        } else {
+          qtyLabel.textContent = "Quantity (x100)";
+          qtySelect.innerHTML =
+            `<option value="">Select quantity</option>` +
+            service.qtyList.map(q=> `<option value="${q}">${q*100}</option>`).join("");
+        }
+        priceShow.value = "৳0";
       }
-      alert(details);
-    }
-  });
 
-  closeModal.addEventListener("click", closeModalFn);
-  cancelBtn.addEventListener("click", closeModalFn);
-  overlay.addEventListener("click", (e)=>{ if(e.target === overlay) closeModalFn(); });
-  document.addEventListener("keydown", (e)=>{ if(e.key === "Escape" && overlay.classList.contains("show")) closeModalFn(); });
-
-  sendWaBtn.addEventListener("click", ()=>{
-    if(!currentService) return;
-
-    if(currentService.unitType === "PACK"){
-      if(!pkgSelect.value) return alert("Package select করুন");
-    } else {
-      if(!qtySelect.value) return alert("Quantity select করুন");
+      orderOverlay.classList.add("show");
+      orderOverlay.setAttribute("aria-hidden","false");
+      setTimeout(()=> urlInput.focus(), 150);
     }
 
-    if(!urlInput.value.trim()) return alert("Link/URL দিন");
-    if(!payMethod.value) return alert("Payment method select করুন (bKash/Nagad)");
-    if(!trxInput.value.trim()) return alert("Transaction ID দিন");
-
-    const serviceName = currentService.title;
-    const serviceCat = currentService.category;
-
-    let packageText = "";
-    if(currentService.unitType === "PACK"){
-      packageText = currentComputed.label;
-    } else if(currentService.unitType === "K"){
-      packageText = `${currentComputed.label}`;
-    } else {
-      packageText = `${currentComputed.label}`;
+    function closeOrderModal(){
+      orderOverlay.classList.remove("show");
+      orderOverlay.setAttribute("aria-hidden","true");
+      currentService = null;
     }
 
-    const price = currentComputed.price;
+    qtySelect.addEventListener("change", ()=>{
+      if(!currentService) return;
+      const v = qtySelect.value ? Number(qtySelect.value) : 0;
+      if(!v){ priceShow.value = "৳0"; currentComputed = { label:"", price:0 }; return; }
 
-    const msg =
+      let label = "";
+      let price = 0;
+
+      if(currentService.unitType === "K"){
+        label = `${v}K`;
+        price = v * Number(currentService.pricePerUnit);
+      } else {
+        label = `${v*100}`;
+        price = v * Number(currentService.pricePerUnit);
+      }
+
+      currentComputed = { label, price };
+      priceShow.value = `৳${price}`;
+    });
+
+    pkgSelect.addEventListener("change", ()=>{
+      if(!currentService) return;
+      const idx = pkgSelect.value ? Number(pkgSelect.value) : -1;
+      if(idx < 0){ priceShow.value = "৳0"; currentComputed = { label:"", price:0 }; return; }
+      const p = currentService.packages[idx];
+      currentComputed = { label: p.label, price: Number(p.price) };
+      priceShow.value = `৳${p.price}`;
+    });
+
+    closeOrder.addEventListener("click", closeOrderModal);
+    cancelOrder.addEventListener("click", closeOrderModal);
+    orderOverlay.addEventListener("click", (e)=>{ if(e.target === orderOverlay) closeOrderModal(); });
+
+    /* ========== DETAILS MODAL (new) ========== */
+    const infoOverlay = document.getElementById("infoOverlay");
+    const closeInfo = document.getElementById("closeInfo");
+    const infoCloseBtn = document.getElementById("infoCloseBtn");
+    const infoOrderBtn = document.getElementById("infoOrderBtn");
+
+    const dTitle = document.getElementById("dTitle");
+    const dDesc = document.getElementById("dDesc");
+    const dCat = document.getElementById("dCat");
+    const dType = document.getElementById("dType");
+    const dPricing = document.getElementById("dPricing");
+    const dPricingNote = document.getElementById("dPricingNote");
+    const dTags = document.getElementById("dTags");
+
+    let detailsService = null;
+
+    function openInfoModal(service){
+      detailsService = service;
+
+      dTitle.textContent = service.title;
+      dDesc.textContent = service.desc;
+      dCat.textContent = service.category;
+      dType.textContent = service.unitType === "PACK" ? "Package" : (service.unitType === "K" ? "Quantity (K)" : "Quantity (x100)");
+
+      const ph = pricingHint(service);
+      if(service.unitType === "PACK"){
+        dPricing.textContent = `Packages available`;
+        dPricingNote.textContent = service.packages.map(p=>`• ${p.label} — ৳${p.price} (${p.note})`).join(" | ");
+      } else {
+        dPricing.textContent = ph.pill;
+        dPricingNote.textContent = ph.note;
+      }
+
+      dTags.innerHTML = (service.tags||[]).map(t=>`<span class="k"><i class="${service.icon}"></i> ${escapeHtml(t)}</span>`).join("");
+
+      infoOverlay.classList.add("show");
+      infoOverlay.setAttribute("aria-hidden","false");
+    }
+
+    function closeInfoModal(){
+      infoOverlay.classList.remove("show");
+      infoOverlay.setAttribute("aria-hidden","true");
+      detailsService = null;
+    }
+
+    closeInfo.addEventListener("click", closeInfoModal);
+    infoCloseBtn.addEventListener("click", closeInfoModal);
+    infoOverlay.addEventListener("click", (e)=>{ if(e.target === infoOverlay) closeInfoModal(); });
+
+    infoOrderBtn.addEventListener("click", ()=>{
+      if(!detailsService) return;
+      closeInfoModal();
+      openOrderModal(detailsService);
+    });
+
+    /* ========== GLOBAL CLICK HANDLERS (Order + Details) ========== */
+    function handleClick(e){
+      const orderBtn = e.target.closest("[data-order]");
+      const infoBtn  = e.target.closest("[data-info]");
+
+      if(orderBtn){
+        const id = orderBtn.getAttribute("data-order");
+        const service = SERVICES.find(x=>x.id===id);
+        if(service) openOrderModal(service);
+      }
+
+      if(infoBtn){
+        const id = infoBtn.getAttribute("data-info");
+        const service = SERVICES.find(x=>x.id===id);
+        if(service) openInfoModal(service);
+      }
+    }
+
+    document.getElementById("servicesGrid").addEventListener("click", handleClick);
+    document.getElementById("featuredRow").addEventListener("click", handleClick);
+
+    /* ========== SEND WHATSAPP ORDER ========== */
+    sendWaBtn.addEventListener("click", ()=>{
+      if(!currentService) return;
+
+      if(currentService.unitType === "PACK"){
+        if(!pkgSelect.value) return toast("Missing", "Package select করুন", "error");
+      } else {
+        if(!qtySelect.value) return toast("Missing", "Quantity select করুন", "error");
+      }
+
+      if(!urlInput.value.trim()) return toast("Missing", "Link/URL দিন", "error");
+      if(!payMethod.value) return toast("Missing", "Payment method select করুন (bKash/Nagad)", "error");
+      if(!trxInput.value.trim()) return toast("Missing", "Transaction ID দিন", "error");
+
+      const serviceName = currentService.title;
+      const serviceCat = currentService.category;
+
+      const packageText = currentComputed.label || "N/A";
+      const price = currentComputed.price || 0;
+
+      const msg =
 `Assalamu Alaikum,
 I want to place an order.
 
@@ -749,13 +1280,22 @@ ${noteInput.value.trim() || "N/A"}
 
 -- Saikat Tech Hub`;
 
-    window.open(`https://wa.me/${SAIKAT.waNumber}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
-  });
+      toast("Ready", "WhatsApp এ অর্ডার ওপেন হচ্ছে...", "success", 1400);
+      window.open(`${waLinkBase}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+    });
 
-  // top buttons
-  document.getElementById("waBtnTop").href = `https://wa.me/${SAIKAT.waNumber}`;
-  document.getElementById("fbBtnTop").href = SAIKAT.fb;
-</script>
+    /* ========== ESC KEY CLOSE ========== */
+    document.addEventListener("keydown", (e)=>{
+      if(e.key !== "Escape") return;
+      if(orderOverlay.classList.contains("show")) closeOrderModal();
+      if(infoOverlay.classList.contains("show")) closeInfoModal();
+    });
+
+    /* ========== INIT ========== */
+    renderFeatured();
+    renderServices();
+    toast("Welcome", "Saikat Tech Hub এ স্বাগতম ✅", "success", 2200);
+  </script>
 
 </body>
 </html>
