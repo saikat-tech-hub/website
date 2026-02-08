@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Saikat Tech Hub Store</title>
-  <meta name="description" content="Products + Services, WhatsApp checkout, Admin panel (login), logo/cover change, image upload." />
+  <meta name="description" content="Social Media Services + Products, WhatsApp checkout, Admin panel, logo/cover change, image upload." />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -207,7 +207,6 @@
         radial-gradient(600px 260px at 0% 0%, rgba(59,130,246,.18), transparent 60%),
         radial-gradient(600px 260px at 100% 0%, rgba(236,72,153,.16), transparent 60%);
       pointer-events:none;
-      opacity:1;
       z-index:0;
     }
     .heroCoverImg{
@@ -237,29 +236,6 @@
     .kv b{display:block;font-size:12px;color:var(--muted);font-weight:900}
     .kv span{display:block;margin-top:6px;font-weight:900;font-size:14.5px}
 
-    .tabsRow{
-      margin-top:14px;
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;
-    }
-    .tabs{
-      display:inline-flex;gap:8px;flex-wrap:wrap;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      padding:8px;border-radius:999px;
-    }
-    .tabBtn{
-      border:0;cursor:pointer;
-      padding:10px 12px;border-radius:999px;
-      background:transparent;
-      color:var(--muted);
-      font-weight:900;
-      display:inline-flex;gap:10px;align-items:center;
-    }
-    .tabBtn.active{
-      background: rgba(255,255,255,.10);
-      color: var(--text);
-    }
-
     .section{padding:16px 0 40px}
     .titleRow{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
     .section h2{margin:0;font-size:22px}
@@ -282,43 +258,25 @@
     .input{flex: 1 1 260px;font-weight:700}
     .select{flex: 0 0 220px}
 
-    .colGrid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:12px;
+    .catRow{
       margin-top:14px;
-    }
-    .colCard{
-      border-radius:22px;
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
       border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(15,23,42,.92), rgba(2,6,23,.92));
-      box-shadow: var(--shadow2);
-      padding:14px;
-      min-height:120px;
-      position:relative;
-      overflow:hidden;
-      cursor:pointer;
-      transition:.15s ease;
+      background:rgba(255,255,255,.05);
+      padding:10px;border-radius:999px;
     }
-    .colCard:hover{transform:translateY(-2px)}
-    .colCard:before{
-      content:"";
-      position:absolute;inset:-40%;
-      background: radial-gradient(circle, rgba(59,130,246,.22), transparent 55%);
-      transform: rotate(20deg);
-      opacity:.6;
+    .catBtn{
+      border:0;cursor:pointer;
+      padding:10px 12px;border-radius:999px;
+      background:transparent;
+      color:var(--muted);
+      font-weight:900;
+      display:inline-flex;gap:10px;align-items:center;
     }
-    .colCard .inner{position:relative;z-index:1}
-    .tag{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:7px 10px;border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      font-weight:900;font-size:12px;color:#e5e7eb;
-      white-space:nowrap;
+    .catBtn.active{
+      background: rgba(255,255,255,.10);
+      color: var(--text);
     }
-    .colCard h3{margin:10px 0 6px;font-size:16px}
-    .colCard .small{font-size:12.5px;color:var(--muted);line-height:1.6}
 
     .grid{
       display:grid;
@@ -351,7 +309,6 @@
       background-position:center;
       opacity:1;
     }
-    .img .thumb.dim{opacity:.92}
     .img i{
       position:absolute;inset:0;
       display:grid;place-items:center;
@@ -605,7 +562,6 @@
     .miniBtn.ok{border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.12); color:#bbf7d0}
     .miniBtn.warn{border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.12); color:#fde68a}
 
-    /* Shopify-like login card */
     .loginCard{
       border-radius:22px;
       border:1px solid var(--line);
@@ -629,7 +585,6 @@
     @media (max-width: 980px){
       .heroCard{grid-template-columns:1fr}
       .grid{grid-template-columns:repeat(2,1fr)}
-      .colGrid{grid-template-columns:repeat(2,1fr)}
       nav{display:none}
       .menu-btn{display:inline-flex}
       .search{max-width:100%;flex:1 1 100%}
@@ -642,6 +597,7 @@
       .hero h1{font-size:28px}
       .overlay{padding:10px}
       .modal{border-radius:20px}
+      .catRow{border-radius:20px}
     }
   </style>
 </head>
@@ -649,8 +605,8 @@
 <body>
   <div class="topbar">
     <div class="inner">
-      <div class="chip"><i class="fa-solid fa-truck-fast"></i> Fast delivery (optional)</div>
-      <div class="chip"><i class="fa-solid fa-shield-halved"></i> Trusted • Secure order</div>
+      <div class="chip"><i class="fa-solid fa-shield-halved"></i> Safe • No password needed</div>
+      <div class="chip"><i class="fa-solid fa-bolt"></i> Fast support</div>
       <div class="chip"><i class="fa-brands fa-whatsapp"></i> WhatsApp Order</div>
     </div>
   </div>
@@ -661,19 +617,20 @@
      ***********************/
     const ADMIN_USER = "saikat@gmail.com";
     const ADMIN_PASS = "676711@";
-    const ADMIN_SESSION_KEY = "saikat_admin_session_v1";
+    const ADMIN_SESSION_KEY = "saikat_admin_session_v2";
 
     /***********************
-     *  YOUR DETAILS (keep same)
+     *  DEFAULT OWNER DETAILS (these will be editable in Admin > Store)
      ***********************/
-    const SAIKAT = {
+    const DEFAULT_OWNER = {
       brandName: "Saikat Tech Hub Store",
       waNumber: "8801804676711",
       waRaw: "01804676711",
       email: "saikat712@gmail.com",
       fb: "https://www.facebook.com/share/1AWbo99RjN/",
       address: "Dhaka New Market, 1205",
-      payment: { bkash: "+8801344-486384", nagad: "01682312657" }
+      bkash: "+8801344-486384",
+      nagad: "01682312657"
     };
 
     const DELIVERY_ZONES = [
@@ -682,7 +639,18 @@
       { id:"pickup", label:"Pickup (New Market)", charge: 0 }
     ];
 
-    const DEFAULT_STORE_SETTINGS = { brandName: SAIKAT.brandName, logoDataUrl: "", coverDataUrl: "" };
+    const DEFAULT_STORE_SETTINGS = {
+      brandName: DEFAULT_OWNER.brandName,
+      logoDataUrl: "",
+      coverDataUrl: "",
+      waNumber: DEFAULT_OWNER.waNumber,
+      waRaw: DEFAULT_OWNER.waRaw,
+      email: DEFAULT_OWNER.email,
+      fb: DEFAULT_OWNER.fb,
+      address: DEFAULT_OWNER.address,
+      bkash: DEFAULT_OWNER.bkash,
+      nagad: DEFAULT_OWNER.nagad
+    };
 
     const DEFAULT_PRODUCTS = [
       { id:"p1", title:"Mobile Phone Holder", desc:"Strong grip • Universal", type:"product", collection:"Trending", price:95, regular:240, image:"", tags:["Hot","Deal"] },
@@ -692,14 +660,9 @@
       { id:"p5", title:"Bluetooth Speaker", desc:"Loud sound", type:"product", collection:"New Arrival", price:399, regular:null, image:"", tags:["New"] },
       { id:"p6", title:"Neck Shoulder Massager", desc:"Comfortable", type:"product", collection:"New Arrival", price:2690, regular:2990, image:"", tags:["Premium"] },
       { id:"p7", title:"LED Night Lamp", desc:"Soft light", type:"product", collection:"New Arrival", price:249, regular:399, image:"", tags:["New"] },
-      { id:"p8", title:"Mini Tripod Stand", desc:"Portable", type:"product", collection:"New Arrival", price:199, regular:299, image:"", tags:["Deal"] },
-      { id:"p9", title:"Premium Watch Strap", desc:"Quality material", type:"product", collection:"Signature", price:499, regular:799, image:"", tags:["Premium"] },
-      { id:"p10",title:"Luxury Wallet", desc:"Elegant", type:"product", collection:"Signature", price:650, regular:980, image:"", tags:["Best"] },
-      { id:"p11",title:"Stock Clearance Item", desc:"Limited", type:"product", collection:"Clearance", price:99, regular:250, image:"", tags:["Clearance"] },
-      { id:"p12",title:"Best Selling Combo", desc:"Combo pack", type:"product", collection:"Best Selling", price:899, regular:1299, image:"", tags:["Best"] }
+      { id:"p8", title:"Mini Tripod Stand", desc:"Portable", type:"product", collection:"New Arrival", price:199, regular:299, image:"", tags:["Deal"] }
     ];
 
-    /* আপনার Services (সম্পূর্ণ add করা) */
     const DEFAULT_SERVICES = [
       { id:"fb_followers", type:"service", category:"Facebook", title:"Facebook Followers", desc:"Page/Profile followers • Safe • No password", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,4,5,6,7,8,9,10,20,30,40,50,70], tags:["Popular","Fast","Safe"], image:"" },
       { id:"fb_likes", type:"service", category:"Facebook", title:"Facebook Likes", desc:"Page/Post likes • Social proof boost", unitType:"K", pricePerUnit:90, qtyList:[1,2,3,5,10,20,30,50], tags:["Trending","Quick","Boost"], image:"" },
@@ -738,9 +701,9 @@
       }
     ];
 
-    const LS_SETTINGS = "saikat_store_settings_v1";
-    const LS_PRODUCTS = "saikat_store_products_v1";
-    const LS_SERVICES = "saikat_store_services_v1";
+    const LS_SETTINGS = "saikat_store_settings_v2";
+    const LS_PRODUCTS = "saikat_store_products_v2";
+    const LS_SERVICES = "saikat_store_services_v2";
 
     const money = n => `${Number(n||0).toLocaleString("en-US")} Tk`;
     const escapeHtml = (str)=> String(str ?? "")
@@ -806,14 +769,14 @@
         <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i> Menu</button>
 
         <nav aria-label="Main navigation">
-          <a href="#collections">Collections</a>
-          <a href="#browse">Browse</a>
+          <a href="#services">Services</a>
+          <a href="#products">Products</a>
           <a href="#contact">Contact</a>
         </nav>
 
         <div class="search">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input id="qHeader" placeholder="Search products/services..." />
+          <input id="qHeader" placeholder="Search services/products..." />
         </div>
 
         <button class="cart-btn" id="openCart">
@@ -827,8 +790,8 @@
       </div>
 
       <div class="mnav" id="mnav">
-        <a href="#collections">Collections</a>
-        <a href="#browse">Browse</a>
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -841,26 +804,17 @@
         <div class="heroCoverImg" id="heroCoverImg"></div>
 
         <div class="heroLeft">
-          <h1 id="heroTitle">Products + Services<br/>WhatsApp Order System</h1>
+          <h1 id="heroTitle">Social Media Services + Products<br/>WhatsApp Order System</h1>
           <p>
-            Collection → Select item → Add to cart / Service order → WhatsApp checkout.
-            <br/>✅ Admin Panel (password protected) • ✅ Logo/Cover change • ✅ Image upload • ✅ Responsive
+            ✅ Services: Category → Order → WhatsApp<br/>
+            ✅ Products: Add to cart → Checkout → WhatsApp<br/>
+            ✅ Admin: Logo/Cover + Add/Edit/Delete + Image upload
           </p>
 
-          <div class="tabsRow">
-            <div class="tabs" role="tablist" aria-label="Browse tabs">
-              <button class="tabBtn active" id="tabProducts" aria-selected="true">
-                <i class="fa-solid fa-bag-shopping"></i> Products
-              </button>
-              <button class="tabBtn" id="tabServices" aria-selected="false">
-                <i class="fa-solid fa-bolt"></i> Services
-              </button>
-            </div>
-
-            <div style="display:flex;gap:10px;flex-wrap:wrap">
-              <a class="btn primary" href="#browse"><i class="fa-solid fa-list"></i> Browse</a>
-              <button class="btn pink" id="openCheckout"><i class="fa-brands fa-whatsapp"></i> Checkout</button>
-            </div>
+          <div class="heroActions">
+            <a class="btn pink" href="#services"><i class="fa-solid fa-bolt"></i> Social Media Services</a>
+            <a class="btn primary" href="#products"><i class="fa-solid fa-bag-shopping"></i> Browse Products</a>
+            <button class="btn ghost" id="openCheckout"><i class="fa-brands fa-whatsapp"></i> Quick Checkout</button>
           </div>
         </div>
 
@@ -876,41 +830,51 @@
             </span>
           </div>
           <div class="muted" style="font-size:12.5px;line-height:1.7">
-            <b>Tip:</b> Admin খুলতে Footer থেকে <span class="kbd">Admin</span> ক্লিক করুন।
+            Admin খুলতে Footer থেকে <span class="kbd">Admin</span> ক্লিক করুন।
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="collections">
+  <!-- SERVICES SECTION (TOP) -->
+  <section class="section" id="services">
     <div class="container">
       <div class="titleRow">
-        <h2>Collections</h2>
-        <span class="chip"><i class="fa-solid fa-hand-pointer"></i> Tap to filter</span>
+        <h2>Social Media Services</h2>
+        <span class="chip"><i class="fa-solid fa-hand-pointer"></i> Category select করে Order করুন</span>
       </div>
-      <p>Collection select করলে Products/Services grid এ filter হবে।</p>
-      <div class="colGrid" id="colGrid"></div>
+      <p>Facebook/YouTube/Instagram/TikTok/Marketing/Editing/AI—সব এক জায়গায়।</p>
+
+      <div class="catRow" id="svcCats"></div>
+
+      <div class="toolbar">
+        <input class="input" id="qServices" placeholder="Search services (e.g. followers, likes, boosting)..." />
+        <button class="btn ghost" id="svcClear"><i class="fa-solid fa-rotate-left"></i> Clear</button>
+      </div>
+
+      <div class="grid" id="servicesGrid"></div>
     </div>
   </section>
 
-  <section class="section" id="browse">
+  <!-- PRODUCTS SECTION -->
+  <section class="section" id="products">
     <div class="container">
       <div class="titleRow">
-        <h2 id="browseTitle">Browse Products</h2>
-        <span class="chip" id="browseChip"><i class="fa-solid fa-filter"></i> Search + Filter</span>
+        <h2>Products</h2>
+        <span class="chip"><i class="fa-solid fa-filter"></i> Search + Collection</span>
       </div>
-      <p class="muted">Search + collection দিয়ে দ্রুত খুঁজে নিন।</p>
+      <p>Product add to cart করে WhatsApp checkout করুন।</p>
 
       <div class="toolbar">
-        <input class="input" id="qBrowse" placeholder="Search here..." />
-        <select class="select" id="catBrowse">
+        <input class="input" id="qProducts" placeholder="Search products..." />
+        <select class="select" id="pCollection">
           <option value="ALL">All Collections</option>
         </select>
-        <button class="btn ghost" id="clearFilter"><i class="fa-solid fa-rotate-left"></i> Clear</button>
+        <button class="btn ghost" id="pClear"><i class="fa-solid fa-rotate-left"></i> Clear</button>
       </div>
 
-      <div class="grid" id="gridMain"></div>
+      <div class="grid" id="productsGrid"></div>
     </div>
   </section>
 
@@ -1024,7 +988,7 @@
     </div>
   </aside>
 
-  <!-- DETAILS MODAL -->
+  <!-- DETAILS MODAL (Products + Services) -->
   <div class="overlay" id="detailOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
       <div class="modalHead">
@@ -1113,7 +1077,7 @@
             </div>
 
             <div class="muted" style="margin-top:12px;font-size:12.5px;line-height:1.6">
-              <b>Note:</b> Admin থেকে Item image upload করলে এখানে সুন্দরভাবে দেখাবে।
+              <b>Note:</b> Admin থেকে Image upload করলে এখানে সুন্দরভাবে দেখাবে।
             </div>
           </div>
         </div>
@@ -1134,12 +1098,11 @@
       </div>
 
       <div class="modalBody">
-        <!-- Login -->
         <div id="adminLoginView" class="loginCard">
           <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
             <div>
               <b style="font-size:16px"><i class="fa-solid fa-lock"></i> Login Required</b>
-              <div class="muted" style="margin-top:4px;line-height:1.6">Only you can access settings, products, services, images.</div>
+              <div class="muted" style="margin-top:4px;line-height:1.6">Only you can access admin settings.</div>
             </div>
             <div class="securePill"><i class="fa-solid fa-shield-halved"></i> Protected Admin Access</div>
           </div>
@@ -1160,27 +1123,22 @@
               </div>
 
               <div class="loginHint">
-                ✅ Login করার পর আপনি Admin panel থেকে <b>Logo/Cover</b> + <b>Product/Service image</b> upload করতে পারবেন।
+                Login তারপর Store/Products/Services সব edit পারবেন।
               </div>
             </div>
 
             <div class="box">
               <b><i class="fa-solid fa-list-check"></i> You can manage</b>
               <div class="muted" style="margin-top:8px;line-height:1.75">
-                ✅ Store branding (Logo/Cover/Name)<br/>
-                ✅ Products add/edit/delete + images<br/>
-                ✅ Services add/edit/delete + images<br/>
-                ✅ Prices, description, tags, qty/packages<br/>
-                ✅ Reset default (if needed)
-              </div>
-              <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-                Tip: Escape চাপলে modal বন্ধ হবে।
+                ✅ Logo/Cover/Brand name<br/>
+                ✅ WhatsApp/Email/Facebook/Address<br/>
+                ✅ bKash/Nagad numbers<br/>
+                ✅ Products + Services add/edit/delete + image
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Panel -->
         <div id="adminPanelView" style="display:none">
           <div class="adminTop">
             <div class="adminTabs">
@@ -1197,47 +1155,88 @@
           <div class="two" style="margin-top:12px">
             <div class="box">
               <div id="adminStoreBox">
-                <b><i class="fa-solid fa-image"></i> Store Branding</b>
+                <b><i class="fa-solid fa-gear"></i> Store Settings</b>
 
-                <div class="field" style="margin-top:10px">
-                  <label>Brand Name</label>
-                  <input id="setBrandName" />
-                </div>
-
-                <div class="two" style="margin-top:10px">
+                <div class="two" style="margin-top:12px">
                   <div class="box">
-                    <b>Logo Image</b>
-                    <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Square recommended</div>
+                    <b><i class="fa-solid fa-pen"></i> Branding + Contact</b>
+
+                    <div class="field">
+                      <label>Brand Name</label>
+                      <input id="setBrandName" />
+                    </div>
+
+                    <div class="field">
+                      <label>WhatsApp Number (wa.me) (example: 8801...)</label>
+                      <input id="setWaNumber" />
+                    </div>
+
+                    <div class="field">
+                      <label>WhatsApp Display (example: 018...)</label>
+                      <input id="setWaRaw" />
+                    </div>
+
+                    <div class="field">
+                      <label>Email</label>
+                      <input id="setEmail" />
+                    </div>
+
+                    <div class="field">
+                      <label>Facebook Page Link</label>
+                      <input id="setFb" />
+                    </div>
+
+                    <div class="field">
+                      <label>Address</label>
+                      <input id="setAddress" />
+                    </div>
+
+                    <div class="field">
+                      <label>bKash Number</label>
+                      <input id="setBkash" />
+                    </div>
+
+                    <div class="field">
+                      <label>Nagad Number</label>
+                      <input id="setNagad" />
+                    </div>
+
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+                      <button class="btn primary" id="setStoreSave"><i class="fa-solid fa-floppy-disk"></i> Save Store Settings</button>
+                    </div>
+
+                    <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
+                      ✅ Save করলে website এ সাথে সাথে update হবে।
+                    </div>
+                  </div>
+
+                  <div class="box">
+                    <b><i class="fa-solid fa-image"></i> Logo / Cover</b>
+
                     <div class="field" style="margin-top:10px">
-                      <label>Upload</label>
+                      <label>Logo Upload</label>
                       <input type="file" id="setLogoFile" accept="image/*" />
                     </div>
                     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
                       <button class="miniBtn ok" id="setLogoSave"><i class="fa-solid fa-floppy-disk"></i> Save Logo</button>
                       <button class="miniBtn danger" id="setLogoClear"><i class="fa-solid fa-trash"></i> Remove</button>
                     </div>
-                  </div>
 
-                  <div class="box">
-                    <b>Cover Image</b>
-                    <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Hero banner/cover</div>
-                    <div class="field" style="margin-top:10px">
-                      <label>Upload</label>
+                    <div style="height:1px;background:var(--line);margin:12px 0"></div>
+
+                    <div class="field">
+                      <label>Cover Upload</label>
                       <input type="file" id="setCoverFile" accept="image/*" />
                     </div>
                     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
                       <button class="miniBtn ok" id="setCoverSave"><i class="fa-solid fa-floppy-disk"></i> Save Cover</button>
                       <button class="miniBtn danger" id="setCoverClear"><i class="fa-solid fa-trash"></i> Remove</button>
                     </div>
+
+                    <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
+                      Note: Images browser storage এ save হয়।
+                    </div>
                   </div>
-                </div>
-
-                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-                  <button class="btn primary" id="setBrandSave"><i class="fa-solid fa-floppy-disk"></i> Save Brand Name</button>
-                </div>
-
-                <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-                  Note: Images browser storage এ save হয় (খুব বড় file হলে save নাও হতে পারে)।
                 </div>
               </div>
 
@@ -1246,7 +1245,7 @@
 
             <div class="box">
               <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;align-items:center">
-                <b id="adminListTitle">Products List</b>
+                <b id="adminListTitle">List</b>
                 <button class="btn pink" id="adminAddNew"><i class="fa-solid fa-plus"></i> Add New</button>
               </div>
 
@@ -1271,7 +1270,7 @@
               </div>
 
               <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-                Tip: Save করার সাথে সাথে storefront এ দেখাবে।
+                Save করার সাথে সাথে storefront এ দেখাবে।
               </div>
             </div>
           </div>
@@ -1291,29 +1290,10 @@
     let products = readJSON(LS_PRODUCTS, DEFAULT_PRODUCTS);
     let services = readJSON(LS_SERVICES, DEFAULT_SERVICES);
 
-    const waBase = `https://wa.me/${SAIKAT.waNumber}`;
-    document.getElementById("waHeader").href = waBase;
-    document.getElementById("waContact").href = waBase;
-    document.getElementById("fbContact").href = SAIKAT.fb;
-    document.getElementById("emailBtn").href = `mailto:${SAIKAT.email}?subject=${encodeURIComponent("Inquiry - Saikat Tech Hub")}`;
+    function getWaBase(){ return `https://wa.me/${storeSettings.waNumber}`; }
 
-    document.getElementById("waShow").textContent = SAIKAT.waRaw;
-    document.getElementById("emailShow").textContent = SAIKAT.email;
-    document.getElementById("addrShow").textContent = SAIKAT.address;
-    document.getElementById("bkashShow").textContent = SAIKAT.payment.bkash;
-    document.getElementById("nagadShow").textContent = SAIKAT.payment.nagad;
-    document.getElementById("pBkash").textContent = SAIKAT.payment.bkash;
-    document.getElementById("pNagad").textContent = SAIKAT.payment.nagad;
-    document.getElementById("svcBkash").textContent = SAIKAT.payment.bkash;
-    document.getElementById("svcNagad").textContent = SAIKAT.payment.nagad;
-
-    const menuBtn = document.getElementById("menuBtn");
-    const mnav = document.getElementById("mnav");
-    menuBtn.addEventListener("click", ()=> mnav.classList.toggle("show"));
-    mnav.addEventListener("click", (e)=>{ if(e.target.tagName==="A") mnav.classList.remove("show"); });
-
-    function applyBranding(){
-      const brandName = storeSettings.brandName || SAIKAT.brandName;
+    function applyStoreToUI(){
+      const brandName = storeSettings.brandName || DEFAULT_OWNER.brandName;
       document.getElementById("brandTitle").textContent = brandName;
       document.getElementById("footBrand").textContent = brandName;
 
@@ -1330,118 +1310,165 @@
       }
 
       const cover = document.getElementById("heroCoverImg");
-      if(storeSettings.coverDataUrl){
-        cover.style.backgroundImage = `url('${storeSettings.coverDataUrl}')`;
-      }else{
-        cover.style.backgroundImage = "";
-      }
+      cover.style.backgroundImage = storeSettings.coverDataUrl ? `url('${storeSettings.coverDataUrl}')` : "";
+
+      const waBase = getWaBase();
+      document.getElementById("waHeader").href = waBase;
+      document.getElementById("waContact").href = waBase;
+
+      document.getElementById("fbContact").href = storeSettings.fb || "#";
+      document.getElementById("emailBtn").href = `mailto:${storeSettings.email}?subject=${encodeURIComponent("Inquiry - " + brandName)}`;
+
+      document.getElementById("waShow").textContent = storeSettings.waRaw || "";
+      document.getElementById("emailShow").textContent = storeSettings.email || "";
+      document.getElementById("addrShow").textContent = storeSettings.address || "";
+      document.getElementById("bkashShow").textContent = storeSettings.bkash || "";
+      document.getElementById("nagadShow").textContent = storeSettings.nagad || "";
+      document.getElementById("pBkash").textContent = storeSettings.bkash || "";
+      document.getElementById("pNagad").textContent = storeSettings.nagad || "";
+      document.getElementById("svcBkash").textContent = storeSettings.bkash || "";
+      document.getElementById("svcNagad").textContent = storeSettings.nagad || "";
     }
 
-    let activeMode = "products";
-    const tabProducts = document.getElementById("tabProducts");
-    const tabServices = document.getElementById("tabServices");
-
-    function setMode(mode){
-      activeMode = mode;
-      tabProducts.classList.toggle("active", mode==="products");
-      tabServices.classList.toggle("active", mode==="services");
-      document.getElementById("browseTitle").textContent = mode==="products" ? "Browse Products" : "Browse Services";
-      renderCollections();
-      rebuildCategoryOptions();
-      renderMainGrid();
+    function persistAll(){
+      writeJSON(LS_SETTINGS, storeSettings);
+      writeJSON(LS_PRODUCTS, products);
+      writeJSON(LS_SERVICES, services);
+      applyStoreToUI();
     }
-    tabProducts.addEventListener("click", ()=> setMode("products"));
-    tabServices.addEventListener("click", ()=> setMode("services"));
 
-    let currentCollection = "ALL";
+    const menuBtn = document.getElementById("menuBtn");
+    const mnav = document.getElementById("mnav");
+    menuBtn.addEventListener("click", ()=> mnav.classList.toggle("show"));
+    mnav.addEventListener("click", (e)=>{ if(e.target.tagName==="A") mnav.classList.remove("show"); });
+
+    /* Global header search -> apply to both */
     const qHeader = document.getElementById("qHeader");
-    const qBrowse = document.getElementById("qBrowse");
-    const catBrowse = document.getElementById("catBrowse");
-
-    qHeader.addEventListener("input", ()=>{ qBrowse.value = qHeader.value; renderMainGrid(); });
-    qBrowse.addEventListener("input", ()=> renderMainGrid());
-
-    document.getElementById("clearFilter").addEventListener("click", ()=>{
-      qBrowse.value = ""; qHeader.value = "";
-      currentCollection = "ALL"; catBrowse.value = "ALL";
-      renderCollections(); renderMainGrid();
-      toast("Cleared", "Filter reset ✅", "success", 1400);
+    const qServices = document.getElementById("qServices");
+    const qProducts = document.getElementById("qProducts");
+    qHeader.addEventListener("input", ()=>{
+      qServices.value = qHeader.value;
+      qProducts.value = qHeader.value;
+      renderServices();
+      renderProducts();
     });
 
-    catBrowse.addEventListener("change", ()=>{
-      currentCollection = catBrowse.value || "ALL";
-      renderCollections(); renderMainGrid();
-    });
+    /* -------- SERVICES UI -------- */
+    const svcCatsEl = document.getElementById("svcCats");
+    const servicesGrid = document.getElementById("servicesGrid");
+    let activeSvcCat = "ALL";
 
-    function uniqueCollectionsFrom(list){
-      const s = new Set();
-      for(const it of list){
-        if(it.collection) s.add(it.collection);
-        if(it.category) s.add(it.category);
-      }
-      return [...s].sort((a,b)=>a.localeCompare(b));
+    function uniqueSvcCats(){
+      const s = new Set(services.map(x=>x.category||"Other"));
+      return ["ALL", ...[...s].sort((a,b)=>a.localeCompare(b))];
     }
 
-    function rebuildCategoryOptions(){
-      const list = activeMode==="products" ? products : services;
-      const cols = uniqueCollectionsFrom(list);
-      catBrowse.innerHTML = `<option value="ALL">All Collections</option>` + cols.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
-      catBrowse.value = (cols.includes(currentCollection) ? currentCollection : "ALL");
-      currentCollection = catBrowse.value;
-    }
+    function renderSvcCats(){
+      const cats = uniqueSvcCats();
+      svcCatsEl.innerHTML = cats.map(c=>{
+        const icon =
+          c==="Facebook" ? "fa-brands fa-facebook" :
+          c==="YouTube" ? "fa-brands fa-youtube" :
+          c==="Instagram" ? "fa-brands fa-instagram" :
+          c==="TikTok" ? "fa-brands fa-tiktok" :
+          c==="Marketing" ? "fa-solid fa-rectangle-ad" :
+          c==="Editing" ? "fa-solid fa-scissors" :
+          c==="AI" ? "fa-solid fa-wand-magic-sparkles" :
+          "fa-solid fa-layer-group";
+        return `<button class="catBtn ${c===activeSvcCat?"active":""}" data-cat="${escapeHtml(c)}"><i class="${icon}"></i> ${escapeHtml(c)}</button>`;
+      }).join("");
 
-    const colGrid = document.getElementById("colGrid");
-
-    function renderCollections(){
-      const list = activeMode==="products" ? products : services;
-      const cols = uniqueCollectionsFrom(list);
-
-      const base = [
-        { key:"ALL", icon:"fa-solid fa-layer-group", title:"All", desc:"Show everything" },
-        ...cols.map(k=>({ key:k, icon: activeMode==="products" ? "fa-solid fa-bag-shopping" : "fa-solid fa-bolt", title:k, desc:"Tap to filter" }))
-      ];
-
-      colGrid.innerHTML = base.map(c=>`
-        <div class="colCard" data-col="${escapeHtml(c.key)}">
-          <div class="inner">
-            <span class="tag"><i class="${c.icon}"></i> ${escapeHtml(c.title)}</span>
-            <h3>${escapeHtml(c.title)}</h3>
-            <div class="small">${escapeHtml(c.desc)}</div>
-          </div>
-        </div>
-      `).join("");
-
-      colGrid.onclick = (e)=>{
-        const card = e.target.closest("[data-col]");
-        if(!card) return;
-        currentCollection = card.getAttribute("data-col") || "ALL";
-        catBrowse.value = currentCollection;
-        renderMainGrid();
-        toast("Filter", `${currentCollection} selected`, "success", 1200);
-        location.hash = "#browse";
+      svcCatsEl.onclick = (e)=>{
+        const b = e.target.closest("[data-cat]");
+        if(!b) return;
+        activeSvcCat = b.getAttribute("data-cat") || "ALL";
+        renderSvcCats();
+        renderServices();
       };
     }
 
-    const gridMain = document.getElementById("gridMain");
+    function svcThumb(image){
+      return image ? `<div class="thumb" style="background-image:url('${image}')"></div>` : "";
+    }
 
     function matchesQuery(it, q){
       const qq = (q||"").trim().toLowerCase();
       if(!qq) return true;
       const hay = [
-        it.title, it.desc, it.collection, it.category,
+        it.title, it.desc, it.category,
         Array.isArray(it.tags) ? it.tags.join(" ") : ""
       ].join(" ").toLowerCase();
       return hay.includes(qq);
     }
 
-    function matchesCollection(it){
-      if(currentCollection==="ALL") return true;
-      return (it.collection===currentCollection) || (it.category===currentCollection);
+    function serviceCard(s){
+      const badge = s.category || "Service";
+      const icon =
+        badge==="Facebook" ? "fa-brands fa-facebook" :
+        badge==="YouTube" ? "fa-brands fa-youtube" :
+        badge==="Instagram" ? "fa-brands fa-instagram" :
+        badge==="TikTok" ? "fa-brands fa-tiktok" :
+        badge==="Marketing" ? "fa-solid fa-rectangle-ad" :
+        badge==="Editing" ? "fa-solid fa-scissors" :
+        badge==="AI" ? "fa-solid fa-wand-magic-sparkles" :
+        "fa-solid fa-bolt";
+
+      return `
+        <div class="card" data-open-service="${escapeHtml(s.id)}" role="button" tabindex="0">
+          <div class="img">
+            ${svcThumb(s.image)}
+            <i class="${icon}"></i>
+          </div>
+          <div class="body">
+            <div class="pill"><i class="fa-solid fa-layer-group"></i> ${escapeHtml(badge)}</div>
+            <h4>${escapeHtml(s.title)}</h4>
+            <div class="muted" style="font-size:12.5px;line-height:1.7">${escapeHtml(s.desc)}</div>
+            <div class="actions" style="margin-top:10px">
+              <button class="btn wa small" data-order-service="${escapeHtml(s.id)}"><i class="fa-brands fa-whatsapp"></i> Order</button>
+              <button class="btn ghost small" data-info-service="${escapeHtml(s.id)}"><i class="fa-solid fa-circle-info"></i> Info</button>
+            </div>
+          </div>
+        </div>
+      `;
     }
 
-    function cardThumb(image){
-      if(!image) return "";
-      return `<div class="thumb dim" style="background-image:url('${image}')"></div>`;
+    function renderServices(){
+      const q = qServices.value || "";
+      let list = services.filter(s => matchesQuery(s,q));
+      if(activeSvcCat!=="ALL"){
+        list = list.filter(s => (s.category||"Other")===activeSvcCat);
+      }
+      servicesGrid.innerHTML = list.length
+        ? list.map(serviceCard).join("")
+        : `<div class="card" style="grid-column:1/-1"><div class="body"><h4>No services found</h4><p class="muted">Search/Cat filter এর কারণে কিছু পাওয়া যায়নি।</p></div></div>`;
+    }
+
+    document.getElementById("svcClear").addEventListener("click", ()=>{
+      qServices.value=""; qHeader.value=""; activeSvcCat="ALL";
+      renderSvcCats(); renderServices();
+      toast("Cleared","Service filter reset ✅","success",1200);
+    });
+    qServices.addEventListener("input", renderServices);
+
+    /* -------- PRODUCTS UI -------- */
+    const productsGrid = document.getElementById("productsGrid");
+    const pCollection = document.getElementById("pCollection");
+    let activeCollection = "ALL";
+
+    function uniqueCollections(){
+      const s = new Set(products.map(p=>p.collection||"General"));
+      return ["ALL", ...[...s].sort((a,b)=>a.localeCompare(b))];
+    }
+
+    function rebuildCollections(){
+      const cols = uniqueCollections();
+      pCollection.innerHTML = cols.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
+      if(!cols.includes(activeCollection)) activeCollection="ALL";
+      pCollection.value = activeCollection;
+    }
+
+    function productThumb(image){
+      return image ? `<div class="thumb" style="background-image:url('${image}')"></div>` : "";
     }
 
     function productCard(p){
@@ -1449,9 +1476,9 @@
       const offBadge = off ? `<div class="off"><i class="fa-solid fa-bolt"></i> ${off}% OFF</div>` : ``;
 
       return `
-        <div class="card" data-open="${escapeHtml(p.id)}" role="button" tabindex="0" aria-label="Open product">
+        <div class="card" data-open-product="${escapeHtml(p.id)}" role="button" tabindex="0">
           <div class="img">
-            ${cardThumb(p.image)}
+            ${productThumb(p.image)}
             ${offBadge}
             <i class="fa-solid fa-box"></i>
           </div>
@@ -1464,58 +1491,37 @@
             </div>
             <div class="actions">
               <button class="btn pink small" data-add="${escapeHtml(p.id)}"><i class="fa-solid fa-cart-plus"></i> Add</button>
-              <button class="btn ghost small" data-details="${escapeHtml(p.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
+              <button class="btn ghost small" data-details-product="${escapeHtml(p.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
             </div>
           </div>
         </div>
       `;
     }
 
-    function serviceCard(s){
-      const badge = s.category || s.collection || "Service";
-      return `
-        <div class="card" data-open="${escapeHtml(s.id)}" role="button" tabindex="0" aria-label="Open service">
-          <div class="img">
-            ${cardThumb(s.image)}
-            <i class="fa-solid fa-bolt"></i>
-          </div>
-          <div class="body">
-            <div class="pill"><i class="fa-solid fa-layer-group"></i> ${escapeHtml(badge)}</div>
-            <h4>${escapeHtml(s.title)}</h4>
-            <div class="muted" style="font-size:12.5px;line-height:1.7">${escapeHtml(s.desc)}</div>
-            <div class="actions" style="margin-top:10px">
-              <button class="btn pink small" data-details="${escapeHtml(s.id)}"><i class="fa-solid fa-cart-shopping"></i> Order</button>
-              <button class="btn ghost small" data-info="${escapeHtml(s.id)}"><i class="fa-solid fa-circle-info"></i> Info</button>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function emptyState(){
-      return `
-        <div class="card" style="grid-column:1/-1">
-          <div class="body">
-            <h4>No items found</h4>
-            <p class="muted">Filter/Search এর কারণে কিছু পাওয়া যায়নি।</p>
-            <button class="btn ghost small" id="resetBtnTmp"><i class="fa-solid fa-rotate-left"></i> Clear Filter</button>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderMainGrid(){
-      const q = qBrowse.value || "";
-      if(activeMode==="products"){
-        const list = products.filter(p => matchesCollection(p) && matchesQuery(p,q));
-        gridMain.innerHTML = list.length ? list.map(productCard).join("") : emptyState();
-      }else{
-        const list = services.filter(s => matchesCollection(s) && matchesQuery(s,q));
-        gridMain.innerHTML = list.length ? list.map(serviceCard).join("") : emptyState();
+    function renderProducts(){
+      const q = qProducts.value || "";
+      let list = products.filter(p => matchesQuery(p,q));
+      if(activeCollection!=="ALL"){
+        list = list.filter(p => (p.collection||"General")===activeCollection);
       }
+      productsGrid.innerHTML = list.length
+        ? list.map(productCard).join("")
+        : `<div class="card" style="grid-column:1/-1"><div class="body"><h4>No products found</h4><p class="muted">Search/Collection filter এর কারণে কিছু পাওয়া যায়নি।</p></div></div>`;
     }
 
-    /* CART */
+    pCollection.addEventListener("change", ()=>{
+      activeCollection = pCollection.value || "ALL";
+      renderProducts();
+    });
+    qProducts.addEventListener("input", renderProducts);
+
+    document.getElementById("pClear").addEventListener("click", ()=>{
+      qProducts.value=""; qHeader.value=""; activeCollection="ALL";
+      rebuildCollections(); renderProducts();
+      toast("Cleared","Product filter reset ✅","success",1200);
+    });
+
+    /* -------- CART -------- */
     const cart = new Map();
     function getProduct(id){ return products.find(p=>p.id===id); }
     function cartCount(){ let c=0; for(const q of cart.values()) c+=q; return c; }
@@ -1597,10 +1603,6 @@
     openCartBtn.addEventListener("click", showDrawer);
     closeCartBtn.addEventListener("click", hideDrawer);
     drawerOverlay.addEventListener("click", hideDrawer);
-    document.getElementById("openCheckout").addEventListener("click", ()=>{
-      if(activeMode==="products") showDrawer();
-      else toast("Service", "Service order করতে card খুলে Order দিন ✅", "info", 2200);
-    });
 
     const zoneSelect = document.getElementById("zoneSelect");
     zoneSelect.innerHTML = DELIVERY_ZONES.map(z=>(
@@ -1673,15 +1675,20 @@ Customer Notes:
 ${note || "N/A"}
 
 Payment Numbers:
-bKash: ${SAIKAT.payment.bkash}
-Nagad: ${SAIKAT.payment.nagad}
+bKash: ${storeSettings.bkash}
+Nagad: ${storeSettings.nagad}
 
--- ${storeSettings.brandName || SAIKAT.brandName}`;
+-- ${storeSettings.brandName}`;
 
-      window.open(`${waBase}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+      window.open(`${getWaBase()}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
     });
 
-    /* DETAILS MODAL (Products + Services) */
+    document.getElementById("openCheckout").addEventListener("click", ()=>{
+      showDrawer();
+      toast("Tip","Services order করতে Service card থেকে Order দিন ✅","info",2400);
+    });
+
+    /* -------- DETAILS MODAL -------- */
     const detailOverlay = document.getElementById("detailOverlay");
     const closeDetail = document.getElementById("closeDetail");
     const detailCloseBtn = document.getElementById("detailCloseBtn");
@@ -1757,7 +1764,7 @@ Nagad: ${SAIKAT.payment.nagad}
       svcComputed = { label:"", price:0 };
 
       detailTitle.textContent = "Service Order";
-      const cat = s.category || s.collection || "Service";
+      const cat = s.category || "Service";
       detailPill.innerHTML = `<i class="fa-solid fa-layer-group"></i> ${escapeHtml(cat)}`;
       detailName.textContent = s.title || "Service";
       detailDesc.textContent = s.desc || "";
@@ -1855,12 +1862,12 @@ Customer Notes:
 ${document.getElementById("custNote").value.trim() || "N/A"}
 
 Payment Numbers:
-bKash: ${SAIKAT.payment.bkash}
-Nagad: ${SAIKAT.payment.nagad}
+bKash: ${storeSettings.bkash}
+Nagad: ${storeSettings.nagad}
 
--- ${storeSettings.brandName || SAIKAT.brandName}`;
+-- ${storeSettings.brandName}`;
 
-      window.open(`${waBase}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+      window.open(`${getWaBase()}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
     });
 
     detailGoCart.addEventListener("click", ()=>{
@@ -1906,7 +1913,7 @@ Nagad: ${SAIKAT.payment.nagad}
       if(!svcPay.value) return alert("Payment method select করুন (bKash/Nagad)");
       if(!svcTrx.value.trim()) return alert("Transaction ID দিন");
 
-      const cat = s.category || s.collection || "Service";
+      const cat = s.category || "Service";
       const packQty = svcComputed.label;
       const price = svcComputed.price;
 
@@ -1930,45 +1937,46 @@ Notes:
 ${svcNote.value.trim() || "N/A"}
 
 Payment Numbers:
-bKash: ${SAIKAT.payment.bkash}
-Nagad: ${SAIKAT.payment.nagad}
+bKash: ${storeSettings.bkash}
+Nagad: ${storeSettings.nagad}
 
--- ${storeSettings.brandName || SAIKAT.brandName}`;
+-- ${storeSettings.brandName}`;
 
-      window.open(`${waBase}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+      window.open(`${getWaBase()}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
     });
 
+    /* Click handling: products/services open modal */
     document.addEventListener("click", (e)=>{
-      const resetTmp = e.target.closest("#resetBtnTmp");
-      if(resetTmp){
-        qBrowse.value=""; qHeader.value="";
-        currentCollection="ALL"; catBrowse.value="ALL";
-        renderCollections(); renderMainGrid();
-        return;
-      }
-
       const addBtn = e.target.closest("[data-add]");
-      const detailsBtn = e.target.closest("[data-details]");
-      const infoBtn = e.target.closest("[data-info]");
-      const openCard = e.target.closest("[data-open]");
+      const openProd = e.target.closest("[data-open-product]");
+      const openSvc = e.target.closest("[data-open-service]");
+      const svcOrder = e.target.closest("[data-order-service]");
+      const svcInfo = e.target.closest("[data-info-service]");
+      const prodDetails = e.target.closest("[data-details-product]");
 
       if(addBtn){ e.preventDefault(); addToCart(addBtn.getAttribute("data-add"), 1); return; }
 
-      if(detailsBtn){
+      if(prodDetails){
         e.preventDefault();
-        const id = detailsBtn.getAttribute("data-details");
-        if(activeMode==="products"){ const p = getProduct(id); if(p) openDetailForProduct(p); }
-        else { const s = services.find(x=>x.id===id); if(s) openDetailForService(s); }
+        const id = prodDetails.getAttribute("data-details-product");
+        const p = getProduct(id); if(p) openDetailForProduct(p);
         return;
       }
 
-      if(infoBtn){
+      if(svcOrder){
         e.preventDefault();
-        const id = infoBtn.getAttribute("data-info");
+        const id = svcOrder.getAttribute("data-order-service");
+        const s = services.find(x=>x.id===id); if(s) openDetailForService(s);
+        return;
+      }
+
+      if(svcInfo){
+        e.preventDefault();
+        const id = svcInfo.getAttribute("data-info-service");
         const s = services.find(x=>x.id===id);
         if(!s) return;
 
-        let details = `${s.title}\n\n${s.desc}\n\nCategory: ${(s.category||s.collection||"Service")}\n`;
+        let details = `${s.title}\n\n${s.desc}\n\nCategory: ${(s.category||"Service")}\n`;
         if(s.unitType==="PACK"){
           details += "\nPackages:\n" + (s.packages||[]).map(p=>`- ${p.label}: ${money(p.price)} (${p.note||""})`).join("\n");
         }else{
@@ -1978,14 +1986,20 @@ Nagad: ${SAIKAT.payment.nagad}
         return;
       }
 
-      if(openCard && !e.target.closest("button")){
-        const id = openCard.getAttribute("data-open");
-        if(activeMode==="products"){ const p = getProduct(id); if(p) openDetailForProduct(p); }
-        else { const s = services.find(x=>x.id===id); if(s) openDetailForService(s); }
+      if(openProd && !e.target.closest("button")){
+        const id = openProd.getAttribute("data-open-product");
+        const p = getProduct(id); if(p) openDetailForProduct(p);
+        return;
+      }
+
+      if(openSvc && !e.target.closest("button")){
+        const id = openSvc.getAttribute("data-open-service");
+        const s = services.find(x=>x.id===id); if(s) openDetailForService(s);
         return;
       }
     });
 
+    /* Esc closes */
     document.addEventListener("keydown",(e)=>{
       if(e.key==="Escape"){
         hideDrawer();
@@ -1994,7 +2008,7 @@ Nagad: ${SAIKAT.payment.nagad}
       }
     });
 
-    /* ADMIN AUTH + PANEL */
+    /* -------- ADMIN -------- */
     const adminOverlay = document.getElementById("adminOverlay");
     const openAdminBtn = document.getElementById("openAdmin");
     const closeAdminBtn = document.getElementById("closeAdmin");
@@ -2018,7 +2032,15 @@ Nagad: ${SAIKAT.payment.nagad}
     const adminResetAll = document.getElementById("adminResetAll");
 
     const setBrandName = document.getElementById("setBrandName");
-    const setBrandSave = document.getElementById("setBrandSave");
+    const setWaNumber = document.getElementById("setWaNumber");
+    const setWaRaw = document.getElementById("setWaRaw");
+    const setEmail = document.getElementById("setEmail");
+    const setFb = document.getElementById("setFb");
+    const setAddress = document.getElementById("setAddress");
+    const setBkash = document.getElementById("setBkash");
+    const setNagad = document.getElementById("setNagad");
+    const setStoreSave = document.getElementById("setStoreSave");
+
     const setLogoFile = document.getElementById("setLogoFile");
     const setCoverFile = document.getElementById("setCoverFile");
     const setLogoSave = document.getElementById("setLogoSave");
@@ -2067,13 +2089,6 @@ Nagad: ${SAIKAT.payment.nagad}
     }
     adminLogout.addEventListener("click", doLogout);
 
-    function persistData(){
-      writeJSON(LS_SETTINGS, storeSettings);
-      writeJSON(LS_PRODUCTS, products);
-      writeJSON(LS_SERVICES, services);
-      applyBranding();
-    }
-
     function setAdminTab(tab){
       adminMode = tab;
       adminTabStore.classList.toggle("active", tab==="store");
@@ -2103,20 +2118,29 @@ Nagad: ${SAIKAT.payment.nagad}
       storeSettings = structuredClone(DEFAULT_STORE_SETTINGS);
       products = structuredClone(DEFAULT_PRODUCTS);
       services = structuredClone(DEFAULT_SERVICES);
-      persistData();
-      rebuildCategoryOptions();
-      renderCollections();
-      renderMainGrid();
+      persistAll();
       cart.clear();
+      rebuildCollections();
+      renderSvcCats();
+      renderServices();
+      renderProducts();
       renderCart();
       refreshAdminUI();
       toast("Reset","All restored to default ✅","success", 2000);
     });
 
-    setBrandSave.addEventListener("click", ()=>{
-      storeSettings.brandName = setBrandName.value.trim() || SAIKAT.brandName;
-      persistData();
-      toast("Saved","Brand name updated ✅","success", 1600);
+    setStoreSave.addEventListener("click", ()=>{
+      storeSettings.brandName = setBrandName.value.trim() || DEFAULT_OWNER.brandName;
+      storeSettings.waNumber = setWaNumber.value.trim() || DEFAULT_OWNER.waNumber;
+      storeSettings.waRaw = setWaRaw.value.trim() || DEFAULT_OWNER.waRaw;
+      storeSettings.email = setEmail.value.trim() || DEFAULT_OWNER.email;
+      storeSettings.fb = setFb.value.trim() || DEFAULT_OWNER.fb;
+      storeSettings.address = setAddress.value.trim() || DEFAULT_OWNER.address;
+      storeSettings.bkash = setBkash.value.trim() || DEFAULT_OWNER.bkash;
+      storeSettings.nagad = setNagad.value.trim() || DEFAULT_OWNER.nagad;
+
+      persistAll();
+      toast("Saved","Store settings updated ✅","success", 1600);
     });
 
     setLogoSave.addEventListener("click", async ()=>{
@@ -2124,7 +2148,7 @@ Nagad: ${SAIKAT.payment.nagad}
       if(!f) return toast("Missing","Select a logo file first","error", 2200);
       try{
         storeSettings.logoDataUrl = await fileToDataUrl(f);
-        persistData();
+        persistAll();
         toast("Saved","Logo updated ✅","success", 1600);
         setLogoFile.value = "";
       }catch{ toast("Error","Logo upload failed","error", 2200); }
@@ -2135,18 +2159,18 @@ Nagad: ${SAIKAT.payment.nagad}
       if(!f) return toast("Missing","Select a cover file first","error", 2200);
       try{
         storeSettings.coverDataUrl = await fileToDataUrl(f);
-        persistData();
+        persistAll();
         toast("Saved","Cover updated ✅","success", 1600);
         setCoverFile.value = "";
       }catch{ toast("Error","Cover upload failed","error", 2200); }
     });
 
-    setLogoClear.addEventListener("click", ()=>{ storeSettings.logoDataUrl=""; persistData(); toast("Removed","Logo removed ✅","success", 1400); });
-    setCoverClear.addEventListener("click", ()=>{ storeSettings.coverDataUrl=""; persistData(); toast("Removed","Cover removed ✅","success", 1400); });
+    setLogoClear.addEventListener("click", ()=>{ storeSettings.logoDataUrl=""; persistAll(); toast("Removed","Logo removed ✅","success", 1400); });
+    setCoverClear.addEventListener("click", ()=>{ storeSettings.coverDataUrl=""; persistAll(); toast("Removed","Cover removed ✅","success", 1400); });
 
     function listItemThumb(img){
-      if(!img) return `<span class="tag"><i class="fa-solid fa-image"></i> No</span>`;
-      return `<span class="tag"><i class="fa-solid fa-image"></i> Yes</span>`;
+      if(!img) return `<span class="chip"><i class="fa-solid fa-image"></i> No</span>`;
+      return `<span class="chip"><i class="fa-solid fa-image"></i> Yes</span>`;
     }
 
     function renderAdminList(){
@@ -2161,7 +2185,7 @@ Nagad: ${SAIKAT.payment.nagad}
       });
 
       adminTbody.innerHTML = list.map(it=>{
-        const coll = (adminMode==="products") ? (it.collection||"") : (it.category||it.collection||"");
+        const coll = (adminMode==="products") ? (it.collection||"") : (it.category||"");
         const priceText = adminMode==="products" ? money(it.price)
           : (it.unitType==="PACK" ? "PACK" : `Rate: ${money(it.pricePerUnit)}`);
         return `
@@ -2202,7 +2226,11 @@ Nagad: ${SAIKAT.payment.nagad}
           cloned.id = makeId(adminMode==="products" ? "p" : "s");
           cloned.title = `${cloned.title} (Copy)`;
           (adminMode==="products" ? products : services).unshift(cloned);
-          persistData();
+          persistAll();
+          rebuildCollections();
+          renderSvcCats();
+          renderServices();
+          renderProducts();
           renderAdminList();
           toast("Duplicated","Item copied ✅","success", 1400);
         }
@@ -2211,15 +2239,17 @@ Nagad: ${SAIKAT.payment.nagad}
           if(!confirm("Delete this item?")) return;
           if(adminMode==="products"){ products = products.filter(x=>x.id!==id); cart.delete(id); }
           else { services = services.filter(x=>x.id!==id); }
-          persistData();
-          renderAdminList();
-          renderMainGrid();
+          persistAll();
+          rebuildCollections();
+          renderSvcCats();
+          renderServices();
+          renderProducts();
           renderCart();
+          renderAdminList();
           toast("Deleted","Item removed ✅","success", 1400);
         }
       };
     }
-
     adminSearch.addEventListener("input", renderAdminList);
 
     adminAddNew.addEventListener("click", ()=>{
@@ -2241,7 +2271,7 @@ Nagad: ${SAIKAT.payment.nagad}
         adminFormBox.innerHTML = productFormHTML(v, isNew);
         wireProductForm(v, isNew);
       }else{
-        const v = it || { id: makeId("s"), type:"service", category:"", title:"", desc:"", unitType:"K", pricePerUnit:0, qtyList:[1,2,3,5,10], packages:[], tags:[], image:"" };
+        const v = it || { id: makeId("s"), type:"service", category:"Facebook", title:"", desc:"", unitType:"K", pricePerUnit:0, qtyList:[1,2,3,5,10], packages:[], tags:[], image:"" };
         adminFormBox.style.display = "block";
         adminFormBox.innerHTML = serviceFormHTML(v, isNew);
         wireServiceForm(v, isNew);
@@ -2276,7 +2306,6 @@ Nagad: ${SAIKAT.payment.nagad}
 
             <div class="box">
               <b><i class="fa-solid fa-image"></i> Product Image</b>
-              <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Upload করলে storefront এ দেখাবে</div>
               <div class="field" style="margin-top:10px">
                 <label>Upload</label>
                 <input type="file" id="pfImageFile" accept="image/*" />
@@ -2340,8 +2369,10 @@ Nagad: ${SAIKAT.payment.nagad}
         if(isNew) products.unshift(v);
         else products = products.map(x=> x.id===v.id ? v : x);
 
-        persistData();
-        rebuildCategoryOptions(); renderCollections(); renderMainGrid(); renderCart(); renderAdminList();
+        persistAll();
+        rebuildCollections();
+        renderProducts();
+        renderAdminList();
         adminFormBox.style.display="none"; adminFormBox.innerHTML="";
         toast("Saved","Product updated ✅","success", 1600);
       });
@@ -2383,8 +2414,6 @@ Nagad: ${SAIKAT.payment.nagad}
 
             <div class="box">
               <b><i class="fa-solid fa-image"></i> Service Image</b>
-              <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Upload করলে service card + order modal এ দেখাবে</div>
-
               <div class="field" style="margin-top:10px">
                 <label>Upload</label>
                 <input type="file" id="sfImageFile" accept="image/*" />
@@ -2499,8 +2528,10 @@ Nagad: ${SAIKAT.payment.nagad}
         if(isNew) services.unshift(v);
         else services = services.map(x=> x.id===v.id ? v : x);
 
-        persistData();
-        rebuildCategoryOptions(); renderCollections(); renderMainGrid(); renderAdminList();
+        persistAll();
+        renderSvcCats();
+        renderServices();
+        renderAdminList();
         adminFormBox.style.display="none"; adminFormBox.innerHTML="";
         toast("Saved","Service updated ✅","success", 1600);
       });
@@ -2514,18 +2545,36 @@ Nagad: ${SAIKAT.payment.nagad}
       const authed = isAdmin();
       adminLoginView.style.display = authed ? "none" : "block";
       adminPanelView.style.display = authed ? "block" : "none";
-      setBrandName.value = storeSettings.brandName || SAIKAT.brandName;
+
+      // load fields
+      setBrandName.value = storeSettings.brandName || "";
+      setWaNumber.value = storeSettings.waNumber || "";
+      setWaRaw.value = storeSettings.waRaw || "";
+      setEmail.value = storeSettings.email || "";
+      setFb.value = storeSettings.fb || "";
+      setAddress.value = storeSettings.address || "";
+      setBkash.value = storeSettings.bkash || "";
+      setNagad.value = storeSettings.nagad || "";
+
       if(authed) setAdminTab(adminMode);
     }
 
-    applyBranding();
-    setMode("products");
-    rebuildCategoryOptions();
-    renderCollections();
-    renderMainGrid();
+    /* Admin init */
+    document.getElementById("adminCloseBtn").addEventListener("click", closeAdminModal);
+
+    /* Admin list search */
+    adminSearch.addEventListener("input", renderAdminList);
+
+    /* Start */
+    applyStoreToUI();
+    rebuildCollections();
+    renderSvcCats();
+    renderServices();
+    renderProducts();
     updateCartBadge();
     renderCart();
-    toast("Welcome", "Store ready ✅ (Admin + Logo/Cover + Images)", "success", 2200);
+
+    toast("Ready", "Services (top) + Products + Admin ✅", "success", 2200);
   </script>
 </body>
 </html>
