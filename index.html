@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Saikat Tech Hub | Store + Services</title>
-  <meta name="description" content="Saikat Tech Hub — Store products + Social/Marketing/Editing services. WhatsApp order with payment & TrxID flow." />
+  <title>Saikat Tech Hub Store</title>
+  <meta name="description" content="Products + Services, WhatsApp checkout, Admin panel (Shopify-like), Logo/Cover change, image upload." />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -17,13 +17,10 @@
       --line:rgba(255,255,255,.12);
       --panel:rgba(255,255,255,.06);
       --panel2:rgba(255,255,255,.09);
-
       --brand:#3b82f6;
       --pink:#ec4899;
       --green:#22c55e;
       --warn:#f59e0b;
-      --red:#ef4444;
-
       --radius:20px;
       --shadow: 0 28px 80px rgba(0,0,0,.55);
       --shadow2: 0 16px 40px rgba(0,0,0,.42);
@@ -53,6 +50,7 @@
       background: rgba(255,255,255,.06);
       font-weight:800;color:#e5e7eb;
       white-space:nowrap;
+      font-size:13px;
     }
     .btn{
       display:inline-flex;align-items:center;gap:10px;
@@ -69,7 +67,6 @@
     .btn.pink{background:linear-gradient(135deg,#ec4899,#f472b6)}
     .btn.wa{background:linear-gradient(135deg,#22c55e,#16a34a)}
     .btn.warn{background:linear-gradient(135deg,#f59e0b,#f97316)}
-    .btn.danger{background:linear-gradient(135deg,#ef4444,#dc2626)}
     .btn.ghost{
       background:rgba(255,255,255,.08);
       border:1px solid var(--line);
@@ -87,21 +84,15 @@
       white-space:nowrap;
     }
 
-    /* Topbar */
-    .topbar{
-      border-bottom:1px solid var(--line);
-      background: rgba(0,0,0,.14);
-      backdrop-filter: blur(10px);
-    }
+    /* topbar */
+    .topbar{border-bottom:1px solid var(--line);background:rgba(0,0,0,.14);backdrop-filter: blur(10px);}
     .topbar .inner{
-      max-width:var(--max);margin:0 auto;
-      padding:10px 18px;
-      display:flex;gap:10px;align-items:center;justify-content:space-between;
-      flex-wrap:wrap;
+      max-width:var(--max);margin:0 auto;padding:10px 18px;
+      display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
       font-size:13px;color:var(--muted);
     }
 
-    /* Header */
+    /* header */
     header{
       position:sticky;top:0;z-index:60;
       background:rgba(7,11,24,.86);
@@ -115,28 +106,31 @@
     }
     .brand{
       display:flex;align-items:center;gap:12px;
-      font-size:20px;font-weight:900;white-space:nowrap;
+      font-size:18px;font-weight:900;white-space:nowrap;
+      min-width: 220px;
     }
-    .brand .mark{
-      width:40px;height:40px;border-radius:16px;
+    .logoBox{
+      width:44px;height:44px;border-radius:16px;
+      border:1px solid var(--line);
+      background:linear-gradient(135deg, rgba(96,165,250,.25), rgba(236,72,153,.18));
+      overflow:hidden;
+      display:grid;place-items:center;
+      box-shadow:0 18px 45px rgba(59,130,246,.18);
+    }
+    .logoBox img{width:100%;height:100%;object-fit:cover;display:none}
+    .logoBox .fallback{
+      width:100%;height:100%;
+      display:grid;place-items:center;
       background:linear-gradient(135deg, rgba(96,165,250,.95), rgba(236,72,153,.88));
-      box-shadow:0 18px 45px rgba(59,130,246,.22);
-      position:relative;overflow:hidden;
+      color:#fff;font-weight:900;
     }
-    .brand .mark:after{
-      content:"";position:absolute;inset:-60%;
-      background: radial-gradient(circle, rgba(255,255,255,.35), transparent 55%);
-      transform: rotate(20deg);
-    }
-    .brand span{
+    .brandTitle{
       background:linear-gradient(135deg,#60a5fa,#ec4899);
       -webkit-background-clip:text;color:transparent;
+      display:block;
     }
 
-    nav{
-      margin-left:auto;
-      display:flex;gap:8px;flex-wrap:wrap;align-items:center;
-    }
+    nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
     nav a{
       padding:11px 12px;border-radius:14px;
       font-weight:900;color:var(--muted);font-size:14px;
@@ -159,7 +153,7 @@
     }
     .mnav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
 
-    /* Search (header) */
+    /* search */
     .search{
       flex: 1 1 320px;
       display:flex;gap:10px;align-items:center;
@@ -178,27 +172,7 @@
       font-size:14px;
     }
 
-    /* Tabs */
-    .tabs{
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
-      margin:10px 0 0;
-    }
-    .tabBtn{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      border-radius:999px;
-      padding:10px 12px;
-      font-weight:900;
-      cursor:pointer;
-      display:inline-flex;gap:10px;align-items:center;
-    }
-    .tabBtn.active{
-      background: linear-gradient(135deg, rgba(59,130,246,.20), rgba(236,72,153,.16));
-      border-color: rgba(255,255,255,.20);
-    }
-
-    /* Cart button */
+    /* cart button */
     .cart-btn{
       position:relative;
       display:inline-flex;align-items:center;gap:10px;
@@ -219,7 +193,7 @@
       font-size:12px;font-weight:900;
     }
 
-    /* Hero */
+    /* hero */
     .hero{padding:18px 0 10px}
     .heroCard{
       border-radius: calc(var(--radius) + 6px);
@@ -228,21 +202,30 @@
       box-shadow: var(--shadow);
       padding:22px;
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1.2fr .8fr;
       gap:14px;
       position:relative;
       overflow:hidden;
     }
-    .heroCard:before{
-      content:"";
-      position:absolute;inset:-1px;
+    .heroCover{
+      position:absolute; inset:0;
       background:
         radial-gradient(600px 260px at 0% 0%, rgba(59,130,246,.18), transparent 60%),
         radial-gradient(600px 260px at 100% 0%, rgba(236,72,153,.16), transparent 60%);
       pointer-events:none;
+      opacity:1;
+      z-index:0;
+    }
+    .heroCoverImg{
+      position:absolute; inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:.28;
+      filter: saturate(1.1) contrast(1.05);
+      z-index:0;
     }
     .heroLeft,.heroRight{position:relative;z-index:1}
-    .hero h1{margin:0 0 10px;font-size:38px;line-height:1.15;letter-spacing:-.2px}
+    .hero h1{margin:0 0 10px;font-size:36px;line-height:1.15;letter-spacing:-.2px}
     .hero p{margin:0;color:var(--muted);line-height:1.85;font-size:15px}
     .heroActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
     .heroRight{
@@ -259,35 +242,38 @@
     }
     .kv b{display:block;font-size:12px;color:var(--muted);font-weight:900}
     .kv span{display:block;margin-top:6px;font-weight:900;font-size:14.5px}
-    .cover{
-      margin-top:12px;
-      border-radius:18px;
+
+    /* tabs */
+    .tabsRow{
+      margin-top:14px;
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    }
+    .tabs{
+      display:inline-flex;gap:8px;flex-wrap:wrap;
       border:1px solid var(--line);
-      overflow:hidden;
-      background: rgba(255,255,255,.06);
+      background: rgba(255,255,255,.05);
+      padding:8px;border-radius:999px;
     }
-    .coverImg{
-      width:100%;
-      height:160px;
-      object-fit:cover;
-      display:block;
+    .tabBtn{
+      border:0;cursor:pointer;
+      padding:10px 12px;border-radius:999px;
+      background:transparent;
+      color:var(--muted);
+      font-weight:900;
+      display:inline-flex;gap:10px;align-items:center;
     }
-    .coverFallback{
-      height:160px;
-      display:grid;place-items:center;
-      background: radial-gradient(700px 280px at 50% 0%, rgba(255,255,255,.14), transparent 60%),
-                  linear-gradient(135deg, rgba(59,130,246,.20), rgba(236,72,153,.16));
-      border-bottom:1px solid var(--line);
-      font-weight:900;color:rgba(255,255,255,.92);
+    .tabBtn.active{
+      background: rgba(255,255,255,.10);
+      color: var(--text);
     }
 
-    /* Sections */
+    /* sections */
     .section{padding:16px 0 40px}
     .titleRow{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
     .section h2{margin:0;font-size:22px}
     .section p{margin:8px 0 0;color:var(--muted);line-height:1.8}
 
-    /* Toolbar */
+    /* toolbar */
     .toolbar{
       margin-top:14px;
       display:flex;gap:10px;flex-wrap:wrap;align-items:center;
@@ -305,7 +291,46 @@
     .input{flex: 1 1 260px;font-weight:700}
     .select{flex: 0 0 220px}
 
-    /* Grid */
+    /* collection grid */
+    .colGrid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .colCard{
+      border-radius:22px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,23,42,.92), rgba(2,6,23,.92));
+      box-shadow: var(--shadow2);
+      padding:14px;
+      min-height:120px;
+      position:relative;
+      overflow:hidden;
+      cursor:pointer;
+      transition:.15s ease;
+    }
+    .colCard:hover{transform:translateY(-2px)}
+    .colCard:before{
+      content:"";
+      position:absolute;inset:-40%;
+      background: radial-gradient(circle, rgba(59,130,246,.22), transparent 55%);
+      transform: rotate(20deg);
+      opacity:.6;
+    }
+    .colCard .inner{position:relative;z-index:1}
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      font-weight:900;font-size:12px;color:#e5e7eb;
+      white-space:nowrap;
+    }
+    .colCard h3{margin:10px 0 6px;font-size:16px}
+    .colCard .small{font-size:12.5px;color:var(--muted);line-height:1.6}
+
+    /* item grids */
     .grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -329,17 +354,19 @@
         linear-gradient(135deg, rgba(59,130,246,.22), rgba(236,72,153,.18));
       border-bottom:1px solid var(--line);
       position:relative;
+      overflow:hidden;
     }
-    .img img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+    .img .thumb{
+      position:absolute; inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:1;
     }
+    .img .thumb.dim{opacity:.92}
     .img i{
       position:absolute;inset:0;
       display:grid;place-items:center;
-      font-size:36px;color:rgba(255,255,255,.9);
+      font-size:38px;color:rgba(255,255,255,.9);
       text-shadow:0 10px 30px rgba(0,0,0,.35);
     }
     .off{
@@ -350,6 +377,7 @@
       color:#fde68a;
       font-weight:900;font-size:12px;
       display:inline-flex;align-items:center;gap:8px;
+      z-index:2;
     }
     .body{padding:12px}
     .pill{
@@ -370,12 +398,18 @@
     .reg{color:var(--muted);text-decoration:line-through;font-size:12.5px}
     .actions{display:flex;gap:10px;flex-wrap:wrap}
 
-    /* Drawer */
-    .drawerOverlay{
-      position:fixed;inset:0;z-index:120;
-      background:rgba(0,0,0,.62);
-      display:none;
+    /* footer */
+    footer{
+      border-top:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+      padding:18px 0;
+      color:var(--muted);
+      font-size:13px;
     }
+    .footRow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+
+    /* drawer */
+    .drawerOverlay{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.62);display:none;}
     .drawerOverlay.show{display:block}
     .drawer{
       position:fixed;top:0;right:0;height:100%;width:min(460px, 94vw);
@@ -401,12 +435,7 @@
     }
     .xbtn:hover{color:var(--text);background:rgba(255,255,255,.06)}
     .drawerBody{padding:12px;overflow:auto;flex:1}
-    .box{
-      border-radius:20px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      padding:14px;
-    }
+
     .cartItem{
       border:1px solid var(--line);
       background: rgba(255,255,255,.05);
@@ -424,7 +453,7 @@
       border:1px solid var(--line);
       overflow:hidden;
     }
-    .ciIcon img{width:100%;height:100%;object-fit:cover;display:block}
+    .ciIcon img{width:100%;height:100%;object-fit:cover}
     .ciTitle{font-weight:900;font-size:13.5px;line-height:1.25}
     .ciMeta{color:var(--muted);font-size:12.5px;margin-top:4px}
     .ciRow{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:10px;flex-wrap:wrap}
@@ -458,19 +487,10 @@
     .totalRow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
     .totalRow b{font-size:14px}
     .totalRow span{font-size:16px;font-weight:900;color:var(--text)}
-    .help{
-      font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:10px;
-    }
-    .field{
-      display:flex;flex-direction:column;gap:6px;
-      margin-top:10px;
-    }
-    .field label{
-      font-size:12px;
-      color:var(--muted);
-      font-weight:900;
-    }
-    .field input, .field select, .field textarea{
+    .help{font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:10px;}
+    .field{display:flex;flex-direction:column;gap:6px;margin-top:10px;}
+    .field label{font-size:12px;color:var(--muted);font-weight:900}
+    .field input,.field select,.field textarea{
       border-radius:16px;border:1px solid var(--line);
       background:rgba(255,255,255,.06);
       color:var(--text);
@@ -481,7 +501,7 @@
     }
     .field textarea{min-height:90px;resize:vertical}
 
-    /* Modal base */
+    /* modal */
     .overlay{
       position:fixed;inset:0;z-index:200;
       display:none;align-items:center;justify-content:center;
@@ -510,26 +530,33 @@
       background:rgba(0,0,0,.14);
       display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;
     }
-    .two{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-
-    /* Product/service details hero */
-    .pHero{
+    .two{display:grid;grid-template-columns: 1fr 1fr;gap:12px;}
+    .box{
       border-radius:20px;
       border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding:14px;
+    }
+
+    /* detail hero */
+    .pHero{
+      border-radius:20px;border:1px solid var(--line);
       height:240px;
-      overflow:hidden;
       background:
         radial-gradient(700px 280px at 50% 0%, rgba(255,255,255,.14), transparent 60%),
         linear-gradient(135deg, rgba(59,130,246,.20), rgba(236,72,153,.16));
-      display:grid;place-items:center;
       position:relative;
+      overflow:hidden;
+      display:grid;place-items:center;
     }
-    .pHero img{width:100%;height:100%;object-fit:cover;display:block}
-    .pHero i{font-size:54px;color:rgba(255,255,255,.92);text-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .pHero .imgbg{
+      position:absolute; inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:.95;
+      filter: contrast(1.05) saturate(1.1);
+    }
+    .pHero i{position:relative;z-index:1;font-size:54px;color:rgba(255,255,255,.92);text-shadow:0 10px 30px rgba(0,0,0,.35)}
     .specs{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .spec{
       display:inline-flex;align-items:center;gap:8px;
@@ -541,63 +568,7 @@
       white-space:nowrap;
     }
 
-    /* Admin */
-    .adminTabs{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
-    .adminTab{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      border-radius:999px;
-      padding:10px 12px;
-      font-weight:900;
-      cursor:pointer;
-      display:inline-flex;gap:10px;align-items:center;
-    }
-    .adminTab.active{
-      background: linear-gradient(135deg, rgba(59,130,246,.20), rgba(236,72,153,.16));
-      border-color: rgba(255,255,255,.20);
-    }
-    .table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0 10px;
-      margin-top:10px;
-    }
-    .trRow{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      border-radius:16px;
-      overflow:hidden;
-    }
-    .rowBox{
-      display:grid;
-      grid-template-columns: 60px 1.2fr .9fr .8fr auto;
-      gap:10px;
-      padding:10px;
-      align-items:center;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background: rgba(255,255,255,.05);
-    }
-    .thumb{
-      width:60px;height:46px;border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      overflow:hidden;
-      display:grid;place-items:center;
-    }
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .miniTxt{font-size:12.5px;color:var(--muted);line-height:1.5}
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    .hint{
-      font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:8px;
-    }
-
-    /* Toast */
+    /* toast */
     .toastWrap{
       position:fixed;right:14px;bottom:14px;z-index:260;
       display:flex;flex-direction:column;gap:10px;
@@ -625,31 +596,46 @@
     @keyframes toastIn{from{transform:translateY(6px);opacity:0}to{transform:translateY(0);opacity:1}}
     @keyframes toastOut{to{transform:translateY(6px);opacity:0}}
 
-    /* Footer */
-    footer{
-      border-top:1px solid var(--line);
-      background: rgba(0,0,0,.12);
-      padding:18px 0;
-      color:var(--muted);
-      font-size:13px;
+    /* admin table */
+    .adminTop{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .adminTabs{display:inline-flex;gap:8px;flex-wrap:wrap;border:1px solid var(--line);background:rgba(255,255,255,.05);padding:8px;border-radius:999px}
+    .adminTab{border:0;cursor:pointer;padding:10px 12px;border-radius:999px;background:transparent;color:var(--muted);font-weight:900}
+    .adminTab.active{background:rgba(255,255,255,.10);color:var(--text)}
+    .tableWrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.04)}
+    table{width:100%;border-collapse:collapse;min-width:820px}
+    th,td{padding:12px 12px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;font-size:13px}
+    th{color:#e5e7eb;font-weight:900;background:rgba(255,255,255,.04);position:sticky;top:0}
+    td{color:var(--muted);vertical-align:top}
+    .tActions{display:flex;gap:8px;flex-wrap:wrap}
+    .miniBtn{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border-radius:999px;
+      padding:7px 10px;
+      font-weight:900;
+      cursor:pointer;
+      font-size:12px;
+      white-space:nowrap;
     }
-    .footRow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+    .miniBtn.danger{border-color: rgba(236,72,153,.35); background: rgba(236,72,153,.12); color:#fecdd3}
+    .miniBtn.ok{border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.12); color:#bbf7d0}
+    .miniBtn.warn{border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.12); color:#fde68a}
 
-    /* Responsive */
+    /* responsive */
     @media (max-width: 980px){
       .heroCard{grid-template-columns:1fr}
       .grid{grid-template-columns:repeat(2,1fr)}
+      .colGrid{grid-template-columns:repeat(2,1fr)}
       nav{display:none}
       .menu-btn{display:inline-flex}
       .search{max-width:100%;flex:1 1 100%}
       .two{grid-template-columns:1fr}
-      .split{grid-template-columns:1fr}
-      .rowBox{grid-template-columns: 60px 1fr; gap:8px}
-      .rowBox > div:nth-child(n+3){grid-column:1 / -1}
+      .brand{min-width:auto}
     }
     @media (max-width: 560px){
       .grid{grid-template-columns:1fr}
-      .hero h1{font-size:30px}
+      .hero h1{font-size:28px}
       .overlay{padding:10px}
       .modal{border-radius:20px}
     }
@@ -657,7 +643,6 @@
 </head>
 
 <body>
-  <!-- Topbar -->
   <div class="topbar">
     <div class="inner">
       <div class="chip"><i class="fa-solid fa-truck-fast"></i> Fast delivery (optional)</div>
@@ -667,11 +652,18 @@
   </div>
 
   <script>
-    /* =============================
-       CONFIG (আপনার তথ্য ঠিক থাকবে)
-    ============================== */
+    /***********************
+     *  FIXED LOGIN (ADMIN)
+     ***********************/
+    const ADMIN_USER = "saikat@gmail.com";
+    const ADMIN_PASS = "676711@";
+    const ADMIN_SESSION_KEY = "saikat_admin_session_v1";
+
+    /***********************
+     *  CONFIG (YOUR DETAILS)
+     ***********************/
     const SAIKAT = {
-      brandName: "Saikat Tech Hub",
+      brandName: "Saikat Tech Hub Store",
       waNumber: "8801804676711",
       waRaw: "01804676711",
       email: "saikat712@gmail.com",
@@ -683,136 +675,106 @@
       }
     };
 
-    /* Admin Login */
-    const ADMIN_AUTH = {
-      username: "saikat@gmail.com",
-      password: "676711@"
-    };
-
-    /* Delivery Zones */
+    /***********************
+     * Delivery Zones
+     ***********************/
     const DELIVERY_ZONES = [
       { id:"inside_dhaka", label:"Inside Dhaka", charge: 60 },
       { id:"outside_dhaka", label:"Outside Dhaka", charge: 120 },
       { id:"pickup", label:"Pickup (New Market)", charge: 0 }
     ];
 
-    /* =============================
-       DEFAULT PRODUCTS (দেমো)
-       image: dataURL (base64) / ""  (Admin থেকে upload হবে)
-    ============================== */
-    const DEFAULT_PRODUCTS = [
-      { id:"p1", title:"Mobile Phone Holder", desc:"Strong grip • Universal", icon:"fa-solid fa-mobile-screen-button", image:"", sale:95,  regular:240, collection:"Trending", tags:["Hot","Deal"], stock: 50 },
-      { id:"p2", title:"Body Massager", desc:"Relax • Easy use", icon:"fa-solid fa-hand-holding-medical", image:"", sale:320, regular:550, collection:"Trending", tags:["Popular"], stock: 30 },
-      { id:"p3", title:"Key Ring (Name/Phone)", desc:"Custom text", icon:"fa-solid fa-key", image:"", sale:148, regular:390, collection:"Trending", tags:["Gift"], stock: 80 },
-      { id:"p4", title:"Router Stand", desc:"Wall mount", icon:"fa-solid fa-wifi", image:"", sale:499, regular:980, collection:"Trending", tags:["Premium"], stock: 20 },
-
-      { id:"p5", title:"Bluetooth Speaker", desc:"Loud sound", icon:"fa-solid fa-volume-high", image:"", sale:399, regular:null, collection:"New Arrival", tags:["New"], stock: 40 },
-      { id:"p6", title:"Neck Shoulder Massager", desc:"Comfortable", icon:"fa-solid fa-person", image:"", sale:2690,regular:2990, collection:"New Arrival", tags:["Premium"], stock: 10 },
-      { id:"p7", title:"LED Night Lamp", desc:"Soft light", icon:"fa-solid fa-lightbulb", image:"", sale:249, regular:399, collection:"New Arrival", tags:["New"], stock: 60 },
-      { id:"p8", title:"Mini Tripod Stand", desc:"Portable", icon:"fa-solid fa-camera", image:"", sale:199, regular:299, collection:"New Arrival", tags:["Deal"], stock: 55 }
-    ];
-
-    /* =============================
-       আপনার SERVICES (আপনার দেওয়া catalog)
-       image: dataURL (Admin থেকে upload হবে)
-    ============================== */
-    const DEFAULT_SERVICES = [
-      // FACEBOOK
-      { id:"fb_followers", category:"Facebook", icon:"fa-brands fa-facebook", image:"", title:"Facebook Followers", desc:"Page/Profile followers • Safe • No password", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,4,5,6,7,8,9,10,20,30,40,50,70], tags:["Popular","Fast","Safe"] },
-      { id:"fb_likes", category:"Facebook", icon:"fa-brands fa-facebook", image:"", title:"Facebook Likes", desc:"Page/Post likes • Social proof boost", unitType:"K", pricePerUnit:90, qtyList:[1,2,3,5,10,20,30,50], tags:["Trending","Quick","Boost"] },
-      { id:"fb_reacts", category:"Facebook", icon:"fa-solid fa-heart", image:"", title:"Facebook Post Reactions", desc:"Like/Love/Wow • Engagement boost", unitType:"100", pricePerUnit:80, qtyList:[1,2,3,5,10,20,30,50], tags:["Engagement","Safe","Hot"] },
-      { id:"fb_views", category:"Facebook", icon:"fa-solid fa-play", image:"", title:"Facebook Video Views", desc:"Views for video • Reach boost", unitType:"K", pricePerUnit:25, qtyList:[10,20,50,100,200], tags:["Reach","Fast","Boost"] },
-
-      // YOUTUBE
-      { id:"yt_subs", category:"YouTube", icon:"fa-brands fa-youtube", image:"", title:"YouTube Subscribers", desc:"Channel subs • Promotional growth", unitType:"K", pricePerUnit:350, qtyList:[1,2,3,5,10], tags:["YouTube","Growth","Safe"] },
-      { id:"yt_views", category:"YouTube", icon:"fa-brands fa-youtube", image:"", title:"YouTube Views", desc:"Video views • Improve reach", unitType:"K", pricePerUnit:60, qtyList:[10,20,50,100,200], tags:["Views","Reach","Fast"] },
-
-      // INSTAGRAM
-      { id:"ig_followers", category:"Instagram", icon:"fa-brands fa-instagram", image:"", title:"Instagram Followers", desc:"Followers • Boost profile", unitType:"K", pricePerUnit:220, qtyList:[1,2,3,5,10,20], tags:["IG","Popular","Safe"] },
-      { id:"ig_likes", category:"Instagram", icon:"fa-brands fa-instagram", image:"", title:"Instagram Likes", desc:"Post likes • Social proof", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,5,10,20], tags:["Likes","Quick","Boost"] },
-
-      // TIKTOK
-      { id:"tt_followers", category:"TikTok", icon:"fa-brands fa-tiktok", image:"", title:"TikTok Followers", desc:"Followers • Boost account", unitType:"K", pricePerUnit:250, qtyList:[1,2,3,5,10,20], tags:["TikTok","Growth","Fast"] },
-      { id:"tt_likes", category:"TikTok", icon:"fa-brands fa-tiktok", image:"", title:"TikTok Likes", desc:"Video likes • Improve engagement", unitType:"K", pricePerUnit:140, qtyList:[1,2,3,5,10,20], tags:["Engagement","Boost","Hot"] },
-
-      // MARKETING / MANAGER / BOOST
-      { id:"boosting", category:"Marketing", icon:"fa-solid fa-bolt", image:"", title:"Boosting / Promotion", desc:"Boost post/page • Reach & engagement", unitType:"PACK",
-        packages:[{label:"Basic Boost",price:300,note:"Target + basic setup"},{label:"Standard Boost",price:700,note:"Better reach + optimize"},{label:"Premium Boost",price:1500,note:"Best reach + guidance"}],
-        tags:["Boosting","Ads","Support"]
-      },
-      { id:"ad_manager", category:"Marketing", icon:"fa-solid fa-rectangle-ad", image:"", title:"Ads Manager / Campaign Setup", desc:"Ad setup + audience + optimization", unitType:"PACK",
-        packages:[{label:"Single Campaign Setup",price:1200,note:"1 campaign + 1 adset"},{label:"Full Funnel Setup",price:2500,note:"Multiple adset + optimize"},{label:"Monthly Management",price:6000,note:"Weekly optimize + report"}],
-        tags:["Ad Manager","Pro","Strategy"]
-      },
-
-      // EDITING
-      { id:"video_edit", category:"Editing", icon:"fa-solid fa-scissors", image:"", title:"Video Editing", desc:"Reels/Shorts + Long video editing", unitType:"PACK",
-        packages:[{label:"Reels/Shorts (30–60s)",price:200,note:"Clean cut + music sync"},{label:"Reels Pro (Caption + Effects)",price:350,note:"Captions + transitions"},{label:"Long Video (5–10 min)",price:900,note:"Pro edit + HD export"}],
-        tags:["Creator","Premium","Fast"]
-      },
-      { id:"photo_edit", category:"Editing", icon:"fa-solid fa-image", image:"", title:"Photo Editing", desc:"Background remove • Retouch • Product edit", unitType:"PACK",
-        packages:[{label:"1 Photo",price:70,note:"Basic clean edit"},{label:"10 Photos",price:600,note:"Best value"},{label:"30 Photos",price:1600,note:"Bulk + priority"}],
-        tags:["Clean","Pro","Value"]
-      },
-      { id:"ai_content", category:"AI", icon:"fa-solid fa-wand-magic-sparkles", image:"", title:"AI Content / Caption / Hashtags", desc:"Brand tone captions & content", unitType:"PACK",
-        packages:[{label:"10 Captions",price:250,note:"Hashtags included"},{label:"30 Captions",price:650,note:"Consistent brand tone"},{label:"10 AI Images",price:450,note:"Social-ready images"}],
-        tags:["AI","Unique","Quick"]
-      }
-    ];
-
-    /* =============================
-       Site Settings (Banner/Cover)
-       heroCover: right side image
-       heroBanner: optional top hero image
-    ============================== */
-    const DEFAULT_SITE = {
-      heroTitle: "Assalamu Alaikum 👋\nStore + All Social & Digital Services",
-      heroSubtitle:
-        "Products cart দিয়ে অর্ডার করুন, আর Services এর জন্য Payment/TrxID + URL দিয়ে WhatsApp auto order.\n✅ No password for services • ✅ Safe process • ✅ Fast support",
-      heroCover: "",   // dataURL
-      heroBanner: ""   // dataURL (optional)
+    /***********************
+     * DEFAULT STORE SETTINGS
+     * (logo + cover image editable from Admin)
+     ***********************/
+    const DEFAULT_STORE_SETTINGS = {
+      brandName: SAIKAT.brandName,
+      logoDataUrl: "",   // base64 data url
+      coverDataUrl: ""   // base64 data url
     };
 
-    /* =============================
-       STORAGE
-    ============================== */
-    const LS_KEY = "saikat_store_v2";
-    function loadState(){
-      try{
-        const raw = localStorage.getItem(LS_KEY);
-        if(!raw){
-          return { site: {...DEFAULT_SITE}, products:[...DEFAULT_PRODUCTS], services:[...DEFAULT_SERVICES] };
-        }
-        const parsed = JSON.parse(raw);
-        return {
-          site: parsed?.site ? parsed.site : {...DEFAULT_SITE},
-          products: Array.isArray(parsed?.products) ? parsed.products : [...DEFAULT_PRODUCTS],
-          services: Array.isArray(parsed?.services) ? parsed.services : [...DEFAULT_SERVICES],
-        };
-      }catch{
-        return { site: {...DEFAULT_SITE}, products:[...DEFAULT_PRODUCTS], services:[...DEFAULT_SERVICES] };
+    /***********************
+     * DEFAULT PRODUCTS
+     ***********************/
+    const DEFAULT_PRODUCTS = [
+      { id:"p1", title:"Mobile Phone Holder", desc:"Strong grip • Universal", type:"product", collection:"Trending", price:95, regular:240, image:"", tags:["Hot","Deal"] },
+      { id:"p2", title:"Body Massager", desc:"Relax • Easy use", type:"product", collection:"Trending", price:320, regular:550, image:"", tags:["Popular"] },
+      { id:"p3", title:"Key Ring (Name/Phone)", desc:"Custom text", type:"product", collection:"Trending", price:148, regular:390, image:"", tags:["Gift"] },
+      { id:"p4", title:"Router Stand", desc:"Wall mount", type:"product", collection:"Trending", price:499, regular:980, image:"", tags:["Premium"] },
+
+      { id:"p5", title:"Bluetooth Speaker", desc:"Loud sound", type:"product", collection:"New Arrival", price:399, regular:null, image:"", tags:["New"] },
+      { id:"p6", title:"Neck Shoulder Massager", desc:"Comfortable", type:"product", collection:"New Arrival", price:2690, regular:2990, image:"", tags:["Premium"] },
+      { id:"p7", title:"LED Night Lamp", desc:"Soft light", type:"product", collection:"New Arrival", price:249, regular:399, image:"", tags:["New"] },
+      { id:"p8", title:"Mini Tripod Stand", desc:"Portable", type:"product", collection:"New Arrival", price:199, regular:299, image:"", tags:["Deal"] },
+
+      { id:"p9", title:"Premium Watch Strap", desc:"Quality material", type:"product", collection:"Signature", price:499, regular:799, image:"", tags:["Premium"] },
+      { id:"p10",title:"Luxury Wallet", desc:"Elegant", type:"product", collection:"Signature", price:650, regular:980, image:"", tags:["Best"] },
+
+      { id:"p11",title:"Stock Clearance Item", desc:"Limited", type:"product", collection:"Clearance", price:99, regular:250, image:"", tags:["Clearance"] },
+
+      { id:"p12",title:"Best Selling Combo", desc:"Combo pack", type:"product", collection:"Best Selling", price:899, regular:1299, image:"", tags:["Best"] }
+    ];
+
+    /***********************
+     * DEFAULT SERVICES (YOUR ORIGINAL)
+     * Admin can edit/add + image upload
+     ***********************/
+    const DEFAULT_SERVICES = [
+      { id:"fb_followers", type:"service", category:"Facebook", title:"Facebook Followers", desc:"Page/Profile followers • Safe • No password", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,4,5,6,7,8,9,10,20,30,40,50,70], tags:["Popular","Fast","Safe"], image:"" },
+      { id:"fb_likes", type:"service", category:"Facebook", title:"Facebook Likes", desc:"Page/Post likes • Social proof boost", unitType:"K", pricePerUnit:90, qtyList:[1,2,3,5,10,20,30,50], tags:["Trending","Quick","Boost"], image:"" },
+      { id:"fb_reacts", type:"service", category:"Facebook", title:"Facebook Post Reactions", desc:"Like/Love/Wow • Engagement boost", unitType:"100", pricePerUnit:80, qtyList:[1,2,3,5,10,20,30,50], tags:["Engagement","Safe","Hot"], image:"" },
+      { id:"fb_views", type:"service", category:"Facebook", title:"Facebook Video Views", desc:"Views for video • Reach boost", unitType:"K", pricePerUnit:25, qtyList:[10,20,50,100,200], tags:["Reach","Fast","Boost"], image:"" },
+
+      { id:"yt_subs", type:"service", category:"YouTube", title:"YouTube Subscribers", desc:"Channel subs • Promotional growth", unitType:"K", pricePerUnit:350, qtyList:[1,2,3,5,10], tags:["YouTube","Growth","Safe"], image:"" },
+      { id:"yt_views", type:"service", category:"YouTube", title:"YouTube Views", desc:"Video views • Improve reach", unitType:"K", pricePerUnit:60, qtyList:[10,20,50,100,200], tags:["Views","Reach","Fast"], image:"" },
+
+      { id:"ig_followers", type:"service", category:"Instagram", title:"Instagram Followers", desc:"Followers • Boost profile", unitType:"K", pricePerUnit:220, qtyList:[1,2,3,5,10,20], tags:["IG","Popular","Safe"], image:"" },
+      { id:"ig_likes", type:"service", category:"Instagram", title:"Instagram Likes", desc:"Post likes • Social proof", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,5,10,20], tags:["Likes","Quick","Boost"], image:"" },
+
+      { id:"tt_followers", type:"service", category:"TikTok", title:"TikTok Followers", desc:"Followers • Boost account", unitType:"K", pricePerUnit:250, qtyList:[1,2,3,5,10,20], tags:["TikTok","Growth","Fast"], image:"" },
+      { id:"tt_likes", type:"service", category:"TikTok", title:"TikTok Likes", desc:"Video likes • Improve engagement", unitType:"K", pricePerUnit:140, qtyList:[1,2,3,5,10,20], tags:["Engagement","Boost","Hot"], image:"" },
+
+      { id:"boosting", type:"service", category:"Marketing", title:"Boosting / Promotion", desc:"Boost post/page • Reach & engagement", unitType:"PACK",
+        packages:[{label:"Basic Boost",price:300,note:"Target + basic setup"},{label:"Standard Boost",price:700,note:"Better reach + optimize"},{label:"Premium Boost",price:1500,note:"Best reach + guidance"}],
+        tags:["Boosting","Ads","Support"], image:""
+      },
+      { id:"ad_manager", type:"service", category:"Marketing", title:"Ads Manager / Campaign Setup", desc:"Ad setup + audience + optimization", unitType:"PACK",
+        packages:[{label:"Single Campaign Setup",price:1200,note:"1 campaign + 1 adset"},{label:"Full Funnel Setup",price:2500,note:"Multiple adset + optimize"},{label:"Monthly Management",price:6000,note:"Weekly optimize + report"}],
+        tags:["Ad Manager","Pro","Strategy"], image:""
+      },
+
+      { id:"video_edit", type:"service", category:"Editing", title:"Video Editing", desc:"Reels/Shorts + Long video editing", unitType:"PACK",
+        packages:[{label:"Reels/Shorts (30–60s)",price:200,note:"Clean cut + music sync"},{label:"Reels Pro (Caption + Effects)",price:350,note:"Captions + transitions"},{label:"Long Video (5–10 min)",price:900,note:"Pro edit + HD export"}],
+        tags:["Creator","Premium","Fast"], image:""
+      },
+      { id:"photo_edit", type:"service", category:"Editing", title:"Photo Editing", desc:"Background remove • Retouch • Product edit", unitType:"PACK",
+        packages:[{label:"1 Photo",price:70,note:"Basic clean edit"},{label:"10 Photos",price:600,note:"Best value"},{label:"30 Photos",price:1600,note:"Bulk + priority"}],
+        tags:["Clean","Pro","Value"], image:""
+      },
+      { id:"ai_content", type:"service", category:"AI", title:"AI Content / Caption / Hashtags", desc:"Brand tone captions & content", unitType:"PACK",
+        packages:[{label:"10 Captions",price:250,note:"Hashtags included"},{label:"30 Captions",price:650,note:"Consistent brand tone"},{label:"10 AI Images",price:450,note:"Social-ready images"}],
+        tags:["AI","Unique","Quick"], image:""
       }
-    }
-    function saveState(){
-      localStorage.setItem(LS_KEY, JSON.stringify(STATE, null, 2));
-    }
+    ];
 
-    let STATE = loadState();
+    /***********************
+     * STORAGE KEYS
+     ***********************/
+    const LS_SETTINGS = "saikat_store_settings_v1";
+    const LS_PRODUCTS = "saikat_store_products_v1";
+    const LS_SERVICES = "saikat_store_services_v1";
 
-    /* =============================
-       HELPERS
-    ============================== */
+    /***********************
+     * HELPERS
+     ***********************/
     const money = n => `${Number(n||0).toLocaleString("en-US")} Tk`;
+    const escapeHtml = (str)=> String(str ?? "")
+      .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+
     const percentOff = (sale, reg) => (reg && reg>sale) ? Math.round(((reg-sale)/reg)*100) : 0;
 
-    function escapeHtml(str){
-      return String(str ?? "")
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
     function toast(title, message, type="info", ms=2400){
       const wrap = document.getElementById("toastWrap");
       const icon = type==="success" ? "fa-circle-check" : type==="error" ? "fa-triangle-exclamation" : "fa-circle-info";
@@ -828,48 +790,57 @@
       wrap.appendChild(el);
       setTimeout(close, ms);
     }
-    function readFileAsDataURL(file){
+
+    function readJSON(key, fallback){
+      try{
+        const raw = localStorage.getItem(key);
+        if(!raw) return structuredClone(fallback);
+        const obj = JSON.parse(raw);
+        return obj ?? structuredClone(fallback);
+      }catch{
+        return structuredClone(fallback);
+      }
+    }
+    function writeJSON(key, value){
+      localStorage.setItem(key, JSON.stringify(value, null, 2));
+    }
+
+    function fileToDataUrl(file){
       return new Promise((resolve,reject)=>{
-        const r = new FileReader();
-        r.onload = ()=> resolve(r.result);
-        r.onerror = ()=> reject(new Error("File read failed"));
-        r.readAsDataURL(file);
+        const reader = new FileReader();
+        reader.onload = ()=> resolve(String(reader.result||""));
+        reader.onerror = ()=> reject(new Error("File read failed"));
+        reader.readAsDataURL(file);
       });
     }
-    function genId(prefix="id"){
-      return prefix + "_" + Math.random().toString(36).slice(2,9) + Date.now().toString(36).slice(2,6);
+
+    function makeId(prefix="id"){
+      return `${prefix}_${Math.random().toString(16).slice(2)}_${Date.now().toString(16)}`;
     }
-    function uniqueCollectionsFromProducts(){
-      return [...new Set(STATE.products.map(p=>p.collection).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
-    }
-    function uniqueCategoriesFromServices(){
-      return [...new Set(STATE.services.map(s=>s.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
-    }
-    function getProduct(id){ return STATE.products.find(p=>p.id===id); }
-    function getService(id){ return STATE.services.find(s=>s.id===id); }
   </script>
 
-  <!-- Header -->
   <header>
     <div class="container">
       <div class="head">
         <div class="brand">
-          <span class="mark" aria-hidden="true"></span>
-          <span id="brandName"></span>
+          <div class="logoBox" id="logoBox">
+            <div class="fallback" id="logoFallback">S</div>
+            <img id="logoImg" alt="Logo" />
+          </div>
+          <span class="brandTitle" id="brandTitle"></span>
         </div>
 
         <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i> Menu</button>
 
         <nav aria-label="Main navigation">
-          <a href="#top">Home</a>
-          <a href="#shop">Shop</a>
-          <a href="#services">Services</a>
+          <a href="#collections">Collections</a>
+          <a href="#browse">Browse</a>
           <a href="#contact">Contact</a>
         </nav>
 
-        <div class="search" title="Search">
+        <div class="search">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input id="qHeader" placeholder="Search products / services..." />
+          <input id="qHeader" placeholder="Search products/services..." />
         </div>
 
         <button class="cart-btn" id="openCart">
@@ -882,36 +853,41 @@
         </a>
       </div>
 
-      <div class="tabs">
-        <button class="tabBtn active" id="tabShop"><i class="fa-solid fa-store"></i> Shop</button>
-        <button class="tabBtn" id="tabServices"><i class="fa-solid fa-bolt"></i> Services</button>
-        <button class="tabBtn" id="tabAdmin"><i class="fa-solid fa-gear"></i> Admin</button>
-      </div>
-
       <div class="mnav" id="mnav">
-        <a href="#top">Home</a>
-        <a href="#shop">Shop</a>
-        <a href="#services">Services</a>
+        <a href="#collections">Collections</a>
+        <a href="#browse">Browse</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero" id="top">
     <div class="container">
       <div class="heroCard">
-        <div class="heroLeft">
-          <h1 id="heroTitle"></h1>
-          <p id="heroSubtitle"></p>
-          <div class="heroActions">
-            <a class="btn primary" href="#shop"><i class="fa-solid fa-store"></i> Browse Shop</a>
-            <a class="btn ghost" href="#services"><i class="fa-solid fa-bolt"></i> View Services</a>
-            <button class="btn pink" id="checkoutTop"><i class="fa-brands fa-whatsapp"></i> Checkout WhatsApp</button>
-          </div>
+        <div class="heroCover"></div>
+        <div class="heroCoverImg" id="heroCoverImg"></div>
 
-          <div class="hint">
-            <b>Tip:</b> Admin এ গিয়ে cover/banner + images + prices + products/services add/edit করতে পারবেন।
+        <div class="heroLeft">
+          <h1 id="heroTitle">Products + Services<br/>WhatsApp Order System</h1>
+          <p>
+            Collection → Select item → Add to cart / Service order → WhatsApp checkout.
+            <br/>✅ Admin Panel (password protected) • ✅ Logo/Cover change • ✅ Image upload • ✅ Responsive
+          </p>
+
+          <div class="tabsRow">
+            <div class="tabs" role="tablist" aria-label="Browse tabs">
+              <button class="tabBtn active" id="tabProducts" aria-selected="true">
+                <i class="fa-solid fa-bag-shopping"></i> Products
+              </button>
+              <button class="tabBtn" id="tabServices" aria-selected="false">
+                <i class="fa-solid fa-bolt"></i> Services
+              </button>
+            </div>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn primary" href="#browse"><i class="fa-solid fa-list"></i> Browse</a>
+              <button class="btn pink" id="openCheckout"><i class="fa-brands fa-whatsapp"></i> Checkout</button>
+            </div>
           </div>
         </div>
 
@@ -926,66 +902,52 @@
               Nagad: <span id="nagadShow" style="color:var(--text);font-weight:900"></span>
             </span>
           </div>
-
-          <div class="cover" id="coverBox">
-            <div class="coverFallback" id="coverFallback"><i class="fa-solid fa-image"></i> Cover Preview</div>
-            <img id="coverImg" class="coverImg" alt="Cover" style="display:none" />
+          <div class="muted" style="font-size:12.5px;line-height:1.7">
+            <b>Tip:</b> Admin খুলতে Footer থেকে <span class="kbd">Admin</span> ক্লিক করুন।
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SHOP -->
-  <section class="section" id="shop">
+  <section class="section" id="collections">
     <div class="container">
       <div class="titleRow">
-        <h2><i class="fa-solid fa-store"></i> Shop Products</h2>
-        <span class="chip"><i class="fa-solid fa-filter"></i> Search + Collection</span>
+        <h2>Collections</h2>
+        <span class="chip"><i class="fa-solid fa-hand-pointer"></i> Tap to filter</span>
       </div>
-      <p>Product add to cart → delivery zone + payment method → WhatsApp checkout.</p>
+      <p>Collection select করলে Products/Services grid এ filter হবে।</p>
+      <div class="colGrid" id="colGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="browse">
+    <div class="container">
+      <div class="titleRow">
+        <h2 id="browseTitle">Browse Products</h2>
+        <span class="chip" id="browseChip"><i class="fa-solid fa-filter"></i> Search + Filter</span>
+      </div>
+      <p class="muted">Search + collection দিয়ে দ্রুত খুঁজে নিন।</p>
 
       <div class="toolbar">
-        <input class="input" id="qShop" placeholder="Search in products..." />
-        <select class="select" id="colShop">
+        <input class="input" id="qBrowse" placeholder="Search here..." />
+        <select class="select" id="catBrowse">
           <option value="ALL">All Collections</option>
         </select>
-        <button class="btn ghost" id="clearShop"><i class="fa-solid fa-rotate-left"></i> Clear</button>
+        <button class="btn ghost" id="clearFilter"><i class="fa-solid fa-rotate-left"></i> Clear</button>
       </div>
 
-      <div class="grid" id="gridShop"></div>
+      <div class="grid" id="gridMain"></div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section" id="services">
-    <div class="container">
-      <div class="titleRow">
-        <h2><i class="fa-solid fa-bolt"></i> All Services</h2>
-        <span class="chip"><i class="fa-solid fa-lock"></i> No password needed</span>
-      </div>
-      <p>Service → Order → Payment method + TrxID + URL → WhatsApp auto order.</p>
-
-      <div class="toolbar">
-        <input class="input" id="qServices" placeholder="Search in services..." />
-        <select class="select" id="catServices">
-          <option value="ALL">All Categories</option>
-        </select>
-        <button class="btn ghost" id="clearServices"><i class="fa-solid fa-rotate-left"></i> Clear</button>
-      </div>
-
-      <div class="grid" id="gridServices"></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="container">
       <div class="titleRow">
         <h2>Contact</h2>
         <span class="chip"><i class="fa-solid fa-headset"></i> Support</span>
       </div>
-      <p>WhatsApp / Facebook / Email থেকে যেকোনোভাবে যোগাযোগ করতে পারবেন।</p>
+      <p>WhatsApp / Facebook / Email থেকে অর্ডার/সাপোর্ট নিতে পারবেন।</p>
 
       <div class="grid" style="grid-template-columns:repeat(3,1fr)">
         <div class="card">
@@ -1027,17 +989,17 @@
         <div>© 2026 <span id="footBrand"></span> — All Rights Reserved</div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
           <a href="#top" class="chip"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
-          <button class="chip" id="openAdminFooter"><i class="fa-solid fa-gear"></i> Admin</button>
+          <button class="chip" id="openAdmin"><i class="fa-solid fa-gear"></i> Admin</button>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- CART Drawer -->
+  <!-- CART DRAWER (Products checkout) -->
   <div class="drawerOverlay" id="drawerOverlay"></div>
   <aside class="drawer" id="drawer" aria-label="Cart Drawer">
     <div class="drawerHead">
-      <b><i class="fa-solid fa-bag-shopping"></i> Your cart</b>
+      <b><i class="fa-solid fa-bag-shopping"></i> Product Cart</b>
       <button class="xbtn" id="closeCart" aria-label="Close">✕</button>
     </div>
 
@@ -1068,7 +1030,7 @@
 
         <div class="field">
           <label>Customer Notes (optional)</label>
-          <textarea id="custNote" placeholder="Name, full address, size/color, any note..."></textarea>
+          <textarea id="custNote" placeholder="Name, full address, color/size, any note..."></textarea>
         </div>
 
         <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:10px">
@@ -1083,458 +1045,292 @@
       <div class="totalRow"><b>Total</b><span id="cartTotal">0 Tk</span></div>
 
       <button class="btn wa" style="width:100%;justify-content:center" id="checkoutDrawer">
-        <i class="fa-brands fa-whatsapp"></i> Checkout WhatsApp
+        <i class="fa-brands fa-whatsapp"></i> Checkout WhatsApp (Products)
       </button>
       <div class="help"><b>Note:</b> COD হলে TrxID লাগবে না। Online payment হলে TrxID দিন।</div>
     </div>
   </aside>
 
-  <!-- PRODUCT DETAILS MODAL -->
-  <div class="overlay" id="prodOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="prodTitle">
+  <!-- ITEM DETAILS MODAL (Products or Services) -->
+  <div class="overlay" id="detailOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
       <div class="modalHead">
-        <b id="prodTitle">Product Details</b>
-        <button class="xbtn" id="closeProd" aria-label="Close">✕</button>
+        <b id="detailTitle">Details</b>
+        <button class="xbtn" id="closeDetail" aria-label="Close">✕</button>
       </div>
 
       <div class="modalBody">
         <div class="two">
           <div class="box">
-            <div class="pHero" id="prodHero">
-              <i class="fa-solid fa-box" id="prodIcon"></i>
-              <img id="prodImg" alt="Product image" style="display:none" />
+            <div class="pHero">
+              <div class="imgbg" id="detailImg"></div>
+              <i class="fa-solid fa-box" id="detailIcon"></i>
             </div>
-            <div class="specs" id="prodTags"></div>
+            <div class="specs" id="detailTags"></div>
           </div>
 
           <div class="box">
-            <div class="pill" id="prodCollection"><i class="fa-solid fa-layer-group"></i> Collection</div>
-            <h3 style="margin:10px 0 6px;font-size:20px;line-height:1.25" id="prodName">Name</h3>
-            <div class="muted" style="line-height:1.8" id="prodDesc">Description</div>
+            <div class="pill" id="detailPill"><i class="fa-solid fa-layer-group"></i> Category</div>
+            <h3 style="margin:10px 0 6px;font-size:20px;line-height:1.25" id="detailName">Name</h3>
+            <div class="muted" style="line-height:1.8" id="detailDesc">Description</div>
 
-            <div style="margin-top:12px">
+            <div id="detailProductArea" style="display:none;margin-top:12px">
               <div class="price">
-                <span class="sale" id="prodSale">0 Tk</span>
-                <span class="reg" id="prodReg" style="display:none">0 Tk</span>
+                <span class="sale" id="detailSale">0 Tk</span>
+                <span class="reg" id="detailReg" style="display:none">0 Tk</span>
               </div>
-              <div class="muted" id="prodOff" style="font-size:12.5px"></div>
+              <div class="muted" id="detailOff" style="font-size:12.5px"></div>
+
+              <div class="field" style="margin-top:12px">
+                <label>Quantity</label>
+                <select id="detailQty">
+                  <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                  <option value="4">4</option><option value="5">5</option>
+                </select>
+              </div>
+
+              <div class="actions" style="margin-top:12px">
+                <button class="btn pink" id="detailAdd"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                <button class="btn.wa btn wa" id="detailBuy"><i class="fa-brands fa-whatsapp"></i> Buy Now</button>
+                <button class="btn ghost" id="detailGoCart"><i class="fa-solid fa-bag-shopping"></i> Open Cart</button>
+              </div>
             </div>
 
-            <div class="field" style="margin-top:12px">
-              <label>Quantity</label>
-              <select id="prodQty">
-                <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                <option value="4">4</option><option value="5">5</option>
-              </select>
+            <div id="detailServiceArea" style="display:none;margin-top:12px">
+              <div class="field">
+                <label id="svcQtyLabel">Quantity</label>
+                <select id="svcQty"></select>
+              </div>
+              <div class="field" id="svcPkgField" style="display:none">
+                <label>Package</label>
+                <select id="svcPkg"></select>
+              </div>
+              <div class="field">
+                <label>Price</label>
+                <input id="svcPrice" readonly />
+              </div>
+              <div class="field">
+                <label>Link / URL (Page/Profile/Post/Video)</label>
+                <input id="svcUrl" placeholder="Paste your URL here" />
+              </div>
+              <div class="field">
+                <label>Payment Method</label>
+                <select id="svcPay">
+                  <option value="">Select</option>
+                  <option value="bKash">bKash</option>
+                  <option value="Nagad">Nagad</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Transaction ID (TrxID)</label>
+                <input id="svcTrx" placeholder="e.g. A1B2C3D4" />
+              </div>
+              <div class="field">
+                <label>Extra Notes (optional)</label>
+                <textarea id="svcNote" placeholder="Target country / speed / any notes..."></textarea>
+              </div>
+
+              <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:10px">
+                Payment Numbers: bKash <b style="color:var(--text)"><span id="svcBkash"></span></b> • Nagad <b style="color:var(--text)"><span id="svcNagad"></span></b>
+              </div>
+
+              <div class="actions" style="margin-top:12px">
+                <button class="btn wa" id="svcSend"><i class="fa-brands fa-whatsapp"></i> Send Order to WhatsApp (Service)</button>
+              </div>
             </div>
 
-            <div class="actions" style="margin-top:12px">
-              <button class="btn pink" id="prodAdd"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-              <button class="btn wa" id="prodBuy"><i class="fa-brands fa-whatsapp"></i> Buy Now</button>
-              <button class="btn ghost" id="prodGoCart"><i class="fa-solid fa-bag-shopping"></i> Open Cart</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modalFoot">
-        <button class="btn ghost" id="prodCloseBtn"><i class="fa-solid fa-xmark"></i> Close</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- SERVICE ORDER MODAL -->
-  <div class="overlay" id="svcOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="svcTitle">
-      <div class="modalHead">
-        <b id="svcTitle">Service Order & Payment</b>
-        <button class="xbtn" id="closeSvc" aria-label="Close">✕</button>
-      </div>
-
-      <div class="modalBody">
-        <div class="two">
-          <div class="box">
-            <div class="pHero" id="svcHero">
-              <i class="fa-solid fa-bolt" id="svcIcon"></i>
-              <img id="svcImg" alt="Service image" style="display:none" />
-            </div>
-            <div class="specs" id="svcTags"></div>
-          </div>
-
-          <div class="box">
-            <div class="pill" id="svcCategory"><i class="fa-solid fa-layer-group"></i> Category</div>
-            <h3 style="margin:10px 0 6px;font-size:20px;line-height:1.25" id="svcName">Service</h3>
-            <div class="muted" style="line-height:1.8" id="svcDesc">Description</div>
-
-            <div class="field" id="svcQtyField">
-              <label id="svcQtyLabel">Quantity</label>
-              <select id="svcQtySelect"></select>
-            </div>
-
-            <div class="field" id="svcPkgField" style="display:none">
-              <label>Package</label>
-              <select id="svcPkgSelect"></select>
-            </div>
-
-            <div class="field">
-              <label>Price</label>
-              <input id="svcPriceShow" readonly />
-            </div>
-
-            <div class="field">
-              <label>Link / URL (Page/Profile/Post/Video)</label>
-              <input id="svcUrl" placeholder="Paste your URL here" />
-            </div>
-
-            <div class="field">
-              <label>Payment Method</label>
-              <select id="svcPayMethod">
-                <option value="">Select</option>
-                <option value="bKash">bKash</option>
-                <option value="Nagad">Nagad</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label>Transaction ID (TrxID)</label>
-              <input id="svcTrx" placeholder="e.g. A1B2C3D4" />
-            </div>
-
-            <div class="field">
-              <label>Extra Notes (optional)</label>
-              <textarea id="svcNote" placeholder="Target country / speed / any notes..."></textarea>
-            </div>
-
-            <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:10px">
-              Payment: bKash <b style="color:var(--text)"><span id="svcBkash"></span></b> • Nagad <b style="color:var(--text)"><span id="svcNagad"></span></b>
-            </div>
-
-            <div class="actions" style="margin-top:12px">
-              <button class="btn wa" id="svcSendWa"><i class="fa-brands fa-whatsapp"></i> Send Order to WhatsApp</button>
-              <button class="btn ghost" id="svcCancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
+            <div class="muted" style="margin-top:12px;font-size:12.5px;line-height:1.6">
+              <b>Note:</b> Admin থেকে Item image upload করলে এখানে সুন্দরভাবে দেখাবে।
             </div>
           </div>
         </div>
       </div>
 
       <div class="modalFoot">
-        <button class="btn ghost" id="svcCloseBtn"><i class="fa-solid fa-xmark"></i> Close</button>
+        <button class="btn ghost" id="detailCloseBtn"><i class="fa-solid fa-xmark"></i> Close</button>
       </div>
     </div>
   </div>
 
-  <!-- ADMIN LOGIN MODAL -->
-  <div class="overlay" id="loginOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle" style="max-width:560px">
-      <div class="modalHead">
-        <b id="loginTitle"><i class="fa-solid fa-lock"></i> Admin Login</b>
-        <button class="xbtn" id="closeLogin" aria-label="Close">✕</button>
-      </div>
-      <div class="modalBody">
-        <div class="box">
-          <div class="field">
-            <label>Username</label>
-            <input id="loginUser" placeholder="e.g. saikat@gmail.com" />
-          </div>
-          <div class="field">
-            <label>Password</label>
-            <input id="loginPass" type="password" placeholder="Password" />
-          </div>
-          <div class="hint">
-            Admin panel শুধু আপনার জন্য। Password ভুল হলে ঢুকবে না।
-          </div>
-          <div class="actions" style="margin-top:12px">
-            <button class="btn primary" id="loginBtn"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
-            <button class="btn ghost" id="loginCancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
-          </div>
-        </div>
-      </div>
-      <div class="modalFoot"></div>
-    </div>
-  </div>
-
-  <!-- ADMIN PANEL MODAL -->
+  <!-- ADMIN LOGIN + PANEL -->
   <div class="overlay" id="adminOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
       <div class="modalHead">
-        <b id="adminTitle"><i class="fa-solid fa-gear"></i> Admin Panel (Shopify-like)</b>
+        <b id="adminTitle"><i class="fa-solid fa-shield-halved"></i> Admin Panel (Login Required)</b>
         <button class="xbtn" id="closeAdmin" aria-label="Close">✕</button>
       </div>
 
       <div class="modalBody">
-        <div class="adminTabs">
-          <button class="adminTab active" data-atab="site"><i class="fa-solid fa-image"></i> Site (Banner/Cover)</button>
-          <button class="adminTab" data-atab="products"><i class="fa-solid fa-box"></i> Products</button>
-          <button class="adminTab" data-atab="services"><i class="fa-solid fa-bolt"></i> Services</button>
-        </div>
+        <!-- Login View -->
+        <div id="adminLoginView" class="box">
+          <div class="muted" style="line-height:1.7">
+            Admin access only. Enter username/password.
+          </div>
 
-        <!-- SITE TAB -->
-        <div id="aSite" style="margin-top:12px">
-          <div class="split">
+          <div class="two" style="margin-top:12px">
             <div class="box">
-              <div style="font-weight:900"><i class="fa-solid fa-pen-to-square"></i> Hero Text</div>
               <div class="field">
-                <label>Hero Title</label>
-                <textarea id="siteHeroTitle"></textarea>
+                <label>Username</label>
+                <input id="adminUser" placeholder="saikat@gmail.com" />
               </div>
               <div class="field">
-                <label>Hero Subtitle</label>
-                <textarea id="siteHeroSubtitle"></textarea>
+                <label>Password</label>
+                <input id="adminPass" type="password" placeholder="••••••••" />
               </div>
               <div class="actions" style="margin-top:12px">
-                <button class="btn primary" id="saveSiteText"><i class="fa-solid fa-floppy-disk"></i> Save Text</button>
+                <button class="btn primary" id="adminLoginBtn"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+                <button class="btn ghost" id="adminLogoutBtn" style="display:none"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+              </div>
+              <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
+                Tip: Login হলে এই ব্রাউজারে session থাকবে (Escape চাপলে modal close)।
               </div>
             </div>
 
             <div class="box">
-              <div style="font-weight:900"><i class="fa-solid fa-photo-film"></i> Banner / Cover Images</div>
-
-              <div class="field">
-                <label>Hero Cover (Right side image)</label>
-                <input type="file" id="uploadCover" accept="image/*" />
-              </div>
-
-              <div class="field">
-                <label>Hero Banner (Optional)</label>
-                <input type="file" id="uploadBanner" accept="image/*" />
-              </div>
-
-              <div class="actions" style="margin-top:12px">
-                <button class="btn primary" id="saveSiteImages"><i class="fa-solid fa-floppy-disk"></i> Save Images</button>
-                <button class="btn danger" id="clearSiteImages"><i class="fa-solid fa-trash"></i> Clear Images</button>
-              </div>
-
-              <div class="hint">
-                ⚠️ Image বড় হলে browser storage limit হতে পারে। Medium size ছবি ব্যবহার করুন।
+              <div style="font-weight:900;margin-bottom:8px"><i class="fa-solid fa-gear"></i> You can manage</div>
+              <div class="muted" style="line-height:1.7">
+                ✅ Logo + Cover image change<br/>
+                ✅ Products add/edit/delete + images<br/>
+                ✅ Services add/edit/delete + images<br/>
+                ✅ Prices, description, tags, qty/packages, etc.<br/>
+                ✅ Save/Reset
               </div>
             </div>
           </div>
         </div>
 
-        <!-- PRODUCTS TAB -->
-        <div id="aProducts" style="margin-top:12px;display:none">
-          <div class="box">
-            <div style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-              <div>
-                <div style="font-weight:900"><i class="fa-solid fa-box"></i> Products Manager</div>
-                <div class="miniTxt">Add/Edit/Delete products, images, price, collection, stock, tags.</div>
-              </div>
-              <button class="btn primary" id="addProductBtn"><i class="fa-solid fa-plus"></i> Add Product</button>
+        <!-- Panel View -->
+        <div id="adminPanelView" style="display:none">
+          <div class="adminTop">
+            <div class="adminTabs">
+              <button class="adminTab active" id="adminTabStore"><i class="fa-solid fa-store"></i> Store</button>
+              <button class="adminTab" id="adminTabProducts"><i class="fa-solid fa-bag-shopping"></i> Products</button>
+              <button class="adminTab" id="adminTabServices"><i class="fa-solid fa-bolt"></i> Services</button>
             </div>
-            <div id="productList" style="margin-top:12px"></div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn warn" id="adminResetAll"><i class="fa-solid fa-rotate-left"></i> Reset Default</button>
+              <button class="btn ghost" id="adminLogout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+            </div>
           </div>
-        </div>
 
-        <!-- SERVICES TAB -->
-        <div id="aServices" style="margin-top:12px;display:none">
-          <div class="box">
-            <div style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-              <div>
-                <div style="font-weight:900"><i class="fa-solid fa-bolt"></i> Services Manager</div>
-                <div class="miniTxt">Add/Edit/Delete services, images, pricing, qty/package config.</div>
+          <div class="two" style="margin-top:12px">
+            <!-- left -->
+            <div class="box">
+              <b>Quick Actions</b>
+              <div class="muted" style="margin-top:8px;line-height:1.7">
+                <i class="fa-solid fa-circle-check"></i> Change logo/cover (images)<br/>
+                <i class="fa-solid fa-circle-check"></i> Add new items with images<br/>
+                <i class="fa-solid fa-circle-check"></i> Prices/Descriptions update instantly
               </div>
-              <button class="btn primary" id="addServiceBtn"><i class="fa-solid fa-plus"></i> Add Service</button>
+              <div class="hr" style="height:1px;background:var(--line);margin:12px 0"></div>
+
+              <div id="adminStoreBox">
+                <b><i class="fa-solid fa-image"></i> Store Branding</b>
+
+                <div class="field" style="margin-top:10px">
+                  <label>Brand Name</label>
+                  <input id="setBrandName" />
+                </div>
+
+                <div class="two" style="margin-top:10px">
+                  <div class="box">
+                    <b>Logo Image</b>
+                    <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Upload logo (square recommended)</div>
+                    <div class="field" style="margin-top:10px">
+                      <label>Upload</label>
+                      <input type="file" id="setLogoFile" accept="image/*" />
+                    </div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                      <button class="miniBtn ok" id="setLogoSave"><i class="fa-solid fa-floppy-disk"></i> Save Logo</button>
+                      <button class="miniBtn danger" id="setLogoClear"><i class="fa-solid fa-trash"></i> Remove</button>
+                    </div>
+                  </div>
+
+                  <div class="box">
+                    <b>Cover Image</b>
+                    <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Upload hero cover/banner</div>
+                    <div class="field" style="margin-top:10px">
+                      <label>Upload</label>
+                      <input type="file" id="setCoverFile" accept="image/*" />
+                    </div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                      <button class="miniBtn ok" id="setCoverSave"><i class="fa-solid fa-floppy-disk"></i> Save Cover</button>
+                      <button class="miniBtn danger" id="setCoverClear"><i class="fa-solid fa-trash"></i> Remove</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+                  <button class="btn primary" id="setBrandSave"><i class="fa-solid fa-floppy-disk"></i> Save Brand Name</button>
+                </div>
+
+                <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
+                  Note: Images browser storage এ save হয়। খুব বড় file দিলে save নাও হতে পারে।
+                </div>
+              </div>
+
+              <div id="adminFormBox" style="display:none;margin-top:10px"></div>
             </div>
-            <div id="serviceList" style="margin-top:12px"></div>
+
+            <!-- right -->
+            <div class="box">
+              <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;align-items:center">
+                <b id="adminListTitle">Products List</b>
+                <button class="btn pink" id="adminAddNew"><i class="fa-solid fa-plus"></i> Add New</button>
+              </div>
+
+              <div class="field" style="margin-top:10px">
+                <label>Search in list</label>
+                <input id="adminSearch" placeholder="type to search..." />
+              </div>
+
+              <div class="tableWrap" style="margin-top:12px">
+                <table>
+                  <thead>
+                    <tr>
+                      <th style="width:120px">Image</th>
+                      <th>Name</th>
+                      <th style="width:170px">Collection/Category</th>
+                      <th style="width:120px">Price</th>
+                      <th style="width:220px">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminTbody"></tbody>
+                </table>
+              </div>
+
+              <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
+                Tip: Edit করলে live update হবে। Save করার সাথে সাথে storefront এ দেখাবে।
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="modalFoot">
-        <button class="btn ghost" id="resetAll"><i class="fa-solid fa-rotate-left"></i> Reset Default</button>
-        <button class="btn danger" id="logoutAdmin"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+        <button class="btn ghost" id="adminCloseBtn"><i class="fa-solid fa-xmark"></i> Close</button>
       </div>
     </div>
   </div>
 
-  <!-- EDIT PRODUCT MODAL -->
-  <div class="overlay" id="editProdOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="editProdTitle" style="max-width:980px">
-      <div class="modalHead">
-        <b id="editProdTitle"><i class="fa-solid fa-pen-to-square"></i> Edit Product</b>
-        <button class="xbtn" id="closeEditProd" aria-label="Close">✕</button>
-      </div>
-      <div class="modalBody">
-        <div class="two">
-          <div class="box">
-            <div class="pHero">
-              <i class="fa-solid fa-box" id="epIcon"></i>
-              <img id="epImg" alt="Preview" style="display:none" />
-            </div>
-            <div class="field">
-              <label>Upload Image (Product)</label>
-              <input type="file" id="epUpload" accept="image/*" />
-            </div>
-            <div class="actions" style="margin-top:10px">
-              <button class="btn danger" id="epClearImg"><i class="fa-solid fa-trash"></i> Remove Image</button>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="split">
-              <div class="field">
-                <label>Title</label>
-                <input id="epTitle" />
-              </div>
-              <div class="field">
-                <label>Collection</label>
-                <input id="epCollection" placeholder="e.g. Trending" />
-              </div>
-            </div>
-
-            <div class="field">
-              <label>Description</label>
-              <textarea id="epDesc"></textarea>
-            </div>
-
-            <div class="split">
-              <div class="field">
-                <label>Sale Price (Tk)</label>
-                <input id="epSale" type="number" />
-              </div>
-              <div class="field">
-                <label>Regular Price (Tk) (optional)</label>
-                <input id="epRegular" type="number" />
-              </div>
-            </div>
-
-            <div class="split">
-              <div class="field">
-                <label>Stock</label>
-                <input id="epStock" type="number" />
-              </div>
-              <div class="field">
-                <label>Icon (FontAwesome class)</label>
-                <input id="epIconClass" placeholder="fa-solid fa-box" />
-              </div>
-            </div>
-
-            <div class="field">
-              <label>Tags (comma separated)</label>
-              <input id="epTags" placeholder="Hot, Deal, New" />
-            </div>
-
-            <div class="actions" style="margin-top:12px">
-              <button class="btn primary" id="epSave"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-              <button class="btn ghost" id="epCancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
-              <button class="btn danger" id="epDelete"><i class="fa-solid fa-trash"></i> Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modalFoot"></div>
-    </div>
-  </div>
-
-  <!-- EDIT SERVICE MODAL -->
-  <div class="overlay" id="editSvcOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="editSvcTitle" style="max-width:980px">
-      <div class="modalHead">
-        <b id="editSvcTitle"><i class="fa-solid fa-pen-to-square"></i> Edit Service</b>
-        <button class="xbtn" id="closeEditSvc" aria-label="Close">✕</button>
-      </div>
-      <div class="modalBody">
-        <div class="two">
-          <div class="box">
-            <div class="pHero">
-              <i class="fa-solid fa-bolt" id="esIcon"></i>
-              <img id="esImg" alt="Preview" style="display:none" />
-            </div>
-            <div class="field">
-              <label>Upload Image (Service)</label>
-              <input type="file" id="esUpload" accept="image/*" />
-            </div>
-            <div class="actions" style="margin-top:10px">
-              <button class="btn danger" id="esClearImg"><i class="fa-solid fa-trash"></i> Remove Image</button>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="split">
-              <div class="field">
-                <label>Title</label>
-                <input id="esTitle" />
-              </div>
-              <div class="field">
-                <label>Category</label>
-                <input id="esCategory" placeholder="e.g. Facebook" />
-              </div>
-            </div>
-
-            <div class="field">
-              <label>Description</label>
-              <textarea id="esDesc"></textarea>
-            </div>
-
-            <div class="split">
-              <div class="field">
-                <label>Unit Type</label>
-                <select id="esUnit">
-                  <option value="K">K (per 1K)</option>
-                  <option value="100">100 (per 100)</option>
-                  <option value="PACK">PACK (packages)</option>
-                </select>
-              </div>
-              <div class="field">
-                <label>Icon (FontAwesome class)</label>
-                <input id="esIconClass" placeholder="fa-solid fa-bolt" />
-              </div>
-            </div>
-
-            <div id="esPricingK100">
-              <div class="split">
-                <div class="field">
-                  <label>Price Per Unit (Tk)</label>
-                  <input id="esPricePerUnit" type="number" />
-                </div>
-                <div class="field">
-                  <label>Qty List (comma, for select)</label>
-                  <input id="esQtyList" placeholder="1,2,3,5,10" />
-                </div>
-              </div>
-              <div class="hint">UnitType K হলে qty=K, UnitType 100 হলে qty=x100 (আপনার আগের মতো কাজ করবে)</div>
-            </div>
-
-            <div id="esPricingPack" style="display:none">
-              <div class="field">
-                <label>Packages JSON</label>
-                <textarea id="esPackages" placeholder='[{"label":"Basic","price":300,"note":"..."}, ...]'></textarea>
-              </div>
-              <div class="hint">PACK হলে packages array লাগবে। ভুল JSON হলে save হবে না।</div>
-            </div>
-
-            <div class="field">
-              <label>Tags (comma separated)</label>
-              <input id="esTags" placeholder="Popular, Fast, Safe" />
-            </div>
-
-            <div class="actions" style="margin-top:12px">
-              <button class="btn primary" id="esSave"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-              <button class="btn ghost" id="esCancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
-              <button class="btn danger" id="esDelete"><i class="fa-solid fa-trash"></i> Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modalFoot"></div>
-    </div>
-  </div>
-
-  <!-- Toast -->
   <div class="toastWrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
 
   <script>
-    /* =============================
-       TOP LINKS
-    ============================== */
+    /***********************
+     * DATA (load from storage)
+     ***********************/
+    let storeSettings = readJSON(LS_SETTINGS, DEFAULT_STORE_SETTINGS);
+    let products = readJSON(LS_PRODUCTS, DEFAULT_PRODUCTS);
+    let services = readJSON(LS_SERVICES, DEFAULT_SERVICES);
+
+    /***********************
+     * INIT UI BASIC LINKS
+     ***********************/
     const waBase = `https://wa.me/${SAIKAT.waNumber}`;
     document.getElementById("waHeader").href = waBase;
     document.getElementById("waContact").href = waBase;
     document.getElementById("fbContact").href = SAIKAT.fb;
     document.getElementById("emailBtn").href = `mailto:${SAIKAT.email}?subject=${encodeURIComponent("Inquiry - Saikat Tech Hub")}`;
-
-    document.getElementById("brandName").textContent = SAIKAT.brandName;
-    document.getElementById("footBrand").textContent = SAIKAT.brandName;
 
     document.getElementById("waShow").textContent = SAIKAT.waRaw;
     document.getElementById("emailShow").textContent = SAIKAT.email;
@@ -1546,204 +1342,263 @@
     document.getElementById("svcBkash").textContent = SAIKAT.payment.bkash;
     document.getElementById("svcNagad").textContent = SAIKAT.payment.nagad;
 
-    /* Mobile menu */
+    /***********************
+     * MOBILE MENU
+     ***********************/
     const menuBtn = document.getElementById("menuBtn");
     const mnav = document.getElementById("mnav");
     menuBtn.addEventListener("click", ()=> mnav.classList.toggle("show"));
     mnav.addEventListener("click", (e)=>{ if(e.target.tagName==="A") mnav.classList.remove("show"); });
 
-    /* Tabs (jump) */
-    const tabShop = document.getElementById("tabShop");
-    const tabServices = document.getElementById("tabServices");
-    const tabAdmin = document.getElementById("tabAdmin");
-    function setTopTab(which){
-      [tabShop, tabServices, tabAdmin].forEach(b=>b.classList.remove("active"));
-      if(which==="shop"){ tabShop.classList.add("active"); location.hash="#shop"; }
-      if(which==="services"){ tabServices.classList.add("active"); location.hash="#services"; }
-      if(which==="admin"){ tabAdmin.classList.add("active"); openAdminFlow(); }
-    }
-    tabShop.addEventListener("click", ()=>setTopTab("shop"));
-    tabServices.addEventListener("click", ()=>setTopTab("services"));
-    tabAdmin.addEventListener("click", ()=>setTopTab("admin"));
-    document.getElementById("openAdminFooter").addEventListener("click", ()=>setTopTab("admin"));
+    /***********************
+     * STORE BRANDING APPLY
+     ***********************/
+    function applyBranding(){
+      const brandName = storeSettings.brandName || SAIKAT.brandName;
+      document.getElementById("brandTitle").textContent = brandName;
+      document.getElementById("footBrand").textContent = brandName;
 
-    /* Header search sync */
-    const qHeader = document.getElementById("qHeader");
-    qHeader.addEventListener("input", ()=>{
-      document.getElementById("qShop").value = qHeader.value;
-      document.getElementById("qServices").value = qHeader.value;
-      renderShop();
-      renderServices();
-    });
-
-    /* =============================
-       HERO render (site settings)
-    ============================== */
-    function renderHero(){
-      const t = (STATE.site.heroTitle || "").split("\n").map(escapeHtml).join("<br/>");
-      const s = (STATE.site.heroSubtitle || "").split("\n").map(escapeHtml).join("<br/>");
-      document.getElementById("heroTitle").innerHTML = t || "Saikat Tech Hub";
-      document.getElementById("heroSubtitle").innerHTML = s || "";
-
-      const coverImg = document.getElementById("coverImg");
-      const coverFallback = document.getElementById("coverFallback");
-      if(STATE.site.heroCover){
-        coverImg.src = STATE.site.heroCover;
-        coverImg.style.display = "block";
-        coverFallback.style.display = "none";
+      // logo
+      const logoImg = document.getElementById("logoImg");
+      const logoFallback = document.getElementById("logoFallback");
+      if(storeSettings.logoDataUrl){
+        logoImg.src = storeSettings.logoDataUrl;
+        logoImg.style.display = "block";
+        logoFallback.style.display = "none";
       }else{
-        coverImg.style.display = "none";
-        coverFallback.style.display = "grid";
+        logoImg.style.display = "none";
+        logoFallback.style.display = "grid";
+        logoFallback.textContent = (brandName||"S").trim().slice(0,1).toUpperCase();
+      }
+
+      // cover
+      const cover = document.getElementById("heroCoverImg");
+      if(storeSettings.coverDataUrl){
+        cover.style.backgroundImage = `url('${storeSettings.coverDataUrl}')`;
+      }else{
+        cover.style.backgroundImage = "";
       }
     }
 
-    /* =============================
-       SHOP render
-    ============================== */
-    const qShop = document.getElementById("qShop");
-    const colShop = document.getElementById("colShop");
-    const gridShop = document.getElementById("gridShop");
+    /***********************
+     * TABS (Products / Services)
+     ***********************/
+    let activeMode = "products"; // or "services"
+    const tabProducts = document.getElementById("tabProducts");
+    const tabServices = document.getElementById("tabServices");
 
-    function rebuildShopCollections(){
-      const cols = uniqueCollectionsFromProducts();
-      colShop.innerHTML = `<option value="ALL">All Collections</option>` + cols.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
+    function setMode(mode){
+      activeMode = mode;
+      tabProducts.classList.toggle("active", mode==="products");
+      tabServices.classList.toggle("active", mode==="services");
+      document.getElementById("browseTitle").textContent = mode==="products" ? "Browse Products" : "Browse Services";
+      document.getElementById("browseChip").innerHTML = mode==="products"
+        ? `<i class="fa-solid fa-filter"></i> Search + Filter`
+        : `<i class="fa-solid fa-filter"></i> Search + Filter`;
+      renderCollections();
+      rebuildCategoryOptions();
+      renderMainGrid();
+    }
+    tabProducts.addEventListener("click", ()=> setMode("products"));
+    tabServices.addEventListener("click", ()=> setMode("services"));
+
+    /***********************
+     * FILTERS
+     ***********************/
+    let currentCollection = "ALL";
+    const qHeader = document.getElementById("qHeader");
+    const qBrowse = document.getElementById("qBrowse");
+    const catBrowse = document.getElementById("catBrowse");
+
+    qHeader.addEventListener("input", ()=>{
+      qBrowse.value = qHeader.value;
+      renderMainGrid();
+    });
+    qBrowse.addEventListener("input", ()=> renderMainGrid());
+
+    document.getElementById("clearFilter").addEventListener("click", ()=>{
+      qBrowse.value = "";
+      qHeader.value = "";
+      currentCollection = "ALL";
+      catBrowse.value = "ALL";
+      renderCollections();
+      renderMainGrid();
+      toast("Cleared", "Filter reset ✅", "success", 1400);
+    });
+
+    catBrowse.addEventListener("change", ()=>{
+      currentCollection = catBrowse.value || "ALL";
+      renderCollections();
+      renderMainGrid();
+    });
+
+    function uniqueCollectionsFrom(list){
+      const s = new Set();
+      for(const it of list){
+        if(it.collection) s.add(it.collection);
+        if(it.category) s.add(it.category);
+      }
+      return [...s].sort((a,b)=>a.localeCompare(b));
     }
 
-    function filterProducts(list){
-      const q = (qShop.value || "").trim().toLowerCase();
-      const c = colShop.value || "ALL";
-      return list.filter(p=>{
-        const byC = (c==="ALL") ? true : (p.collection===c);
-        const hay = `${p.title||""} ${p.desc||""} ${p.collection||""} ${(p.tags||[]).join(" ")}`.toLowerCase();
-        const byQ = q ? hay.includes(q) : true;
-        return byC && byQ;
-      });
+    function rebuildCategoryOptions(){
+      const list = activeMode==="products" ? products : services;
+      const cols = uniqueCollectionsFrom(list);
+      catBrowse.innerHTML = `<option value="ALL">All Collections</option>` + cols.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
+      catBrowse.value = (cols.includes(currentCollection) ? currentCollection : "ALL");
+      currentCollection = catBrowse.value;
+    }
+
+    /***********************
+     * COLLECTION CARDS
+     ***********************/
+    const colGrid = document.getElementById("colGrid");
+
+    function renderCollections(){
+      const list = activeMode==="products" ? products : services;
+      const cols = uniqueCollectionsFrom(list);
+
+      const base = [
+        { key:"ALL", icon:"fa-solid fa-layer-group", title:"All", desc:"Show everything" },
+        ...cols.map(k=>({ key:k, icon: activeMode==="products" ? "fa-solid fa-bag-shopping" : "fa-solid fa-bolt", title:k, desc:"Tap to filter" }))
+      ];
+
+      colGrid.innerHTML = base.map(c=>`
+        <div class="colCard" data-col="${escapeHtml(c.key)}">
+          <div class="inner">
+            <span class="tag"><i class="${c.icon}"></i> ${escapeHtml(c.title)}</span>
+            <h3>${escapeHtml(c.title)}</h3>
+            <div class="small">${escapeHtml(c.desc)}</div>
+          </div>
+        </div>
+      `).join("");
+
+      colGrid.onclick = (e)=>{
+        const card = e.target.closest("[data-col]");
+        if(!card) return;
+        currentCollection = card.getAttribute("data-col") || "ALL";
+        catBrowse.value = currentCollection;
+        renderMainGrid();
+        toast("Filter", `${currentCollection} selected`, "success", 1200);
+        location.hash = "#browse";
+      };
+    }
+
+    /***********************
+     * MAIN GRID (Products or Services)
+     ***********************/
+    const gridMain = document.getElementById("gridMain");
+
+    function matchesQuery(it, q){
+      const qq = (q||"").trim().toLowerCase();
+      if(!qq) return true;
+      const hay = [
+        it.title, it.desc, it.collection, it.category,
+        Array.isArray(it.tags) ? it.tags.join(" ") : ""
+      ].join(" ").toLowerCase();
+      return hay.includes(qq);
+    }
+
+    function matchesCollection(it){
+      if(currentCollection==="ALL") return true;
+      return (it.collection===currentCollection) || (it.category===currentCollection);
+    }
+
+    function cardThumb(image){
+      if(!image) return "";
+      return `<div class="thumb dim" style="background-image:url('${image}')"></div>`;
     }
 
     function productCard(p){
-      const off = percentOff(p.sale, p.regular);
-      const imgPart = p.image ? `<img src="${p.image}" alt="${escapeHtml(p.title)}" />` : `<i class="${escapeHtml(p.icon||"fa-solid fa-box")}"></i>`;
+      const off = percentOff(p.price, p.regular);
+      const offBadge = off ? `<div class="off"><i class="fa-solid fa-bolt"></i> ${off}% OFF</div>` : ``;
+
       return `
-        <div class="card" data-open-prod="${escapeHtml(p.id)}" role="button" tabindex="0">
+        <div class="card" data-open="${escapeHtml(p.id)}" role="button" tabindex="0" aria-label="Open product">
           <div class="img">
-            ${off ? `<div class="off"><i class="fa-solid fa-bolt"></i> ${off}% OFF</div>` : ``}
-            ${imgPart}
+            ${cardThumb(p.image)}
+            ${offBadge}
+            <i class="fa-solid fa-box"></i>
           </div>
           <div class="body">
             <div class="pill"><i class="fa-solid fa-layer-group"></i> ${escapeHtml(p.collection||"General")}</div>
             <h4>${escapeHtml(p.title)}</h4>
-            <div class="muted" style="font-size:12.5px;line-height:1.6">${escapeHtml(p.desc||"")}</div>
             <div class="price">
-              <span class="sale">${money(p.sale)}</span>
+              <span class="sale">${money(p.price)}</span>
               ${p.regular ? `<span class="reg">${money(p.regular)}</span>` : ``}
             </div>
             <div class="actions">
-              <button class="btn pink small" data-add-prod="${escapeHtml(p.id)}"><i class="fa-solid fa-cart-plus"></i> Add</button>
-              <button class="btn ghost small" data-details-prod="${escapeHtml(p.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
+              <button class="btn pink small" data-add="${escapeHtml(p.id)}"><i class="fa-solid fa-cart-plus"></i> Add</button>
+              <button class="btn ghost small" data-details="${escapeHtml(p.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
             </div>
           </div>
         </div>
       `;
-    }
-
-    function renderShop(){
-      const list = filterProducts(STATE.products);
-      gridShop.innerHTML = list.length ? list.map(productCard).join("") : `
-        <div class="card" style="grid-column:1/-1">
-          <div class="body">
-            <h4>No products found</h4>
-            <p class="muted">Search/Filter পরিবর্তন করে আবার দেখুন।</p>
-          </div>
-        </div>`;
-    }
-
-    qShop.addEventListener("input", renderShop);
-    colShop.addEventListener("change", renderShop);
-    document.getElementById("clearShop").addEventListener("click", ()=>{
-      qShop.value = ""; colShop.value="ALL"; qHeader.value="";
-      renderShop();
-    });
-
-    /* =============================
-       SERVICES render
-    ============================== */
-    const qServices = document.getElementById("qServices");
-    const catServices = document.getElementById("catServices");
-    const gridServices = document.getElementById("gridServices");
-
-    function rebuildServiceCategories(){
-      const cats = uniqueCategoriesFromServices();
-      catServices.innerHTML = `<option value="ALL">All Categories</option>` + cats.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
-    }
-
-    function filterServices(list){
-      const q = (qServices.value || "").trim().toLowerCase();
-      const c = catServices.value || "ALL";
-      return list.filter(s=>{
-        const byC = (c==="ALL") ? true : (s.category===c);
-        const hay = `${s.title||""} ${s.desc||""} ${s.category||""} ${(s.tags||[]).join(" ")}`.toLowerCase();
-        const byQ = q ? hay.includes(q) : true;
-        return byC && byQ;
-      });
     }
 
     function serviceCard(s){
-      const imgPart = s.image ? `<img src="${s.image}" alt="${escapeHtml(s.title)}" />` : `<i class="${escapeHtml(s.icon||"fa-solid fa-bolt")}"></i>`;
-      const badge = `<div class="pill"><i class="fa-solid fa-layer-group"></i> ${escapeHtml(s.category||"Service")}</div>`;
+      const badge = s.category || s.collection || "Service";
       return `
-        <div class="card">
+        <div class="card" data-open="${escapeHtml(s.id)}" role="button" tabindex="0" aria-label="Open service">
           <div class="img">
-            ${imgPart}
+            ${cardThumb(s.image)}
+            <i class="fa-solid fa-bolt"></i>
           </div>
           <div class="body">
-            ${badge}
+            <div class="pill"><i class="fa-solid fa-layer-group"></i> ${escapeHtml(badge)}</div>
             <h4>${escapeHtml(s.title)}</h4>
-            <div class="muted" style="font-size:12.5px;line-height:1.6">${escapeHtml(s.desc||"")}</div>
+            <div class="muted" style="font-size:12.5px;line-height:1.7">${escapeHtml(s.desc)}</div>
             <div class="actions" style="margin-top:10px">
-              <button class="btn pink small" data-order-svc="${escapeHtml(s.id)}"><i class="fa-solid fa-cart-shopping"></i> Order</button>
-              <button class="btn ghost small" data-details-svc="${escapeHtml(s.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
+              <button class="btn pink small" data-details="${escapeHtml(s.id)}"><i class="fa-solid fa-cart-shopping"></i> Order</button>
+              <button class="btn ghost small" data-info="${escapeHtml(s.id)}"><i class="fa-solid fa-circle-info"></i> Info</button>
             </div>
           </div>
         </div>
       `;
     }
 
-    function renderServices(){
-      const list = filterServices(STATE.services);
-      gridServices.innerHTML = list.length ? list.map(serviceCard).join("") : `
+    function emptyState(){
+      return `
         <div class="card" style="grid-column:1/-1">
           <div class="body">
-            <h4>No services found</h4>
-            <p class="muted">Search/Filter পরিবর্তন করে আবার দেখুন।</p>
+            <h4>No items found</h4>
+            <p class="muted">Filter/Search এর কারণে কিছু পাওয়া যায়নি।</p>
+            <button class="btn ghost small" id="resetBtnTmp"><i class="fa-solid fa-rotate-left"></i> Clear Filter</button>
           </div>
-        </div>`;
+        </div>
+      `;
     }
 
-    qServices.addEventListener("input", renderServices);
-    catServices.addEventListener("change", renderServices);
-    document.getElementById("clearServices").addEventListener("click", ()=>{
-      qServices.value = ""; catServices.value="ALL"; qHeader.value="";
-      renderServices();
-    });
+    function renderMainGrid(){
+      const q = qBrowse.value || "";
+      if(activeMode==="products"){
+        const list = products.filter(p => matchesCollection(p) && matchesQuery(p,q));
+        gridMain.innerHTML = list.length ? list.map(productCard).join("") : emptyState();
+      }else{
+        const list = services.filter(s => matchesCollection(s) && matchesQuery(s,q));
+        gridMain.innerHTML = list.length ? list.map(serviceCard).join("") : emptyState();
+      }
+    }
 
-    /* =============================
-       CART
-    ============================== */
-    const cart = new Map(); // id->qty
+    /***********************
+     * CART (PRODUCTS)
+     ***********************/
+    const cart = new Map(); // id -> qty
 
+    function getProduct(id){ return products.find(p=>p.id===id); }
     function cartCount(){ let c=0; for(const q of cart.values()) c+=q; return c; }
     function cartSubtotal(){
       let t=0;
       for(const [id,qty] of cart.entries()){
-        const p = getProduct(id);
-        if(p) t += (Number(p.sale)||0) * qty;
+        const p=getProduct(id);
+        if(p) t += (p.price||0)*qty;
       }
       return t;
     }
     function zoneCharge(){
       const id = document.getElementById("zoneSelect").value;
       const z = DELIVERY_ZONES.find(x=>x.id===id) || DELIVERY_ZONES[0];
-      return Number(z.charge||0);
+      return Number(z.charge || 0);
     }
     function updateCartBadge(){
       const b=document.getElementById("cartBadge");
@@ -1751,25 +1606,28 @@
       b.textContent = c;
       b.style.display = c ? "grid" : "none";
     }
-
     function renderCart(){
-      const body = document.getElementById("cartBody");
+      const body=document.getElementById("cartBody");
+      const subtotalEl=document.getElementById("cartSubtotal");
+      const deliveryEl=document.getElementById("cartDelivery");
+      const totalEl=document.getElementById("cartTotal");
+
       if(cart.size===0){
         body.innerHTML = `
           <div style="border:1px dashed var(--line);border-radius:18px;padding:14px;color:var(--muted);text-align:center">
-            Your cart is empty. <br/>Products add করুন ✅
+            Cart empty. Products add করুন ✅
           </div>`;
       }else{
         body.innerHTML = [...cart.entries()].map(([id,qty])=>{
           const p=getProduct(id);
           if(!p) return "";
-          const thumb = p.image ? `<img src="${p.image}" alt="">` : `<i class="${escapeHtml(p.icon||"fa-solid fa-box")}"></i>`;
+          const thumb = p.image ? `<img src="${p.image}" alt="">` : `<i class="fa-solid fa-box"></i>`;
           return `
             <div class="cartItem">
               <div class="ciIcon">${thumb}</div>
               <div>
                 <div class="ciTitle">${escapeHtml(p.title)}</div>
-                <div class="ciMeta">${money(p.sale)} × ${qty} = <b style="color:var(--text)">${money((p.sale||0)*qty)}</b></div>
+                <div class="ciMeta">${money(p.price)} × ${qty} = <b style="color:var(--text)">${money((p.price||0)*qty)}</b></div>
                 <div class="ciRow">
                   <div class="qty">
                     <button data-dec="${escapeHtml(id)}" aria-label="Decrease">−</button>
@@ -1785,9 +1643,9 @@
 
       const sub = cartSubtotal();
       const del = cart.size ? zoneCharge() : 0;
-      document.getElementById("cartSubtotal").textContent = money(sub);
-      document.getElementById("cartDelivery").textContent = money(del);
-      document.getElementById("cartTotal").textContent = money(sub + del);
+      subtotalEl.textContent = money(sub);
+      deliveryEl.textContent = money(del);
+      totalEl.textContent = money(sub + del);
       updateCartBadge();
     }
 
@@ -1795,38 +1653,55 @@
       const prev = cart.get(id) || 0;
       cart.set(id, prev + Number(qty||1));
       renderCart();
-      toast("Added", "Cart এ যোগ হয়েছে ✅", "success", 1500);
+      toast("Added", "Cart এ যোগ হয়েছে ✅", "success", 1400);
     }
 
-    /* Drawer open/close */
-    const drawerOverlay = document.getElementById("drawerOverlay");
+    /***********************
+     * CART DRAWER OPEN/CLOSE
+     ***********************/
+    const openCartBtn = document.getElementById("openCart");
+    const closeCartBtn = document.getElementById("closeCart");
     const drawer = document.getElementById("drawer");
-    function showDrawer(){
-      drawerOverlay.classList.add("show");
-      drawer.classList.add("show");
-      renderCart();
-    }
-    function hideDrawer(){
-      drawerOverlay.classList.remove("show");
-      drawer.classList.remove("show");
-    }
-    document.getElementById("openCart").addEventListener("click", showDrawer);
-    document.getElementById("closeCart").addEventListener("click", hideDrawer);
+    const drawerOverlay = document.getElementById("drawerOverlay");
+    function showDrawer(){ drawerOverlay.classList.add("show"); drawer.classList.add("show"); renderCart(); }
+    function hideDrawer(){ drawerOverlay.classList.remove("show"); drawer.classList.remove("show"); }
+    openCartBtn.addEventListener("click", showDrawer);
+    closeCartBtn.addEventListener("click", hideDrawer);
     drawerOverlay.addEventListener("click", hideDrawer);
+    document.getElementById("openCheckout").addEventListener("click", ()=>{
+      if(activeMode==="products") showDrawer();
+      else toast("Service", "Service order করতে card খুলে Order দিন ✅", "info", 2200);
+    });
 
+    // zone init
+    const zoneSelect = document.getElementById("zoneSelect");
+    zoneSelect.innerHTML = DELIVERY_ZONES.map(z=>(
+      `<option value="${escapeHtml(z.id)}">${escapeHtml(z.label)} (+${money(z.charge)})</option>`
+    )).join("");
+    zoneSelect.value = DELIVERY_ZONES[0]?.id || "inside_dhaka";
+    zoneSelect.addEventListener("change", renderCart);
+
+    // payment method
+    const paySelect = document.getElementById("paySelect");
+    const trxField = document.getElementById("trxField");
+    paySelect.addEventListener("change", ()=>{
+      trxField.style.display = (paySelect.value==="COD") ? "none" : "block";
+    });
+
+    // cart actions
     document.getElementById("cartBody").addEventListener("click", (e)=>{
       const inc = e.target.closest("[data-inc]");
       const dec = e.target.closest("[data-dec]");
       const rm  = e.target.closest("[data-rm]");
       if(inc){
-        const id = inc.getAttribute("data-inc");
-        cart.set(id, (cart.get(id)||0) + 1);
+        const id=inc.getAttribute("data-inc");
+        cart.set(id,(cart.get(id)||0)+1);
         renderCart();
       }
       if(dec){
-        const id = dec.getAttribute("data-dec");
-        const cur = cart.get(id)||0;
-        if(cur<=1) cart.delete(id); else cart.set(id, cur-1);
+        const id=dec.getAttribute("data-dec");
+        const cur=cart.get(id)||0;
+        if(cur<=1) cart.delete(id); else cart.set(id,cur-1);
         renderCart();
       }
       if(rm){
@@ -1835,44 +1710,19 @@
       }
     });
 
-    /* Payment method show/hide trx */
-    const paySelect = document.getElementById("paySelect");
-    const trxField = document.getElementById("trxField");
-    paySelect.addEventListener("change", ()=>{
-      trxField.style.display = (paySelect.value === "COD") ? "none" : "block";
-      renderCart();
-    });
-
-    /* Zones init */
-    const zoneSelect = document.getElementById("zoneSelect");
-    function initZones(){
-      zoneSelect.innerHTML = DELIVERY_ZONES.map(z=>(
-        `<option value="${escapeHtml(z.id)}">${escapeHtml(z.label)} (+${money(z.charge)})</option>`
-      )).join("");
-      zoneSelect.value = DELIVERY_ZONES[0]?.id || "inside_dhaka";
-      zoneSelect.addEventListener("change", renderCart);
-    }
-
-    /* WhatsApp checkout */
-    function waCheckout(){
-      if(cart.size===0){
-        toast("Empty", "Cart খালি আছে", "error");
-        return;
-      }
+    // whatsapp checkout (products)
+    document.getElementById("checkoutDrawer").addEventListener("click", ()=>{
+      if(cart.size===0){ toast("Empty","Cart খালি আছে","error"); return; }
       const zId = zoneSelect.value;
       const z = DELIVERY_ZONES.find(x=>x.id===zId) || DELIVERY_ZONES[0];
       const pay = paySelect.value;
       const trx = document.getElementById("trxInput").value.trim();
       const note = document.getElementById("custNote").value.trim();
-
-      if(pay !== "COD" && !trx){
-        toast("Missing", "Online payment হলে TrxID দিন", "error");
-        return;
-      }
+      if(pay!=="COD" && !trx){ toast("Missing","Online payment হলে TrxID দিন","error", 2800); return; }
 
       const lines = [...cart.entries()].map(([id,qty],i)=>{
         const p=getProduct(id);
-        return `${i+1}) ${p.title} — ${money(p.sale)} × ${qty} = ${money((p.sale||0)*qty)}`;
+        return `${i+1}) ${p.title} — ${money(p.price)} × ${qty} = ${money((p.price||0)*qty)}`;
       }).join("\n");
 
       const sub = cartSubtotal();
@@ -1880,7 +1730,7 @@
 
       const msg =
 `Assalamu Alaikum,
-I want to place an order.
+I want to place an order (Products).
 
 Items:
 ${lines}
@@ -1901,104 +1751,198 @@ Payment Numbers:
 bKash: ${SAIKAT.payment.bkash}
 Nagad: ${SAIKAT.payment.nagad}
 
--- ${SAIKAT.brandName}`;
+-- ${storeSettings.brandName || SAIKAT.brandName}`;
 
       window.open(`${waBase}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
-    }
+    });
 
-    document.getElementById("checkoutDrawer").addEventListener("click", waCheckout);
-    document.getElementById("checkoutTop").addEventListener("click", ()=>{ showDrawer(); });
+    /***********************
+     * DETAILS MODAL (PRODUCT/SERVICE)
+     ***********************/
+    const detailOverlay = document.getElementById("detailOverlay");
+    const closeDetail = document.getElementById("closeDetail");
+    const detailCloseBtn = document.getElementById("detailCloseBtn");
 
-    /* =============================
-       PRODUCT DETAILS MODAL
-    ============================== */
-    const prodOverlay = document.getElementById("prodOverlay");
-    const prodImg = document.getElementById("prodImg");
-    const prodIcon = document.getElementById("prodIcon");
-    const prodTags = document.getElementById("prodTags");
+    const detailTitle = document.getElementById("detailTitle");
+    const detailImg = document.getElementById("detailImg");
+    const detailIcon = document.getElementById("detailIcon");
+    const detailTags = document.getElementById("detailTags");
+    const detailPill = document.getElementById("detailPill");
+    const detailName = document.getElementById("detailName");
+    const detailDesc = document.getElementById("detailDesc");
 
-    let currentProdId = null;
+    const detailProductArea = document.getElementById("detailProductArea");
+    const detailServiceArea = document.getElementById("detailServiceArea");
 
-    function openProduct(id){
-      const p = getProduct(id);
-      if(!p) return;
-      currentProdId = id;
+    const detailSale = document.getElementById("detailSale");
+    const detailReg = document.getElementById("detailReg");
+    const detailOff = document.getElementById("detailOff");
+    const detailQty = document.getElementById("detailQty");
+    const detailAdd = document.getElementById("detailAdd");
+    const detailBuy = document.getElementById("detailBuy");
+    const detailGoCart = document.getElementById("detailGoCart");
 
-      document.getElementById("prodCollection").innerHTML = `<i class="fa-solid fa-layer-group"></i> ${escapeHtml(p.collection||"General")}`;
-      document.getElementById("prodName").textContent = p.title || "Product";
-      document.getElementById("prodDesc").textContent = p.desc || "";
-      document.getElementById("prodSale").textContent = money(p.sale);
+    const svcQtyLabel = document.getElementById("svcQtyLabel");
+    const svcQty = document.getElementById("svcQty");
+    const svcPkgField = document.getElementById("svcPkgField");
+    const svcPkg = document.getElementById("svcPkg");
+    const svcPrice = document.getElementById("svcPrice");
+    const svcUrl = document.getElementById("svcUrl");
+    const svcPay = document.getElementById("svcPay");
+    const svcTrx = document.getElementById("svcTrx");
+    const svcNote = document.getElementById("svcNote");
+    const svcSend = document.getElementById("svcSend");
 
-      if(p.regular){
-        document.getElementById("prodReg").style.display = "inline";
-        document.getElementById("prodReg").textContent = money(p.regular);
-      }else{
-        document.getElementById("prodReg").style.display = "none";
-      }
-      const off = percentOff(p.sale, p.regular);
-      document.getElementById("prodOff").textContent = off ? `${off}% OFF available` : "";
+    let currentDetail = null; // {mode:'product'|'service', id}
+    let svcComputed = { label:"", price:0 };
 
-      // image/icon
+    function openDetailForProduct(p){
+      currentDetail = {mode:"product", id:p.id};
+
+      detailTitle.textContent = "Product Details";
+      detailPill.innerHTML = `<i class="fa-solid fa-layer-group"></i> ${escapeHtml(p.collection||"General")}`;
+      detailName.textContent = p.title || "Product";
+      detailDesc.textContent = p.desc || "";
+
+      // image
       if(p.image){
-        prodImg.src = p.image;
-        prodImg.style.display = "block";
-        prodIcon.style.display = "none";
+        detailImg.style.backgroundImage = `url('${p.image}')`;
+        detailImg.style.display = "block";
       }else{
-        prodIcon.className = escapeHtml(p.icon||"fa-solid fa-box");
-        prodIcon.style.display = "grid";
-        prodImg.style.display = "none";
+        detailImg.style.backgroundImage = "";
+        detailImg.style.display = "none";
       }
+      detailIcon.className = "fa-solid fa-box";
 
-      const tags = Array.isArray(p.tags)?p.tags:[];
-      prodTags.innerHTML = [
+      // tags
+      const tags = Array.isArray(p.tags) ? p.tags : [];
+      detailTags.innerHTML = [
         `<span class="spec"><i class="fa-solid fa-tag"></i> ${escapeHtml(p.collection||"General")}</span>`,
         ...tags.slice(0,8).map(t=>`<span class="spec"><i class="fa-solid fa-circle-check"></i> ${escapeHtml(t)}</span>`)
       ].join("");
 
-      document.getElementById("prodQty").value = "1";
+      detailProductArea.style.display = "block";
+      detailServiceArea.style.display = "none";
 
-      prodOverlay.classList.add("show");
-      prodOverlay.setAttribute("aria-hidden","false");
+      detailSale.textContent = money(p.price);
+      if(p.regular){
+        detailReg.style.display = "inline";
+        detailReg.textContent = money(p.regular);
+      }else{
+        detailReg.style.display = "none";
+      }
+      const off = percentOff(p.price,p.regular);
+      detailOff.textContent = off ? `${off}% OFF available` : "";
+
+      detailQty.value = "1";
+
+      detailOverlay.classList.add("show");
+      detailOverlay.setAttribute("aria-hidden","false");
     }
-    function closeProduct(){
-      prodOverlay.classList.remove("show");
-      prodOverlay.setAttribute("aria-hidden","true");
-      currentProdId = null;
+
+    function openDetailForService(s){
+      currentDetail = {mode:"service", id:s.id};
+      svcComputed = { label:"", price:0 };
+
+      detailTitle.textContent = "Service Order";
+      const cat = s.category || s.collection || "Service";
+      detailPill.innerHTML = `<i class="fa-solid fa-layer-group"></i> ${escapeHtml(cat)}`;
+      detailName.textContent = s.title || "Service";
+      detailDesc.textContent = s.desc || "";
+
+      if(s.image){
+        detailImg.style.backgroundImage = `url('${s.image}')`;
+        detailImg.style.display = "block";
+      }else{
+        detailImg.style.backgroundImage = "";
+        detailImg.style.display = "none";
+      }
+      detailIcon.className = "fa-solid fa-bolt";
+
+      const tags = Array.isArray(s.tags) ? s.tags : [];
+      detailTags.innerHTML = [
+        `<span class="spec"><i class="fa-solid fa-tag"></i> ${escapeHtml(cat)}</span>`,
+        ...tags.slice(0,8).map(t=>`<span class="spec"><i class="fa-solid fa-circle-check"></i> ${escapeHtml(t)}</span>`)
+      ].join("");
+
+      detailProductArea.style.display = "none";
+      detailServiceArea.style.display = "block";
+
+      // reset fields
+      svcUrl.value = "";
+      svcPay.value = "";
+      svcTrx.value = "";
+      svcNote.value = "";
+      svcPrice.value = "Tk 0";
+
+      // qty/package UI
+      if(s.unitType==="PACK"){
+        svcPkgField.style.display = "block";
+        svcQty.parentElement.style.display = "none";
+        svcPkg.innerHTML = `<option value="">Select package</option>` + (s.packages||[]).map((p,idx)=>(
+          `<option value="${idx}">${escapeHtml(p.label)} — ${money(p.price)}</option>`
+        )).join("");
+        svcComputed = { label:"", price:0 };
+      }else{
+        svcPkgField.style.display = "none";
+        svcQty.parentElement.style.display = "block";
+
+        if(s.unitType==="K"){
+          svcQtyLabel.textContent = "Quantity (K)";
+          svcQty.innerHTML = `<option value="">Select quantity</option>` + (s.qtyList||[]).map(q=>(
+            `<option value="${q}">${q}K</option>`
+          )).join("");
+        }else if(s.unitType==="100"){
+          svcQtyLabel.textContent = "Quantity (x100)";
+          svcQty.innerHTML = `<option value="">Select quantity</option>` + (s.qtyList||[]).map(q=>(
+            `<option value="${q}">${q*100}</option>`
+          )).join("");
+        }else{
+          svcQtyLabel.textContent = "Quantity";
+          svcQty.innerHTML = `<option value="">Select</option>`;
+        }
+      }
+
+      detailOverlay.classList.add("show");
+      detailOverlay.setAttribute("aria-hidden","false");
     }
-    document.getElementById("closeProd").addEventListener("click", closeProduct);
-    document.getElementById("prodCloseBtn").addEventListener("click", closeProduct);
-    prodOverlay.addEventListener("click", (e)=>{ if(e.target===prodOverlay) closeProduct(); });
 
-    document.getElementById("prodAdd").addEventListener("click", ()=>{
-      if(!currentProdId) return;
-      addToCart(currentProdId, Number(document.getElementById("prodQty").value||1));
-    });
-    document.getElementById("prodGoCart").addEventListener("click", ()=>{
-      closeProduct(); showDrawer();
-    });
-    document.getElementById("prodBuy").addEventListener("click", ()=>{
-      if(!currentProdId) return;
-      const p = getProduct(currentProdId);
-      const qty = Number(document.getElementById("prodQty").value||1);
+    function closeDetailFn(){
+      detailOverlay.classList.remove("show");
+      detailOverlay.setAttribute("aria-hidden","true");
+      currentDetail = null;
+    }
 
-      const zId = zoneSelect.value;
-      const z = DELIVERY_ZONES.find(x=>x.id===zId) || DELIVERY_ZONES[0];
+    closeDetail.addEventListener("click", closeDetailFn);
+    detailCloseBtn.addEventListener("click", closeDetailFn);
+    detailOverlay.addEventListener("click", (e)=>{ if(e.target===detailOverlay) closeDetailFn(); });
+
+    detailAdd.addEventListener("click", ()=>{
+      if(!currentDetail || currentDetail.mode!=="product") return;
+      addToCart(currentDetail.id, Number(detailQty.value||1));
+    });
+
+    detailBuy.addEventListener("click", ()=>{
+      if(!currentDetail || currentDetail.mode!=="product") return;
+      const p = getProduct(currentDetail.id);
+      const qty = Number(detailQty.value||1);
+      const z = DELIVERY_ZONES.find(x=>x.id===zoneSelect.value) || DELIVERY_ZONES[0];
       const pay = paySelect.value;
       const trx = document.getElementById("trxInput").value.trim();
-      const note = document.getElementById("custNote").value.trim();
 
-      if(pay !== "COD" && !trx){
-        toast("Missing", "Online payment হলে TrxID দিন", "error");
+      if(pay!=="COD" && !trx){
+        toast("Missing","Online payment হলে TrxID দিন (cart panel)","error", 2600);
+        showDrawer();
         return;
       }
 
-      const total = (Number(p.sale||0)*qty) + Number(z.charge||0);
+      const total = (p.price||0)*qty + Number(z.charge||0);
       const msg =
 `Assalamu Alaikum,
-I want to order:
+I want to order (Product Buy Now).
 
 Product: ${p.title}
-Price: ${money(p.sale)}
+Unit Price: ${money(p.price)}
 Quantity: ${qty}
 
 Delivery Zone: ${z.label}
@@ -2009,387 +1953,835 @@ Payment Method: ${pay}
 ${pay==="COD" ? "TrxID: N/A (COD)" : `TrxID: ${trx}`}
 
 Customer Notes:
-${note || "N/A"}
+${document.getElementById("custNote").value.trim() || "N/A"}
 
 Payment Numbers:
 bKash: ${SAIKAT.payment.bkash}
 Nagad: ${SAIKAT.payment.nagad}
 
--- ${SAIKAT.brandName}`;
+-- ${storeSettings.brandName || SAIKAT.brandName}`;
 
       window.open(`${waBase}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
     });
 
-    /* =============================
-       SERVICE ORDER MODAL
-    ============================== */
-    const svcOverlay = document.getElementById("svcOverlay");
-    const svcImg = document.getElementById("svcImg");
-    const svcIcon = document.getElementById("svcIcon");
-    const svcQtyField = document.getElementById("svcQtyField");
-    const svcQtyLabel = document.getElementById("svcQtyLabel");
-    const svcQtySelect = document.getElementById("svcQtySelect");
-    const svcPkgField = document.getElementById("svcPkgField");
-    const svcPkgSelect = document.getElementById("svcPkgSelect");
-    const svcPriceShow = document.getElementById("svcPriceShow");
-    const svcTags = document.getElementById("svcTags");
-
-    let currentSvc = null;
-    let currentSvcComputed = { label:"", price:0 };
-
-    function openService(service){
-      currentSvc = service;
-      currentSvcComputed = { label:"", price:0 };
-
-      document.getElementById("svcCategory").innerHTML = `<i class="fa-solid fa-layer-group"></i> ${escapeHtml(service.category||"Service")}`;
-      document.getElementById("svcName").textContent = service.title || "Service";
-      document.getElementById("svcDesc").textContent = service.desc || "";
-      svcPriceShow.value = "৳0";
-
-      // image/icon
-      if(service.image){
-        svcImg.src = service.image;
-        svcImg.style.display = "block";
-        svcIcon.style.display = "none";
-      }else{
-        svcIcon.className = escapeHtml(service.icon||"fa-solid fa-bolt");
-        svcIcon.style.display = "grid";
-        svcImg.style.display = "none";
-      }
-
-      // tags
-      const tags = Array.isArray(service.tags)?service.tags:[];
-      svcTags.innerHTML = [
-        `<span class="spec"><i class="fa-solid fa-tag"></i> ${escapeHtml(service.category||"Service")}</span>`,
-        ...tags.slice(0,8).map(t=>`<span class="spec"><i class="fa-solid fa-circle-check"></i> ${escapeHtml(t)}</span>`)
-      ].join("");
-
-      // reset fields
-      document.getElementById("svcUrl").value = "";
-      document.getElementById("svcPayMethod").value = "";
-      document.getElementById("svcTrx").value = "";
-      document.getElementById("svcNote").value = "";
-
-      if(service.unitType === "PACK"){
-        svcQtyField.style.display = "none";
-        svcPkgField.style.display = "block";
-        svcPkgSelect.innerHTML = `<option value="">Select package</option>` + (service.packages||[]).map((p,idx)=>(
-          `<option value="${idx}">${escapeHtml(p.label)} — ৳${Number(p.price||0)}</option>`
-        )).join("");
-      }else{
-        svcQtyField.style.display = "block";
-        svcPkgField.style.display = "none";
-
-        if(service.unitType === "K"){
-          svcQtyLabel.textContent = "Quantity (K)";
-          svcQtySelect.innerHTML = `<option value="">Select quantity</option>` + (service.qtyList||[]).map(q=>(
-            `<option value="${q}">${q}K</option>`
-          )).join("");
-        }else if(service.unitType === "100"){
-          svcQtyLabel.textContent = "Quantity (x100)";
-          svcQtySelect.innerHTML = `<option value="">Select quantity</option>` + (service.qtyList||[]).map(q=>(
-            `<option value="${q}">${q*100}</option>`
-          )).join("");
-        }
-      }
-
-      svcOverlay.classList.add("show");
-      svcOverlay.setAttribute("aria-hidden","false");
-    }
-
-    function closeService(){
-      svcOverlay.classList.remove("show");
-      svcOverlay.setAttribute("aria-hidden","true");
-      currentSvc = null;
-      currentSvcComputed = { label:"", price:0 };
-    }
-
-    document.getElementById("closeSvc").addEventListener("click", closeService);
-    document.getElementById("svcCancel").addEventListener("click", closeService);
-    document.getElementById("svcCloseBtn").addEventListener("click", closeService);
-    svcOverlay.addEventListener("click", (e)=>{ if(e.target===svcOverlay) closeService(); });
-
-    svcQtySelect.addEventListener("change", ()=>{
-      if(!currentSvc) return;
-      const v = svcQtySelect.value ? Number(svcQtySelect.value) : 0;
-      if(!v){ svcPriceShow.value = "৳0"; currentSvcComputed={label:"",price:0}; return; }
-
-      let label="", price=0;
-      if(currentSvc.unitType==="K"){
-        label = `${v}K`;
-        price = v * Number(currentSvc.pricePerUnit||0);
-      }else if(currentSvc.unitType==="100"){
-        label = `${v*100}`;
-        price = v * Number(currentSvc.pricePerUnit||0);
-      }
-      currentSvcComputed = { label, price };
-      svcPriceShow.value = `৳${price}`;
+    detailGoCart.addEventListener("click", ()=>{
+      closeDetailFn();
+      showDrawer();
     });
 
-    svcPkgSelect.addEventListener("change", ()=>{
-      if(!currentSvc) return;
-      const idx = svcPkgSelect.value ? Number(svcPkgSelect.value) : -1;
-      if(idx < 0){ svcPriceShow.value = "৳0"; currentSvcComputed={label:"",price:0}; return; }
-      const p = (currentSvc.packages||[])[idx];
-      currentSvcComputed = { label: p.label, price: Number(p.price||0) };
-      svcPriceShow.value = `৳${Number(p.price||0)}`;
+    // service compute
+    svcQty.addEventListener("change", ()=>{
+      if(!currentDetail || currentDetail.mode!=="service") return;
+      const s = services.find(x=>x.id===currentDetail.id);
+      const v = svcQty.value ? Number(svcQty.value) : 0;
+      if(!v){ svcPrice.value="Tk 0"; svcComputed={label:"",price:0}; return; }
+
+      if(s.unitType==="K"){
+        svcComputed.label = `${v}K`;
+        svcComputed.price = v * Number(s.pricePerUnit||0);
+      }else if(s.unitType==="100"){
+        svcComputed.label = `${v*100}`;
+        svcComputed.price = v * Number(s.pricePerUnit||0);
+      }else{
+        svcComputed.label = `${v}`;
+        svcComputed.price = v * Number(s.pricePerUnit||0);
+      }
+      svcPrice.value = money(svcComputed.price);
     });
 
-    document.getElementById("svcSendWa").addEventListener("click", ()=>{
-      if(!currentSvc) return;
+    svcPkg.addEventListener("change", ()=>{
+      if(!currentDetail || currentDetail.mode!=="service") return;
+      const s = services.find(x=>x.id===currentDetail.id);
+      const idx = svcPkg.value ? Number(svcPkg.value) : -1;
+      if(idx<0){ svcPrice.value="Tk 0"; svcComputed={label:"",price:0}; return; }
+      const p = (s.packages||[])[idx];
+      svcComputed = { label: p.label, price: Number(p.price||0) };
+      svcPrice.value = money(svcComputed.price);
+    });
 
-      // validations
-      if(currentSvc.unitType==="PACK"){
-        if(!svcPkgSelect.value) return alert("Package select করুন");
+    svcSend.addEventListener("click", ()=>{
+      if(!currentDetail || currentDetail.mode!=="service") return;
+      const s = services.find(x=>x.id===currentDetail.id);
+      if(!s) return;
+
+      // validate
+      if(s.unitType==="PACK"){
+        if(!svcPkg.value) return alert("Package select করুন");
       }else{
-        if(!svcQtySelect.value) return alert("Quantity select করুন");
+        if(!svcQty.value) return alert("Quantity select করুন");
       }
-      const url = document.getElementById("svcUrl").value.trim();
-      const pay = document.getElementById("svcPayMethod").value;
-      const trx = document.getElementById("svcTrx").value.trim();
-      if(!url) return alert("Link/URL দিন");
-      if(!pay) return alert("Payment method select করুন (bKash/Nagad)");
-      if(!trx) return alert("Transaction ID দিন");
+      if(!svcUrl.value.trim()) return alert("Link/URL দিন");
+      if(!svcPay.value) return alert("Payment method select করুন (bKash/Nagad)");
+      if(!svcTrx.value.trim()) return alert("Transaction ID দিন");
 
-      const serviceName = currentSvc.title;
-      const serviceCat = currentSvc.category;
-      const packageText = currentSvcComputed.label;
-      const price = currentSvcComputed.price;
-      const note = document.getElementById("svcNote").value.trim();
+      const cat = s.category || s.collection || "Service";
+      const packQty = svcComputed.label;
+      const price = svcComputed.price;
 
       const msg =
 `Assalamu Alaikum,
-I want to place an order.
+I want to place an order (Service).
 
-Service: ${serviceName}
-Category: ${serviceCat}
-Package/Qty: ${packageText}
-Price: ৳${price}
+Service: ${s.title}
+Category: ${cat}
+Package/Qty: ${packQty}
+Price: ${money(price)}
 
 Payment:
-Method: ${pay}
-TrxID: ${trx}
+Method: ${svcPay.value}
+TrxID: ${svcTrx.value.trim()}
 
 Link/URL:
-${url}
+${svcUrl.value.trim()}
 
 Notes:
-${note || "N/A"}
+${svcNote.value.trim() || "N/A"}
 
--- ${SAIKAT.brandName}`;
+Payment Numbers:
+bKash: ${SAIKAT.payment.bkash}
+Nagad: ${SAIKAT.payment.nagad}
+
+-- ${storeSettings.brandName || SAIKAT.brandName}`;
 
       window.open(`${waBase}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
     });
 
-    /* =============================
-       GLOBAL CLICK HANDLERS (cards)
-    ============================== */
+    /***********************
+     * GLOBAL CLICK HANDLERS
+     ***********************/
     document.addEventListener("click", (e)=>{
-      // Product
-      const addProd = e.target.closest("[data-add-prod]");
-      const detailsProd = e.target.closest("[data-details-prod]");
-      const openProd = e.target.closest("[data-open-prod]");
-
-      if(addProd){ e.preventDefault(); addToCart(addProd.getAttribute("data-add-prod")); return; }
-      if(detailsProd){ e.preventDefault(); openProduct(detailsProd.getAttribute("data-details-prod")); return; }
-      if(openProd && !e.target.closest("button")){ openProduct(openProd.getAttribute("data-open-prod")); return; }
-
-      // Service
-      const orderSvc = e.target.closest("[data-order-svc]");
-      const detailsSvc = e.target.closest("[data-details-svc]");
-      if(orderSvc){
-        const s = getService(orderSvc.getAttribute("data-order-svc"));
-        if(s) openService(s);
+      const resetTmp = e.target.closest("#resetBtnTmp");
+      if(resetTmp){
+        qBrowse.value=""; qHeader.value="";
+        currentCollection="ALL"; catBrowse.value="ALL";
+        renderCollections(); renderMainGrid();
         return;
       }
-      if(detailsSvc){
-        const s = getService(detailsSvc.getAttribute("data-details-svc"));
-        if(!s) return;
-        let text = `${s.title}\n\n${s.desc}\n\nCategory: ${s.category}\nUnit: ${s.unitType}\n`;
-        if(s.unitType==="PACK"){
-          text += "\nPackages:\n" + (s.packages||[]).map(p=>`- ${p.label}: ৳${p.price} (${p.note||""})`).join("\n");
+
+      const addBtn = e.target.closest("[data-add]");
+      const detailsBtn = e.target.closest("[data-details]");
+      const infoBtn = e.target.closest("[data-info]");
+      const openCard = e.target.closest("[data-open]");
+
+      if(addBtn){
+        e.preventDefault();
+        addToCart(addBtn.getAttribute("data-add"), 1);
+        return;
+      }
+      if(detailsBtn){
+        e.preventDefault();
+        const id = detailsBtn.getAttribute("data-details");
+        if(activeMode==="products"){
+          const p = getProduct(id); if(p) openDetailForProduct(p);
         }else{
-          text += `\nRate: ৳${s.pricePerUnit} per ${s.unitType==="K" ? "1K" : "100"}\n`;
-          text += `Qty options: ${(s.qtyList||[]).join(", ")}\n`;
+          const s = services.find(x=>x.id===id); if(s) openDetailForService(s);
         }
-        alert(text);
+        return;
+      }
+      if(infoBtn){
+        e.preventDefault();
+        const id = infoBtn.getAttribute("data-info");
+        const s = services.find(x=>x.id===id);
+        if(!s) return;
+        let details = `${s.title}\n\n${s.desc}\n\nCategory: ${(s.category||s.collection||"Service")}\n`;
+        if(s.unitType==="PACK"){
+          details += "\nPackages:\n" + (s.packages||[]).map(p=>`- ${p.label}: ${money(p.price)} (${p.note||""})`).join("\n");
+        }else{
+          details += `\nPricing:\n- Rate: ${money(s.pricePerUnit)} per ${s.unitType==="K" ? "1K" : (s.unitType==="100" ? "100" : "unit")}\n`;
+        }
+        alert(details);
+        return;
+      }
+      if(openCard && !e.target.closest("button")){
+        const id = openCard.getAttribute("data-open");
+        if(activeMode==="products"){
+          const p = getProduct(id); if(p) openDetailForProduct(p);
+        }else{
+          const s = services.find(x=>x.id===id); if(s) openDetailForService(s);
+        }
         return;
       }
     });
 
-    document.addEventListener("keydown", (e)=>{
+    document.addEventListener("keydown",(e)=>{
       if(e.key==="Escape"){
         hideDrawer();
-        closeProduct();
-        closeService();
-        closeLogin();
-        closeAdmin();
-        closeEditProd();
-        closeEditSvc();
+        closeDetailFn();
+        closeAdminModal();
       }
       if(e.key==="Enter"){
         const active = document.activeElement;
-        if(active && active.matches("[data-open-prod]")){
-          openProduct(active.getAttribute("data-open-prod"));
+        if(active && active.matches("[data-open]")){
+          const id = active.getAttribute("data-open");
+          if(activeMode==="products"){
+            const p = getProduct(id); if(p) openDetailForProduct(p);
+          }else{
+            const s = services.find(x=>x.id===id); if(s) openDetailForService(s);
+          }
         }
       }
     });
 
-    /* =============================
-       ADMIN FLOW (Login + Admin modal)
-    ============================== */
-    let ADMIN_SESSION = false; // in-memory session (page refresh resets)
-
-    const loginOverlay = document.getElementById("loginOverlay");
+    /***********************
+     * ADMIN MODAL + AUTH
+     ***********************/
     const adminOverlay = document.getElementById("adminOverlay");
+    const openAdminBtn = document.getElementById("openAdmin");
+    const closeAdminBtn = document.getElementById("closeAdmin");
+    const adminCloseBtn = document.getElementById("adminCloseBtn");
 
-    function openLogin(){
-      document.getElementById("loginUser").value = "";
-      document.getElementById("loginPass").value = "";
-      loginOverlay.classList.add("show");
-      loginOverlay.setAttribute("aria-hidden","false");
-      setTimeout(()=>document.getElementById("loginUser").focus(), 120);
+    const adminLoginView = document.getElementById("adminLoginView");
+    const adminPanelView = document.getElementById("adminPanelView");
+    const adminUser = document.getElementById("adminUser");
+    const adminPass = document.getElementById("adminPass");
+    const adminLoginBtn = document.getElementById("adminLoginBtn");
+    const adminLogoutBtn = document.getElementById("adminLogoutBtn");
+    const adminLogout = document.getElementById("adminLogout");
+
+    function isAdmin(){
+      return sessionStorage.getItem(ADMIN_SESSION_KEY)==="1";
     }
-    function closeLogin(){
-      loginOverlay.classList.remove("show");
-      loginOverlay.setAttribute("aria-hidden","true");
-    }
-    document.getElementById("closeLogin").addEventListener("click", closeLogin);
-    document.getElementById("loginCancel").addEventListener("click", closeLogin);
-    loginOverlay.addEventListener("click", (e)=>{ if(e.target===loginOverlay) closeLogin(); });
-
-    document.getElementById("loginBtn").addEventListener("click", ()=>{
-      const u = document.getElementById("loginUser").value.trim();
-      const p = document.getElementById("loginPass").value;
-      if(u===ADMIN_AUTH.username && p===ADMIN_AUTH.password){
-        ADMIN_SESSION = true;
-        toast("Success", "Admin login success ✅", "success", 1500);
-        closeLogin();
-        openAdmin();
-      }else{
-        toast("Denied", "Username/Password ভুল", "error", 2400);
-      }
-    });
-
-    function openAdminFlow(){
-      if(ADMIN_SESSION) openAdmin();
-      else openLogin();
+    function setAdminSession(on){
+      sessionStorage.setItem(ADMIN_SESSION_KEY, on ? "1" : "0");
     }
 
-    function openAdmin(){
-      // load UI
-      renderAdminSiteTab();
-      renderAdminLists();
-      // open
+    function openAdminModal(){
       adminOverlay.classList.add("show");
       adminOverlay.setAttribute("aria-hidden","false");
+      refreshAdminUI();
+      setTimeout(()=> adminUser.focus(), 120);
     }
-    function closeAdmin(){
+    function closeAdminModal(){
       adminOverlay.classList.remove("show");
       adminOverlay.setAttribute("aria-hidden","true");
     }
-    document.getElementById("closeAdmin").addEventListener("click", closeAdmin);
-    adminOverlay.addEventListener("click", (e)=>{ if(e.target===adminOverlay) closeAdmin(); });
 
-    document.getElementById("logoutAdmin").addEventListener("click", ()=>{
-      ADMIN_SESSION = false;
-      toast("Logged out", "Admin logout ✅", "success", 1500);
-      closeAdmin();
+    openAdminBtn.addEventListener("click", openAdminModal);
+    closeAdminBtn.addEventListener("click", closeAdminModal);
+    adminCloseBtn.addEventListener("click", closeAdminModal);
+    adminOverlay.addEventListener("click", (e)=>{ if(e.target===adminOverlay) closeAdminModal(); });
+
+    adminLoginBtn.addEventListener("click", ()=>{
+      const u = adminUser.value.trim();
+      const p = adminPass.value;
+      if(u===ADMIN_USER && p===ADMIN_PASS){
+        setAdminSession(true);
+        toast("Login","Admin access granted ✅","success", 1500);
+        refreshAdminUI();
+      }else{
+        toast("Denied","Wrong username/password","error", 2400);
+      }
     });
 
-    document.getElementById("resetAll").addEventListener("click", ()=>{
-      if(!confirm("Reset করলে সব custom change চলে যাবে। Continue?")) return;
-      STATE = { site:{...DEFAULT_SITE}, products:[...DEFAULT_PRODUCTS], services:[...DEFAULT_SERVICES] };
-      saveState();
-      rebuildShopCollections();
-      rebuildServiceCategories();
-      renderHero();
-      renderShop();
-      renderServices();
+    function doLogout(){
+      setAdminSession(false);
+      toast("Logout","Admin session ended","success", 1500);
+      refreshAdminUI();
+    }
+    adminLogout.addEventListener("click", doLogout);
+    adminLogoutBtn.addEventListener("click", doLogout);
+
+    /***********************
+     * ADMIN TABS
+     ***********************/
+    const adminTabStore = document.getElementById("adminTabStore");
+    const adminTabProducts = document.getElementById("adminTabProducts");
+    const adminTabServices = document.getElementById("adminTabServices");
+    const adminStoreBox = document.getElementById("adminStoreBox");
+    const adminFormBox = document.getElementById("adminFormBox");
+    const adminListTitle = document.getElementById("adminListTitle");
+    const adminTbody = document.getElementById("adminTbody");
+    const adminAddNew = document.getElementById("adminAddNew");
+    const adminSearch = document.getElementById("adminSearch");
+    const adminResetAll = document.getElementById("adminResetAll");
+
+    let adminMode = "products"; // products/services/store
+    let editingId = null; // current editing item id
+
+    function setAdminTab(tab){
+      adminMode = tab;
+      adminTabStore.classList.toggle("active", tab==="store");
+      adminTabProducts.classList.toggle("active", tab==="products");
+      adminTabServices.classList.toggle("active", tab==="services");
+
+      adminStoreBox.style.display = (tab==="store") ? "block" : "none";
+      adminFormBox.style.display = (tab==="store") ? "none" : "block";
+      adminAddNew.style.display = (tab==="store") ? "none" : "inline-flex";
+
+      adminListTitle.textContent =
+        tab==="products" ? "Products List" :
+        tab==="services" ? "Services List" :
+        "Store Settings";
+
+      editingId = null;
+      renderAdminList();
+      renderAdminForm(null);
+    }
+
+    adminTabStore.addEventListener("click", ()=> setAdminTab("store"));
+    adminTabProducts.addEventListener("click", ()=> setAdminTab("products"));
+    adminTabServices.addEventListener("click", ()=> setAdminTab("services"));
+
+    adminAddNew.addEventListener("click", ()=>{
+      renderAdminForm({ _new:true });
+      toast("Admin","Fill form then Save ✅","info", 1600);
+    });
+
+    adminSearch.addEventListener("input", renderAdminList);
+
+    adminResetAll.addEventListener("click", ()=>{
+      if(!confirm("Reset সব ডাটা default এ যাবে. Continue?")) return;
+      storeSettings = structuredClone(DEFAULT_STORE_SETTINGS);
+      products = structuredClone(DEFAULT_PRODUCTS);
+      services = structuredClone(DEFAULT_SERVICES);
+
+      writeJSON(LS_SETTINGS, storeSettings);
+      writeJSON(LS_PRODUCTS, products);
+      writeJSON(LS_SERVICES, services);
+
+      applyBranding();
+      rebuildCategoryOptions();
+      renderCollections();
+      renderMainGrid();
       renderCart();
-      renderAdminSiteTab();
-      renderAdminLists();
-      toast("Reset", "Default restored ✅", "success", 1800);
+
+      refreshAdminUI();
+      toast("Reset","All restored to default ✅","success", 2000);
     });
 
-    /* Admin tab switching */
-    const adminTabs = [...document.querySelectorAll(".adminTab")];
-    function showAdminTab(key){
-      adminTabs.forEach(t=>t.classList.toggle("active", t.dataset.atab===key));
-      document.getElementById("aSite").style.display = key==="site" ? "block" : "none";
-      document.getElementById("aProducts").style.display = key==="products" ? "block" : "none";
-      document.getElementById("aServices").style.display = key==="services" ? "block" : "none";
-    }
-    adminTabs.forEach(t=>t.addEventListener("click", ()=>showAdminTab(t.dataset.atab)));
+    /***********************
+     * ADMIN STORE SETTINGS (logo/cover/brand)
+     ***********************/
+    const setBrandName = document.getElementById("setBrandName");
+    const setBrandSave = document.getElementById("setBrandSave");
+    const setLogoFile = document.getElementById("setLogoFile");
+    const setCoverFile = document.getElementById("setCoverFile");
+    const setLogoSave = document.getElementById("setLogoSave");
+    const setCoverSave = document.getElementById("setCoverSave");
+    const setLogoClear = document.getElementById("setLogoClear");
+    const setCoverClear = document.getElementById("setCoverClear");
 
-    /* =============================
-       ADMIN: Site settings
-    ============================== */
-    function renderAdminSiteTab(){
-      document.getElementById("siteHeroTitle").value = STATE.site.heroTitle || "";
-      document.getElementById("siteHeroSubtitle").value = STATE.site.heroSubtitle || "";
-      // file inputs no need prefill
-    }
-
-    document.getElementById("saveSiteText").addEventListener("click", ()=>{
-      STATE.site.heroTitle = document.getElementById("siteHeroTitle").value;
-      STATE.site.heroSubtitle = document.getElementById("siteHeroSubtitle").value;
-      saveState();
-      renderHero();
-      toast("Saved", "Hero text saved ✅", "success", 1500);
+    setBrandSave.addEventListener("click", ()=>{
+      storeSettings.brandName = setBrandName.value.trim() || SAIKAT.brandName;
+      writeJSON(LS_SETTINGS, storeSettings);
+      applyBranding();
+      toast("Saved","Brand name updated ✅","success", 1600);
     });
 
-    let pendingCover = null;
-    let pendingBanner = null;
-
-    document.getElementById("uploadCover").addEventListener("change", async (e)=>{
-      const f = e.target.files?.[0];
-      if(!f) return;
-      pendingCover = await readFileAsDataURL(f);
-      toast("Ready", "Cover selected ✅ (Save Images চাপুন)", "success", 1600);
+    setLogoSave.addEventListener("click", async ()=>{
+      const f = setLogoFile.files?.[0];
+      if(!f) return toast("Missing","Select a logo file first","error", 2200);
+      try{
+        storeSettings.logoDataUrl = await fileToDataUrl(f);
+        writeJSON(LS_SETTINGS, storeSettings);
+        applyBranding();
+        toast("Saved","Logo updated ✅","success", 1600);
+        setLogoFile.value = "";
+      }catch{
+        toast("Error","Logo upload failed","error", 2200);
+      }
     });
 
-    document.getElementById("uploadBanner").addEventListener("change", async (e)=>{
-      const f = e.target.files?.[0];
-      if(!f) return;
-      pendingBanner = await readFileAsDataURL(f);
-      toast("Ready", "Banner selected ✅ (Save Images চাপুন)", "success", 1600);
+    setCoverSave.addEventListener("click", async ()=>{
+      const f = setCoverFile.files?.[0];
+      if(!f) return toast("Missing","Select a cover file first","error", 2200);
+      try{
+        storeSettings.coverDataUrl = await fileToDataUrl(f);
+        writeJSON(LS_SETTINGS, storeSettings);
+        applyBranding();
+        toast("Saved","Cover updated ✅","success", 1600);
+        setCoverFile.value = "";
+      }catch{
+        toast("Error","Cover upload failed","error", 2200);
+      }
     });
 
-    document.getElementById("saveSiteImages").addEventListener("click", ()=>{
-      if(pendingCover!=null) STATE.site.heroCover = pendingCover;
-      if(pendingBanner!=null) STATE.site.heroBanner = pendingBanner;
-      pendingCover = null; pendingBanner = null;
-      saveState();
-      renderHero();
-      toast("Saved", "Images saved ✅", "success", 1500);
+    setLogoClear.addEventListener("click", ()=>{
+      storeSettings.logoDataUrl = "";
+      writeJSON(LS_SETTINGS, storeSettings);
+      applyBranding();
+      toast("Removed","Logo removed ✅","success", 1400);
     });
 
-    document.getElementById("clearSiteImages").addEventListener("click", ()=>{
-      if(!confirm("Cover/Banner clear করবেন?")) return;
-      STATE.site.heroCover = "";
-      STATE.site.heroBanner = "";
-      pendingCover = null; pendingBanner = null;
-      saveState();
-      renderHero();
-      toast("Cleared", "Cover/Banner removed ✅", "success", 1500);
+    setCoverClear.addEventListener("click", ()=>{
+      storeSettings.coverDataUrl = "";
+      writeJSON(LS_SETTINGS, storeSettings);
+      applyBranding();
+      toast("Removed","Cover removed ✅","success", 1400);
     });
 
-    /* =============================
-       ADMIN: Products list
-    ============================== */
-    function renderAdminLists(){
-      renderProductList();
-      renderServiceList();
+    /***********************
+     * ADMIN LIST RENDER
+     ***********************/
+    function listItemThumb(img){
+      if(!img) return `<span class="tag"><i class="fa-solid fa-image"></i> No</span>`;
+      return `<span class="tag"><i class="fa-solid fa-image"></i> Yes</span>`;
     }
 
-    function renderProductList(){
-      const el = document.getElementById("productList");
-      const items = STATE.products.slice().sort((a,b)=>(a.title||"").localeCompare(b.title||""));
-      el.innerHTML = items.map(p=>{
-        const thumb = p.image ? `<img src="${p.image}" alt="">` : `<i class="${escapeHtml(p.icon||"fa-solid fa-box")}"></i>`;
+    function renderAdminList(){
+      if(!isAdmin()){
+        adminTbody.innerHTML = "";
+        return;
+      }
+      if(adminMode==="store"){
+        adminTbody.innerHTML = "";
+        return;
+      }
+
+      const q = (adminSearch.value||"").trim().toLowerCase();
+      const list = (adminMode==="products" ? products : services).filter(it=>{
+        if(!q) return true;
+        const hay = [
+          it.title, it.desc, it.collection, it.category,
+          Array.isArray(it.tags) ? it.tags.join(" ") : ""
+        ].join(" ").toLowerCase();
+        return hay.includes(q);
+      });
+
+      adminTbody.innerHTML = list.map(it=>{
+        const coll = (adminMode==="products") ? (it.collection||"") : (it.category||it.collection||"");
+        const priceText = adminMode==="products"
+          ? money(it.price)
+          : (it.unitType==="PACK" ? "PACK" : `Rate: ${money(it.pricePerUnit)}`);
+
         return `
-          <div class="rowBox">
-            <div class="thumb">${thumb}</div>
-            <div>
-              <div style="font
+          <tr>
+            <td>${listItemThumb(it.image)}</td>
+            <td>
+              <div style="font-weight:900;color:var(--text)">${escapeHtml(it.title)}</div>
+              <div style="margin-top:4px;max-width:420px">${escapeHtml((it.desc||"").slice(0,90))}${(it.desc||"").length>90?"…":""}</div>
+            </td>
+            <td>${escapeHtml(coll)}</td>
+            <td>${escapeHtml(priceText)}</td>
+            <td>
+              <div class="tActions">
+                <button class="miniBtn ok" data-aedit="${escapeHtml(it.id)}"><i class="fa-solid fa-pen"></i> Edit</button>
+                <button class="miniBtn warn" data-acopy="${escapeHtml(it.id)}"><i class="fa-solid fa-copy"></i> Duplicate</button>
+                <button class="miniBtn danger" data-adel="${escapeHtml(it.id)}"><i class="fa-solid fa-trash"></i> Delete</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+
+      // click actions
+      adminTbody.onclick = (e)=>{
+        const edit = e.target.closest("[data-aedit]");
+        const del = e.target.closest("[data-adel]");
+        const copy = e.target.closest("[data-acopy]");
+
+        if(edit){
+          const id = edit.getAttribute("data-aedit");
+          const src = (adminMode==="products" ? products : services).find(x=>x.id===id);
+          renderAdminForm(src);
+        }
+        if(copy){
+          const id = copy.getAttribute("data-acopy");
+          const src = (adminMode==="products" ? products : services).find(x=>x.id===id);
+          if(!src) return;
+          const cloned = structuredClone(src);
+          cloned.id = makeId(adminMode==="products" ? "p" : "s");
+          cloned.title = `${cloned.title} (Copy)`;
+          (adminMode==="products" ? products : services).unshift(cloned);
+          persistData();
+          renderAdminList();
+          toast("Duplicated","Item copied ✅","success", 1400);
+        }
+        if(del){
+          const id = del.getAttribute("data-adel");
+          if(!confirm("Delete this item?")) return;
+          if(adminMode==="products"){
+            products = products.filter(x=>x.id!==id);
+            cart.delete(id);
+          }else{
+            services = services.filter(x=>x.id!==id);
+          }
+          persistData();
+          renderAdminList();
+          renderMainGrid();
+          renderCart();
+          toast("Deleted","Item removed ✅","success", 1400);
+        }
+      };
+    }
+
+    /***********************
+     * ADMIN FORM (SHOPIFY-LIKE)
+     ***********************/
+    function renderAdminForm(item){
+      if(!isAdmin()){
+        adminFormBox.innerHTML = "";
+        return;
+      }
+      if(adminMode==="store"){
+        adminFormBox.innerHTML = "";
+        return;
+      }
+
+      const isNew = !!(item && item._new);
+      const it = item ? structuredClone(item) : null;
+
+      editingId = (it && !isNew) ? it.id : null;
+
+      if(adminMode==="products"){
+        const v = it || { id: makeId("p"), type:"product", title:"", desc:"", collection:"", price:0, regular:null, image:"", tags:[] };
+        adminFormBox.innerHTML = productFormHTML(v, isNew);
+        wireProductForm(v, isNew);
+      }else{
+        const v = it || { id: makeId("s"), type:"service", category:"", title:"", desc:"", unitType:"K", pricePerUnit:0, qtyList:[1,2,3,5,10], packages:[], tags:[], image:"" };
+        adminFormBox.innerHTML = serviceFormHTML(v, isNew);
+        wireServiceForm(v, isNew);
+      }
+    }
+
+    function productFormHTML(v, isNew){
+      return `
+        <div class="box" style="margin-top:12px">
+          <b><i class="fa-solid fa-pen"></i> ${isNew ? "Add Product" : "Edit Product"}</b>
+          <div class="muted" style="margin-top:6px;font-size:12.5px">ID: <span class="kbd">${escapeHtml(v.id)}</span></div>
+
+          <div class="two" style="margin-top:12px">
+            <div class="box">
+              <div class="field">
+                <label>Title</label>
+                <input id="pfTitle" value="${escapeHtml(v.title)}" />
+              </div>
+              <div class="field">
+                <label>Description</label>
+                <textarea id="pfDesc">${escapeHtml(v.desc||"")}</textarea>
+              </div>
+              <div class="field">
+                <label>Collection</label>
+                <input id="pfCol" value="${escapeHtml(v.collection||"")}" placeholder="Trending / New Arrival / Signature ..." />
+              </div>
+              <div class="field">
+                <label>Tags (comma separated)</label>
+                <input id="pfTags" value="${escapeHtml(Array.isArray(v.tags)?v.tags.join(", "):"")}" placeholder="Hot, Deal, New" />
+              </div>
+            </div>
+
+            <div class="box">
+              <b><i class="fa-solid fa-image"></i> Product Image</b>
+              <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Upload করলে storefront এ দেখাবে</div>
+              <div class="field" style="margin-top:10px">
+                <label>Upload</label>
+                <input type="file" id="pfImageFile" accept="image/*" />
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                <button class="miniBtn ok" id="pfImageSave"><i class="fa-solid fa-floppy-disk"></i> Save Image</button>
+                <button class="miniBtn danger" id="pfImageClear"><i class="fa-solid fa-trash"></i> Remove</button>
+              </div>
+
+              <div class="hr" style="height:1px;background:var(--line);margin:12px 0"></div>
+              <div class="field">
+                <label>Sale Price (Tk)</label>
+                <input id="pfPrice" type="number" value="${Number(v.price||0)}" />
+              </div>
+              <div class="field">
+                <label>Regular Price (optional)</label>
+                <input id="pfRegular" type="number" value="${v.regular==null ? "" : Number(v.regular)}" placeholder="optional" />
+              </div>
+
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+                <button class="btn primary" id="pfSave"><i class="fa-solid fa-floppy-disk"></i> Save Product</button>
+                <button class="btn ghost" id="pfCancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
+              </div>
+
+              <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
+                Tip: Regular price দিলে discount badge দেখাবে।
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function wireProductForm(v, isNew){
+      const pfTitle = document.getElementById("pfTitle");
+      const pfDesc = document.getElementById("pfDesc");
+      const pfCol = document.getElementById("pfCol");
+      const pfTags = document.getElementById("pfTags");
+      const pfPrice = document.getElementById("pfPrice");
+      const pfRegular = document.getElementById("pfRegular");
+
+      const pfImageFile = document.getElementById("pfImageFile");
+      const pfImageSave = document.getElementById("pfImageSave");
+      const pfImageClear = document.getElementById("pfImageClear");
+
+      pfImageSave.addEventListener("click", async ()=>{
+        const f = pfImageFile.files?.[0];
+        if(!f) return toast("Missing","Select an image first","error", 2200);
+        try{
+          v.image = await fileToDataUrl(f);
+          pfImageFile.value = "";
+          toast("Saved","Image attached ✅","success", 1400);
+        }catch{
+          toast("Error","Image upload failed","error", 2200);
+        }
+      });
+      pfImageClear.addEventListener("click", ()=>{
+        v.image = "";
+        toast("Removed","Image removed ✅","success", 1400);
+      });
+
+      document.getElementById("pfSave").addEventListener("click", ()=>{
+        const title = pfTitle.value.trim();
+        if(!title) return toast("Missing","Title required","error", 2200);
+
+        v.title = title;
+        v.desc = pfDesc.value.trim();
+        v.collection = pfCol.value.trim() || "General";
+        v.tags = pfTags.value.split(",").map(x=>x.trim()).filter(Boolean);
+        v.price = Number(pfPrice.value||0);
+        v.regular = (pfRegular.value.trim()==="") ? null : Number(pfRegular.value);
+
+        // save to list
+        if(isNew){
+          products.unshift(v);
+        }else{
+          products = products.map(x=> x.id===v.id ? v : x);
+        }
+        persistData();
+        rebuildCategoryOptions();
+        renderCollections();
+        renderMainGrid();
+        renderCart();
+        renderAdminList();
+        renderAdminForm(null);
+
+        toast("Saved","Product updated ✅","success", 1600);
+      });
+
+      document.getElementById("pfCancel").addEventListener("click", ()=>{
+        renderAdminForm(null);
+      });
+    }
+
+    function serviceFormHTML(v, isNew){
+      const tags = Array.isArray(v.tags) ? v.tags.join(", ") : "";
+      const qty = Array.isArray(v.qtyList) ? v.qtyList.join(",") : "";
+      const pkg = Array.isArray(v.packages) ? JSON.stringify(v.packages, null, 2) : "[]";
+
+      return `
+        <div class="box" style="margin-top:12px">
+          <b><i class="fa-solid fa-pen"></i> ${isNew ? "Add Service" : "Edit Service"}</b>
+          <div class="muted" style="margin-top:6px;font-size:12.5px">ID: <span class="kbd">${escapeHtml(v.id)}</span></div>
+
+          <div class="two" style="margin-top:12px">
+            <div class="box">
+              <div class="field">
+                <label>Category</label>
+                <input id="sfCat" value="${escapeHtml(v.category||"")}" placeholder="Facebook / YouTube / Marketing ..." />
+              </div>
+              <div class="field">
+                <label>Title</label>
+                <input id="sfTitle" value="${escapeHtml(v.title||"")}" />
+              </div>
+              <div class="field">
+                <label>Description</label>
+                <textarea id="sfDesc">${escapeHtml(v.desc||"")}</textarea>
+              </div>
+              <div class="field">
+                <label>Tags (comma separated)</label>
+                <input id="sfTags" value="${escapeHtml(tags)}" placeholder="Popular, Fast, Safe" />
+              </div>
+            </div>
+
+            <div class="box">
+              <b><i class="fa-solid fa-image"></i> Service Image</b>
+              <div class="muted" style="font-size:12.5px;line-height:1.6;margin-top:6px">Upload করলে service card + order modal এ দেখাবে</div>
+
+              <div class="field" style="margin-top:10px">
+                <label>Upload</label>
+                <input type="file" id="sfImageFile" accept="image/*" />
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                <button class="miniBtn ok" id="sfImageSave"><i class="fa-solid fa-floppy-disk"></i> Save Image</button>
+                <button class="miniBtn danger" id="sfImageClear"><i class="fa-solid fa-trash"></i> Remove</button>
+              </div>
+
+              <div class="hr" style="height:1px;background:var(--line);margin:12px 0"></div>
+
+              <div class="field">
+                <label>Unit Type</label>
+                <select id="sfUnit">
+                  <option value="K" ${v.unitType==="K"?"selected":""}>K (e.g. 1K,2K)</option>
+                  <option value="100" ${v.unitType==="100"?"selected":""}>x100 (e.g. 100,200)</option>
+                  <option value="PACK" ${v.unitType==="PACK"?"selected":""}>PACK (packages)</option>
+                </select>
+              </div>
+
+              <div id="sfRateBox" style="display:${v.unitType==="PACK"?"none":"block"}">
+                <div class="field">
+                  <label>Price Per Unit (Tk)</label>
+                  <input id="sfRate" type="number" value="${Number(v.pricePerUnit||0)}" />
+                </div>
+                <div class="field">
+                  <label>Qty List (comma separated numbers)</label>
+                  <input id="sfQtyList" value="${escapeHtml(qty)}" placeholder="1,2,3,5,10" />
+                </div>
+              </div>
+
+              <div id="sfPackBox" style="display:${v.unitType==="PACK"?"block":"none"}">
+                <div class="field">
+                  <label>Packages JSON (array)</label>
+                  <textarea id="sfPackages" style="min-height:150px" spellcheck="false">${escapeHtml(pkg)}</textarea>
+                </div>
+                <div class="muted" style="font-size:12.5px;line-height:1.6">
+                  Format: [{"label":"Basic","price":300,"note":"..."}]
+                </div>
+              </div>
+
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+                <button class="btn primary" id="sfSave"><i class="fa-solid fa-floppy-disk"></i> Save Service</button>
+                <button class="btn ghost" id="sfCancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function wireServiceForm(v, isNew){
+      const sfCat = document.getElementById("sfCat");
+      const sfTitle = document.getElementById("sfTitle");
+      const sfDesc = document.getElementById("sfDesc");
+      const sfTags = document.getElementById("sfTags");
+      const sfUnit = document.getElementById("sfUnit");
+      const sfRateBox = document.getElementById("sfRateBox");
+      const sfPackBox = document.getElementById("sfPackBox");
+
+      const sfRate = document.getElementById("sfRate");
+      const sfQtyList = document.getElementById("sfQtyList");
+      const sfPackages = document.getElementById("sfPackages");
+
+      const sfImageFile = document.getElementById("sfImageFile");
+      const sfImageSave = document.getElementById("sfImageSave");
+      const sfImageClear = document.getElementById("sfImageClear");
+
+      sfImageSave.addEventListener("click", async ()=>{
+        const f = sfImageFile.files?.[0];
+        if(!f) return toast("Missing","Select an image first","error", 2200);
+        try{
+          v.image = await fileToDataUrl(f);
+          sfImageFile.value = "";
+          toast("Saved","Image attached ✅","success", 1400);
+        }catch{
+          toast("Error","Image upload failed","error", 2200);
+        }
+      });
+      sfImageClear.addEventListener("click", ()=>{
+        v.image = "";
+        toast("Removed","Image removed ✅","success", 1400);
+      });
+
+      sfUnit.addEventListener("change", ()=>{
+        v.unitType = sfUnit.value;
+        sfRateBox.style.display = (v.unitType==="PACK") ? "none" : "block";
+        sfPackBox.style.display = (v.unitType==="PACK") ? "block" : "none";
+      });
+
+      document.getElementById("sfSave").addEventListener("click", ()=>{
+        const title = sfTitle.value.trim();
+        const cat = sfCat.value.trim();
+        if(!title) return toast("Missing","Title required","error", 2200);
+        if(!cat) return toast("Missing","Category required","error", 2200);
+
+        v.category = cat;
+        v.title = title;
+        v.desc = sfDesc.value.trim();
+        v.tags = sfTags.value.split(",").map(x=>x.trim()).filter(Boolean);
+        v.unitType = sfUnit.value;
+
+        if(v.unitType==="PACK"){
+          try{
+            const parsed = JSON.parse(sfPackages.value || "[]");
+            if(!Array.isArray(parsed)) throw new Error("Packages must be array");
+            v.packages = parsed.map(p=>({
+              label: String(p.label||"Package"),
+              price: Number(p.price||0),
+              note: String(p.note||"")
+            }));
+            v.pricePerUnit = 0;
+            v.qtyList = [];
+          }catch(err){
+            toast("Invalid","Packages JSON error: " + (err?.message||"Invalid"),"error", 3800);
+            return;
+          }
+        }else{
+          v.pricePerUnit = Number(sfRate.value||0);
+          v.qtyList = (sfQtyList.value||"")
+            .split(",")
+            .map(x=>Number(String(x).trim()))
+            .filter(n=>Number.isFinite(n) && n>0);
+          v.packages = [];
+          if(v.qtyList.length===0){
+            toast("Missing","Qty list required (e.g. 1,2,3,5)","error", 2600);
+            return;
+          }
+        }
+
+        // save
+        if(isNew){
+          services.unshift(v);
+        }else{
+          services = services.map(x=> x.id===v.id ? v : x);
+        }
+        persistData();
+        rebuildCategoryOptions();
+        renderCollections();
+        renderMainGrid();
+        renderAdminList();
+        renderAdminForm(null);
+
+        toast("Saved","Service updated ✅","success", 1600);
+      });
+
+      document.getElementById("sfCancel").addEventListener("click", ()=>{
+        renderAdminForm(null);
+      });
+    }
+
+    /***********************
+     * ADMIN UI REFRESH
+     ***********************/
+    function refreshAdminUI(){
+      const authed = isAdmin();
+      adminLoginView.style.display = authed ? "none" : "block";
+      adminPanelView.style.display = authed ? "block" : "none";
+      adminLogoutBtn.style.display = authed ? "inline-flex" : "none";
+
+      // fill store fields
+      setBrandName.value = storeSettings.brandName || SAIKAT.brandName;
+
+      if(authed){
+        // default tab
+        if(adminMode!=="store" && adminMode!=="products" && adminMode!=="services") adminMode="products";
+        setAdminTab(adminMode==="store" ? "store" : adminMode);
+      }
+    }
+
+    /***********************
+     * PERSIST (save to storage)
+     ***********************/
+    function persistData(){
+      writeJSON(LS_SETTINGS, storeSettings);
+      writeJSON(LS_PRODUCTS, products);
+      writeJSON(LS_SERVICES, services);
+      applyBranding();
+    }
+
+    /***********************
+     * BOOT
+     ***********************/
+    applyBranding();
+    setMode("products");
+    rebuildCategoryOptions();
+    renderCollections();
+    renderMainGrid();
+    updateCartBadge();
+    renderCart();
+    toast("Welcome", "Store ready ✅ (Admin + Logo/Cover + Images)", "success", 2400);
+  </script>
+</body>
+</html>
