@@ -1,22 +1,12 @@
-<!-- =========================
-     PART 1 START (Customer UI + Base Layout)
-     File: index.html
-     NOTE: Part-2 and Part-3 will be given after you paste this.
-========================= -->
 <!doctype html>
 <html lang="bn">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Saikat Tech Hub | Premium Digital Services</title>
   <meta name="description" content="Saikat Tech Hub — Social Growth, Boosting, Editing, Marketing. Order via WhatsApp with secure payment flow." />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:wght@400&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <style>
@@ -30,1550 +20,528 @@
       --brand:#3b82f6;
       --green:#22c55e;
       --pink:#ec4899;
-      --orange:#fb923c;
-      --radius:24px;
-      --shadow:0 26px 70px rgba(0,0,0,.48);
+      --radius:22px;
+      --shadow:0 22px 60px rgba(0,0,0,.55);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      font-family:'Poppins','Hind Siliguri',system-ui,-apple-system,Segoe UI,Roboto,Arial;
       color:var(--text);
       background:
-        radial-gradient(1100px 720px at 12% -10%, rgba(59,130,246,.34), transparent 62%),
-        radial-gradient(1000px 700px at 92% 0%, rgba(236,72,153,.30), transparent 60%),
-        radial-gradient(900px 700px at 50% 120%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(900px 600px at 12% -10%, rgba(59,130,246,.36), transparent 62%),
+        radial-gradient(900px 600px at 92% 0%, rgba(236,72,153,.30), transparent 60%),
+        radial-gradient(900px 700px at 50% 120%, rgba(34,197,94,.16), transparent 60%),
         var(--bg);
-      min-height:100vh;
     }
     a{color:inherit;text-decoration:none}
-    .container{max-width:1240px;margin:0 auto;padding:22px}
-    .bn{font-family:'Hind Siliguri', 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial;}
-    .bn2{font-family:'Tiro Bangla', 'Hind Siliguri', serif;}
-    .muted{color:var(--muted)}
-    .hide{display:none !important}
+    .container{max-width:720px;margin:0 auto;padding:14px}
 
-    /* Toast */
-    .toast-wrap{
-      position:fixed;right:16px;bottom:16px;z-index:9999;
-      display:flex;flex-direction:column;gap:10px;
-      pointer-events:none;
+    /* Mobile-only */
+    @media (min-width: 981px){
+      body::before{
+        content:"এই ওয়েবসাইট Mobile (Phone) এর জন্য অপ্টিমাইজ করা। Phone view/Responsive mode অন করুন।";
+        position:fixed;inset:0;
+        display:flex;align-items:center;justify-content:center;
+        padding:30px;
+        background:rgba(0,0,0,.8);
+        color:#fff;
+        z-index:9999;
+        text-align:center;
+        font-weight:800;
+      }
     }
-    .toast{
-      pointer-events:auto;
-      width:min(420px, calc(100vw - 32px));
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:rgba(2,6,23,.78);
-      box-shadow:var(--shadow);
-      padding:12px 14px;
-      display:flex;gap:12px;align-items:flex-start;
-      animation:pop .18s ease-out;
-    }
-    @keyframes pop{from{transform:translateY(6px);opacity:.6}to{transform:translateY(0);opacity:1}}
-    .toast i{margin-top:2px}
-    .toast b{display:block;font-size:14px}
-    .toast p{margin:2px 0 0;font-size:13px;color:var(--muted);line-height:1.55}
-    .toast.success i{color:var(--green)}
-    .toast.error i{color:#ef4444}
-    .toast.info i{color:var(--brand)}
 
-    /* Header */
     header{
       position:sticky;top:0;z-index:50;
       background:rgba(11,18,32,.86);
       backdrop-filter: blur(12px);
       border-bottom:1px solid var(--line);
     }
-    .header-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:16px 0}
+    .header-inner{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 0}
     .logo{
-      font-size:22px;font-weight:900;letter-spacing:.2px;
-      display:flex;align-items:center;gap:12px;
-      user-select:none;
+      font-size:18px;font-weight:900;letter-spacing:.2px;
+      display:flex;align-items:center;gap:10px;
     }
-    .logo .mark{
-      width:40px;height:40px;border-radius:16px;
+    .mark{
+      width:38px;height:38px;border-radius:14px;
       background:linear-gradient(135deg, rgba(96,165,250,.95), rgba(236,72,153,.86));
       box-shadow:0 20px 45px rgba(59,130,246,.22);
-      display:flex;align-items:center;justify-content:center;
+      display:grid;place-items:center;
       overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
     }
-    .logo .mark img{width:100%;height:100%;object-fit:cover;display:block}
-    .logo .txt{
-      background:linear-gradient(135deg,#60a5fa,#ec4899);
-      -webkit-background-clip:text;color:transparent;
-    }
-
-    nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+    .mark img{width:100%;height:100%;object-fit:cover}
+    nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
     nav a{
-      padding:12px 14px;border-radius:16px;
-      font-weight:800;color:var(--muted);font-size:14px;
+      padding:10px 12px;border-radius:14px;
+      font-weight:800;color:var(--muted);font-size:13px;
+      border:1px solid transparent;
     }
-    nav a:hover{background:rgba(255,255,255,.10);color:var(--text)}
-
-    /* Buttons */
+    nav a:active{transform:scale(.98)}
+    nav a:hover{background:rgba(255,255,255,.10);color:var(--text);border-color:var(--line)}
     .btn{
       display:inline-flex;align-items:center;gap:10px;
       border:0;cursor:pointer;
-      padding:13px 16px;border-radius:999px;
+      padding:12px 14px;border-radius:999px;
       font-weight:900;color:#fff;
-      transition:.15s ease;
+      box-shadow:var(--shadow);
+      transition:.12s ease;
       white-space:nowrap;
-      font-size:14px;
+      font-size:13px;
     }
-    .btn:hover{transform: translateY(-1px)}
-    .btn.wa{background:linear-gradient(135deg,#22c55e,#16a34a);box-shadow:0 18px 45px rgba(34,197,94,.18)}
-    .btn.fb{background:linear-gradient(135deg,#3b82f6,#2563eb);box-shadow:0 18px 45px rgba(59,130,246,.18)}
-    .btn.order{background:linear-gradient(135deg,#ec4899,#f472b6);box-shadow:0 18px 45px rgba(236,72,153,.18)}
-    .btn.orange{background:linear-gradient(135deg,#fb923c,#f97316);box-shadow:0 18px 45px rgba(251,146,60,.18)}
+    .btn:active{transform: scale(.98)}
+    .btn.wa{background:linear-gradient(135deg,#22c55e,#16a34a)}
+    .btn.fb{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+    .btn.pink{background:linear-gradient(135deg,#ec4899,#f472b6)}
     .btn.ghost{
-      background:rgba(255,255,255,.10);
+      background:rgba(255,255,255,.08);
       border:1px solid var(--line);
       box-shadow:none;
       color:var(--text);
     }
-    .btn.primary{
-      background:linear-gradient(135deg,#3b82f6,#2563eb);
-      box-shadow:0 18px 45px rgba(59,130,246,.18)
-    }
-    .btn.pink{
-      background:linear-gradient(135deg,#ec4899,#f472b6);
-      box-shadow:0 18px 45px rgba(236,72,153,.18)
+    .btn.dark{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:none;
+      color:var(--text);
     }
 
-    /* Cover Banner */
     .cover{
-      padding:20px 0 10px;
-    }
-    .cover-card{
       border-radius:var(--radius);
       border:1px solid var(--line);
-      overflow:hidden;
-      box-shadow:var(--shadow);
       background:rgba(255,255,255,.06);
+      box-shadow:var(--shadow);
+      overflow:hidden;
       position:relative;
     }
-    .cover-img{
-      height:220px;
-      background:
-        radial-gradient(1100px 620px at 15% -10%, rgba(59,130,246,.42), transparent 60%),
-        radial-gradient(900px 620px at 92% 0%, rgba(236,72,153,.34), transparent 62%),
-        rgba(2,6,23,.55);
+    .cover .img{
+      height:150px;
+      background:linear-gradient(135deg, rgba(96,165,250,.25), rgba(236,72,153,.20));
+      display:grid;place-items:center;
+      border-bottom:1px solid var(--line);
+      overflow:hidden;
     }
-    .cover-img img{width:100%;height:100%;object-fit:cover;display:block}
-    .cover-content{
-      padding:16px 18px 18px;
-      display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;
-      border-top:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(2,6,23,.25), rgba(2,6,23,.65));
+    .cover .img img{width:100%;height:100%;object-fit:cover}
+    .cover .content{padding:14px}
+    .title{
+      margin:0 0 6px;
+      font-size:22px;
+      line-height:1.15;
+      font-weight:900;
+      letter-spacing:.2px;
     }
-    .titleblock{min-width:240px}
-    .titleblock h1{margin:0;font-size:26px;line-height:1.2}
-    .titleblock p{margin:6px 0 0;color:var(--muted);line-height:1.7;font-size:14px}
-
-    /* Sections */
-    .section{padding:22px 0 46px}
-    .section-title{font-size:22px;margin:0 0 10px}
-    .subline{margin:0 0 16px;color:var(--muted);line-height:1.8;font-size:15px}
-
-    /* Category chips */
-    .chips{
-      display:flex;gap:10px;flex-wrap:wrap;
-      margin:12px 0 14px;
-    }
-    .chip{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 12px;border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.07);
-      font-weight:900;font-size:13px;color:#e5e7eb;
-      cursor:pointer;
-      user-select:none;
-      transition:.12s ease;
-    }
-    .chip:hover{transform:translateY(-1px)}
-    .chip.active{
-      border-color:rgba(59,130,246,.65);
-      box-shadow:0 18px 45px rgba(59,130,246,.12);
-      background:rgba(59,130,246,.14);
+    .tagline{
+      margin:0;color:var(--muted);line-height:1.7;font-size:13.5px;
+      font-family:'Hind Siliguri','Poppins',system-ui;
     }
 
-    .grid{
+    .quick{
+      margin-top:12px;
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
     }
-    @media (max-width: 980px){
-      .grid{grid-template-columns:1fr}
-      nav{margin-left:0}
-      .cover-img{height:190px}
-      .titleblock h1{font-size:22px}
-    }
-
     .card{
-      border-radius:var(--radius);
+      border-radius:18px;
       border:1px solid var(--line);
       background:linear-gradient(180deg, var(--card1), var(--card2));
       box-shadow:var(--shadow);
-      padding:18px;
-      transition:.15s ease;
-      position:relative;
+      padding:14px;
       overflow:hidden;
     }
-    .card:hover{transform: translateY(-2px)}
-    .card h3{margin:0 0 6px;font-size:17px}
-    .card p{margin:0 0 12px;color:var(--muted);font-size:13.5px;line-height:1.75}
-    .meta{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 12px}
     .tag{
       display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:999px;
+      padding:7px 10px;border-radius:999px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.07);
-      font-weight:900;font-size:12px;
+      font-weight:900;font-size:11px;
       color:#e5e7eb;
     }
-    .price{
-      display:flex;align-items:baseline;gap:8px;margin:2px 0 10px;
-      font-weight:900;
-    }
-    .price .big{font-size:20px}
-    .price .small{font-size:12px;color:var(--muted);font-weight:800}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
 
-    /* Modal base */
+    .section{padding:16px 0 26px}
+    .section-title{font-size:18px;margin:0 0 10px}
+    .subline{margin:0 0 12px;color:var(--muted);line-height:1.7;font-size:13.5px;font-family:'Hind Siliguri','Poppins'}
+
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 12px}
+    .chip{
+      padding:10px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.07);
+      color:var(--text);
+      font-weight:900;
+      font-size:12px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .chip.active{outline:2px solid rgba(59,130,246,.45)}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+
+    .item h3{margin:10px 0 6px;font-size:16px}
+    .item p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.65;font-family:'Hind Siliguri','Poppins'}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+
+    .thumb{
+      width:100%;
+      height:150px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      overflow:hidden;
+      display:grid;place-items:center;
+    }
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    .ph{color:var(--muted);font-weight:800;font-size:12px}
+
+    /* Overlays / modal */
     .overlay{
       position:fixed;inset:0;z-index:200;
-      display:none;align-items:center;justify-content:center;
+      display:none;
       background:rgba(0,0,0,.66);
-      padding:18px;
+      padding:12px;
+      align-items:stretch;
+      justify-content:center;
     }
     .overlay.show{display:flex}
     .modal{
-      width:100%;max-width:900px;
-      border-radius:28px;
-      border:1px solid var(--line);
-      background:rgba(12,18,33,.94);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .modal-head{
-      padding:16px 18px;
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      border-bottom:1px solid var(--line);
-    }
-    .modal-head b{font-size:18px}
-    .close-x{
-      border:0;background:transparent;color:var(--muted);
-      font-size:24px;cursor:pointer;
-    }
-    .close-x:hover{color:var(--text)}
-    .modal-body{padding:18px}
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media (max-width: 980px){ .two{grid-template-columns:1fr} }
-
-    .box{
+      width:100%;
+      max-width:720px;
       border-radius:22px;
       border:1px solid var(--line);
-      background:rgba(2,6,23,.55);
-      padding:16px;
+      background:rgba(12,18,33,.96);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      height:100%;
+      max-height:100%;
     }
-    .field{display:flex;flex-direction:column;gap:8px;margin-top:12px}
-    .field label{font-size:12.5px;color:var(--muted);font-weight:900}
+    .modal-head{
+      padding:14px 14px;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      border-bottom:1px solid var(--line);
+      background:rgba(0,0,0,.12);
+    }
+    .modal-head b{font-size:15px}
+    .close-x{
+      border:0;background:transparent;color:var(--muted);
+      font-size:22px;cursor:pointer;
+    }
+    .close-x:hover{color:var(--text)}
+    .modal-body{
+      padding:14px;
+      overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      flex:1;
+      padding-bottom:120px;
+    }
+    .modal-actions{
+      display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;
+      padding:12px 14px;
+      border-top:1px solid var(--line);
+      background:rgba(0,0,0,.20);
+      position:sticky;
+      bottom:0;
+      z-index:5;
+      backdrop-filter: blur(10px);
+    }
+
+    .box{
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(2,6,23,.55);
+      padding:14px;
+    }
+    .field{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    .field label{font-size:12px;color:var(--muted);font-weight:900}
     .field select,.field input,.field textarea{
-      border-radius:16px;border:1px solid var(--line);
+      border-radius:14px;border:1px solid var(--line);
       background:rgba(255,255,255,.07);
       color:var(--text);
-      padding:12px 13px;
+      padding:12px 12px;
       outline:none;
       font-size:14px;
       font-family:inherit;
     }
-    .field textarea{min-height:100px;resize:vertical}
-    .summary{display:flex;flex-direction:column;gap:8px;color:var(--muted);font-size:13.5px}
-    .summary .big{font-size:22px;font-weight:900;color:var(--text)}
-    .pay-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .pay-badge{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 12px;border-radius:18px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.07);
-      font-weight:900;font-size:13px;
-    }
-    .modal-actions{
-      display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;
-      padding:16px 18px;
-      border-top:1px solid var(--line);
-      background:rgba(0,0,0,.12);
-    }
-    .hint{margin-top:10px;color:var(--muted);font-size:12.5px;line-height:1.7}
+    .field textarea{min-height:92px;resize:vertical}
 
-    /* Product image */
-    .thumb{
-      width:100%;
-      aspect-ratio: 16/10;
-      border-radius:18px;
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:18px;
+      transform:translateX(-50%);
+      z-index:500;
+      max-width:92vw;
+      background:rgba(12,18,33,.95);
       border:1px solid var(--line);
-      overflow:hidden;
-      background:rgba(255,255,255,.06);
-      margin-bottom:12px;
+      box-shadow:var(--shadow);
+      border-radius:16px;
+      padding:12px 14px;
+      display:none;
+      gap:10px;
+      align-items:flex-start;
     }
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .thumb .ph{
-      width:100%;height:100%;
-      display:flex;align-items:center;justify-content:center;
-      color:var(--muted);font-weight:900;
-    }
-
-    /* Footer */
-    .footer{
-      margin-top:18px;
-      border-top:1px solid var(--line);
-      padding-top:16px;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .footer a{color:var(--text);font-weight:900}
+    .toast.show{display:flex}
+    .toast .ticon{font-size:18px}
+    .toast .ttitle{font-weight:900}
+    .toast .tmsg{color:var(--muted);font-size:12.5px;line-height:1.55;margin-top:2px;font-family:'Hind Siliguri','Poppins'}
+    body.admin-open{overflow:hidden}
+    .muted{color:var(--muted)}
   </style>
 </head>
 
 <body>
 
-  <!-- Toasts -->
-  <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+<!-- ======================
+     CONFIG (Your fixed info stays)
+====================== -->
+<script>
+  const FIXED = {
+    waNumber: "8801804676711",
+    waRaw: "01804676711",
+    email: "saikat712@gmail.com",
+    fb: "https://www.facebook.com/share/1AWbo99RjN/",
+    address: "Dhaka New Market, 1205",
+    payment: { bkash: "+8801344-486384", nagad: "01682312657" }
+  };
 
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <div class="header-inner">
-        <div class="logo">
-          <span class="mark" aria-hidden="true" id="logoMark">
-            <!-- logo injected by JS -->
-          </span>
-          <span class="txt" id="brandNameTop">Saikat Tech Hub</span>
-        </div>
+  // Admin login (only you)
+  const ADMIN_DEFAULT = { user:"saikat@gmail.com", pass:"676711@" };
+  const PRIVACY_PASS = "1234@6711";
+</script>
 
-        <nav aria-label="Main navigation">
-          <a href="#top">Home</a>
-          <a href="#services">Services</a>
-          <a href="#shop">Shop</a>
-          <a href="#how">How</a>
-          <a href="#contact">Contact</a>
-        </nav>
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="mark" id="logoMark" aria-hidden="true"><span style="font-weight:900">S</span></span>
+        <span id="brandNameTop">Saikat Tech Hub</span>
+      </div>
 
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+        <a href="javascript:void(0)" id="openAdminBtn" class="btn dark" style="padding:10px 12px">
+          <i class="fa-solid fa-user-gear"></i> Admin
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="container" style="padding-top:14px">
+
+  <section class="cover" id="top">
+    <div class="img" id="coverArea">
+      <div class="ph"><i class="fa-solid fa-panorama"></i> Cover</div>
+    </div>
+    <div class="content">
+      <h1 class="title" id="brandTitle">Assalamu Alaikum 👋</h1>
+      <p class="tagline" id="brandTagline">Saikat Tech Hub এ আপনাকে স্বাগতম। নিচ থেকে Service/Product select করে WhatsApp এ অটো অর্ডার পাঠান। ✅ No password • ✅ Safe • ✅ Fast</p>
+
+      <div class="quick" id="quickInfo"></div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
         <a class="btn wa" id="waBtnTop" target="_blank" rel="noreferrer" href="#">
           <i class="fa-brands fa-whatsapp"></i> WhatsApp
         </a>
         <a class="btn fb" id="fbBtnTop" target="_blank" rel="noreferrer" href="#">
           <i class="fa-brands fa-facebook"></i> Facebook
         </a>
-
-        <!-- Admin button (opens Admin modal) -->
-        <button class="btn orange" id="openAdminBtn" type="button">
-          <i class="fa-solid fa-shield-halved"></i> Admin
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- COVER -->
-  <section class="cover" id="top">
-    <div class="container">
-      <div class="cover-card">
-        <div class="cover-img" id="coverArea">
-          <!-- cover image injected by JS -->
-        </div>
-        <div class="cover-content">
-          <div class="titleblock">
-            <h1 class="bn2" id="brandTitle">Assalamu Alaikum 👋</h1>
-            <p class="bn" id="brandTagline">
-              All Social & Digital Services + Shop items. Order via WhatsApp.
-            </p>
-          </div>
-
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn order" href="#services"><i class="fa-solid fa-layer-group"></i> Services</a>
-            <a class="btn ghost" href="#shop"><i class="fa-solid fa-bag-shopping"></i> Shop</a>
-            <a class="btn ghost" href="#contact"><i class="fa-solid fa-headset"></i> Contact</a>
-          </div>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px" id="quickInfo">
-        <!-- injected -->
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="section" id="services">
-    <div class="container">
-      <h2 class="section-title">Social Media Services (সব সার্ভিস)</h2>
-      <p class="subline bn">সার্ভিসে <b>Order</b> চাপুন → Payment/TrxID দিয়ে WhatsApp এ অটো মেসেজ যাবে।</p>
-
-      <div class="chips" id="serviceChips"></div>
-      <div class="grid" id="servicesGrid"></div>
-    </div>
+    <h2 class="section-title">Social Media Services</h2>
+    <p class="subline">Service select করে Order করলে আলাদা Payment page খুলবে—TrxID দিয়ে WhatsApp submit হবে।</p>
+    <div class="chips" id="svcChips"></div>
+    <div class="grid" id="svcGrid"></div>
   </section>
 
-  <!-- SHOP -->
-  <section class="section" id="shop">
-    <div class="container">
-      <h2 class="section-title">Shop (Products)</h2>
-      <p class="subline bn">Gadget / Fashion / Kitchen / Home — Product কার্ডে <b>Order</b> চাপলে WhatsApp order যাবে।</p>
-
-      <div class="chips" id="productChips"></div>
-      <div class="grid" id="productsGrid"></div>
-    </div>
+  <section class="section" id="products">
+    <h2 class="section-title">Products</h2>
+    <p class="subline">পণ্য কিনতে Order করুন—Payment + TrxID দিয়ে WhatsApp এ যাবে।</p>
+    <div class="chips" id="prdChips"></div>
+    <div class="grid" id="prdGrid"></div>
   </section>
 
-  <!-- HOW -->
-  <section class="section" id="how">
-    <div class="container">
-      <h2 class="section-title">How it works</h2>
-      <p class="subline bn">3 স্টেপ: Select → Payment Info → WhatsApp Submit</p>
-
-      <div class="grid">
-        <div class="card">
-          <span class="tag"><i class="fa-solid fa-hand-pointer"></i> Step 1</span>
-          <h3>Choose</h3>
-          <p class="bn">Service/Product select করে <b>Order</b> দিন।</p>
-        </div>
-        <div class="card">
-          <span class="tag"><i class="fa-solid fa-credit-card"></i> Step 2</span>
-          <h3>Payment</h3>
-          <p class="bn">bKash/Nagad payment করে TrxID লিখুন।</p>
-        </div>
-        <div class="card">
-          <span class="tag"><i class="fa-brands fa-whatsapp"></i> Step 3</span>
-          <h3>Submit</h3>
-          <p class="bn">Submit করলে WhatsApp এ অটো order message যাবে।</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
   <section class="section" id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <p class="subline bn">Tap করলেই সরাসরি ওপেন হবে</p>
+    <h2 class="section-title">Contact</h2>
+    <p class="subline">Tap করলে সরাসরি open হবে</p>
 
-      <div class="grid">
-        <div class="card">
-          <h3><i class="fa-brands fa-whatsapp"></i> WhatsApp</h3>
-          <p class="bn">Tap করলে WhatsApp chat ওপেন হবে।</p>
-          <div class="actions">
-            <a class="btn wa" id="waBtnContact" target="_blank" rel="noreferrer" href="#">
-              <i class="fa-brands fa-whatsapp"></i> Chat Now
-            </a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3><i class="fa-brands fa-facebook"></i> Facebook Page</h3>
-          <p class="bn">Tap করলে Facebook Page ওপেন হবে।</p>
-          <div class="actions">
-            <a class="btn fb" id="fbBtnContact" target="_blank" rel="noreferrer" href="#">
-              <i class="fa-brands fa-facebook"></i> Visit Page
-            </a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3><i class="fa-solid fa-envelope"></i> Email</h3>
-          <p class="bn">Tap করলে Email compose ওপেন হবে।</p>
-          <div class="actions">
-            <a class="btn ghost" id="emailBtn" href="#">
-              <i class="fa-solid fa-envelope"></i> Send Email
-            </a>
-          </div>
+    <div class="grid">
+      <div class="card item">
+        <span class="tag"><i class="fa-brands fa-whatsapp"></i> WhatsApp</span>
+        <h3>Chat Now</h3>
+        <p>WhatsApp chat ওপেন হবে</p>
+        <div class="actions">
+          <a class="btn wa" id="waBtnContact" target="_blank" rel="noreferrer" href="#">
+            <i class="fa-brands fa-whatsapp"></i> Chat
+          </a>
         </div>
       </div>
 
-      <div class="footer">
-        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-          <div>© <span id="yearNow"></span> <span id="brandFooter">Saikat Tech Hub</span> — All Rights Reserved</div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-            <a href="#top">Back to top</a>
-          </div>
+      <div class="card item">
+        <span class="tag"><i class="fa-brands fa-facebook"></i> Facebook</span>
+        <h3>Visit Page</h3>
+        <p>Facebook page ওপেন হবে</p>
+        <div class="actions">
+          <a class="btn fb" id="fbBtnContact" target="_blank" rel="noreferrer" href="#">
+            <i class="fa-brands fa-facebook"></i> Open
+          </a>
         </div>
       </div>
+
+      <div class="card item">
+        <span class="tag"><i class="fa-solid fa-envelope"></i> Email</span>
+        <h3>Send Email</h3>
+        <p>Email compose ওপেন হবে</p>
+        <div class="actions">
+          <a class="btn ghost" id="emailBtn" href="#">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="muted" style="margin-top:14px;font-size:12.5px">
+      © <span id="yearNow"></span> <span id="brandFooter">Saikat Tech Hub</span> — All Rights Reserved
     </div>
   </section>
+</main>
 
-  <!-- ORDER MODAL (shared for services + products) -->
-  <div class="overlay" id="orderOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
-      <div class="modal-head">
-        <b id="orderTitle">Order & Payment</b>
-        <button class="close-x" id="closeOrder" aria-label="Close">✕</button>
-      </div>
+<!-- ======================
+     ORDER MODAL (Service/Product)
+====================== -->
+<div class="overlay" id="orderOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <b id="orderTitle"><i class="fa-solid fa-cart-shopping"></i> Order</b>
+      <button class="close-x" id="closeOrder" aria-label="Close">✕</button>
+    </div>
 
-      <div class="modal-body">
-        <div class="two">
-          <div class="box">
-            <div class="summary">
-              <div class="big" id="oName">Item Name</div>
-              <div id="oDesc">Description</div>
-              <div class="bn muted" id="oMeta">Category</div>
-            </div>
+    <div class="modal-body" id="orderBody"></div>
 
-            <!-- Service qty/package area -->
-            <div id="svcOptions">
-              <div class="field" id="qtyField">
-                <label id="qtyLabel">Quantity</label>
-                <select id="qtySelect"></select>
-              </div>
-
-              <div class="field" id="pkgField" style="display:none">
-                <label>Package</label>
-                <select id="pkgSelect"></select>
-              </div>
-
-              <div class="field">
-                <label>Link / URL (Page/Profile/Post/Video)</label>
-                <input id="urlInput" placeholder="Paste your URL here" />
-              </div>
-
-              <div class="hint bn">
-                ✅ Password লাগবে না।<br/>
-                ✅ URL ঠিক দিলে কাজ দ্রুত হবে।
-              </div>
-            </div>
-
-            <!-- Product shipping note -->
-            <div id="prodOptions" class="hide">
-              <div class="field">
-                <label class="bn">Quantity</label>
-                <select id="prodQty">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-              <div class="field">
-                <label class="bn">Delivery Address (optional)</label>
-                <textarea id="shipAddr" placeholder="আপনার ঠিকানা লিখুন (optional)"></textarea>
-              </div>
-            </div>
-
-            <div class="field">
-              <label>Price</label>
-              <input id="priceShow" readonly />
-            </div>
-
-          </div>
-
-          <div class="box">
-            <div class="summary">
-              <div class="big">Payment</div>
-              <div class="bn">Payment complete করে Transaction ID দিন।</div>
-            </div>
-
-            <div class="pay-badges" style="margin-top:12px">
-              <div class="pay-badge"><i class="fa-solid fa-wallet"></i> bKash: <span id="mBkash"></span></div>
-              <div class="pay-badge"><i class="fa-solid fa-money-bill-wave"></i> Nagad: <span id="mNagad"></span></div>
-            </div>
-
-            <div class="field">
-              <label>Payment Method</label>
-              <select id="payMethod">
-                <option value="">Select</option>
-                <option value="bKash">bKash</option>
-                <option value="Nagad">Nagad</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label>Transaction ID (TrxID)</label>
-              <input id="trxInput" placeholder="e.g. A1B2C3D4" />
-            </div>
-
-            <div class="field">
-              <label>Extra Notes (optional)</label>
-              <textarea id="noteInput" placeholder="Target country / speed / any notes..."></textarea>
-            </div>
-
-            <div class="hint bn">
-              Payment proof (screenshot) চাইলে WhatsApp এ পাঠাতে পারবেন।
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-actions">
-        <button class="btn ghost" id="cancelOrder"><i class="fa-solid fa-xmark"></i> Cancel</button>
-        <button class="btn order" id="sendWaBtn"><i class="fa-brands fa-whatsapp"></i> Send Order to WhatsApp</button>
-      </div>
+    <div class="modal-actions">
+      <button class="btn ghost" id="cancelOrder"><i class="fa-solid fa-xmark"></i> Close</button>
+      <button class="btn pink" id="sendWaBtn"><i class="fa-brands fa-whatsapp"></i> Send Order</button>
     </div>
   </div>
+</div>
 
-  <!-- ADMIN MODAL (Part-2/3 will fill inside) -->
-  <div class="overlay" id="adminOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
-      <div class="modal-head">
-        <b id="adminTitle"><i class="fa-solid fa-shield-halved"></i> Admin</b>
-        <button class="close-x" id="closeAdmin" aria-label="Close">✕</button>
-      </div>
-      <div class="modal-body" id="adminBody">
-        <!-- Part-2 will inject login + pages here -->
-      </div>
-      <div class="modal-actions">
-        <button class="btn ghost" id="adminCloseBtn"><i class="fa-solid fa-xmark"></i> Close</button>
-      </div>
+<!-- ======================
+     ADMIN MODAL
+====================== -->
+<div class="overlay" id="adminOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <b><i class="fa-solid fa-shield-halved"></i> Admin</b>
+      <button class="close-x" id="closeAdmin" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="adminBody"></div>
+    <div class="modal-actions">
+      <button class="btn ghost" id="adminCloseBtn"><i class="fa-solid fa-xmark"></i> Close</button>
     </div>
   </div>
-
-  <script>
-    /***********************
-     *  FIXED CONFIG (your info stays)
-     ***********************/
-    const SAIKAT = {
-      waNumber: "8801804676711",
-      waRaw: "01804676711",
-      email: "saikat712@gmail.com",
-      fb: "https://www.facebook.com/share/1AWbo99RjN/",
-      address: "Dhaka New Market, 1205",
-      payment: { bkash: "+8801344-486384", nagad: "01682312657" }
-    };
-
-    /***********************
-     *  STORAGE KEYS (Part-2/3 uses these too)
-     ***********************/
-    const LS_BRAND = "saikat_brand_v1";
-    const LS_PRODUCTS = "saikat_products_v1";
-    const LS_CATS = "saikat_categories_v1";
-    const LS_SERVICES = "saikat_services_v1";
-
-    /***********************
-     *  Helpers
-     ***********************/
-    const $ = (q,el=document)=>el.querySelector(q);
-    const $$ = (q,el=document)=>Array.from(el.querySelectorAll(q));
-
-    function readJSON(key, fallback){
-      try{
-        const v = localStorage.getItem(key);
-        return v ? JSON.parse(v) : fallback;
-      }catch{
-        return fallback;
-      }
-    }
-    function writeJSON(key, value){
-      localStorage.setItem(key, JSON.stringify(value));
-    }
-    function escapeHtml(str){
-      return String(str ?? "")
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
-    function makeId(prefix="id"){
-      return prefix + "_" + Math.random().toString(16).slice(2) + "_" + Date.now().toString(16);
-    }
-
-    function toast(title, msg, type="info", ms=1800){
-      const wrap = $("#toastWrap");
-      const el = document.createElement("div");
-      el.className = `toast ${type}`;
-      el.innerHTML = `
-        <i class="fa-solid ${type==="success"?"fa-circle-check":type==="error"?"fa-triangle-exclamation":"fa-circle-info"}"></i>
-        <div>
-          <b>${escapeHtml(title)}</b>
-          <p class="bn">${escapeHtml(msg)}</p>
-        </div>
-      `;
-      wrap.appendChild(el);
-      setTimeout(()=>{ el.style.opacity="0"; el.style.transform="translateY(6px)"; }, ms);
-      setTimeout(()=>{ el.remove(); }, ms+250);
-    }
-
-    /***********************
-     *  DEFAULT DATA (editable by admin later)
-     ***********************/
-    const DEFAULT_BRAND = {
-      name: "Saikat Tech Hub",
-      title: "Assalamu Alaikum 👋",
-      tagline: "All Social & Digital Services + Shop items. Order via WhatsApp.",
-      logoDataUrl: "",   // set from admin upload
-      coverDataUrl: ""   // set from admin upload
-    };
-
-    const DEFAULT_CATEGORIES = ["Gadget","Fashion","Kitchen","Home","Social Media"];
-
-    // SERVICES (your original list kept)
-    const DEFAULT_SERVICES = [
-      { id:"fb_followers", category:"Facebook", icon:"fa-brands fa-facebook", title:"Facebook Followers", desc:"Page/Profile followers • Safe • No password", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,4,5,6,7,8,9,10,20,30,40,50,70], tags:["Popular","Fast","Safe"] },
-      { id:"fb_likes", category:"Facebook", icon:"fa-brands fa-facebook", title:"Facebook Likes", desc:"Page/Post likes • Social proof boost", unitType:"K", pricePerUnit:90, qtyList:[1,2,3,5,10,20,30,50], tags:["Trending","Quick","Boost"] },
-      { id:"fb_reacts", category:"Facebook", icon:"fa-solid fa-heart", title:"Facebook Post Reactions", desc:"Like/Love/Wow • Engagement boost", unitType:"100", pricePerUnit:80, qtyList:[1,2,3,5,10,20,30,50], tags:["Engagement","Safe","Hot"] },
-      { id:"fb_views", category:"Facebook", icon:"fa-solid fa-play", title:"Facebook Video Views", desc:"Views for video • Reach boost", unitType:"K", pricePerUnit:25, qtyList:[10,20,50,100,200], tags:["Reach","Fast","Boost"] },
-
-      { id:"yt_subs", category:"YouTube", icon:"fa-brands fa-youtube", title:"YouTube Subscribers", desc:"Channel subs • Promotional growth", unitType:"K", pricePerUnit:350, qtyList:[1,2,3,5,10], tags:["YouTube","Growth","Safe"] },
-      { id:"yt_views", category:"YouTube", icon:"fa-brands fa-youtube", title:"YouTube Views", desc:"Video views • Improve reach", unitType:"K", pricePerUnit:60, qtyList:[10,20,50,100,200], tags:["Views","Reach","Fast"] },
-
-      { id:"ig_followers", category:"Instagram", icon:"fa-brands fa-instagram", title:"Instagram Followers", desc:"Followers • Boost profile", unitType:"K", pricePerUnit:220, qtyList:[1,2,3,5,10,20], tags:["IG","Popular","Safe"] },
-      { id:"ig_likes", category:"Instagram", icon:"fa-brands fa-instagram", title:"Instagram Likes", desc:"Post likes • Social proof", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,5,10,20], tags:["Likes","Quick","Boost"] },
-
-      { id:"tt_followers", category:"TikTok", icon:"fa-brands fa-tiktok", title:"TikTok Followers", desc:"Followers • Boost account", unitType:"K", pricePerUnit:250, qtyList:[1,2,3,5,10,20], tags:["TikTok","Growth","Fast"] },
-      { id:"tt_likes", category:"TikTok", icon:"fa-brands fa-tiktok", title:"TikTok Likes", desc:"Video likes • Improve engagement", unitType:"K", pricePerUnit:140, qtyList:[1,2,3,5,10,20], tags:["Engagement","Boost","Hot"] },
-
-      { id:"boosting", category:"Marketing", icon:"fa-solid fa-bolt", title:"Boosting / Promotion", desc:"Boost post/page • Reach & engagement", unitType:"PACK",
-        packages:[{label:"Basic Boost",price:300,note:"Target + basic setup"},{label:"Standard Boost",price:700,note:"Better reach + optimize"},{label:"Premium Boost",price:1500,note:"Best reach + guidance"}],
-        tags:["Boosting","Ads","Support"]
-      },
-      { id:"ad_manager", category:"Marketing", icon:"fa-solid fa-rectangle-ad", title:"Ads Manager / Campaign Setup", desc:"Ad setup + audience + optimization", unitType:"PACK",
-        packages:[{label:"Single Campaign Setup",price:1200,note:"1 campaign + 1 adset"},{label:"Full Funnel Setup",price:2500,note:"Multiple adset + optimize"},{label:"Monthly Management",price:6000,note:"Weekly optimize + report"}],
-        tags:["Ad Manager","Pro","Strategy"]
-      },
-
-      { id:"video_edit", category:"Editing", icon:"fa-solid fa-scissors", title:"Video Editing", desc:"Reels/Shorts + Long video editing", unitType:"PACK",
-        packages:[{label:"Reels/Shorts (30–60s)",price:200,note:"Clean cut + music sync"},{label:"Reels Pro (Caption + Effects)",price:350,note:"Captions + transitions"},{label:"Long Video (5–10 min)",price:900,note:"Pro edit + HD export"}],
-        tags:["Creator","Premium","Fast"]
-      },
-      { id:"photo_edit", category:"Editing", icon:"fa-solid fa-image", title:"Photo Editing", desc:"Background remove • Retouch • Product edit", unitType:"PACK",
-        packages:[{label:"1 Photo",price:70,note:"Basic clean edit"},{label:"10 Photos",price:600,note:"Best value"},{label:"30 Photos",price:1600,note:"Bulk + priority"}],
-        tags:["Clean","Pro","Value"]
-      },
-      { id:"ai_content", category:"AI", icon:"fa-solid fa-wand-magic-sparkles", title:"AI Content / Caption / Hashtags", desc:"Brand tone captions & content", unitType:"PACK",
-        packages:[{label:"10 Captions",price:250,note:"Hashtags included"},{label:"30 Captions",price:650,note:"Consistent brand tone"},{label:"10 AI Images",price:450,note:"Social-ready images"}],
-        tags:["AI","Unique","Quick"]
-      }
-    ];
-
-    // PRODUCTS (starter demo, admin can edit later)
-    const DEFAULT_PRODUCTS = [
-      {
-        id: "p1",
-        category: "Gadget",
-        name: "Wireless Earbuds (Demo)",
-        sku: "GAD-001",
-        price: 899,
-        desc: "Demo product — admin থেকে edit করে নিজের product add করবেন।",
-        imageDataUrl: ""
-      },
-      {
-        id: "p2",
-        category: "Home",
-        name: "LED Night Lamp (Demo)",
-        sku: "HOME-002",
-        price: 399,
-        desc: "Demo product — admin থেকে edit করে নিজের product add করবেন।",
-        imageDataUrl: ""
-      }
-    ];
-
-    /***********************
-     *  Load persisted data
-     ***********************/
-    let BRAND = readJSON(LS_BRAND, DEFAULT_BRAND);
-    let CATEGORIES = readJSON(LS_CATS, DEFAULT_CATEGORIES);
-    let SERVICES = readJSON(LS_SERVICES, DEFAULT_SERVICES);
-    let PRODUCTS = readJSON(LS_PRODUCTS, DEFAULT_PRODUCTS);
-
-    /***********************
-     *  Render Brand/Top
-     ***********************/
-    function renderBrand(){
-      $("#brandNameTop").textContent = BRAND.name || "Saikat Tech Hub";
-      $("#brandFooter").textContent = BRAND.name || "Saikat Tech Hub";
-      $("#brandTitle").textContent = BRAND.title || "Assalamu Alaikum 👋";
-      $("#brandTagline").textContent = BRAND.tagline || "";
-
-      // Logo
-      const mark = $("#logoMark");
-      mark.innerHTML = "";
-      if(BRAND.logoDataUrl){
-        const img = document.createElement("img");
-        img.src = BRAND.logoDataUrl;
-        img.alt = "Logo";
-        mark.appendChild(img);
-      }else{
-        mark.style.background = "linear-gradient(135deg, rgba(96,165,250,.95), rgba(236,72,153,.86))";
-        mark.innerHTML = `<span style="font-weight:900">S</span>`;
-      }
-
-      // Cover
-      const cover = $("#coverArea");
-      cover.innerHTML = "";
-      if(BRAND.coverDataUrl){
-        const img = document.createElement("img");
-        img.src = BRAND.coverDataUrl;
-        img.alt = "Cover";
-        cover.appendChild(img);
-      }
-
-      // Quick info
-      const qi = $("#quickInfo");
-      qi.innerHTML = `
-        <div class="card" style="padding:14px">
-          <div class="tag"><i class="fa-brands fa-whatsapp"></i> WhatsApp</div>
-          <div style="font-weight:900;font-size:16px">${escapeHtml(SAIKAT.waRaw)}</div>
-          <div class="muted" style="font-size:12px;margin-top:6px">Fast support</div>
-        </div>
-        <div class="card" style="padding:14px">
-          <div class="tag"><i class="fa-solid fa-envelope"></i> Email</div>
-          <div style="font-weight:900;font-size:14px;word-break:break-all">${escapeHtml(SAIKAT.email)}</div>
-          <div class="muted" style="font-size:12px;margin-top:6px">Business inquiry</div>
-        </div>
-        <div class="card" style="padding:14px">
-          <div class="tag"><i class="fa-solid fa-location-dot"></i> Address</div>
-          <div style="font-weight:900;font-size:14px">${escapeHtml(SAIKAT.address)}</div>
-          <div class="muted" style="font-size:12px;margin-top:6px">Pick up/meet</div>
-        </div>
-        <div class="card" style="padding:14px">
-          <div class="tag"><i class="fa-solid fa-wallet"></i> Payment</div>
-          <div style="font-weight:900;font-size:13px;line-height:1.65">
-            bKash: ${escapeHtml(SAIKAT.payment.bkash)}<br/>
-            Nagad: ${escapeHtml(SAIKAT.payment.nagad)}
-          </div>
-        </div>
-      `;
-    }
-
-    /***********************
-     *  Top links
-     ***********************/
-    function bindTopLinks(){
-      const waLink = `https://wa.me/${SAIKAT.waNumber}`;
-      $("#waBtnTop").href = waLink;
-      $("#waBtnContact").href = waLink;
-
-      $("#fbBtnTop").href = SAIKAT.fb;
-      $("#fbBtnContact").href = SAIKAT.fb;
-
-      $("#emailBtn").href = `mailto:${SAIKAT.email}?subject=${encodeURIComponent("Service Inquiry - " + (BRAND.name||"Saikat Tech Hub"))}`;
-      $("#yearNow").textContent = String(new Date().getFullYear());
-    }
-
-    /***********************
-     *  Chips render
-     ***********************/
-    function unique(arr){ return Array.from(new Set(arr)); }
-
-    let activeServiceCat = "All";
-    let activeProductCat = "All";
-
-    function renderServiceChips(){
-      const cats = unique(["All", ...SERVICES.map(s=>s.category)]);
-      $("#serviceChips").innerHTML = cats.map(c=>`
-        <div class="chip ${c===activeServiceCat?"active":""}" data-scat="${escapeHtml(c)}">
-          <i class="fa-solid fa-filter"></i> ${escapeHtml(c)}
-        </div>
-      `).join("");
-    }
-
-    function renderProductChips(){
-      const cats = unique(["All", ...PRODUCTS.map(p=>p.category)]);
-      $("#productChips").innerHTML = cats.map(c=>`
-        <div class="chip ${c===activeProductCat?"active":""}" data-pcat="${escapeHtml(c)}">
-          <i class="fa-solid fa-filter"></i> ${escapeHtml(c)}
-        </div>
-      `).join("");
-    }
-
-    /***********************
-     *  Cards render
-     ***********************/
-    function serviceBasePriceText(s){
-      if(s.unitType==="PACK"){
-        const min = Math.min(...s.packages.map(p=>Number(p.price)));
-        return { big:`৳${min}`, small:"(starting)" };
-      }
-      if(s.unitType==="K") return { big:`৳${Number(s.pricePerUnit)}`, small:"per 1K" };
-      if(s.unitType==="100") return { big:`৳${Number(s.pricePerUnit)}`, small:"per 100" };
-      return { big:"৳0", small:"" };
-    }
-
-    function renderServices(){
-      const list = (activeServiceCat==="All") ? SERVICES : SERVICES.filter(s=>s.category===activeServiceCat);
-      $("#servicesGrid").innerHTML = list.map(s=>{
-        const tags = (s.tags||[]).slice(0,3).map(t=>`<span class="tag"><i class="${escapeHtml(s.icon)}"></i> ${escapeHtml(t)}</span>`).join("");
-        const pr = serviceBasePriceText(s);
-        return `
-          <div class="card">
-            <div class="meta">
-              <span class="tag"><i class="${escapeHtml(s.icon)}"></i> ${escapeHtml(s.category)}</span>
-              ${tags}
-            </div>
-            <h3>${escapeHtml(s.title)}</h3>
-            <p class="bn">${escapeHtml(s.desc)}</p>
-            <div class="price">
-              <span class="big">${escapeHtml(pr.big)}</span>
-              <span class="small">${escapeHtml(pr.small)}</span>
-            </div>
-            <div class="actions">
-              <button class="btn order" data-order-service="${escapeHtml(s.id)}">
-                <i class="fa-solid fa-cart-shopping"></i> Order
-              </button>
-              <button class="btn ghost" data-info-service="${escapeHtml(s.id)}">
-                <i class="fa-solid fa-circle-info"></i> Details
-              </button>
-            </div>
-          </div>
-        `;
-      }).join("");
-    }
-
-    function renderProducts(){
-      const list = (activeProductCat==="All") ? PRODUCTS : PRODUCTS.filter(p=>p.category===activeProductCat);
-      $("#productsGrid").innerHTML = list.map(p=>{
-        const img = p.imageDataUrl
-          ? `<img src="${escapeHtml(p.imageDataUrl)}" alt="${escapeHtml(p.name)}">`
-          : `<div class="ph"><i class="fa-solid fa-image"></i> No image</div>`;
-        return `
-          <div class="card">
-            <div class="thumb">${img}</div>
-            <div class="meta">
-              <span class="tag"><i class="fa-solid fa-bag-shopping"></i> ${escapeHtml(p.category)}</span>
-              <span class="tag"><i class="fa-solid fa-barcode"></i> ${escapeHtml(p.sku || "SKU")}</span>
-            </div>
-            <h3>${escapeHtml(p.name)}</h3>
-            <p class="bn">${escapeHtml(p.desc || "")}</p>
-            <div class="price">
-              <span class="big">৳${escapeHtml(Number(p.price||0))}</span>
-              <span class="small">per item</span>
-            </div>
-            <div class="actions">
-              <button class="btn order" data-order-product="${escapeHtml(p.id)}">
-                <i class="fa-solid fa-cart-shopping"></i> Order
-              </button>
-              <button class="btn ghost" data-info-product="${escapeHtml(p.id)}">
-                <i class="fa-solid fa-circle-info"></i> Details
-              </button>
-            </div>
-          </div>
-        `;
-      }).join("");
-    }
-
-    /***********************
-     *  Order modal logic
-     ***********************/
-    const orderOverlay = $("#orderOverlay");
-    const closeOrder = $("#closeOrder");
-    const cancelOrder = $("#cancelOrder");
-    const sendWaBtn = $("#sendWaBtn");
-
-    const oName = $("#oName");
-    const oDesc = $("#oDesc");
-    const oMeta = $("#oMeta");
-    const mBkash = $("#mBkash");
-    const mNagad = $("#mNagad");
-
-    const svcOptions = $("#svcOptions");
-    const prodOptions = $("#prodOptions");
-
-    const qtyField = $("#qtyField");
-    const qtyLabel = $("#qtyLabel");
-    const qtySelect = $("#qtySelect");
-
-    const pkgField = $("#pkgField");
-    const pkgSelect = $("#pkgSelect");
-
-    const priceShow = $("#priceShow");
-    const urlInput = $("#urlInput");
-    const payMethod = $("#payMethod");
-    const trxInput = $("#trxInput");
-    const noteInput = $("#noteInput");
-    const prodQty = $("#prodQty");
-    const shipAddr = $("#shipAddr");
-
-    let currentItem = null;
-    let currentKind = null; // "service" | "product"
-    let currentComputed = { label:"", price:0 };
-
-    function openOrder(kind, item){
-      currentKind = kind;
-      currentItem = item;
-      currentComputed = { label:"", price:0 };
-
-      mBkash.textContent = SAIKAT.payment.bkash;
-      mNagad.textContent = SAIKAT.payment.nagad;
-
-      payMethod.value = "";
-      trxInput.value = "";
-      noteInput.value = "";
-
-      // reset
-      urlInput.value = "";
-      prodQty.value = "1";
-      shipAddr.value = "";
-
-      if(kind==="service"){
-        oName.textContent = item.title;
-        oDesc.textContent = item.desc;
-        oMeta.textContent = `Category: ${item.category}`;
-        svcOptions.classList.remove("hide");
-        prodOptions.classList.add("hide");
-        urlInput.parentElement.classList.remove("hide");
-
-        if(item.unitType==="PACK"){
-          qtyField.style.display = "none";
-          pkgField.style.display = "block";
-          pkgSelect.innerHTML = `<option value="">Select package</option>` + item.packages.map((p,idx)=>{
-            return `<option value="${idx}">${escapeHtml(p.label)} — ৳${escapeHtml(p.price)}</option>`;
-          }).join("");
-          priceShow.value = "৳0";
-        }else{
-          qtyField.style.display = "block";
-          pkgField.style.display = "none";
-          if(item.unitType==="K"){
-            qtyLabel.textContent = "Quantity (K)";
-            qtySelect.innerHTML = `<option value="">Select quantity</option>` + item.qtyList.map(q=>`<option value="${q}">${q}K</option>`).join("");
-          }else if(item.unitType==="100"){
-            qtyLabel.textContent = "Quantity (x100)";
-            qtySelect.innerHTML = `<option value="">Select quantity</option>` + item.qtyList.map(q=>`<option value="${q}">${q*100}</option>`).join("");
-          }
-          priceShow.value = "৳0";
-        }
-      }
-
-      if(kind==="product"){
-        oName.textContent = item.name;
-        oDesc.textContent = item.desc || "";
-        oMeta.textContent = `Category: ${item.category} • SKU: ${item.sku || "N/A"}`;
-
-        svcOptions.classList.add("hide");
-        prodOptions.classList.remove("hide");
-        // url for product not required
-        urlInput.value = "";
-        priceShow.value = `৳${Number(item.price||0)}`;
-        currentComputed = { label:"1", price:Number(item.price||0) };
-      }
-
-      orderOverlay.classList.add("show");
-      orderOverlay.setAttribute("aria-hidden","false");
-    }
-
-    function closeOrderFn(){
-      orderOverlay.classList.remove("show");
-      orderOverlay.setAttribute("aria-hidden","true");
-      currentItem = null;
-      currentKind = null;
-    }
-
-    qtySelect.addEventListener("change", ()=>{
-      if(!currentItem || currentKind!=="service") return;
-      const v = qtySelect.value ? Number(qtySelect.value) : 0;
-      if(!v){ priceShow.value="৳0"; currentComputed={label:"",price:0}; return; }
-
-      let label="", price=0;
-      if(currentItem.unitType==="K"){
-        label = `${v}K`;
-        price = v * Number(currentItem.pricePerUnit);
-      }else if(currentItem.unitType==="100"){
-        label = `${v*100}`;
-        price = v * Number(currentItem.pricePerUnit);
-      }
-      currentComputed = { label, price };
-      priceShow.value = `৳${price}`;
-    });
-
-    pkgSelect.addEventListener("change", ()=>{
-      if(!currentItem || currentKind!=="service") return;
-      const idx = pkgSelect.value ? Number(pkgSelect.value) : -1;
-      if(idx<0){ priceShow.value="৳0"; currentComputed={label:"",price:0}; return; }
-      const p = currentItem.packages[idx];
-      currentComputed = { label:p.label, price:Number(p.price) };
-      priceShow.value = `৳${p.price}`;
-    });
-
-    prodQty.addEventListener("change", ()=>{
-      if(!currentItem || currentKind!=="product") return;
-      const q = Number(prodQty.value||1);
-      const unit = Number(currentItem.price||0);
-      const total = q * unit;
-      currentComputed = { label:String(q), price: total };
-      priceShow.value = `৳${total}`;
-    });
-
-    sendWaBtn.addEventListener("click", ()=>{
-      if(!currentItem) return;
-
-      // validations
-      if(currentKind==="service"){
-        if(currentItem.unitType==="PACK"){
-          if(!pkgSelect.value) return alert("Package select করুন");
-        }else{
-          if(!qtySelect.value) return alert("Quantity select করুন");
-        }
-        if(!urlInput.value.trim()) return alert("Link/URL দিন");
-      }
-
-      if(!payMethod.value) return alert("Payment method select করুন (bKash/Nagad)");
-      if(!trxInput.value.trim()) return alert("Transaction ID দিন");
-
-      const wa = `https://wa.me/${SAIKAT.waNumber}`;
-      const method = payMethod.value;
-      const trx = trxInput.value.trim();
-      const notes = noteInput.value.trim() || "N/A";
-
-      let msg = `Assalamu Alaikum,\nI want to place an order.\n\n`;
-
-      if(currentKind==="service"){
-        msg +=
-`Type: Service
-Service: ${currentItem.title}
-Category: ${currentItem.category}
-Package/Qty: ${currentComputed.label}
-Price: ৳${currentComputed.price}
-
-Payment:
-Method: ${method}
-TrxID: ${trx}
-
-Link/URL:
-${urlInput.value.trim()}
-
-Notes:
-${notes}
-
--- ${BRAND.name || "Saikat Tech Hub"}`;
-      }
-
-      if(currentKind==="product"){
-        msg +=
-`Type: Product
-Product: ${currentItem.name}
-Category: ${currentItem.category}
-SKU: ${currentItem.sku || "N/A"}
-Qty: ${currentComputed.label}
-Total: ৳${currentComputed.price}
-
-Payment:
-Method: ${method}
-TrxID: ${trx}
-
-Delivery Address (optional):
-${shipAddr.value.trim() || "N/A"}
-
-Notes:
-${notes}
-
--- ${BRAND.name || "Saikat Tech Hub"}`;
-      }
-
-      window.open(`${wa}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
-    });
-
-    closeOrder.addEventListener("click", closeOrderFn);
-    cancelOrder.addEventListener("click", closeOrderFn);
-    orderOverlay.addEventListener("click",(e)=>{ if(e.target===orderOverlay) closeOrderFn(); });
-    document.addEventListener("keydown",(e)=>{ if(e.key==="Escape" && orderOverlay.classList.contains("show")) closeOrderFn(); });
-
-    /***********************
-     *  Click handlers (cards)
-     ***********************/
-    $("#servicesGrid").addEventListener("click",(e)=>{
-      const order = e.target.closest("[data-order-service]");
-      const info = e.target.closest("[data-info-service]");
-      if(order){
-        const id = order.getAttribute("data-order-service");
-        const s = SERVICES.find(x=>x.id===id);
-        if(s) openOrder("service", s);
-      }
-      if(info){
-        const id = info.getAttribute("data-info-service");
-        const s = SERVICES.find(x=>x.id===id);
-        if(!s) return;
-        let details = `${s.title}\n\n${s.desc}\n\nCategory: ${s.category}\n`;
-        if(s.unitType==="PACK"){
-          details += "\nPackages:\n" + s.packages.map(p=>`- ${p.label}: ৳${p.price} (${p.note})`).join("\n");
-        }else{
-          details += `\nPricing:\n- Rate: ৳${s.pricePerUnit} per ${s.unitType==="K"?"1K":"100"}\n`;
-        }
-        alert(details);
-      }
-    });
-
-    $("#productsGrid").addEventListener("click",(e)=>{
-      const order = e.target.closest("[data-order-product]");
-      const info = e.target.closest("[data-info-product]");
-      if(order){
-        const id = order.getAttribute("data-order-product");
-        const p = PRODUCTS.find(x=>x.id===id);
-        if(p) openOrder("product", p);
-      }
-      if(info){
-        const id = info.getAttribute("data-info-product");
-        const p = PRODUCTS.find(x=>x.id===id);
-        if(!p) return;
-        alert(`${p.name}\n\n${p.desc||""}\n\nCategory: ${p.category}\nSKU: ${p.sku||"N/A"}\nPrice: ৳${p.price||0}`);
-      }
-    });
-
-    $("#serviceChips").addEventListener("click",(e)=>{
-      const ch = e.target.closest("[data-scat]");
-      if(!ch) return;
-      activeServiceCat = ch.getAttribute("data-scat");
-      renderServiceChips();
-      renderServices();
-    });
-
-    $("#productChips").addEventListener("click",(e)=>{
-      const ch = e.target.closest("[data-pcat]");
-      if(!ch) return;
-      activeProductCat = ch.getAttribute("data-pcat");
-      renderProductChips();
-      renderProducts();
-    });
-
-    /***********************
-     *  ADMIN overlay open/close (Part-2 will inject content)
-     ***********************/
-    const adminOverlay = $("#adminOverlay");
-    $("#openAdminBtn").addEventListener("click", ()=>{
-      adminOverlay.classList.add("show");
-      adminOverlay.setAttribute("aria-hidden","false");
-      // Part-2 will render admin UI
-      if(typeof refreshAdminUI === "function") refreshAdminUI();
-    });
-    function closeAdminFn(){
-      adminOverlay.classList.remove("show");
-      adminOverlay.setAttribute("aria-hidden","true");
-    }
-    $("#closeAdmin").addEventListener("click", closeAdminFn);
-    $("#adminCloseBtn").addEventListener("click", closeAdminFn);
-    adminOverlay.addEventListener("click",(e)=>{ if(e.target===adminOverlay) closeAdminFn(); });
-    document.addEventListener("keydown",(e)=>{ if(e.key==="Escape" && adminOverlay.classList.contains("show")) closeAdminFn(); });
-
-    /***********************
-     *  Init
-     ***********************/
-    bindTopLinks();
-    renderBrand();
-    renderServiceChips();
-    renderProductChips();
-    renderServices();
-    renderProducts();
-
-  </script>
-
-  <!-- Part-2 + Part-3 will continue here -->
-</body>
-</html>/* ===== Admin Modal Scroll Fix ===== */
-.overlay .modal{
-  max-height: calc(100vh - 36px);
-  display:flex;
-  flex-direction:column;
-}
-
-.overlay .modal-body{
-  overflow:auto;
-  -webkit-overflow-scrolling: touch;
-  max-height: calc(100vh - 160px); /* header+footer space */
-}
-
-/* Save/Close area always visible */
-.overlay .modal-actions{
-  position: sticky;
-  bottom: 0;
-  z-index: 5;
-  background: rgba(0,0,0,.35);
-  backdrop-filter: blur(10px);
-}@media (max-width: 980px){
-  .overlay{ padding: 10px; }
-  .modal-body{ padding: 14px; }
-  .modal-actions{ padding: 12px 14px; }
-}
-<!-- =========================
-     PART 1 END
-========================= -->
-```0<!-- =========================
-     PART 2 START (Admin UI: Login + Dashboard + Routing Shell)
-     Paste this ENTIRE Part-2 BELOW Part-1 (replace the closing </body></html> area if needed)
-     IMPORTANT: Part-1 already ended with </html>. So do this:
-     ✅ Step:
-        1) Open your index.html
-        2) Find: <!-- Part-2 + Part-3 will continue here -->
-        3) PASTE Part-2 + Part-3 there (Part-3 next message)
-========================= -->
+</div>
+
+<div class="toast" id="toast">
+  <div class="ticon" id="tIcon">✅</div>
+  <div>
+    <div class="ttitle" id="tTitle">Saved</div>
+    <div class="tmsg" id="tMsg">Done</div>
+  </div>
+</div>
 
 <script>
-/***********************
- *  ADMIN UI (Modal content + routes)
- *  Part-3 will add full logic + features
- ***********************/
-const adminBody = document.getElementById("adminBody");
-
-/* Admin UI template shells */
-function adminTemplate(){
-  return `
-    <div id="adminShell">
-      <div id="adminRoute"></div>
-    </div>
-  `;
+/* =========================
+   Utilities
+========================= */
+const $ = (s)=>document.querySelector(s);
+function escapeHtml(str){
+  return String(str||"")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+function writeJSON(key,val){ localStorage.setItem(key, JSON.stringify(val)); }
+function readJSON(key,fallback){
+  try{ const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+  catch{ return fallback; }
+}
+function makeId(prefix="id"){ return prefix+"_"+Math.random().toString(16).slice(2)+Date.now().toString(16); }
+function toast(title,msg,type="success",ms=1600){
+  const t = $("#toast");
+  $("#tTitle").textContent = title;
+  $("#tMsg").textContent = msg;
+  $("#tIcon").textContent = type==="error" ? "❌" : type==="warn" ? "⚠️" : "✅";
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), ms);
 }
 
-/* Routes: login / dashboard / ... */
-let ADMIN_ROUTE = "login";
+/* =========================
+   Storage keys
+========================= */
+const LS_BRAND = "sth_brand_v1";
+const LS_STORE = "sth_store_v1";
+const LS_SERVICES = "sth_services_v1";
+const LS_PRODUCTS = "sth_products_v1";
+const LS_CATS = "sth_categories_v1";
+const LS_ADMIN_CREDS = "sth_admin_creds_v1";
+const LS_PRIV_UNLOCK = "sth_priv_unlock_v1";
+const LS_ADMIN_SESSION = "sth_admin_session_v1";
 
-function routeTo(r){
-  ADMIN_ROUTE = r;
-  renderAdmin();
-}
-
-function refreshAdminUI(){
-  // if session exists Part-3 will set isAdmin()
-  if(typeof isAdmin === "function" && isAdmin()){
-    routeTo("dashboard");
-  }else{
-    routeTo("login");
-  }
-}
-
-/***********************
- *  LOGIN UI (only login form + close)
- *  ✅ removed "What you can edit" text block as you requested
- ***********************/
-function renderLogin(){
-  adminBody.innerHTML = `
-    ${adminTemplate()}
-  `;
-
-  const root = document.getElementById("adminRoute");
-  root.innerHTML = `
-    <div class="box" style="max-width:520px;margin:0 auto">
-      <b style="display:flex;align-items:center;gap:10px">
-        <i class="fa-solid fa-lock"></i> Login
-      </b>
-      <p class="muted bn" style="margin:8px 0 0;line-height:1.7">
-        শুধু Admin/Staff access পাবেন।
-      </p>
-
-      <div class="field" style="margin-top:14px">
-        <label>Username</label>
-        <input id="adminUser" placeholder="saikat@gmail.com" autocomplete="username" />
-      </div>
-
-      <div class="field">
-        <label>Password</label>
-        <div style="display:flex;gap:10px;align-items:center">
-          <input id="adminPass" type="password" placeholder="********" autocomplete="current-password" style="flex:1" />
-          <button class="btn ghost" id="togglePass" type="button" style="padding:12px 14px;border-radius:16px">
-            <i class="fa-solid fa-eye"></i>
-          </button>
-        </div>
-      </div>
-
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
-        <button class="btn primary" id="adminLoginBtn" type="button">
-          <i class="fa-solid fa-right-to-bracket"></i> Login
-        </button>
-        <button class="btn ghost" id="adminCloseOnly" type="button">
-          <i class="fa-solid fa-xmark"></i> Close
-        </button>
-      </div>
-
-      <div class="muted bn" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-        Tip: Username/password সেভ করে রাখবেন।
-      </div>
-    </div>
-  `;
-
-  const u = document.getElementById("adminUser");
-  const p = document.getElementById("adminPass");
-  const t = document.getElementById("togglePass");
-  const loginBtn = document.getElementById("adminLoginBtn");
-
-  t.addEventListener("click", ()=>{
-    p.type = p.type === "password" ? "text" : "password";
-    t.innerHTML = p.type === "password"
-      ? `<i class="fa-solid fa-eye"></i>`
-      : `<i class="fa-solid fa-eye-slash"></i>`;
-  });
-
-  // close button inside login page
-  document.getElementById("adminCloseOnly").addEventListener("click", ()=>{
-    // uses Part-1 closeAdminFn()
-    if(typeof closeAdminFn === "function") closeAdminFn();
-    else document.getElementById("adminOverlay").classList.remove("show");
-  });
-
-  // Part-3 will attach real auth
-  loginBtn.addEventListener("click", ()=>{
-    if(typeof adminLogin === "function"){
-      adminLogin(u.value.trim(), p.value);
-    }else{
-      alert("Part-3 paste হয়নি। এখন Part-3 paste করুন।");
-    }
-  });
-}
-
-/***********************
- *  DASHBOARD UI
- *  Shopify-like tiles
- ***********************/
-function renderDashboard(){
-  adminBody.innerHTML = `
-    ${adminTemplate()}
-  `;
-
-  const root = document.getElementById("adminRoute");
-  root.innerHTML = `
-    <div class="box">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
-        <div>
-          <b style="font-size:18px"><i class="fa-solid fa-grid-2"></i> Admin Dashboard</b>
-          <div class="muted bn" style="margin-top:4px">যে অপশন এ ক্লিক করবেন নতুন page open হবে</div>
-        </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn ghost" id="adminLogout" type="button">
-            <i class="fa-solid fa-right-from-bracket"></i> Logout
-          </button>
-        </div>
-      </div>
-
-      <div style="margin-top:14px" id="adminDashboard"
-           style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-      </div>
-    </div>
-
-    <div class="box" style="margin-top:12px" id="adminPage">
-      <!-- sub pages render here -->
-      <div class="muted bn">একটি অপশন সিলেক্ট করুন…</div>
-    </div>
-  `;
-
-  // responsive grid
-  const dash = document.getElementById("adminDashboard");
-  dash.style.display = "grid";
-  dash.style.gridTemplateColumns = window.innerWidth <= 980 ? "1fr" : "repeat(3, 1fr)";
-  window.addEventListener("resize", ()=>{
-    dash.style.gridTemplateColumns = window.innerWidth <= 980 ? "1fr" : "repeat(3, 1fr)";
-  });
-
-  const tiles = [
-    { r:"branding",  icon:"fa-image",         title:"Branding",  desc:"Logo + Cover + Tagline" },
-    { r:"products",  icon:"fa-bag-shopping",  title:"Products",  desc:"Image, Name, SKU, Price, Description" },
-    { r:"categories",icon:"fa-layer-group",   title:"Categories",desc:"Gadget/Fashion/Kitchen/Home + Add New" },
-    { r:"services",  icon:"fa-share-nodes",   title:"Services",  desc:"Social media services + pricing" },
-    { r:"payments",  icon:"fa-wallet",        title:"Payment & Address", desc:"bKash/Nagad/Address/Links" },
-    { r:"privacy",   icon:"fa-user-shield",   title:"Privacy / Staff", desc:"Admin pass change + staff access" },
-  ];
-
-  dash.innerHTML = tiles.map(t=>`
-    <div class="card" style="cursor:pointer" data-route="${t.r}">
-      <div class="meta">
-        <span class="tag"><i class="fa-solid ${t.icon}"></i> ${t.title}</span>
-      </div>
-      <h3>${t.title}</h3>
-      <p class="bn">${t.desc}</p>
-      <div class="actions">
-        <button class="btn primary" type="button"><i class="fa-solid fa-pen-to-square"></i> Open</button>
-      </div>
-    </div>
-  `).join("");
-
-  // Route clicking (Part-3 adds permission check)
-  dash.addEventListener("click",(e)=>{
-    const card = e.target.closest("[data-route]");
-    if(!card) return;
-    const r = card.getAttribute("data-route");
-    if(typeof canAccess === "function" && !canAccess(r)){
-      toast("Blocked","আপনার permission নেই ❌","error",2000);
-      return;
-    }
-    routeTo(r);
-  });
-
-  // Logout (Part-3 implements clearPermSession)
-  document.getElementById("adminLogout").addEventListener("click", ()=>{
-    if(typeof adminLogout === "function") adminLogout();
-    else alert("Part-3 paste হয়নি। Part-3 paste করুন।");
-  });
-}
-
-/***********************
- *  Placeholder renderers for pages (Part-3 will replace with real)
- ***********************/
-function renderPagePlaceholder(title){
-  renderDashboard(); // keep dashboard visible
-  const page = document.getElementById("adminPage");
-  page.innerHTML = `
-    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
-      <b style="font-size:16px"><i class="fa-solid fa-gear"></i> ${escapeHtml(title)}</b>
-      <button class="btn ghost" id="backDash" type="button"><i class="fa-solid fa-arrow-left"></i> Back</button>
-    </div>
-    <div class="muted bn" style="margin-top:10px">
-      এই পেজের ফিচার Part-3 এ আসবে ✅
-    </div>
-  `;
-  document.getElementById("backDash").addEventListener("click", ()=>routeTo("dashboard"));
-}
-
-/***********************
- *  Main admin render switch
- ***********************/
-function renderAdmin(){
-  if(ADMIN_ROUTE==="login") return renderLogin();
-
-  // If not logged in, force login
-  if(typeof isAdmin === "function" && !isAdmin()){
-    return renderLogin();
-  }
-
-  if(ADMIN_ROUTE==="dashboard") return renderDashboard();
-
-  // pages (Part-3 will override each)
-  if(ADMIN_ROUTE==="branding")   return (typeof renderBrandingPage==="function") ? renderBrandingPage() : renderPagePlaceholder("Branding");
-  if(ADMIN_ROUTE==="products")   return (typeof renderProductsAdmin==="function") ? renderProductsAdmin() : renderPagePlaceholder("Products");
-  if(ADMIN_ROUTE==="categories") return (typeof renderCategoriesAdmin==="function") ? renderCategoriesAdmin() : renderPagePlaceholder("Categories");
-  if(ADMIN_ROUTE==="services")   return (typeof renderServicesAdmin==="function") ? renderServicesAdmin() : renderPagePlaceholder("Services");
-  if(ADMIN_ROUTE==="payments")   return (typeof renderPaymentsAdmin==="function") ? renderPaymentsAdmin() : renderPagePlaceholder("Payment & Address");
-  if(ADMIN_ROUTE==="privacy")    return (typeof renderPrivacyPage==="function") ? renderPrivacyPage() : renderPagePlaceholder("Privacy / Staff");
-
-  return renderDashboard();
-}
-
-// First paint (when modal opens, Part-1 calls refreshAdminUI)
-</script>
-
-<!-- =========================
-     PART 2 END
-     Now ask me for PART 3
-========================= -->
-```0<!-- =========================
-     PART 3 START (FULL LOGIC: Auth + Privacy + Staff + Admin Pages + Editable Data)
-     ✅ Paste this right after PART 2
-========================= -->
-<script>
-/***********************
- *  0) STORE OVERRIDES (editable payment/address/links)
- *  We will override Part-1 functions to use STORE (not fixed const SAIKAT)
- ***********************/
-const LS_STORE = "saikat_store_v1";
-let STORE = readJSON(LS_STORE, {
-  waNumber: SAIKAT.waNumber,
-  waRaw: SAIKAT.waRaw,
-  email: SAIKAT.email,
-  fb: SAIKAT.fb,
-  address: SAIKAT.address,
-  payment: { bkash: SAIKAT.payment.bkash, nagad: SAIKAT.payment.nagad }
+/* =========================
+   Default data
+========================= */
+let BRAND = readJSON(LS_BRAND, {
+  name:"Saikat Tech Hub",
+  title:"Assalamu Alaikum 👋",
+  tagline:"Saikat Tech Hub এ আপনাকে স্বাগতম। নিচ থেকে Service/Product select করে WhatsApp এ অটো অর্ডার পাঠান। ✅ No password • ✅ Safe • ✅ Fast",
+  logoDataUrl:"",
+  coverDataUrl:""
 });
 
-function saveStore(){
-  writeJSON(LS_STORE, STORE);
-}
+let STORE = readJSON(LS_STORE, {...FIXED});
 
-/* Override bindTopLinks + renderBrand to use STORE */
-bindTopLinks = function(){
-  const waLink = `https://wa.me/${STORE.waNumber}`;
-  $("#waBtnTop").href = waLink;
-  $("#waBtnContact").href = waLink;
+let CATEGORIES = readJSON(LS_CATS, ["Gadget","Fashion","Kitchen","Home","Accessories"]);
 
+let SERVICES = readJSON(LS_SERVICES, [
+  { id:"fb_followers", category:"Facebook", icon:"fa-brands fa-facebook", title:"Facebook Followers", desc:"Page/Profile followers • Safe • No password", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,5,10], tags:["Popular","Fast","Safe"] },
+  { id:"fb_likes", category:"Facebook", icon:"fa-brands fa-facebook", title:"Facebook Likes", desc:"Page/Post likes • Social proof boost", unitType:"K", pricePerUnit:90, qtyList:[1,2,3,5,10], tags:["Trending","Quick","Boost"] },
+  { id:"yt_subs", category:"YouTube", icon:"fa-brands fa-youtube", title:"YouTube Subscribers", desc:"Channel subs • Promotional growth", unitType:"K", pricePerUnit:350, qtyList:[1,2,3,5], tags:["Growth","Safe","Fast"] },
+  { id:"boosting", category:"Marketing", icon:"fa-solid fa-bolt", title:"Boosting / Promotion", desc:"Boost post/page • Reach & engagement", unitType:"PACK",
+    packages:[{label:"Basic Boost",price:300,note:"Target + basic setup"},{label:"Standard Boost",price:700,note:"Better reach + optimize"},{label:"Premium Boost",price:1500,note:"Best reach + guidance"}],
+    tags:["Boosting","Ads","Support"]
+  }
+]);
+
+let PRODUCTS = readJSON(LS_PRODUCTS, [
+  { id:makeId("p"), category:"Gadget", name:"Bluetooth Speaker", sku:"SPK-01", price:899, desc:"High bass • Portable", imageDataUrl:"" },
+  { id:makeId("p"), category:"Home", name:"LED Night Lamp", sku:"LMP-02", price:299, desc:"Soft light • Low power", imageDataUrl:"" }
+]);
+
+let adminCreds = readJSON(LS_ADMIN_CREDS, {...ADMIN_DEFAULT});
+
+/* =========================
+   Render brand + links
+========================= */
+function bindTopLinks(){
+  const wa = `https://wa.me/${STORE.waNumber}`;
+  $("#waBtnTop").href = wa;
+  $("#waBtnContact").href = wa;
   $("#fbBtnTop").href = STORE.fb;
   $("#fbBtnContact").href = STORE.fb;
-
   $("#emailBtn").href = `mailto:${STORE.email}?subject=${encodeURIComponent("Service Inquiry - " + (BRAND.name||"Saikat Tech Hub"))}`;
   $("#yearNow").textContent = String(new Date().getFullYear());
-};
+}
 
-renderBrand = function(){
+function renderBrand(){
   $("#brandNameTop").textContent = BRAND.name || "Saikat Tech Hub";
   $("#brandFooter").textContent = BRAND.name || "Saikat Tech Hub";
   $("#brandTitle").textContent = BRAND.title || "Assalamu Alaikum 👋";
@@ -1582,1287 +550,1049 @@ renderBrand = function(){
   const mark = $("#logoMark");
   mark.innerHTML = "";
   if(BRAND.logoDataUrl){
-    const img = document.createElement("img");
-    img.src = BRAND.logoDataUrl;
-    img.alt = "Logo";
+    const img=document.createElement("img");
+    img.src=BRAND.logoDataUrl; img.alt="Logo";
     mark.appendChild(img);
   }else{
-    mark.style.background = "linear-gradient(135deg, rgba(96,165,250,.95), rgba(236,72,153,.86))";
     mark.innerHTML = `<span style="font-weight:900">S</span>`;
   }
 
   const cover = $("#coverArea");
   cover.innerHTML = "";
   if(BRAND.coverDataUrl){
-    const img = document.createElement("img");
-    img.src = BRAND.coverDataUrl;
-    img.alt = "Cover";
+    const img=document.createElement("img");
+    img.src=BRAND.coverDataUrl; img.alt="Cover";
     cover.appendChild(img);
+  }else{
+    cover.innerHTML = `<div class="ph"><i class="fa-solid fa-panorama"></i> Cover</div>`;
   }
 
-  const qi = $("#quickInfo");
-  qi.innerHTML = `
-    <div class="card" style="padding:14px">
-      <div class="tag"><i class="fa-brands fa-whatsapp"></i> WhatsApp</div>
-      <div style="font-weight:900;font-size:16px">${escapeHtml(STORE.waRaw)}</div>
+  $("#quickInfo").innerHTML = `
+    <div class="card">
+      <span class="tag"><i class="fa-brands fa-whatsapp"></i> WhatsApp</span>
+      <div style="font-weight:900;font-size:14px;margin-top:8px">${escapeHtml(STORE.waRaw)}</div>
       <div class="muted" style="font-size:12px;margin-top:6px">Fast support</div>
     </div>
-    <div class="card" style="padding:14px">
-      <div class="tag"><i class="fa-solid fa-envelope"></i> Email</div>
-      <div style="font-weight:900;font-size:14px;word-break:break-all">${escapeHtml(STORE.email)}</div>
-      <div class="muted" style="font-size:12px;margin-top:6px">Business inquiry</div>
-    </div>
-    <div class="card" style="padding:14px">
-      <div class="tag"><i class="fa-solid fa-location-dot"></i> Address</div>
-      <div style="font-weight:900;font-size:14px">${escapeHtml(STORE.address)}</div>
-      <div class="muted" style="font-size:12px;margin-top:6px">Pick up/meet</div>
-    </div>
-    <div class="card" style="padding:14px">
-      <div class="tag"><i class="fa-solid fa-wallet"></i> Payment</div>
-      <div style="font-weight:900;font-size:13px;line-height:1.65">
+    <div class="card">
+      <span class="tag"><i class="fa-solid fa-wallet"></i> Payment</span>
+      <div style="font-weight:900;font-size:12.5px;line-height:1.7;margin-top:8px">
         bKash: ${escapeHtml(STORE.payment.bkash)}<br/>
         Nagad: ${escapeHtml(STORE.payment.nagad)}
       </div>
     </div>
   `;
-};
-
-/***********************
- *  Override Order logic so payment/WA uses STORE
- *  (We remove old listeners by cloning the button)
- ***********************/
-function replaceNodeToClearListeners(el){
-  const n = el.cloneNode(true);
-  el.parentNode.replaceChild(n, el);
-  return n;
 }
 
-// Re-attach the WhatsApp order send button with STORE info
-(function(){
-  const btnOld = document.getElementById("sendWaBtn");
-  if(btnOld){
-    const btn = replaceNodeToClearListeners(btnOld);
-    btn.addEventListener("click", ()=>{
-      if(!window.currentItem) return;
+/* =========================
+   Services UI
+========================= */
+let svcFilter = "All";
+function serviceCategories(){
+  const set = new Set(["All"]);
+  SERVICES.forEach(s=>set.add(s.category||"Other"));
+  return [...set];
+}
+function renderServiceChips(){
+  const cats = serviceCategories();
+  $("#svcChips").innerHTML = cats.map(c=>`
+    <span class="chip ${c===svcFilter?"active":""}" data-svc="${escapeHtml(c)}">${escapeHtml(c)}</span>
+  `).join("");
+}
+function renderServices(){
+  const list = SERVICES.filter(s => svcFilter==="All" ? true : (s.category===svcFilter));
+  $("#svcGrid").innerHTML = list.map(s=>`
+    <div class="card item">
+      <span class="tag"><i class="${escapeHtml(s.icon||"fa-solid fa-bolt")}"></i> ${escapeHtml(s.category||"Service")}</span>
+      <h3>${escapeHtml(s.title)}</h3>
+      <p>${escapeHtml(s.desc||"")}</p>
+      <div class="actions">
+        <button class="btn pink" data-order-service="${escapeHtml(s.id)}"><i class="fa-solid fa-cart-shopping"></i> Order</button>
+        <button class="btn ghost" data-details-service="${escapeHtml(s.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
+      </div>
+    </div>
+  `).join("") || `<div class="muted">No services</div>`;
+}
+$("#svcChips").addEventListener("click",(e)=>{
+  const ch = e.target.closest("[data-svc]");
+  if(!ch) return;
+  svcFilter = ch.getAttribute("data-svc");
+  renderServiceChips(); renderServices();
+});
 
-      if(window.currentKind==="service"){
-        if(window.currentItem.unitType==="PACK"){
-          if(!document.getElementById("pkgSelect").value) return alert("Package select করুন");
-        }else{
-          if(!document.getElementById("qtySelect").value) return alert("Quantity select করুন");
-        }
-        if(!document.getElementById("urlInput").value.trim()) return alert("Link/URL দিন");
-      }
+/* =========================
+   Products UI
+========================= */
+let prdFilter = "All";
+function productCategories(){
+  const set = new Set(["All", ...CATEGORIES]);
+  PRODUCTS.forEach(p=>set.add(p.category||"Other"));
+  return [...set];
+}
+function renderProductChips(){
+  const cats = productCategories();
+  $("#prdChips").innerHTML = cats.map(c=>`
+    <span class="chip ${c===prdFilter?"active":""}" data-prd="${escapeHtml(c)}">${escapeHtml(c)}</span>
+  `).join("");
+}
+function renderProducts(){
+  const list = PRODUCTS.filter(p => prdFilter==="All" ? true : (p.category===prdFilter));
+  $("#prdGrid").innerHTML = list.map(p=>`
+    <div class="card item">
+      <div class="thumb">
+        ${p.imageDataUrl ? `<img src="${escapeHtml(p.imageDataUrl)}" alt="product">` : `<div class="ph">No image</div>`}
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:10px">
+        <span class="tag"><i class="fa-solid fa-tag"></i> ${escapeHtml(p.category||"Product")}</span>
+        <span style="font-weight:900">৳${escapeHtml(Number(p.price||0))}</span>
+      </div>
+      <h3>${escapeHtml(p.name)}</h3>
+      <p>${escapeHtml(p.desc||"")}</p>
+      <div class="actions">
+        <button class="btn pink" data-order-product="${escapeHtml(p.id)}"><i class="fa-solid fa-cart-shopping"></i> Order</button>
+        <button class="btn ghost" data-details-product="${escapeHtml(p.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
+      </div>
+    </div>
+  `).join("") || `<div class="muted">No products</div>`;
+}
+$("#prdChips").addEventListener("click",(e)=>{
+  const ch = e.target.closest("[data-prd]");
+  if(!ch) return;
+  prdFilter = ch.getAttribute("data-prd");
+  renderProductChips(); renderProducts();
+});
 
-      const payMethod = document.getElementById("payMethod");
-      const trxInput  = document.getElementById("trxInput");
-      const noteInput = document.getElementById("noteInput");
-      const shipAddr  = document.getElementById("shipAddr");
-      const prodQty   = document.getElementById("prodQty");
-      const urlInput  = document.getElementById("urlInput");
+/* =========================
+   Order Modal (service + product)
+========================= */
+const orderOverlay = $("#orderOverlay");
+const orderBody = $("#orderBody");
+const closeOrder = $("#closeOrder");
+const cancelOrder = $("#cancelOrder");
+let currentKind = null;     // "service" | "product"
+let currentItem = null;
+let currentComputed = { label:"", price:0 };
 
-      if(!payMethod.value) return alert("Payment method select করুন (bKash/Nagad)");
-      if(!trxInput.value.trim()) return alert("Transaction ID দিন");
+function openOrder(kind, item){
+  currentKind = kind;
+  currentItem = item;
+  currentComputed = { label:"", price:0 };
 
-      const method = payMethod.value;
-      const trx = trxInput.value.trim();
-      const notes = noteInput.value.trim() || "N/A";
-      const wa = `https://wa.me/${STORE.waNumber}`;
+  $("#orderTitle").innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order`;
 
-      let msg = `Assalamu Alaikum,\nI want to place an order.\n\n`;
+  if(kind==="service"){
+    orderBody.innerHTML = renderServiceOrderUI(item);
+    hookServiceOrder(item);
+  }else{
+    orderBody.innerHTML = renderProductOrderUI(item);
+    hookProductOrder(item);
+  }
 
-      if(window.currentKind==="service"){
-        msg +=
-`Type: Service
-Service: ${window.currentItem.title}
-Category: ${window.currentItem.category}
-Package/Qty: ${window.currentComputed.label}
-Price: ৳${window.currentComputed.price}
+  orderOverlay.classList.add("show");
+  orderOverlay.setAttribute("aria-hidden","false");
+  document.body.classList.add("admin-open");
+}
+
+function closeOrderFn(){
+  orderOverlay.classList.remove("show");
+  orderOverlay.setAttribute("aria-hidden","true");
+  document.body.classList.remove("admin-open");
+  currentKind=null; currentItem=null;
+}
+
+closeOrder.addEventListener("click", closeOrderFn);
+cancelOrder.addEventListener("click", closeOrderFn);
+orderOverlay.addEventListener("click",(e)=>{ if(e.target===orderOverlay) closeOrderFn(); });
+
+function renderPaymentBlock(){
+  return `
+    <div class="box" style="margin-top:12px">
+      <b><i class="fa-solid fa-wallet"></i> Payment</b>
+      <div class="muted" style="margin-top:6px;font-size:12.5px;line-height:1.7">
+        bKash: <b style="color:var(--text)">${escapeHtml(STORE.payment.bkash)}</b><br/>
+        Nagad: <b style="color:var(--text)">${escapeHtml(STORE.payment.nagad)}</b>
+      </div>
+
+      <div class="field">
+        <label>Payment Method</label>
+        <select id="payMethod">
+          <option value="">Select</option>
+          <option value="bKash">bKash</option>
+          <option value="Nagad">Nagad</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Transaction ID (TrxID)</label>
+        <input id="trxInput" placeholder="e.g. A1B2C3D4" />
+      </div>
+
+      <div class="field">
+        <label>Extra Notes (optional)</label>
+        <textarea id="noteInput" placeholder="Target country / speed / any notes..."></textarea>
+      </div>
+    </div>
+  `;
+}
+
+function renderServiceOrderUI(s){
+  const unit = s.unitType;
+  const priceBlock = `
+    <div class="field">
+      <label>Price</label>
+      <input id="priceShow" readonly value="৳0"/>
+    </div>
+  `;
+  let selectBlock = "";
+  if(unit==="PACK"){
+    selectBlock = `
+      <div class="field">
+        <label>Package</label>
+        <select id="pkgSelect">
+          <option value="">Select</option>
+          ${(s.packages||[]).map((p,idx)=>`<option value="${idx}">${escapeHtml(p.label)} — ৳${escapeHtml(p.price)}</option>`).join("")}
+        </select>
+      </div>
+    `;
+  }else{
+    const label = unit==="K" ? "Quantity (K)" : "Quantity (x100)";
+    selectBlock = `
+      <div class="field">
+        <label>${label}</label>
+        <select id="qtySelect">
+          <option value="">Select</option>
+          ${(s.qtyList||[]).map(q=>{
+            const show = unit==="K" ? `${q}K` : `${q*100}`;
+            return `<option value="${q}">${show}</option>`;
+          }).join("")}
+        </select>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="box">
+      <span class="tag"><i class="${escapeHtml(s.icon||"fa-solid fa-bolt")}"></i> ${escapeHtml(s.category||"Service")}</span>
+      <h3 style="margin:10px 0 6px">${escapeHtml(s.title)}</h3>
+      <p class="muted" style="margin:0 0 10px;line-height:1.6;font-size:12.5px">${escapeHtml(s.desc||"")}</p>
+
+      ${selectBlock}
+      ${priceBlock}
+
+      <div class="field">
+        <label>Link / URL</label>
+        <input id="urlInput" placeholder="Paste your URL here" />
+      </div>
+
+      <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
+        ✅ Password লাগবে না • ✅ URL ঠিক দিলে কাজ দ্রুত হবে
+      </div>
+    </div>
+    ${renderPaymentBlock()}
+  `;
+}
+
+function hookServiceOrder(s){
+  const priceShow = $("#priceShow");
+  const payMethod = $("#payMethod");
+  const trxInput = $("#trxInput");
+  const noteInput = $("#noteInput");
+  const urlInput = $("#urlInput");
+
+  const qtySelect = $("#qtySelect");
+  const pkgSelect = $("#pkgSelect");
+
+  if(qtySelect){
+    qtySelect.addEventListener("change", ()=>{
+      const v = qtySelect.value ? Number(qtySelect.value) : 0;
+      if(!v){ priceShow.value="৳0"; currentComputed={label:"",price:0}; return; }
+      let label="", price=0;
+      if(s.unitType==="K"){ label=`${v}K`; price=v*Number(s.pricePerUnit||0); }
+      if(s.unitType==="100"){ label=`${v*100}`; price=v*Number(s.pricePerUnit||0); }
+      currentComputed={label,price};
+      priceShow.value=`৳${price}`;
+    });
+  }
+  if(pkgSelect){
+    pkgSelect.addEventListener("change", ()=>{
+      const idx = pkgSelect.value ? Number(pkgSelect.value) : -1;
+      if(idx<0){ priceShow.value="৳0"; currentComputed={label:"",price:0}; return; }
+      const p = (s.packages||[])[idx];
+      currentComputed={label:p.label, price:Number(p.price||0)};
+      priceShow.value=`৳${Number(p.price||0)}`;
+    });
+  }
+
+  $("#sendWaBtn").onclick = ()=>{
+    if(s.unitType==="PACK"){
+      if(!pkgSelect.value) return alert("Package select করুন");
+    }else{
+      if(!qtySelect.value) return alert("Quantity select করুন");
+    }
+    if(!urlInput.value.trim()) return alert("Link/URL দিন");
+    if(!payMethod.value) return alert("Payment method select করুন");
+    if(!trxInput.value.trim()) return alert("Transaction ID দিন");
+
+    const msg =
+`Assalamu Alaikum,
+I want to place an order.
+
+Type: Service
+Service: ${s.title}
+Category: ${s.category}
+Package/Qty: ${currentComputed.label}
+Price: ৳${currentComputed.price}
 
 Payment:
-Method: ${method}
-TrxID: ${trx}
+Method: ${payMethod.value}
+TrxID: ${trxInput.value.trim()}
 
 Link/URL:
 ${urlInput.value.trim()}
 
 Notes:
-${notes}
+${noteInput.value.trim() || "N/A"}
 
 -- ${BRAND.name || "Saikat Tech Hub"}`;
-      }else{
-        const q = Number(prodQty.value||1);
-        const unit = Number(window.currentItem.price||0);
-        const total = q * unit;
-        msg +=
-`Type: Product
-Product: ${window.currentItem.name}
-Category: ${window.currentItem.category}
-SKU: ${window.currentItem.sku || "N/A"}
+
+    window.open(`https://wa.me/${STORE.waNumber}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+  };
+}
+
+function renderProductOrderUI(p){
+  return `
+    <div class="box">
+      <span class="tag"><i class="fa-solid fa-bag-shopping"></i> ${escapeHtml(p.category||"Product")}</span>
+      <h3 style="margin:10px 0 6px">${escapeHtml(p.name)}</h3>
+      <p class="muted" style="margin:0 0 10px;line-height:1.6;font-size:12.5px">${escapeHtml(p.desc||"")}</p>
+
+      <div class="field">
+        <label>Quantity</label>
+        <input id="prodQty" type="number" min="1" value="1" />
+      </div>
+
+      <div class="field">
+        <label>Price</label>
+        <input id="priceShow" readonly value="৳${escapeHtml(Number(p.price||0))}"/>
+      </div>
+
+      <div class="field">
+        <label>Delivery Address (optional)</label>
+        <textarea id="shipAddr" placeholder="আপনার ঠিকানা লিখুন..."></textarea>
+      </div>
+    </div>
+    ${renderPaymentBlock()}
+  `;
+}
+
+function hookProductOrder(p){
+  const priceShow = $("#priceShow");
+  const qty = $("#prodQty");
+  const payMethod = $("#payMethod");
+  const trxInput = $("#trxInput");
+  const noteInput = $("#noteInput");
+  const shipAddr = $("#shipAddr");
+
+  function update(){
+    const q = Number(qty.value||1);
+    priceShow.value = `৳${q * Number(p.price||0)}`;
+  }
+  qty.addEventListener("input", update);
+  update();
+
+  $("#sendWaBtn").onclick = ()=>{
+    const q = Number(qty.value||1);
+    if(q<1) return alert("Quantity ঠিক করুন");
+    if(!payMethod.value) return alert("Payment method select করুন");
+    if(!trxInput.value.trim()) return alert("Transaction ID দিন");
+
+    const total = q * Number(p.price||0);
+    const msg =
+`Assalamu Alaikum,
+I want to place an order.
+
+Type: Product
+Product: ${p.name}
+Category: ${p.category}
+SKU: ${p.sku || "N/A"}
 Qty: ${q}
 Total: ৳${total}
 
 Payment:
-Method: ${method}
-TrxID: ${trx}
+Method: ${payMethod.value}
+TrxID: ${trxInput.value.trim()}
 
 Delivery Address (optional):
 ${shipAddr.value.trim() || "N/A"}
 
 Notes:
-${notes}
+${noteInput.value.trim() || "N/A"}
 
 -- ${BRAND.name || "Saikat Tech Hub"}`;
-      }
 
-      window.open(`${wa}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
-    });
-  }
-})();
-
-/***********************
- *  1) ADMIN AUTH + PRIVACY + STAFF
- ***********************/
-const ADMIN_SESSION_KEY = "saikat_admin_session_shopify_like_v2";
-const ADMIN_ROLE_KEY    = "saikat_admin_role_v1";       // owner|staff
-const ADMIN_PERM_KEY    = "saikat_admin_perm_v1";       // JSON perms
-const PRIV_UNLOCK_KEY   = "saikat_privacy_unlocked_v1"; // "1"
-
-const PRIVACY_PASS = "1234@6711"; // ✅ আপনার দেওয়া Privacy pass
-const LS_ADMIN_CREDS = "saikat_admin_creds_v1";
-const LS_STAFF_LIST  = "saikat_staff_list_v1";
-
-let adminCreds = readJSON(LS_ADMIN_CREDS, { user: "saikat@gmail.com", pass: "676711@" });
-let staffList  = readJSON(LS_STAFF_LIST, []); // {id,email,pass,perms:{}}
-
-function setPermSession(role, perms){
-  sessionStorage.setItem(ADMIN_SESSION_KEY, "1");
-  sessionStorage.setItem(ADMIN_ROLE_KEY, role);
-  sessionStorage.setItem(ADMIN_PERM_KEY, JSON.stringify(perms || {}));
-}
-function clearPermSession(){
-  sessionStorage.removeItem(ADMIN_SESSION_KEY);
-  sessionStorage.removeItem(ADMIN_ROLE_KEY);
-  sessionStorage.removeItem(ADMIN_PERM_KEY);
-  sessionStorage.removeItem(PRIV_UNLOCK_KEY);
-}
-function getPerms(){
-  try{ return JSON.parse(sessionStorage.getItem(ADMIN_PERM_KEY) || "{}"); }
-  catch{ return {}; }
-}
-function isAdmin(){ return sessionStorage.getItem(ADMIN_SESSION_KEY) === "1"; }
-function isOwner(){ return sessionStorage.getItem(ADMIN_ROLE_KEY) === "owner"; }
-function canAccess(route){
-  if(isOwner()) return true;
-  const perms = getPerms();
-  const map = {
-    branding:"branding", products:"products", categories:"categories",
-    services:"services", payments:"payments", privacy:"privacy", dashboard:"dashboard"
+    window.open(`https://wa.me/${STORE.waNumber}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
   };
-  const key = map[route];
-  if(!key) return false;
-  return !!perms[key];
 }
 
-// Part-2 hook
-function adminLogin(user, pass){
-  // Owner
-  if(user === adminCreds.user && pass === adminCreds.pass){
-    setPermSession("owner", {
-      branding:true, products:true, categories:true, services:true, payments:true, privacy:true
-    });
-    toast("Login","Owner access granted ✅","success",1400);
-    routeTo("dashboard");
-    return;
-  }
-  // Staff
-  const staff = (staffList||[]).find(s => String(s.email||"").toLowerCase() === String(user||"").toLowerCase());
-  if(staff && staff.pass === pass){
-    setPermSession("staff", staff.perms || {});
-    toast("Login","Staff access granted ✅","success",1400);
-    routeTo("dashboard");
-    return;
-  }
-  toast("Denied","Wrong username/password","error",2200);
-}
+/* clicks */
+document.addEventListener("click",(e)=>{
+  const os = e.target.closest("[data-order-service]");
+  const ds = e.target.closest("[data-details-service]");
+  const op = e.target.closest("[data-order-product]");
+  const dp = e.target.closest("[data-details-product]");
 
-// Part-2 hook
+  if(os){
+    const id = os.getAttribute("data-order-service");
+    const s = SERVICES.find(x=>x.id===id);
+    if(s) openOrder("service", s);
+  }
+  if(ds){
+    const id = ds.getAttribute("data-details-service");
+    const s = SERVICES.find(x=>x.id===id);
+    if(!s) return;
+    alert(`${s.title}\n\n${s.desc}\n\nCategory: ${s.category}\nUnit: ${s.unitType}`);
+  }
+  if(op){
+    const id = op.getAttribute("data-order-product");
+    const p = PRODUCTS.find(x=>x.id===id);
+    if(p) openOrder("product", p);
+  }
+  if(dp){
+    const id = dp.getAttribute("data-details-product");
+    const p = PRODUCTS.find(x=>x.id===id);
+    if(!p) return;
+    alert(`${p.name}\n\n${p.desc}\n\nCategory: ${p.category}\nSKU: ${p.sku || "N/A"}\nPrice: ৳${p.price}`);
+  }
+});
+
+/* =========================
+   Admin (only you)
+========================= */
+const adminOverlay = $("#adminOverlay");
+const adminBody = $("#adminBody");
+
+function isAdmin(){ return sessionStorage.getItem(LS_ADMIN_SESSION)==="1"; }
+
+function openAdmin(){
+  adminOverlay.classList.add("show");
+  adminOverlay.setAttribute("aria-hidden","false");
+  document.body.classList.add("admin-open");
+  renderAdmin();
+}
+function closeAdminFn(){
+  adminOverlay.classList.remove("show");
+  adminOverlay.setAttribute("aria-hidden","true");
+  document.body.classList.remove("admin-open");
+}
+$("#openAdminBtn").addEventListener("click", openAdmin);
+$("#closeAdmin").addEventListener("click", closeAdminFn);
+$("#adminCloseBtn").addEventListener("click", closeAdminFn);
+adminOverlay.addEventListener("click",(e)=>{ if(e.target===adminOverlay) closeAdminFn(); });
+
+function adminLogin(user,pass){
+  if(user===adminCreds.user && pass===adminCreds.pass){
+    sessionStorage.setItem(LS_ADMIN_SESSION,"1");
+    toast("Login","Admin access granted ✅","success",1300);
+    renderAdminDashboard();
+  }else{
+    toast("Denied","Wrong username/password","error",1900);
+  }
+}
 function adminLogout(){
-  clearPermSession();
+  sessionStorage.removeItem(LS_ADMIN_SESSION);
+  sessionStorage.removeItem(LS_PRIV_UNLOCK);
   toast("Logout","Session ended ✅","success",1200);
-  routeTo("login");
+  renderAdmin();
 }
 
-/***********************
- *  2) Admin Pages (Shopify-like)
- ***********************/
-function adminPageShell(title, icon="fa-gear"){
-  return `
-    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
-      <b style="font-size:16px"><i class="fa-solid ${icon}"></i> ${escapeHtml(title)}</b>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn ghost" id="backDash" type="button"><i class="fa-solid fa-arrow-left"></i> Back</button>
+function renderAdmin(){
+  if(!isAdmin()) return renderAdminLogin();
+  return renderAdminDashboard();
+}
+
+function renderAdminLogin(){
+  adminBody.innerHTML = `
+    <div class="box">
+      <b style="display:flex;align-items:center;gap:10px"><i class="fa-solid fa-lock"></i> Login</b>
+      <p class="muted" style="margin:6px 0 0;font-size:12.5px;line-height:1.6;font-family:'Hind Siliguri'">
+        শুধু আপনি Admin access পাবেন।
+      </p>
+
+      <div class="field">
+        <label>Username</label>
+        <input id="aUser" placeholder="saikat@gmail.com" autocomplete="username"/>
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <div style="display:flex;gap:10px;align-items:center">
+          <input id="aPass" type="password" placeholder="********" autocomplete="current-password" style="flex:1"/>
+          <button class="btn ghost" id="togglePass" type="button" style="padding:11px 12px;border-radius:14px">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+        <button class="btn pink" id="aLogin" type="button"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+        <button class="btn ghost" id="aClose" type="button"><i class="fa-solid fa-xmark"></i> Close</button>
       </div>
     </div>
-    <div style="height:10px"></div>
   `;
-}
-function goBackBind(){
-  const b = document.getElementById("backDash");
-  if(b) b.addEventListener("click", ()=>routeTo("dashboard"));
-}
-function renderWithDashboard(title, icon, innerHtml){
-  renderDashboard();
-  const page = document.getElementById("adminPage");
-  page.innerHTML = adminPageShell(title, icon) + innerHtml;
-  goBackBind();
+
+  const aPass = $("#aPass");
+  $("#togglePass").addEventListener("click", ()=>{
+    aPass.type = aPass.type==="password" ? "text" : "password";
+    $("#togglePass").innerHTML = aPass.type==="password" ? `<i class="fa-solid fa-eye"></i>` : `<i class="fa-solid fa-eye-slash"></i>`;
+  });
+
+  $("#aLogin").addEventListener("click", ()=>{
+    adminLogin($("#aUser").value.trim(), $("#aPass").value);
+  });
+  $("#aClose").addEventListener("click", closeAdminFn);
 }
 
-/***********************
- *  Branding Page (Logo + Cover + title/tagline/name)
- ***********************/
+function renderAdminDashboard(){
+  adminBody.innerHTML = `
+    <div class="box">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+        <b><i class="fa-solid fa-grid-2"></i> Dashboard</b>
+        <button class="btn ghost" id="aLogout" type="button"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px">
+        <button class="btn dark" data-page="branding" type="button"><i class="fa-solid fa-image"></i> Branding (Logo/Cover/Text)</button>
+        <button class="btn dark" data-page="services" type="button"><i class="fa-solid fa-share-nodes"></i> Services (Add/Edit)</button>
+        <button class="btn dark" data-page="products" type="button"><i class="fa-solid fa-bag-shopping"></i> Products (Add/Edit)</button>
+        <button class="btn dark" data-page="categories" type="button"><i class="fa-solid fa-layer-group"></i> Categories</button>
+        <button class="btn dark" data-page="contact" type="button"><i class="fa-solid fa-wallet"></i> Payment/Contact</button>
+        <button class="btn dark" data-page="privacy" type="button"><i class="fa-solid fa-user-shield"></i> Privacy (Change Admin Pass)</button>
+      </div>
+    </div>
+
+    <div class="box" style="margin-top:12px" id="adminPage">
+      <div class="muted" style="font-family:'Hind Siliguri'">একটা অপশন সিলেক্ট করুন…</div>
+    </div>
+  `;
+
+  $("#aLogout").addEventListener("click", adminLogout);
+
+  adminBody.addEventListener("click",(e)=>{
+    const b = e.target.closest("[data-page]");
+    if(!b) return;
+    const page = b.getAttribute("data-page");
+    if(page==="branding") return renderBrandingAdmin();
+    if(page==="services") return renderServicesAdmin();
+    if(page==="products") return renderProductsAdmin();
+    if(page==="categories") return renderCategoriesAdmin();
+    if(page==="contact") return renderContactAdmin();
+    if(page==="privacy") return renderPrivacyAdmin();
+  }, { once:true }); // prevent duplicate binding on rerender
+}
+
+function adminPageSet(html){
+  $("#adminPage").innerHTML = html;
+}
+
+/* Drag/drop helper */
 function fileToDataUrl(file){
   return new Promise((resolve,reject)=>{
-    const reader = new FileReader();
-    reader.onload = ()=>resolve(String(reader.result||""));
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
+    const r = new FileReader();
+    r.onload = ()=>resolve(String(r.result||""));
+    r.onerror = reject;
+    r.readAsDataURL(file);
   });
 }
-function dropZoneHtml(id, label){
+function dropZone(id,label){
   return `
     <div class="box" id="${id}" style="border-style:dashed">
       <b>${escapeHtml(label)}</b>
-      <p class="muted bn" style="margin:6px 0 0">Drag & drop অথবা Choose file</p>
+      <div class="muted" style="margin-top:6px;font-size:12.5px;font-family:'Hind Siliguri'">Drag & drop অথবা Choose</div>
+      <input type="file" accept="image/*" id="${id}_file" style="display:none"/>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-        <input type="file" accept="image/*" id="${id}_file" class="hide"/>
-        <button class="btn primary" type="button" id="${id}_choose"><i class="fa-solid fa-upload"></i> Choose</button>
-        <button class="btn ghost" type="button" id="${id}_clear"><i class="fa-solid fa-trash"></i> Remove</button>
+        <button class="btn pink" id="${id}_choose" type="button"><i class="fa-solid fa-upload"></i> Choose</button>
+        <button class="btn ghost" id="${id}_remove" type="button"><i class="fa-solid fa-trash"></i> Remove</button>
       </div>
-      <div class="muted" style="margin-top:8px;font-size:12px">PNG/JPG recommended</div>
+      <div class="thumb" style="margin-top:10px" id="${id}_prev"><div class="ph">No image</div></div>
     </div>
   `;
 }
+async function hookDrop(id, getter, setter, onSaved){
+  const box = document.getElementById(id);
+  const file = document.getElementById(id+"_file");
+  const prev = document.getElementById(id+"_prev");
+  const choose = document.getElementById(id+"_choose");
+  const remove = document.getElementById(id+"_remove");
 
-function renderBrandingPage(){
-  if(!canAccess("branding")){
-    renderWithDashboard("Branding","fa-image", `<div class="muted bn">আপনার permission নেই।</div>`);
-    return;
+  function setPrev(d){
+    prev.innerHTML = d ? `<img src="${escapeHtml(d)}" alt="img">` : `<div class="ph">No image</div>`;
   }
+  setPrev(getter()||"");
 
-  renderWithDashboard("Branding","fa-image", `
-    <div class="two">
-      <div class="box">
-        <b><i class="fa-solid fa-pen"></i> Text Settings</b>
-        <div class="field">
-          <label>Brand Name</label>
-          <input id="bName" value="${escapeHtml(BRAND.name||"")}" />
-        </div>
-        <div class="field">
-          <label>Cover Title</label>
-          <input id="bTitle" value="${escapeHtml(BRAND.title||"")}" />
-        </div>
-        <div class="field">
-          <label>Tagline</label>
-          <input id="bTag" value="${escapeHtml(BRAND.tagline||"")}" />
-        </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-          <button class="btn primary" id="saveBrandText" type="button"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-        </div>
-      </div>
-
-      <div class="box">
-        <b><i class="fa-solid fa-eye"></i> Live Preview</b>
-        <p class="muted bn" style="margin:6px 0 0">Save করলে customer page auto update হবে</p>
-        <div class="card" style="margin-top:12px">
-          <div class="thumb">
-            ${BRAND.coverDataUrl ? `<img src="${escapeHtml(BRAND.coverDataUrl)}" alt="cover">` : `<div class="ph">No cover</div>`}
-          </div>
-          <div class="meta">
-            <span class="tag"><i class="fa-solid fa-building"></i> ${escapeHtml(BRAND.name||"")}</span>
-          </div>
-          <h3 class="bn2">${escapeHtml(BRAND.title||"")}</h3>
-          <p class="bn">${escapeHtml(BRAND.tagline||"")}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="two" style="margin-top:12px">
-      ${dropZoneHtml("logoDrop","Logo Upload")}
-      ${dropZoneHtml("coverDrop","Cover Upload")}
-    </div>
-  `);
-
-  document.getElementById("saveBrandText").addEventListener("click", ()=>{
-    BRAND.name = document.getElementById("bName").value.trim() || "Saikat Tech Hub";
-    BRAND.title = document.getElementById("bTitle").value.trim() || "Assalamu Alaikum 👋";
-    BRAND.tagline = document.getElementById("bTag").value.trim() || "";
-    writeJSON(LS_BRAND, BRAND);
-    renderBrand();
-    bindTopLinks();
-    toast("Saved","Brand text updated ✅","success",1400);
-    renderBrandingPage();
+  choose.addEventListener("click", ()=>file.click());
+  file.addEventListener("change", async ()=>{
+    const f = file.files && file.files[0];
+    if(!f) return;
+    const d = await fileToDataUrl(f);
+    setter(d);
+    onSaved();
+    setPrev(d);
+  });
+  remove.addEventListener("click", ()=>{
+    setter("");
+    onSaved();
+    setPrev("");
   });
 
-  async function hookDrop(id, key){
-    const box = document.getElementById(id);
-    const fileInput = document.getElementById(id+"_file");
-    const chooseBtn = document.getElementById(id+"_choose");
-    const clearBtn = document.getElementById(id+"_clear");
-
-    chooseBtn.addEventListener("click", ()=>fileInput.click());
-    fileInput.addEventListener("change", async ()=>{
-      const f = fileInput.files && fileInput.files[0];
-      if(!f) return;
-      const dataUrl = await fileToDataUrl(f);
-      BRAND[key] = dataUrl;
-      writeJSON(LS_BRAND, BRAND);
-      renderBrand();
-      toast("Uploaded","Image updated ✅","success",1200);
-      renderBrandingPage();
-    });
-
-    clearBtn.addEventListener("click", ()=>{
-      BRAND[key] = "";
-      writeJSON(LS_BRAND, BRAND);
-      renderBrand();
-      toast("Removed","Image removed ✅","success",1200);
-      renderBrandingPage();
-    });
-
-    box.addEventListener("dragover",(e)=>{ e.preventDefault(); box.style.borderColor="rgba(59,130,246,.8)"; });
-    box.addEventListener("dragleave",()=>{ box.style.borderColor="var(--line)"; });
-    box.addEventListener("drop", async (e)=>{
-      e.preventDefault();
-      box.style.borderColor="var(--line)";
-      const f = e.dataTransfer.files && e.dataTransfer.files[0];
-      if(!f) return;
-      const dataUrl = await fileToDataUrl(f);
-      BRAND[key] = dataUrl;
-      writeJSON(LS_BRAND, BRAND);
-      renderBrand();
-      toast("Uploaded","Image updated ✅","success",1200);
-      renderBrandingPage();
-    });
-  }
-
-  hookDrop("logoDrop","logoDataUrl");
-  hookDrop("coverDrop","coverDataUrl");
+  box.addEventListener("dragover",(e)=>{ e.preventDefault(); box.style.borderColor="rgba(59,130,246,.8)"; });
+  box.addEventListener("dragleave",()=>{ box.style.borderColor="var(--line)"; });
+  box.addEventListener("drop", async (e)=>{
+    e.preventDefault();
+    box.style.borderColor="var(--line)";
+    const f = e.dataTransfer.files && e.dataTransfer.files[0];
+    if(!f) return;
+    const d = await fileToDataUrl(f);
+    setter(d);
+    onSaved();
+    setPrev(d);
+  });
 }
 
-/***********************
- *  Categories Admin
- ***********************/
-function renderCategoriesAdmin(){
-  if(!canAccess("categories")){
-    renderWithDashboard("Categories","fa-layer-group", `<div class="muted bn">আপনার permission নেই।</div>`);
-    return;
-  }
-
-  renderWithDashboard("Categories","fa-layer-group", `
-    <div class="box">
-      <b><i class="fa-solid fa-plus"></i> Add Category</b>
-      <div class="field" style="max-width:420px">
-        <label>Category name</label>
-        <input id="newCat" placeholder="Gadget / Fashion / Kitchen..." />
-      </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-        <button class="btn primary" id="addCatBtn" type="button"><i class="fa-solid fa-plus"></i> Add</button>
-      </div>
+/* Branding admin */
+function renderBrandingAdmin(){
+  adminPageSet(`
+    <b><i class="fa-solid fa-image"></i> Branding</b>
+    <div class="field"><label>Brand Name</label><input id="bName" value="${escapeHtml(BRAND.name||"")}"></div>
+    <div class="field"><label>Cover Title</label><input id="bTitle" value="${escapeHtml(BRAND.title||"")}"></div>
+    <div class="field"><label>Tagline</label><textarea id="bTag">${escapeHtml(BRAND.tagline||"")}</textarea></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+      <button class="btn pink" id="saveBrandText" type="button"><i class="fa-solid fa-floppy-disk"></i> Save Text</button>
     </div>
 
-    <div class="box" style="margin-top:12px">
-      <b><i class="fa-solid fa-list"></i> Category List</b>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px" id="catList"></div>
-      <div class="muted bn" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-        Note: Category delete করলে existing products/services এর category name auto change হবে না (আপনি edit করে নিতে পারবেন)।
-      </div>
-    </div>
+    <div style="height:10px"></div>
+    ${dropZone("logoDrop","Logo Upload")}
+    <div style="height:10px"></div>
+    ${dropZone("coverDrop","Cover Upload")}
   `);
 
-  const list = document.getElementById("catList");
-  list.innerHTML = (CATEGORIES||[]).map(c=>`
-    <span class="tag" style="gap:10px">
-      <i class="fa-solid fa-tag"></i> ${escapeHtml(c)}
-      <button class="btn ghost" data-del="${escapeHtml(c)}" style="padding:8px 10px;border-radius:999px">
-        <i class="fa-solid fa-trash"></i>
-      </button>
-    </span>
-  `).join("");
+  $("#saveBrandText").addEventListener("click", ()=>{
+    BRAND.name = $("#bName").value.trim() || "Saikat Tech Hub";
+    BRAND.title = $("#bTitle").value.trim() || "Assalamu Alaikum 👋";
+    BRAND.tagline = $("#bTag").value.trim() || "";
+    writeJSON(LS_BRAND, BRAND);
+    renderBrand();
+    toast("Saved","Brand updated ✅","success",1200);
+  });
 
-  document.getElementById("addCatBtn").addEventListener("click", ()=>{
-    const v = document.getElementById("newCat").value.trim();
-    if(!v) return toast("Missing","Category name দিন","error",1600);
-    if((CATEGORIES||[]).some(x=>x.toLowerCase()===v.toLowerCase())) return toast("Exists","Category already আছে","error",1600);
+  hookDrop(
+    "logoDrop",
+    ()=>BRAND.logoDataUrl,
+    (d)=>{ BRAND.logoDataUrl=d; writeJSON(LS_BRAND, BRAND); },
+    ()=>{ renderBrand(); toast("Saved","Logo updated ✅","success",1100); }
+  );
+
+  hookDrop(
+    "coverDrop",
+    ()=>BRAND.coverDataUrl,
+    (d)=>{ BRAND.coverDataUrl=d; writeJSON(LS_BRAND, BRAND); },
+    ()=>{ renderBrand(); toast("Saved","Cover updated ✅","success",1100); }
+  );
+}
+
+/* Categories admin */
+function renderCategoriesAdmin(){
+  adminPageSet(`
+    <b><i class="fa-solid fa-layer-group"></i> Categories</b>
+    <div class="field"><label>Add Category</label><input id="newCat" placeholder="Gadget/Fashion/..."></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+      <button class="btn pink" id="addCat" type="button"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap" id="catWrap"></div>
+  `);
+
+  function redraw(){
+    $("#catWrap").innerHTML = CATEGORIES.map(c=>`
+      <span class="tag" style="gap:10px">
+        ${escapeHtml(c)}
+        <button class="btn ghost" data-del-cat="${escapeHtml(c)}" style="padding:8px 10px;border-radius:999px">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </span>
+    `).join("");
+  }
+  redraw();
+
+  $("#addCat").addEventListener("click", ()=>{
+    const v = $("#newCat").value.trim();
+    if(!v) return toast("Missing","Category name দিন","error",1500);
+    if(CATEGORIES.some(x=>x.toLowerCase()===v.toLowerCase())) return toast("Exists","Already আছে","error",1500);
     CATEGORIES = [...CATEGORIES, v];
     writeJSON(LS_CATS, CATEGORIES);
     toast("Added","Category added ✅","success",1200);
-    renderCategoriesAdmin();
+    renderProductChips(); renderProducts();
+    redraw();
   });
 
-  list.addEventListener("click",(e)=>{
-    const b = e.target.closest("[data-del]");
+  $("#catWrap").addEventListener("click",(e)=>{
+    const b = e.target.closest("[data-del-cat]");
     if(!b) return;
-    const c = b.getAttribute("data-del");
+    const c = b.getAttribute("data-del-cat");
     if(!confirm(`Delete category: ${c} ?`)) return;
-    CATEGORIES = (CATEGORIES||[]).filter(x=>x!==c);
+    CATEGORIES = CATEGORIES.filter(x=>x!==c);
     writeJSON(LS_CATS, CATEGORIES);
     toast("Deleted","Category removed ✅","success",1200);
-    renderCategoriesAdmin();
+    renderProductChips(); renderProducts();
+    redraw();
   });
 }
 
-/***********************
- *  Products Admin (Add/Edit/Delete + DragDrop image)
- ***********************/
-function renderProductsAdmin(){
-  if(!canAccess("products")){
-    renderWithDashboard("Products","fa-bag-shopping", `<div class="muted bn">আপনার permission নেই।</div>`);
-    return;
-  }
-
-  renderWithDashboard("Products","fa-bag-shopping", `
-    <div class="box">
-      <b><i class="fa-solid fa-plus"></i> Add New Product</b>
-      <div class="two" style="margin-top:10px">
-        <div class="box" id="pDrop" style="border-style:dashed">
-          <b>Product Image</b>
-          <p class="muted bn" style="margin:6px 0 0">Drag & drop অথবা Choose</p>
-          <input id="pImgFile" type="file" accept="image/*" class="hide">
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-            <button class="btn primary" id="pChoose" type="button"><i class="fa-solid fa-upload"></i> Choose</button>
-            <button class="btn ghost" id="pClear" type="button"><i class="fa-solid fa-trash"></i> Remove</button>
-          </div>
-          <div class="thumb" style="margin-top:10px" id="pPreview"><div class="ph">No image</div></div>
-        </div>
-
-        <div class="box">
-          <div class="field">
-            <label>Product Name</label>
-            <input id="pName" placeholder="Product name" />
-          </div>
-          <div class="field">
-            <label>SKU</label>
-            <input id="pSku" placeholder="SKU-001" />
-          </div>
-          <div class="field">
-            <label>Category</label>
-            <select id="pCat"></select>
-          </div>
-          <div class="field">
-            <label>Price</label>
-            <input id="pPrice" type="number" min="0" placeholder="899" />
-          </div>
-          <div class="field">
-            <label>Description</label>
-            <textarea id="pDesc" placeholder="Product description..."></textarea>
-          </div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-            <button class="btn primary" id="pAddBtn" type="button"><i class="fa-solid fa-plus"></i> Add Product</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="box" style="margin-top:12px">
-      <b><i class="fa-solid fa-list"></i> Product List</b>
-      <div class="tableWrap" style="margin-top:12px;overflow:auto">
-        <table style="min-width:980px;width:100%;border-collapse:separate;border-spacing:0 10px">
-          <thead>
-            <tr>
-              <th style="text-align:left">Image</th>
-              <th style="text-align:left">Name</th>
-              <th style="text-align:left">SKU</th>
-              <th style="text-align:left">Category</th>
-              <th style="text-align:left">Price</th>
-              <th style="text-align:left;width:260px">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="pTbody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="overlay" id="pEditOverlay" aria-hidden="true" style="z-index:400">
-      <div class="modal" role="dialog" aria-modal="true">
-        <div class="modal-head">
-          <b><i class="fa-solid fa-pen-to-square"></i> Edit Product</b>
-          <button class="close-x" id="pEditClose">✕</button>
-        </div>
-        <div class="modal-body" id="pEditBody"></div>
-        <div class="modal-actions">
-          <button class="btn ghost" id="pEditCancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
-          <button class="btn primary" id="pEditSave"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-        </div>
-      </div>
-    </div>
-  `);
-
-  // Category options
-  const catSel = document.getElementById("pCat");
-  catSel.innerHTML = (CATEGORIES||[]).filter(c=>c!=="Social Media").map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
-  if(!catSel.innerHTML) catSel.innerHTML = `<option value="Gadget">Gadget</option>`;
-
-  // Add product image upload
-  let newProdImg = "";
-  const pDrop = document.getElementById("pDrop");
-  const pImgFile = document.getElementById("pImgFile");
-  const pPreview = document.getElementById("pPreview");
-
-  function setPreview(dataUrl){
-    pPreview.innerHTML = dataUrl ? `<img src="${escapeHtml(dataUrl)}" alt="preview">` : `<div class="ph">No image</div>`;
-  }
-
-  document.getElementById("pChoose").addEventListener("click", ()=>pImgFile.click());
-  pImgFile.addEventListener("change", async ()=>{
-    const f = pImgFile.files && pImgFile.files[0];
-    if(!f) return;
-    newProdImg = await fileToDataUrl(f);
-    setPreview(newProdImg);
-  });
-
-  document.getElementById("pClear").addEventListener("click", ()=>{
-    newProdImg = "";
-    setPreview("");
-  });
-
-  pDrop.addEventListener("dragover",(e)=>{ e.preventDefault(); pDrop.style.borderColor="rgba(59,130,246,.8)"; });
-  pDrop.addEventListener("dragleave",()=>{ pDrop.style.borderColor="var(--line)"; });
-  pDrop.addEventListener("drop", async (e)=>{
-    e.preventDefault();
-    pDrop.style.borderColor="var(--line)";
-    const f = e.dataTransfer.files && e.dataTransfer.files[0];
-    if(!f) return;
-    newProdImg = await fileToDataUrl(f);
-    setPreview(newProdImg);
-  });
-
-  document.getElementById("pAddBtn").addEventListener("click", ()=>{
-    const name = document.getElementById("pName").value.trim();
-    const sku  = document.getElementById("pSku").value.trim();
-    const cat  = document.getElementById("pCat").value;
-    const price= Number(document.getElementById("pPrice").value||0);
-    const desc = document.getElementById("pDesc").value.trim();
-
-    if(!name) return toast("Missing","Product name দিন","error",1600);
-    if(price<=0) return toast("Missing","Price দিন","error",1600);
-
-    const p = { id: makeId("p"), category: cat, name, sku, price, desc, imageDataUrl: newProdImg };
-    PRODUCTS = [p, ...PRODUCTS];
-    writeJSON(LS_PRODUCTS, PRODUCTS);
-
-    // refresh customer UI
-    renderProductChips(); renderProducts();
-    toast("Added","Product added ✅","success",1300);
-    renderProductsAdmin();
-  });
-
-  // list table
-  const tb = document.getElementById("pTbody");
-  tb.innerHTML = (PRODUCTS||[]).map(p=>`
-    <tr style="background:rgba(255,255,255,.04);border:1px solid var(--line)">
-      <td style="padding:10px">
-        <div style="width:78px;height:52px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:rgba(255,255,255,.05)">
-          ${p.imageDataUrl ? `<img src="${escapeHtml(p.imageDataUrl)}" style="width:100%;height:100%;object-fit:cover">` : `<div class="ph" style="height:100%;font-size:11px">No</div>`}
-        </div>
-      </td>
-      <td style="padding:10px;color:var(--text);font-weight:900">${escapeHtml(p.name)}</td>
-      <td style="padding:10px">${escapeHtml(p.sku||"")}</td>
-      <td style="padding:10px">${escapeHtml(p.category||"")}</td>
-      <td style="padding:10px">৳${escapeHtml(Number(p.price||0))}</td>
-      <td style="padding:10px">
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn ghost" data-edit="${escapeHtml(p.id)}" style="padding:10px 12px">
-            <i class="fa-solid fa-pen"></i> Edit
-          </button>
-          <button class="btn ghost" data-del="${escapeHtml(p.id)}" style="padding:10px 12px">
-            <i class="fa-solid fa-trash"></i> Delete
-          </button>
-        </div>
-      </td>
-    </tr>
-  `).join("") || `<tr><td colspan="6" class="muted">No products yet</td></tr>`;
-
-  tb.addEventListener("click",(e)=>{
-    const del = e.target.closest("[data-del]");
-    const edit = e.target.closest("[data-edit]");
-
-    if(del){
-      const id = del.getAttribute("data-del");
-      const p = PRODUCTS.find(x=>x.id===id);
-      if(!p) return;
-      if(!confirm(`Delete product: ${p.name}?`)) return;
-      PRODUCTS = PRODUCTS.filter(x=>x.id!==id);
-      writeJSON(LS_PRODUCTS, PRODUCTS);
-      renderProductChips(); renderProducts();
-      toast("Deleted","Product removed ✅","success",1200);
-      renderProductsAdmin();
-    }
-
-    if(edit){
-      const id = edit.getAttribute("data-edit");
-      openProductEdit(id);
-    }
-  });
-
-  // Edit modal
-  const editOv = document.getElementById("pEditOverlay");
-  const editBody = document.getElementById("pEditBody");
-  const close = document.getElementById("pEditClose");
-  const cancel = document.getElementById("pEditCancel");
-  const save = document.getElementById("pEditSave");
-  let editingId = null;
-  let editImg = "";
-
-  function openProductEdit(id){
-    const p = PRODUCTS.find(x=>x.id===id);
-    if(!p) return;
-    editingId = id;
-    editImg = p.imageDataUrl || "";
-
-    editBody.innerHTML = `
-      <div class="two">
-        <div class="box" id="eDrop" style="border-style:dashed">
-          <b>Image</b>
-          <p class="muted bn" style="margin:6px 0 0">Drag & drop অথবা Choose</p>
-          <input id="eFile" type="file" accept="image/*" class="hide">
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-            <button class="btn primary" id="eChoose" type="button"><i class="fa-solid fa-upload"></i> Choose</button>
-            <button class="btn ghost" id="eClear" type="button"><i class="fa-solid fa-trash"></i> Remove</button>
-          </div>
-          <div class="thumb" style="margin-top:10px" id="ePrev">
-            ${editImg ? `<img src="${escapeHtml(editImg)}">` : `<div class="ph">No image</div>`}
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="field"><label>Name</label><input id="eName" value="${escapeHtml(p.name)}"></div>
-          <div class="field"><label>SKU</label><input id="eSku" value="${escapeHtml(p.sku||"")}"></div>
-          <div class="field"><label>Category</label><select id="eCat">${
-            (CATEGORIES||[]).filter(c=>c!=="Social Media").map(c=>`<option ${c===p.category?"selected":""} value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("")
-          }</select></div>
-          <div class="field"><label>Price</label><input id="ePrice" type="number" min="0" value="${escapeHtml(Number(p.price||0))}"></div>
-          <div class="field"><label>Description</label><textarea id="eDesc">${escapeHtml(p.desc||"")}</textarea></div>
-        </div>
-      </div>
-    `;
-
-    const eDrop = document.getElementById("eDrop");
-    const eFile = document.getElementById("eFile");
-    const ePrev = document.getElementById("ePrev");
-
-    function setEP(d){ ePrev.innerHTML = d ? `<img src="${escapeHtml(d)}">` : `<div class="ph">No image</div>`; }
-
-    document.getElementById("eChoose").addEventListener("click", ()=>eFile.click());
-    eFile.addEventListener("change", async ()=>{
-      const f = eFile.files && eFile.files[0];
-      if(!f) return;
-      editImg = await fileToDataUrl(f);
-      setEP(editImg);
-    });
-    document.getElementById("eClear").addEventListener("click", ()=>{ editImg=""; setEP(""); });
-
-    eDrop.addEventListener("dragover",(ev)=>{ ev.preventDefault(); eDrop.style.borderColor="rgba(59,130,246,.8)"; });
-    eDrop.addEventListener("dragleave",()=>{ eDrop.style.borderColor="var(--line)"; });
-    eDrop.addEventListener("drop", async (ev)=>{
-      ev.preventDefault();
-      eDrop.style.borderColor="var(--line)";
-      const f = ev.dataTransfer.files && ev.dataTransfer.files[0];
-      if(!f) return;
-      editImg = await fileToDataUrl(f);
-      setEP(editImg);
-    });
-
-    editOv.classList.add("show");
-    editOv.setAttribute("aria-hidden","false");
-  }
-
-  function closeEdit(){
-    editOv.classList.remove("show");
-    editOv.setAttribute("aria-hidden","true");
-    editingId = null;
-  }
-  close.addEventListener("click", closeEdit);
-  cancel.addEventListener("click", closeEdit);
-  editOv.addEventListener("click",(e)=>{ if(e.target===editOv) closeEdit(); });
-
-  save.addEventListener("click", ()=>{
-    if(!editingId) return;
-    const idx = PRODUCTS.findIndex(x=>x.id===editingId);
-    if(idx<0) return;
-
-    const name = document.getElementById("eName").value.trim();
-    const sku  = document.getElementById("eSku").value.trim();
-    const cat  = document.getElementById("eCat").value;
-    const price= Number(document.getElementById("ePrice").value||0);
-    const desc = document.getElementById("eDesc").value.trim();
-    if(!name) return toast("Missing","Name দিন","error",1500);
-    if(price<=0) return toast("Missing","Price দিন","error",1500);
-
-    PRODUCTS[idx] = { ...PRODUCTS[idx], name, sku, category:cat, price, desc, imageDataUrl: editImg };
-    writeJSON(LS_PRODUCTS, PRODUCTS);
-    renderProductChips(); renderProducts();
-    toast("Saved","Product updated ✅","success",1200);
-    closeEdit();
-    renderProductsAdmin();
-  });
-}
-
-/***********************
- *  Services Admin (Add/Edit/Delete)
- ***********************/
+/* Services admin (simple add + list edit via prompt) */
 function renderServicesAdmin(){
-  if(!canAccess("services")){
-    renderWithDashboard("Services","fa-share-nodes", `<div class="muted bn">আপনার permission নেই।</div>`);
-    return;
-  }
+  adminPageSet(`
+    <b><i class="fa-solid fa-share-nodes"></i> Services</b>
 
-  renderWithDashboard("Services","fa-share-nodes", `
-    <div class="box">
-      <b><i class="fa-solid fa-plus"></i> Add New Service</b>
-      <div class="two" style="margin-top:10px">
-        <div class="box">
-          <div class="field"><label>Title</label><input id="sTitle" placeholder="Facebook Followers"></div>
-          <div class="field"><label>Description</label><textarea id="sDesc" placeholder="Safe • No password"></textarea></div>
-          <div class="field"><label>Category</label><input id="sCat" placeholder="Facebook / YouTube / Marketing"></div>
-          <div class="field"><label>Icon class (FontAwesome)</label><input id="sIcon" placeholder="fa-brands fa-facebook"></div>
+    <div class="box" style="margin-top:10px">
+      <b>+ Add New Service</b>
+      <div class="field"><label>Title</label><input id="sTitle" placeholder="Facebook Followers"></div>
+      <div class="field"><label>Description</label><textarea id="sDesc" placeholder="Safe • No password"></textarea></div>
+      <div class="field"><label>Category</label><input id="sCat" placeholder="Facebook / YouTube / Marketing"></div>
+      <div class="field"><label>Icon class (FontAwesome)</label><input id="sIcon" placeholder="fa-brands fa-facebook"></div>
+
+      <div class="field">
+        <label>Unit Type</label>
+        <select id="sUnit">
+          <option value="K">K (per 1K)</option>
+          <option value="100">100 (per 100)</option>
+          <option value="PACK">PACK (packages)</option>
+        </select>
+      </div>
+
+      <div id="sKBox">
+        <div class="field"><label>Price Per Unit</label><input id="sRate" type="number" min="0" placeholder="120"></div>
+        <div class="field"><label>Qty List (comma separated)</label><input id="sQty" placeholder="1,2,3,5,10"></div>
+      </div>
+
+      <div id="sPackBox" style="display:none">
+        <div class="field"><label>Packages (JSON)</label>
+          <textarea id="sPacks" placeholder='[{"label":"Basic","price":300,"note":"..."}]'></textarea>
         </div>
-        <div class="box">
-          <div class="field">
-            <label>Unit Type</label>
-            <select id="sUnit">
-              <option value="K">K (per 1K)</option>
-              <option value="100">100 (per 100)</option>
-              <option value="PACK">PACK (packages)</option>
-            </select>
-          </div>
-          <div id="sKBox">
-            <div class="field"><label>Price Per Unit</label><input id="sRate" type="number" min="0" placeholder="120"></div>
-            <div class="field"><label>Qty List (comma separated)</label><input id="sQty" placeholder="1,2,3,5,10"></div>
-          </div>
-          <div id="sPackBox" class="hide">
-            <div class="field"><label>Packages (JSON)</label>
-              <textarea id="sPacks" placeholder='[{"label":"Basic","price":300,"note":"..."}]'></textarea>
-            </div>
-          </div>
+      </div>
 
-          <div class="field"><label>Tags (comma separated)</label><input id="sTags" placeholder="Popular,Fast,Safe"></div>
+      <div class="field"><label>Tags (comma separated)</label><input id="sTags" placeholder="Popular,Fast,Safe"></div>
 
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-            <button class="btn primary" id="sAddBtn" type="button"><i class="fa-solid fa-plus"></i> Add Service</button>
-          </div>
-        </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+        <button class="btn pink" id="addService" type="button"><i class="fa-solid fa-plus"></i> Add Service</button>
       </div>
     </div>
 
     <div class="box" style="margin-top:12px">
-      <b><i class="fa-solid fa-list"></i> Service List</b>
-      <div class="muted bn" style="margin-top:8px">Edit/Delete করতে row এর buttons ব্যবহার করুন</div>
-      <div style="overflow:auto;margin-top:12px">
-        <table style="min-width:1020px;width:100%;border-collapse:separate;border-spacing:0 10px">
-          <thead>
-            <tr>
-              <th style="text-align:left">Title</th>
-              <th style="text-align:left">Category</th>
-              <th style="text-align:left">Unit</th>
-              <th style="text-align:left">Rate/Packages</th>
-              <th style="text-align:left;width:260px">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="sTbody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="overlay" id="sEditOverlay" aria-hidden="true" style="z-index:400">
-      <div class="modal" role="dialog" aria-modal="true">
-        <div class="modal-head">
-          <b><i class="fa-solid fa-pen-to-square"></i> Edit Service</b>
-          <button class="close-x" id="sEditClose">✕</button>
-        </div>
-        <div class="modal-body" id="sEditBody"></div>
-        <div class="modal-actions">
-          <button class="btn ghost" id="sEditCancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
-          <button class="btn primary" id="sEditSave"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-        </div>
-      </div>
+      <b>Service List</b>
+      <div id="svcList" style="margin-top:10px;display:grid;gap:10px"></div>
     </div>
   `);
 
-  const sUnit = document.getElementById("sUnit");
-  const sKBox = document.getElementById("sKBox");
-  const sPackBox = document.getElementById("sPackBox");
+  const sUnit = $("#sUnit");
   sUnit.addEventListener("change", ()=>{
     const v = sUnit.value;
-    sKBox.classList.toggle("hide", v==="PACK");
-    sPackBox.classList.toggle("hide", v!=="PACK");
+    $("#sKBox").style.display = v==="PACK" ? "none" : "block";
+    $("#sPackBox").style.display = v==="PACK" ? "block" : "none";
   });
 
-  document.getElementById("sAddBtn").addEventListener("click", ()=>{
-    const title = document.getElementById("sTitle").value.trim();
-    const desc  = document.getElementById("sDesc").value.trim();
-    const category = document.getElementById("sCat").value.trim() || "Social";
-    const icon = document.getElementById("sIcon").value.trim() || "fa-solid fa-bolt";
-    const unitType = document.getElementById("sUnit").value;
-    const tags = document.getElementById("sTags").value.split(",").map(x=>x.trim()).filter(Boolean).slice(0,6);
-
-    if(!title) return toast("Missing","Service title দিন","error",1600);
-
-    let service = { id: makeId("svc"), category, icon, title, desc, unitType, tags };
-
-    if(unitType==="PACK"){
-      try{
-        const packs = JSON.parse(document.getElementById("sPacks").value || "[]");
-        if(!Array.isArray(packs) || packs.length===0) return toast("Missing","Packages JSON দিন","error",1800);
-        service.packages = packs.map(p=>({label:String(p.label||""), price:Number(p.price||0), note:String(p.note||"")}));
-      }catch{
-        return toast("Error","Packages JSON invalid","error",1800);
-      }
-    }else{
-      const rate = Number(document.getElementById("sRate").value||0);
-      if(rate<=0) return toast("Missing","Price per unit দিন","error",1600);
-      const qtyList = document.getElementById("sQty").value.split(",").map(x=>Number(x.trim())).filter(n=>Number.isFinite(n) && n>0);
-      if(qtyList.length===0) return toast("Missing","Qty list দিন (comma separated)","error",1800);
-      service.pricePerUnit = rate;
-      service.qtyList = qtyList;
-    }
-
-    SERVICES = [service, ...SERVICES];
-    writeJSON(LS_SERVICES, SERVICES);
-    renderServiceChips(); renderServices();
-    toast("Added","Service added ✅","success",1200);
-    renderServicesAdmin();
-  });
-
-  const tb = document.getElementById("sTbody");
-  tb.innerHTML = (SERVICES||[]).map(s=>{
-    const info = s.unitType==="PACK"
-      ? `${(s.packages||[]).length} packages`
-      : `৳${Number(s.pricePerUnit||0)} per ${s.unitType==="K"?"1K":"100"}`;
-    return `
-      <tr style="background:rgba(255,255,255,.04)">
-        <td style="padding:10px;color:var(--text);font-weight:900">${escapeHtml(s.title)}</td>
-        <td style="padding:10px">${escapeHtml(s.category)}</td>
-        <td style="padding:10px">${escapeHtml(s.unitType)}</td>
-        <td style="padding:10px">${escapeHtml(info)}</td>
-        <td style="padding:10px">
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn ghost" data-edit="${escapeHtml(s.id)}" style="padding:10px 12px"><i class="fa-solid fa-pen"></i> Edit</button>
-            <button class="btn ghost" data-del="${escapeHtml(s.id)}" style="padding:10px 12px"><i class="fa-solid fa-trash"></i> Delete</button>
-          </div>
-        </td>
-      </tr>
-    `;
-  }).join("") || `<tr><td colspan="5" class="muted">No services yet</td></tr>`;
-
-  tb.addEventListener("click",(e)=>{
-    const del = e.target.closest("[data-del]");
-    const edit= e.target.closest("[data-edit]");
-
-    if(del){
-      const id = del.getAttribute("data-del");
-      const s = SERVICES.find(x=>x.id===id);
-      if(!s) return;
-      if(!confirm(`Delete service: ${s.title}?`)) return;
-      SERVICES = SERVICES.filter(x=>x.id!==id);
-      writeJSON(LS_SERVICES, SERVICES);
-      renderServiceChips(); renderServices();
-      toast("Deleted","Service removed ✅","success",1200);
-      renderServicesAdmin();
-    }
-    if(edit){
-      openServiceEdit(edit.getAttribute("data-edit"));
-    }
-  });
-
-  // Edit modal
-  const ov = document.getElementById("sEditOverlay");
-  const body = document.getElementById("sEditBody");
-  const close = document.getElementById("sEditClose");
-  const cancel= document.getElementById("sEditCancel");
-  const save  = document.getElementById("sEditSave");
-  let editing = null;
-
-  function openServiceEdit(id){
-    const s = SERVICES.find(x=>x.id===id);
-    if(!s) return;
-    editing = id;
-
-    body.innerHTML = `
-      <div class="two">
-        <div class="box">
-          <div class="field"><label>Title</label><input id="esTitle" value="${escapeHtml(s.title)}"></div>
-          <div class="field"><label>Description</label><textarea id="esDesc">${escapeHtml(s.desc||"")}</textarea></div>
-          <div class="field"><label>Category</label><input id="esCat" value="${escapeHtml(s.category||"")}"></div>
-          <div class="field"><label>Icon class</label><input id="esIcon" value="${escapeHtml(s.icon||"")}"></div>
-          <div class="field"><label>Tags (comma separated)</label><input id="esTags" value="${escapeHtml((s.tags||[]).join(", "))}"></div>
-        </div>
-        <div class="box">
-          <div class="field"><label>Unit Type</label>
-            <select id="esUnit">
-              <option ${s.unitType==="K"?"selected":""} value="K">K (per 1K)</option>
-              <option ${s.unitType==="100"?"selected":""} value="100">100 (per 100)</option>
-              <option ${s.unitType==="PACK"?"selected":""} value="PACK">PACK (packages)</option>
-            </select>
-          </div>
-
-          <div id="esKBox" class="${s.unitType==="PACK"?"hide":""}">
-            <div class="field"><label>Price Per Unit</label><input id="esRate" type="number" min="0" value="${escapeHtml(Number(s.pricePerUnit||0))}"></div>
-            <div class="field"><label>Qty List (comma separated)</label><input id="esQty" value="${escapeHtml((s.qtyList||[]).join(","))}"></div>
-          </div>
-
-          <div id="esPackBox" class="${s.unitType==="PACK"?"":"hide"}">
-            <div class="field"><label>Packages (JSON)</label>
-              <textarea id="esPacks">${escapeHtml(JSON.stringify(s.packages||[], null, 2))}</textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-
-    const esUnit = document.getElementById("esUnit");
-    const esKBox = document.getElementById("esKBox");
-    const esPack = document.getElementById("esPackBox");
-    esUnit.addEventListener("change", ()=>{
-      esKBox.classList.toggle("hide", esUnit.value==="PACK");
-      esPack.classList.toggle("hide", esUnit.value!=="PACK");
-    });
-
-    ov.classList.add("show");
-    ov.setAttribute("aria-hidden","false");
-  }
-
-  function closeEdit(){
-    ov.classList.remove("show");
-    ov.setAttribute("aria-hidden","true");
-    editing = null;
-  }
-  close.addEventListener("click", closeEdit);
-  cancel.addEventListener("click", closeEdit);
-  ov.addEventListener("click",(e)=>{ if(e.target===ov) closeEdit(); });
-
-  save.addEventListener("click", ()=>{
-    if(!editing) return;
-    const idx = SERVICES.findIndex(x=>x.id===editing);
-    if(idx<0) return;
-
-    const title = document.getElementById("esTitle").value.trim();
+  $("#addService").addEventListener("click", ()=>{
+    const title = $("#sTitle").value.trim();
     if(!title) return toast("Missing","Title দিন","error",1500);
+    const desc = $("#sDesc").value.trim();
+    const category = $("#sCat").value.trim() || "Social";
+    const icon = $("#sIcon").value.trim() || "fa-solid fa-bolt";
+    const unitType = $("#sUnit").value;
+    const tags = $("#sTags").value.split(",").map(x=>x.trim()).filter(Boolean).slice(0,6);
 
-    const unitType = document.getElementById("esUnit").value;
-    const tags = document.getElementById("esTags").value.split(",").map(x=>x.trim()).filter(Boolean).slice(0,6);
-
-    let updated = {
-      ...SERVICES[idx],
-      title,
-      desc: document.getElementById("esDesc").value.trim(),
-      category: document.getElementById("esCat").value.trim() || "Social",
-      icon: document.getElementById("esIcon").value.trim() || "fa-solid fa-bolt",
-      unitType,
-      tags
-    };
+    let s = { id: makeId("svc"), category, icon, title, desc, unitType, tags };
 
     if(unitType==="PACK"){
       try{
-        const packs = JSON.parse(document.getElementById("esPacks").value || "[]");
+        const packs = JSON.parse($("#sPacks").value || "[]");
         if(!Array.isArray(packs) || packs.length===0) return toast("Missing","Packages JSON দিন","error",1700);
-        updated.packages = packs.map(p=>({label:String(p.label||""), price:Number(p.price||0), note:String(p.note||"")}));
-        delete updated.pricePerUnit; delete updated.qtyList;
+        s.packages = packs.map(p=>({label:String(p.label||""), price:Number(p.price||0), note:String(p.note||"")}));
       }catch{
         return toast("Error","Packages JSON invalid","error",1700);
       }
     }else{
-      const rate = Number(document.getElementById("esRate").value||0);
-      const qtyList = document.getElementById("esQty").value.split(",").map(x=>Number(x.trim())).filter(n=>Number.isFinite(n) && n>0);
+      const rate = Number($("#sRate").value||0);
+      const qtyList = $("#sQty").value.split(",").map(x=>Number(x.trim())).filter(n=>Number.isFinite(n) && n>0);
       if(rate<=0) return toast("Missing","Rate দিন","error",1500);
-      if(qtyList.length===0) return toast("Missing","Qty list দিন","error",1600);
-      updated.pricePerUnit = rate;
-      updated.qtyList = qtyList;
-      delete updated.packages;
+      if(qtyList.length===0) return toast("Missing","Qty list দিন","error",1500);
+      s.pricePerUnit = rate;
+      s.qtyList = qtyList;
     }
 
-    SERVICES[idx] = updated;
+    SERVICES = [s, ...SERVICES];
     writeJSON(LS_SERVICES, SERVICES);
+    toast("Added","Service added ✅","success",1200);
     renderServiceChips(); renderServices();
-    toast("Saved","Service updated ✅","success",1200);
-    closeEdit();
     renderServicesAdmin();
   });
-}
 
-/***********************
- *  Payment/Contact Admin (edit WA/email/fb/address + bkash/nagad)
- ***********************/
-function renderPaymentsAdmin(){
-  if(!canAccess("payments")){
-    renderWithDashboard("Payment & Address","fa-wallet", `<div class="muted bn">আপনার permission নেই।</div>`);
-    return;
+  function redraw(){
+    $("#svcList").innerHTML = SERVICES.map(s=>`
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+          <span class="tag"><i class="${escapeHtml(s.icon||"fa-solid fa-bolt")}"></i> ${escapeHtml(s.category)}</span>
+          <span class="muted" style="font-size:12px">${escapeHtml(s.unitType)}</span>
+        </div>
+        <div style="font-weight:900;margin-top:8px">${escapeHtml(s.title)}</div>
+        <div class="muted" style="margin-top:4px;font-size:12.5px;line-height:1.6">${escapeHtml(s.desc||"")}</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <button class="btn ghost" data-edit-svc="${escapeHtml(s.id)}" style="padding:10px 12px"><i class="fa-solid fa-pen"></i> Edit</button>
+          <button class="btn ghost" data-del-svc="${escapeHtml(s.id)}" style="padding:10px 12px"><i class="fa-solid fa-trash"></i> Delete</button>
+        </div>
+      </div>
+    `).join("") || `<div class="muted">No services</div>`;
   }
+  redraw();
 
-  renderWithDashboard("Payment & Address","fa-wallet", `
-    <div class="two">
-      <div class="box">
-        <b><i class="fa-solid fa-phone"></i> Contact</b>
-        <div class="field"><label>WhatsApp number (international)</label><input id="stWaNum" value="${escapeHtml(STORE.waNumber)}"></div>
-        <div class="field"><label>WhatsApp display (local)</label><input id="stWaRaw" value="${escapeHtml(STORE.waRaw)}"></div>
-        <div class="field"><label>Email</label><input id="stEmail" value="${escapeHtml(STORE.email)}"></div>
-        <div class="field"><label>Facebook link</label><input id="stFb" value="${escapeHtml(STORE.fb)}"></div>
-        <div class="field"><label>Address</label><input id="stAddr" value="${escapeHtml(STORE.address)}"></div>
-      </div>
+  $("#svcList").addEventListener("click",(e)=>{
+    const del = e.target.closest("[data-del-svc]");
+    const ed = e.target.closest("[data-edit-svc]");
+    if(del){
+      const id = del.getAttribute("data-del-svc");
+      const s = SERVICES.find(x=>x.id===id);
+      if(!s) return;
+      if(!confirm(`Delete: ${s.title}?`)) return;
+      SERVICES = SERVICES.filter(x=>x.id!==id);
+      writeJSON(LS_SERVICES, SERVICES);
+      toast("Deleted","Service removed ✅","success",1100);
+      renderServiceChips(); renderServices();
+      renderServicesAdmin();
+    }
+    if(ed){
+      const id = ed.getAttribute("data-edit-svc");
+      const idx = SERVICES.findIndex(x=>x.id===id);
+      if(idx<0) return;
+      const s = SERVICES[idx];
 
-      <div class="box">
-        <b><i class="fa-solid fa-credit-card"></i> Payment</b>
-        <div class="field"><label>bKash</label><input id="stBkash" value="${escapeHtml(STORE.payment.bkash)}"></div>
-        <div class="field"><label>Nagad</label><input id="stNagad" value="${escapeHtml(STORE.payment.nagad)}"></div>
+      const newTitle = prompt("Title:", s.title) ?? s.title;
+      const newDesc = prompt("Description:", s.desc||"") ?? (s.desc||"");
+      const newCat = prompt("Category:", s.category||"") ?? (s.category||"");
+      const newIcon = prompt("Icon class:", s.icon||"") ?? (s.icon||"");
 
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
-          <button class="btn primary" id="saveStoreBtn" type="button"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-        </div>
-
-        <div class="muted bn" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-          Save করলে customer page এর contact/payment auto update হবে ✅
-        </div>
-      </div>
-    </div>
-  `);
-
-  document.getElementById("saveStoreBtn").addEventListener("click", ()=>{
-    STORE.waNumber = document.getElementById("stWaNum").value.trim() || STORE.waNumber;
-    STORE.waRaw    = document.getElementById("stWaRaw").value.trim() || STORE.waRaw;
-    STORE.email    = document.getElementById("stEmail").value.trim() || STORE.email;
-    STORE.fb       = document.getElementById("stFb").value.trim() || STORE.fb;
-    STORE.address  = document.getElementById("stAddr").value.trim() || STORE.address;
-    STORE.payment  = {
-      bkash: document.getElementById("stBkash").value.trim() || STORE.payment.bkash,
-      nagad: document.getElementById("stNagad").value.trim() || STORE.payment.nagad
-    };
-    saveStore();
-    bindTopLinks();
-    renderBrand();
-    toast("Saved","Contact & payment updated ✅","success",1400);
-    renderPaymentsAdmin();
+      SERVICES[idx] = {...s, title:newTitle.trim()||s.title, desc:newDesc.trim(), category:newCat.trim()||s.category, icon:newIcon.trim()||s.icon};
+      writeJSON(LS_SERVICES, SERVICES);
+      toast("Saved","Service updated ✅","success",1100);
+      renderServiceChips(); renderServices();
+      renderServicesAdmin();
+    }
   });
 }
 
-/***********************
- *  Privacy Page (Master pass gate + change admin creds + create staff perms)
- ***********************/
-function renderPrivacyPage(){
-  if(!canAccess("privacy")){
-    renderWithDashboard("Privacy / Staff","fa-user-shield", `<div class="muted bn">আপনার permission নেই।</div>`);
-    return;
-  }
+/* Products admin (add + list edit via prompt + image upload) */
+function renderProductsAdmin(){
+  adminPageSet(`
+    <b><i class="fa-solid fa-bag-shopping"></i> Products</b>
 
-  // Keep dashboard visible
-  renderDashboard();
-  const page = document.getElementById("adminPage");
-
-  const unlocked = sessionStorage.getItem(PRIV_UNLOCK_KEY) === "1";
-  if(!unlocked){
-    page.innerHTML = adminPageShell("Privacy / Staff Access","fa-user-shield") + `
-      <div class="box" style="max-width:520px">
-        <b><i class="fa-solid fa-key"></i> Privacy Unlock</b>
-        <p class="muted bn" style="margin-top:6px;line-height:1.7">Privacy settings খুলতে Master pass লাগবে।</p>
-        <div class="field" style="max-width:420px">
-          <label>Privacy Pass</label>
-          <input id="privPass" type="password" placeholder="Enter privacy pass" />
-        </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-          <button class="btn primary" id="privUnlock" type="button"><i class="fa-solid fa-unlock"></i> Unlock</button>
-          <button class="btn ghost" id="privBack" type="button"><i class="fa-solid fa-arrow-left"></i> Back</button>
-        </div>
+    <div class="box" style="margin-top:10px">
+      <b>+ Add New Product</b>
+      ${dropZone("pDrop","Product Image")}
+      <div class="field"><label>Product Name</label><input id="pName" placeholder="Product name"></div>
+      <div class="field"><label>SKU</label><input id="pSku" placeholder="SKU-001"></div>
+      <div class="field"><label>Category</label>
+        <select id="pCat">${CATEGORIES.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("")}</select>
       </div>
-    `;
-    document.getElementById("privUnlock").addEventListener("click", ()=>{
-      const v = document.getElementById("privPass").value;
-      if(v === PRIVACY_PASS){
-        sessionStorage.setItem(PRIV_UNLOCK_KEY, "1");
-        toast("Unlocked","Privacy open ✅","success",1200);
-        renderPrivacyPage();
-      }else{
-        toast("Denied","Wrong privacy pass ❌","error",2000);
-      }
-    });
-    document.getElementById("privBack").addEventListener("click", ()=>routeTo("dashboard"));
-    return;
-  }
+      <div class="field"><label>Price</label><input id="pPrice" type="number" min="0" placeholder="899"></div>
+      <div class="field"><label>Description</label><textarea id="pDesc" placeholder="Product description..."></textarea></div>
 
-  page.innerHTML = adminPageShell("Privacy / Staff Access","fa-user-shield") + `
-    <div class="two">
-      <div class="box">
-        <b><i class="fa-solid fa-lock"></i> Change Admin Login</b>
-        <div class="field"><label>Admin Username</label><input id="admU" value="${escapeHtml(adminCreds.user)}"></div>
-        <div class="field"><label>Admin Password</label><input id="admP" value="${escapeHtml(adminCreds.pass)}"></div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-          <button class="btn primary" id="saveAdminCreds" type="button"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-        </div>
-        <div class="muted bn" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-          ✅ Owner login info বদলালে নতুন info দিয়ে login করতে হবে।
-        </div>
-      </div>
-
-      <div class="box">
-        <b><i class="fa-solid fa-user-plus"></i> Add Staff</b>
-        <div class="field"><label>Staff Email</label><input id="stEmail" placeholder="staff@gmail.com"></div>
-        <div class="field"><label>Staff Password</label><input id="stPass" placeholder="password"></div>
-
-        <div class="muted bn" style="margin-top:8px">Permissions:</div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-          ${["branding","products","categories","services","payments","privacy"].map(k=>`
-            <label class="chip" style="cursor:pointer">
-              <input type="checkbox" data-perm="${k}" style="accent-color:#3b82f6"> ${k}
-            </label>
-          `).join("")}
-        </div>
-
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-          <button class="btn pink" id="addStaffBtn" type="button"><i class="fa-solid fa-plus"></i> Create Staff</button>
-        </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+        <button class="btn pink" id="addProduct" type="button"><i class="fa-solid fa-plus"></i> Add Product</button>
       </div>
     </div>
 
     <div class="box" style="margin-top:12px">
-      <b><i class="fa-solid fa-users-gear"></i> Staff List</b>
-      <div style="overflow:auto;margin-top:12px">
-        <table style="min-width:900px;width:100%;border-collapse:separate;border-spacing:0 10px">
-          <thead>
-            <tr>
-              <th style="text-align:left">Email</th>
-              <th style="text-align:left">Permissions</th>
-              <th style="text-align:left;width:280px">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="staffTbody"></tbody>
-        </table>
-      </div>
-
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-        <button class="btn ghost" id="privLock" type="button"><i class="fa-solid fa-lock"></i> Lock Privacy</button>
-        <button class="btn ghost" id="backDash" type="button"><i class="fa-solid fa-arrow-left"></i> Back</button>
-      </div>
+      <b>Product List</b>
+      <div id="prdList" style="margin-top:10px;display:grid;gap:10px"></div>
     </div>
-  `;
+  `);
 
-  goBackBind();
+  let newImg = "";
+  hookDrop(
+    "pDrop",
+    ()=>newImg,
+    (d)=>{ newImg=d; },
+    ()=>{}
+  );
 
-  document.getElementById("saveAdminCreds").addEventListener("click", ()=>{
-    const u = document.getElementById("admU").value.trim();
-    const p = document.getElementById("admP").value;
-    if(!u || !p) return toast("Missing","Username/password required","error",1800);
-    adminCreds = { user:u, pass:p };
-    writeJSON(LS_ADMIN_CREDS, adminCreds);
-    toast("Saved","Admin login updated ✅","success",1300);
+  $("#addProduct").addEventListener("click", ()=>{
+    const name = $("#pName").value.trim();
+    const price = Number($("#pPrice").value||0);
+    if(!name) return toast("Missing","Name দিন","error",1500);
+    if(price<=0) return toast("Missing","Price দিন","error",1500);
+
+    const p = {
+      id: makeId("p"),
+      category: $("#pCat").value,
+      name,
+      sku: $("#pSku").value.trim(),
+      price,
+      desc: $("#pDesc").value.trim(),
+      imageDataUrl: newImg
+    };
+    PRODUCTS = [p, ...PRODUCTS];
+    writeJSON(LS_PRODUCTS, PRODUCTS);
+    toast("Added","Product added ✅","success",1100);
+    renderProductChips(); renderProducts();
+    renderProductsAdmin();
   });
 
-  document.getElementById("addStaffBtn").addEventListener("click", ()=>{
-    const email = document.getElementById("stEmail").value.trim();
-    const pass  = document.getElementById("stPass").value;
-    if(!email || !pass) return toast("Missing","Staff email/password required","error",1800);
-    if((staffList||[]).some(s => String(s.email||"").toLowerCase()===email.toLowerCase())){
-      return toast("Exists","This staff already exists","error",1800);
-    }
-    const perms = {};
-    document.querySelectorAll("[data-perm]").forEach(ch=>{
-      perms[ch.getAttribute("data-perm")] = ch.checked;
-    });
-    staffList = [ ...staffList, { id: makeId("staff"), email, pass, perms } ];
-    writeJSON(LS_STAFF_LIST, staffList);
-    toast("Created","Staff added ✅","success",1300);
-    renderPrivacyPage();
-  });
+  function redraw(){
+    $("#prdList").innerHTML = PRODUCTS.map(p=>`
+      <div class="card">
+        <div class="thumb" style="height:120px">
+          ${p.imageDataUrl ? `<img src="${escapeHtml(p.imageDataUrl)}">` : `<div class="ph">No image</div>`}
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:10px">
+          <span class="tag"><i class="fa-solid fa-tag"></i> ${escapeHtml(p.category)}</span>
+          <span style="font-weight:900">৳${escapeHtml(Number(p.price||0))}</span>
+        </div>
+        <div style="font-weight:900;margin-top:8px">${escapeHtml(p.name)}</div>
+        <div class="muted" style="margin-top:4px;font-size:12.5px;line-height:1.6">${escapeHtml(p.desc||"")}</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <button class="btn ghost" data-edit-prd="${escapeHtml(p.id)}" style="padding:10px 12px"><i class="fa-solid fa-pen"></i> Edit</button>
+          <button class="btn ghost" data-del-prd="${escapeHtml(p.id)}" style="padding:10px 12px"><i class="fa-solid fa-trash"></i> Delete</button>
+        </div>
+      </div>
+    `).join("") || `<div class="muted">No products</div>`;
+  }
+  redraw();
 
-  const tb = document.getElementById("staffTbody");
-  tb.innerHTML = (staffList||[]).map(s=>{
-    const keys = Object.keys(s.perms||{}).filter(k=>s.perms[k]);
-    return `
-      <tr style="background:rgba(255,255,255,.04)">
-        <td style="padding:10px;color:var(--text);font-weight:900">${escapeHtml(s.email||"")}</td>
-        <td style="padding:10px">${escapeHtml(keys.join(", ") || "none")}</td>
-        <td style="padding:10px">
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn ghost" data-reset="${escapeHtml(s.id)}" style="padding:10px 12px">
-              <i class="fa-solid fa-key"></i> Reset Pass
-            </button>
-            <button class="btn ghost" data-del="${escapeHtml(s.id)}" style="padding:10px 12px">
-              <i class="fa-solid fa-trash"></i> Remove
-            </button>
-          </div>
-        </td>
-      </tr>
-    `;
-  }).join("") || `<tr><td colspan="3" class="muted">No staff yet</td></tr>`;
-
-  tb.addEventListener("click",(e)=>{
-    const del = e.target.closest("[data-del]");
-    const reset = e.target.closest("[data-reset]");
-
+  $("#prdList").addEventListener("click",(e)=>{
+    const del = e.target.closest("[data-del-prd]");
+    const ed = e.target.closest("[data-edit-prd]");
     if(del){
-      const id = del.getAttribute("data-del");
-      if(!confirm("Remove this staff?")) return;
-      staffList = (staffList||[]).filter(s=>s.id!==id);
-      writeJSON(LS_STAFF_LIST, staffList);
-      toast("Removed","Staff deleted ✅","success",1200);
-      renderPrivacyPage();
+      const id = del.getAttribute("data-del-prd");
+      const p = PRODUCTS.find(x=>x.id===id);
+      if(!p) return;
+      if(!confirm(`Delete: ${p.name}?`)) return;
+      PRODUCTS = PRODUCTS.filter(x=>x.id!==id);
+      writeJSON(LS_PRODUCTS, PRODUCTS);
+      toast("Deleted","Product removed ✅","success",1100);
+      renderProductChips(); renderProducts();
+      renderProductsAdmin();
     }
+    if(ed){
+      const id = ed.getAttribute("data-edit-prd");
+      const idx = PRODUCTS.findIndex(x=>x.id===id);
+      if(idx<0) return;
+      const p = PRODUCTS[idx];
 
-    if(reset){
-      const id = reset.getAttribute("data-reset");
-      const np = prompt("New password for staff:");
-      if(!np) return;
-      staffList = (staffList||[]).map(s => s.id===id ? {...s, pass:np} : s);
-      writeJSON(LS_STAFF_LIST, staffList);
-      toast("Updated","Staff password updated ✅","success",1200);
-      renderPrivacyPage();
+      const nn = prompt("Name:", p.name) ?? p.name;
+      const nd = prompt("Description:", p.desc||"") ?? (p.desc||"");
+      const ns = prompt("SKU:", p.sku||"") ?? (p.sku||"");
+      const np = Number(prompt("Price:", String(p.price||0)) ?? p.price);
+
+      PRODUCTS[idx] = {...p, name:nn.trim()||p.name, desc:nd.trim(), sku:ns.trim(), price: Number.isFinite(np)?np:p.price};
+      writeJSON(LS_PRODUCTS, PRODUCTS);
+      toast("Saved","Product updated ✅","success",1100);
+      renderProductChips(); renderProducts();
+      renderProductsAdmin();
     }
-  });
-
-  document.getElementById("privLock").addEventListener("click", ()=>{
-    sessionStorage.removeItem(PRIV_UNLOCK_KEY);
-    toast("Locked","Privacy locked ✅","success",1200);
-    routeTo("dashboard");
   });
 }
 
-/***********************
- *  3) Permission-based hiding on dashboard
- *  (called after dashboard render)
- ***********************/
-const _renderDashboard = renderDashboard;
-renderDashboard = function(){
-  _renderDashboard();
-  // hide tiles for staff
-  if(!isOwner()){
-    document.querySelectorAll("#adminDashboard [data-route]").forEach(card=>{
-      const r = card.getAttribute("data-route");
-      if(!canAccess(r)) card.style.display = "none";
+/* Contact/payment admin */
+function renderContactAdmin(){
+  adminPageSet(`
+    <b><i class="fa-solid fa-wallet"></i> Payment/Contact</b>
+
+    <div class="field"><label>WhatsApp (international)</label><input id="stWaNum" value="${escapeHtml(STORE.waNumber)}"></div>
+    <div class="field"><label>WhatsApp display</label><input id="stWaRaw" value="${escapeHtml(STORE.waRaw)}"></div>
+    <div class="field"><label>Email</label><input id="stEmail" value="${escapeHtml(STORE.email)}"></div>
+    <div class="field"><label>Facebook link</label><input id="stFb" value="${escapeHtml(STORE.fb)}"></div>
+    <div class="field"><label>Address</label><input id="stAddr" value="${escapeHtml(STORE.address)}"></div>
+
+    <div class="field"><label>bKash</label><input id="stBkash" value="${escapeHtml(STORE.payment.bkash)}"></div>
+    <div class="field"><label>Nagad</label><input id="stNagad" value="${escapeHtml(STORE.payment.nagad)}"></div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+      <button class="btn pink" id="saveStoreBtn" type="button"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+    </div>
+  `);
+
+  $("#saveStoreBtn").addEventListener("click", ()=>{
+    STORE.waNumber = $("#stWaNum").value.trim() || STORE.waNumber;
+    STORE.waRaw = $("#stWaRaw").value.trim() || STORE.waRaw;
+    STORE.email = $("#stEmail").value.trim() || STORE.email;
+    STORE.fb = $("#stFb").value.trim() || STORE.fb;
+    STORE.address = $("#stAddr").value.trim() || STORE.address;
+    STORE.payment = { bkash: $("#stBkash").value.trim() || STORE.payment.bkash, nagad: $("#stNagad").value.trim() || STORE.payment.nagad };
+    writeJSON(LS_STORE, STORE);
+    bindTopLinks(); renderBrand();
+    toast("Saved","Contact updated ✅","success",1100);
+  });
+}
+
+/* Privacy: change admin user/pass (requires privacy pass) */
+function renderPrivacyAdmin(){
+  const unlocked = sessionStorage.getItem(LS_PRIV_UNLOCK)==="1";
+  if(!unlocked){
+    adminPageSet(`
+      <b><i class="fa-solid fa-user-shield"></i> Privacy</b>
+      <div class="muted" style="margin-top:6px;font-size:12.5px;line-height:1.6;font-family:'Hind Siliguri'">
+        Admin username/password change করতে Privacy pass লাগবে।
+      </div>
+      <div class="field"><label>Privacy Pass</label><input id="pPass" type="password" placeholder="Enter privacy pass"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+        <button class="btn pink" id="unlockPriv" type="button"><i class="fa-solid fa-unlock"></i> Unlock</button>
+      </div>
+    `);
+
+    $("#unlockPriv").addEventListener("click", ()=>{
+      if($("#pPass").value === PRIVACY_PASS){
+        sessionStorage.setItem(LS_PRIV_UNLOCK,"1");
+        toast("Unlocked","Privacy open ✅","success",1100);
+        renderPrivacyAdmin();
+      }else{
+        toast("Denied","Wrong privacy pass ❌","error",1600);
+      }
     });
+    return;
   }
-};
 
-/***********************
- *  4) Re-render initial customer UI after overrides
- ***********************/
-(function initAfterPart3(){
-  // Ensure brand/store loaded (already loaded in Part-1)
-  BRAND = readJSON(LS_BRAND, BRAND);
-  CATEGORIES = readJSON(LS_CATS, CATEGORIES);
-  SERVICES = readJSON(LS_SERVICES, SERVICES);
-  PRODUCTS = readJSON(LS_PRODUCTS, PRODUCTS);
-  STORE = readJSON(LS_STORE, STORE);
+  adminPageSet(`
+    <b><i class="fa-solid fa-user-shield"></i> Privacy</b>
+    <div class="field"><label>Admin Username</label><input id="newAU" value="${escapeHtml(adminCreds.user)}"></div>
+    <div class="field"><label>Admin Password</label><input id="newAP" value="${escapeHtml(adminCreds.pass)}"></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+      <button class="btn pink" id="saveCreds" type="button"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+      <button class="btn ghost" id="lockPriv" type="button"><i class="fa-solid fa-lock"></i> Lock</button>
+    </div>
+    <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6;font-family:'Hind Siliguri'">
+      ✅ Save করলে নতুন username/password দিয়ে আবার login করতে হবে।
+    </div>
+  `);
 
+  $("#saveCreds").addEventListener("click", ()=>{
+    const u = $("#newAU").value.trim();
+    const p = $("#newAP").value;
+    if(!u || !p) return toast("Missing","Username/password required","error",1600);
+    adminCreds = { user:u, pass:p };
+    writeJSON(LS_ADMIN_CREDS, adminCreds);
+    toast("Saved","Admin login updated ✅","success",1200);
+  });
+  $("#lockPriv").addEventListener("click", ()=>{
+    sessionStorage.removeItem(LS_PRIV_UNLOCK);
+    toast("Locked","Privacy locked ✅","success",1100);
+    renderPrivacyAdmin();
+  });
+}
+
+/* =========================
+   Init
+========================= */
+(function init(){
   bindTopLinks();
   renderBrand();
   renderServiceChips(); renderServices();
   renderProductChips(); renderProducts();
-
-  // if admin modal is open now, render correct route
-  if(document.getElementById("adminOverlay")?.classList.contains("show")){
-    refreshAdminUI();
-  }
 })();
 </script>
-<!-- =========================
-     PART 3 END ✅
-     Now your single file is READY.
-========================= -->
-```0
+
+</body>
+</html>
