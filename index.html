@@ -1,3 +1,4 @@
+<!-- ===================== PART 1/3 START ===================== -->
 <!doctype html>
 <html lang="bn">
 <head>
@@ -5,139 +6,176 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Saikat Tech Hub | Premium Digital Services</title>
   <meta name="description" content="Saikat Tech Hub — Social Growth, Boosting, Editing, Marketing. Order via WhatsApp with secure payment flow." />
+  <meta name="theme-color" content="#0b1220" />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0b1220;
+      --bg:#070b14;
+      --panel:#0b1220;
       --text:#f8fafc;
       --muted:#a8b3d6;
       --line:rgba(255,255,255,.12);
       --card1:#0f172a;
       --card2:#020617;
+
       --brand:#3b82f6;
-      --green:#22c55e;
-      --pink:#ec4899;
+      --accent:#ec4899;
+      --good:#22c55e;
+      --warn:#f59e0b;
+      --bad:#ef4444;
+
       --radius:22px;
-      --shadow:0 22px 60px rgba(0,0,0,.55);
+      --shadow:0 22px 70px rgba(0,0,0,.55);
+      --shadow2:0 12px 30px rgba(0,0,0,.35);
+
+      --hFont:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      --bFont:'Hind Siliguri','Poppins',system-ui;
+      --base:14px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:'Poppins','Hind Siliguri',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      font-family:var(--hFont);
       color:var(--text);
       background:
-        radial-gradient(900px 600px at 12% -10%, rgba(59,130,246,.36), transparent 62%),
-        radial-gradient(900px 600px at 92% 0%, rgba(236,72,153,.30), transparent 60%),
+        radial-gradient(900px 600px at 10% -10%, rgba(59,130,246,.35), transparent 62%),
+        radial-gradient(900px 650px at 95% 0%, rgba(236,72,153,.28), transparent 60%),
         radial-gradient(900px 700px at 50% 120%, rgba(34,197,94,.16), transparent 60%),
         var(--bg);
+      font-size:var(--base);
     }
     a{color:inherit;text-decoration:none}
-    .container{max-width:720px;margin:0 auto;padding:14px}
+    .container{max-width:760px;margin:0 auto;padding:14px}
+    .muted{color:var(--muted)}
+    .bfont{font-family:var(--bFont)}
 
     /* Mobile-only */
     @media (min-width: 981px){
       body::before{
         content:"এই ওয়েবসাইট Mobile (Phone) এর জন্য অপ্টিমাইজ করা। Phone view/Responsive mode অন করুন।";
-        position:fixed;inset:0;
+        position:fixed;inset:0;z-index:9999;
         display:flex;align-items:center;justify-content:center;
         padding:30px;
-        background:rgba(0,0,0,.8);
-        color:#fff;
-        z-index:9999;
-        text-align:center;
-        font-weight:800;
+        background:rgba(0,0,0,.86);
+        color:#fff;text-align:center;font-weight:900;
       }
     }
 
     header{
       position:sticky;top:0;z-index:50;
-      background:rgba(11,18,32,.86);
+      background:rgba(7,11,20,.84);
       backdrop-filter: blur(12px);
       border-bottom:1px solid var(--line);
     }
-    .header-inner{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 0}
-    .logo{
-      font-size:18px;font-weight:900;letter-spacing:.2px;
+    .header-inner{
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+      padding:10px 0;
+    }
+    .brand{
       display:flex;align-items:center;gap:10px;
+      min-width:180px;
     }
     .mark{
       width:38px;height:38px;border-radius:14px;
-      background:linear-gradient(135deg, rgba(96,165,250,.95), rgba(236,72,153,.86));
-      box-shadow:0 20px 45px rgba(59,130,246,.22);
-      display:grid;place-items:center;
-      overflow:hidden;
       border:1px solid rgba(255,255,255,.14);
+      background:linear-gradient(135deg, rgba(96,165,250,.95), rgba(236,72,153,.86));
+      box-shadow:0 18px 40px rgba(59,130,246,.25);
+      overflow:hidden;display:grid;place-items:center;
+      flex:0 0 auto;
     }
     .mark img{width:100%;height:100%;object-fit:cover}
-    nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
-    nav a{
-      padding:10px 12px;border-radius:14px;
-      font-weight:800;color:var(--muted);font-size:13px;
-      border:1px solid transparent;
+    .brand .name{
+      font-weight:900;letter-spacing:.2px;
+      background:linear-gradient(135deg,#93c5fd,#f9a8d4);
+      -webkit-background-clip:text;color:transparent;
+      font-size:15px;
+      line-height:1.05;
     }
-    nav a:active{transform:scale(.98)}
-    nav a:hover{background:rgba(255,255,255,.10);color:var(--text);border-color:var(--line)}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      border:0;cursor:pointer;
-      padding:12px 14px;border-radius:999px;
-      font-weight:900;color:#fff;
-      box-shadow:var(--shadow);
-      transition:.12s ease;
-      white-space:nowrap;
-      font-size:13px;
-    }
-    .btn:active{transform: scale(.98)}
-    .btn.wa{background:linear-gradient(135deg,#22c55e,#16a34a)}
-    .btn.fb{background:linear-gradient(135deg,#3b82f6,#2563eb)}
-    .btn.pink{background:linear-gradient(135deg,#ec4899,#f472b6)}
-    .btn.ghost{
-      background:rgba(255,255,255,.08);
-      border:1px solid var(--line);
-      box-shadow:none;
-      color:var(--text);
-    }
-    .btn.dark{
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
-      box-shadow:none;
-      color:var(--text);
-    }
+    .brand .tiny{font-size:11px;color:var(--muted);font-weight:800}
 
-    .cover{
-      border-radius:var(--radius);
+    .topnav{
+      margin-left:auto;
+      display:flex;gap:8px;flex-wrap:wrap;
+    }
+    .pill{
+      padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:900;
+      font-size:12px;
+      display:inline-flex;align-items:center;gap:8px;
+      cursor:pointer;user-select:none;
+      box-shadow:var(--shadow2);
+      transition:.12s ease;
+    }
+    .pill:active{transform:scale(.98)}
+    .pill.primary{border-color:rgba(59,130,246,.35);background:rgba(59,130,246,.18)}
+    .pill.wa{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.15)}
+    .pill.admin{border-color:rgba(236,72,153,.35);background:rgba(236,72,153,.15)}
+
+    /* Router tabs */
+    .tabs{
+      display:flex;gap:10px;flex-wrap:wrap;
+      padding:12px 0 6px;
+    }
+    .tab{
+      padding:10px 12px;border-radius:999px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      position:relative;
+      color:var(--muted);
+      font-weight:900;font-size:12px;
+      cursor:pointer;
     }
-    .cover .img{
-      height:150px;
-      background:linear-gradient(135deg, rgba(96,165,250,.25), rgba(236,72,153,.20));
-      display:grid;place-items:center;
-      border-bottom:1px solid var(--line);
-      overflow:hidden;
-    }
-    .cover .img img{width:100%;height:100%;object-fit:cover}
-    .cover .content{padding:14px}
-    .title{
-      margin:0 0 6px;
-      font-size:22px;
-      line-height:1.15;
-      font-weight:900;
-      letter-spacing:.2px;
-    }
-    .tagline{
-      margin:0;color:var(--muted);line-height:1.7;font-size:13.5px;
-      font-family:'Hind Siliguri','Poppins',system-ui;
+    .tab.active{
+      color:var(--text);
+      border-color:rgba(59,130,246,.35);
+      background:rgba(59,130,246,.18);
+      outline:2px solid rgba(59,130,246,.18);
     }
 
-    .quick{
+    /* Sections / cards */
+    .hero{
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .cover{
+      height:170px;
+      background:linear-gradient(135deg, rgba(96,165,250,.22), rgba(236,72,153,.16));
+      border-bottom:1px solid var(--line);
+      position:relative;
+      overflow:hidden;
+      display:grid;place-items:center;
+    }
+    .cover img{width:100%;height:100%;object-fit:cover}
+    .cover .overlayShade{
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.55));
+      pointer-events:none;
+    }
+    .heroBody{padding:14px}
+    .heroTitle{
+      margin:0 0 6px;
+      font-size:22px;line-height:1.12;
+      font-weight:900;letter-spacing:.2px;
+    }
+    .heroTagline{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:13.5px;
+      font-family:var(--bFont);
+    }
+
+    .quickGrid{
       margin-top:12px;
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -147,54 +185,94 @@
       border-radius:18px;
       border:1px solid var(--line);
       background:linear-gradient(180deg, var(--card1), var(--card2));
-      box-shadow:var(--shadow);
-      padding:14px;
-      overflow:hidden;
+      box-shadow:var(--shadow2);
+      padding:12px;
     }
     .tag{
       display:inline-flex;align-items:center;gap:8px;
       padding:7px 10px;border-radius:999px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.07);
+      background:rgba(255,255,255,.06);
       font-weight:900;font-size:11px;
       color:#e5e7eb;
     }
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      border:0;cursor:pointer;
+      padding:12px 14px;border-radius:999px;
+      font-weight:900;color:#fff;
+      transition:.12s ease;
+      white-space:nowrap;
+      font-size:12.5px;
+      box-shadow:var(--shadow2);
+    }
+    .btn:active{transform:scale(.98)}
+    .btn.wa{background:linear-gradient(135deg,#22c55e,#16a34a)}
+    .btn.fb{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+    .btn.accent{background:linear-gradient(135deg,#ec4899,#f472b6)}
+    .btn.ghost{
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      color:var(--text);
+      box-shadow:none;
+    }
 
-    .section{padding:16px 0 26px}
-    .section-title{font-size:18px;margin:0 0 10px}
-    .subline{margin:0 0 12px;color:var(--muted);line-height:1.7;font-size:13.5px;font-family:'Hind Siliguri','Poppins'}
+    .section{padding:14px 0 24px}
+    .section h2{margin:0 0 8px;font-size:18px}
+    .section p{margin:0 0 12px;color:var(--muted);line-height:1.7;font-size:13.5px;font-family:var(--bFont)}
 
     .chips{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 12px}
     .chip{
       padding:10px 12px;border-radius:999px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.07);
+      background:rgba(255,255,255,.06);
       color:var(--text);
-      font-weight:900;
-      font-size:12px;
+      font-weight:900;font-size:12px;
       cursor:pointer;
-      user-select:none;
     }
-    .chip.active{outline:2px solid rgba(59,130,246,.45)}
+    .chip.active{outline:2px solid rgba(59,130,246,.30)}
     .grid{display:grid;grid-template-columns:1fr;gap:12px}
 
     .item h3{margin:10px 0 6px;font-size:16px}
-    .item p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.65;font-family:'Hind Siliguri','Poppins'}
-    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .item p{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.65;font-family:var(--bFont)}
 
     .thumb{
       width:100%;
-      height:150px;
+      height:160px;
       border-radius:16px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
+      background:rgba(255,255,255,.04);
       overflow:hidden;
       display:grid;place-items:center;
     }
     .thumb img{width:100%;height:100%;object-fit:cover}
-    .ph{color:var(--muted);font-weight:800;font-size:12px}
+    .ph{color:var(--muted);font-weight:900;font-size:12px}
 
-    /* Overlays / modal */
+    /* Floating CTA */
+    .fab{
+      position:fixed;
+      right:14px; bottom:18px;
+      z-index:120;
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .fab .fabbtn{
+      width:46px;height:46px;border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+      color:var(--text);
+      display:grid;place-items:center;
+      box-shadow:var(--shadow2);
+      cursor:pointer;
+      transition:.12s ease;
+    }
+    .fab .fabbtn.primary{background:rgba(34,197,94,.16);border-color:rgba(34,197,94,.35)}
+    .fab .fabbtn.admin{background:rgba(236,72,153,.16);border-color:rgba(236,72,153,.35)}
+    .fab .fabbtn:active{transform:scale(.98)}
+
+    /* Modal system */
+    body.lock{overflow:hidden}
     .overlay{
       position:fixed;inset:0;z-index:200;
       display:none;
@@ -206,7 +284,7 @@
     .overlay.show{display:flex}
     .modal{
       width:100%;
-      max-width:720px;
+      max-width:760px;
       border-radius:22px;
       border:1px solid var(--line);
       background:rgba(12,18,33,.96);
@@ -221,29 +299,26 @@
       padding:14px 14px;
       display:flex;align-items:center;justify-content:space-between;gap:10px;
       border-bottom:1px solid var(--line);
-      background:rgba(0,0,0,.12);
+      background:rgba(0,0,0,.16);
     }
-    .modal-head b{font-size:15px}
+    .modal-head b{font-size:14px}
     .close-x{
       border:0;background:transparent;color:var(--muted);
       font-size:22px;cursor:pointer;
     }
-    .close-x:hover{color:var(--text)}
     .modal-body{
       padding:14px;
       overflow:auto;
       -webkit-overflow-scrolling:touch;
       flex:1;
-      padding-bottom:120px;
+      padding-bottom:130px;
     }
     .modal-actions{
       display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;
       padding:12px 14px;
       border-top:1px solid var(--line);
-      background:rgba(0,0,0,.20);
-      position:sticky;
-      bottom:0;
-      z-index:5;
+      background:rgba(0,0,0,.22);
+      position:sticky; bottom:0; z-index:5;
       backdrop-filter: blur(10px);
     }
 
@@ -262,20 +337,23 @@
       padding:12px 12px;
       outline:none;
       font-size:14px;
-      font-family:inherit;
+      font-family:var(--hFont);
     }
     .field textarea{min-height:92px;resize:vertical}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .row > *{flex:1 1 160px}
 
+    .hr{height:1px;background:rgba(255,255,255,.10);margin:12px 0;border-radius:999px}
+
+    /* Toast */
     .toast{
-      position:fixed;
-      left:50%;
-      bottom:18px;
+      position:fixed;left:50%;bottom:16px;
       transform:translateX(-50%);
       z-index:500;
       max-width:92vw;
       background:rgba(12,18,33,.95);
       border:1px solid var(--line);
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow2);
       border-radius:16px;
       padding:12px 14px;
       display:none;
@@ -285,169 +363,137 @@
     .toast.show{display:flex}
     .toast .ticon{font-size:18px}
     .toast .ttitle{font-weight:900}
-    .toast .tmsg{color:var(--muted);font-size:12.5px;line-height:1.55;margin-top:2px;font-family:'Hind Siliguri','Poppins'}
-    body.admin-open{overflow:hidden}
-    .muted{color:var(--muted)}
+    .toast .tmsg{color:var(--muted);font-size:12.5px;line-height:1.55;margin-top:2px;font-family:var(--bFont)}
+
+    /* Admin dashboard */
+    .adminGrid{display:grid;gap:12px}
+    .adminMenu{
+      display:grid;gap:10px;
+      grid-template-columns:1fr 1fr;
+    }
+    .menuBtn{
+      text-align:left;
+      padding:12px 12px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      box-shadow:var(--shadow2);
+      cursor:pointer;
+      font-weight:900;
+      display:flex;gap:10px;align-items:flex-start;
+    }
+    .menuBtn small{display:block;color:var(--muted);font-weight:800;margin-top:4px;font-family:var(--bFont)}
+    .menuBtn:active{transform:scale(.99)}
+    .adminPageTitle{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .searchbar{
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      padding:10px 12px;
+      display:flex;gap:10px;align-items:center;
+    }
+    .searchbar input{
+      border:0;outline:none;background:transparent;color:var(--text);
+      width:100%;
+      font-weight:800;
+      font-family:var(--hFont);
+    }
+
+    .kpi{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;
+      margin-top:12px;
+    }
+    .kpi .k{border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.06);padding:12px}
+    .k .n{font-weight:900;font-size:18px}
+    .k .l{color:var(--muted);font-weight:800;font-size:12px}
+
+    .miniNote{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.6;
+      font-family:var(--bFont);
+    }
   </style>
 </head>
 
 <body>
-
-<!-- ======================
-     CONFIG (Your fixed info stays)
-====================== -->
 <script>
-  const FIXED = {
-    waNumber: "8801804676711",
-    waRaw: "01804676711",
-    email: "saikat712@gmail.com",
-    fb: "https://www.facebook.com/share/1AWbo99RjN/",
-    address: "Dhaka New Market, 1205",
-    payment: { bkash: "+8801344-486384", nagad: "01682312657" }
-  };
-
-  // Admin login (only you)
-  const ADMIN_DEFAULT = { user:"saikat@gmail.com", pass:"676711@" };
-  const PRIVACY_PASS = "1234@6711";
+/* ========= FIXED INFO (kept as you wanted) ========= */
+const FIXED = {
+  waNumber: "8801804676711",
+  waRaw: "01804676711",
+  email: "saikat712@gmail.com",
+  fb: "https://www.facebook.com/share/1AWbo99RjN/",
+  address: "Dhaka New Market, 1205",
+  payment: { bkash: "+8801344-486384", nagad: "01682312657" }
+};
+const ADMIN_DEFAULT = { user:"saikat@gmail.com", pass:"676711@" };  // Admin login
+const PRIVACY_PASS  = "1234@6711";                                  // Privacy unlock for pass change
 </script>
 
 <header>
   <div class="container">
     <div class="header-inner">
-      <div class="logo">
+      <div class="brand">
         <span class="mark" id="logoMark" aria-hidden="true"><span style="font-weight:900">S</span></span>
-        <span id="brandNameTop">Saikat Tech Hub</span>
+        <div>
+          <div class="name" id="brandNameTop">Saikat Tech Hub</div>
+          <div class="tiny" id="brandTinyTop">Premium Digital Services</div>
+        </div>
       </div>
 
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Contact</a>
-        <a href="javascript:void(0)" id="openAdminBtn" class="btn dark" style="padding:10px 12px">
-          <i class="fa-solid fa-user-gear"></i> Admin
-        </a>
-      </nav>
+      <div class="topnav">
+        <a class="pill wa" id="waTop" target="_blank" rel="noreferrer" href="#"><i class="fa-brands fa-whatsapp"></i> WA</a>
+        <a class="pill primary" id="fbTop" target="_blank" rel="noreferrer" href="#"><i class="fa-brands fa-facebook"></i> FB</a>
+        <button class="pill admin" id="openAdmin"><i class="fa-solid fa-user-gear"></i> Admin</button>
+      </div>
     </div>
+
+    <div class="tabs" id="tabs"></div>
   </div>
 </header>
 
-<main class="container" style="padding-top:14px">
+<main class="container" id="app"></main>
 
-  <section class="cover" id="top">
-    <div class="img" id="coverArea">
-      <div class="ph"><i class="fa-solid fa-panorama"></i> Cover</div>
-    </div>
-    <div class="content">
-      <h1 class="title" id="brandTitle">Assalamu Alaikum 👋</h1>
-      <p class="tagline" id="brandTagline">Saikat Tech Hub এ আপনাকে স্বাগতম। নিচ থেকে Service/Product select করে WhatsApp এ অটো অর্ডার পাঠান। ✅ No password • ✅ Safe • ✅ Fast</p>
+<!-- Floating quick buttons -->
+<div class="fab">
+  <button class="fabbtn primary" id="fabWA" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+  <button class="fabbtn admin" id="fabAdmin" title="Admin"><i class="fa-solid fa-gear"></i></button>
+</div>
 
-      <div class="quick" id="quickInfo"></div>
-
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-        <a class="btn wa" id="waBtnTop" target="_blank" rel="noreferrer" href="#">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-        <a class="btn fb" id="fbBtnTop" target="_blank" rel="noreferrer" href="#">
-          <i class="fa-brands fa-facebook"></i> Facebook
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="services">
-    <h2 class="section-title">Social Media Services</h2>
-    <p class="subline">Service select করে Order করলে আলাদা Payment page খুলবে—TrxID দিয়ে WhatsApp submit হবে।</p>
-    <div class="chips" id="svcChips"></div>
-    <div class="grid" id="svcGrid"></div>
-  </section>
-
-  <section class="section" id="products">
-    <h2 class="section-title">Products</h2>
-    <p class="subline">পণ্য কিনতে Order করুন—Payment + TrxID দিয়ে WhatsApp এ যাবে।</p>
-    <div class="chips" id="prdChips"></div>
-    <div class="grid" id="prdGrid"></div>
-  </section>
-
-  <section class="section" id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p class="subline">Tap করলে সরাসরি open হবে</p>
-
-    <div class="grid">
-      <div class="card item">
-        <span class="tag"><i class="fa-brands fa-whatsapp"></i> WhatsApp</span>
-        <h3>Chat Now</h3>
-        <p>WhatsApp chat ওপেন হবে</p>
-        <div class="actions">
-          <a class="btn wa" id="waBtnContact" target="_blank" rel="noreferrer" href="#">
-            <i class="fa-brands fa-whatsapp"></i> Chat
-          </a>
-        </div>
-      </div>
-
-      <div class="card item">
-        <span class="tag"><i class="fa-brands fa-facebook"></i> Facebook</span>
-        <h3>Visit Page</h3>
-        <p>Facebook page ওপেন হবে</p>
-        <div class="actions">
-          <a class="btn fb" id="fbBtnContact" target="_blank" rel="noreferrer" href="#">
-            <i class="fa-brands fa-facebook"></i> Open
-          </a>
-        </div>
-      </div>
-
-      <div class="card item">
-        <span class="tag"><i class="fa-solid fa-envelope"></i> Email</span>
-        <h3>Send Email</h3>
-        <p>Email compose ওপেন হবে</p>
-        <div class="actions">
-          <a class="btn ghost" id="emailBtn" href="#">
-            <i class="fa-solid fa-envelope"></i> Email
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="muted" style="margin-top:14px;font-size:12.5px">
-      © <span id="yearNow"></span> <span id="brandFooter">Saikat Tech Hub</span> — All Rights Reserved
-    </div>
-  </section>
-</main>
-
-<!-- ======================
-     ORDER MODAL (Service/Product)
-====================== -->
+<!-- ORDER MODAL -->
 <div class="overlay" id="orderOverlay" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true">
     <div class="modal-head">
       <b id="orderTitle"><i class="fa-solid fa-cart-shopping"></i> Order</b>
       <button class="close-x" id="closeOrder" aria-label="Close">✕</button>
     </div>
-
     <div class="modal-body" id="orderBody"></div>
-
     <div class="modal-actions">
       <button class="btn ghost" id="cancelOrder"><i class="fa-solid fa-xmark"></i> Close</button>
-      <button class="btn pink" id="sendWaBtn"><i class="fa-brands fa-whatsapp"></i> Send Order</button>
+      <button class="btn accent" id="sendWaBtn"><i class="fa-brands fa-whatsapp"></i> Send Order</button>
     </div>
   </div>
 </div>
 
-<!-- ======================
-     ADMIN MODAL
-====================== -->
+<!-- ADMIN MODAL -->
 <div class="overlay" id="adminOverlay" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true">
     <div class="modal-head">
-      <b><i class="fa-solid fa-shield-halved"></i> Admin</b>
+      <b id="adminTitle"><i class="fa-solid fa-shield-halved"></i> Admin</b>
       <button class="close-x" id="closeAdmin" aria-label="Close">✕</button>
     </div>
     <div class="modal-body" id="adminBody"></div>
     <div class="modal-actions">
       <button class="btn ghost" id="adminCloseBtn"><i class="fa-solid fa-xmark"></i> Close</button>
+      <button class="btn accent" id="adminSaveBtn" style="display:none"><i class="fa-solid fa-floppy-disk"></i> Save</button>
     </div>
   </div>
 </div>
 
+<!-- TOAST -->
 <div class="toast" id="toast">
   <div class="ticon" id="tIcon">✅</div>
   <div>
@@ -457,17 +503,22 @@
 </div>
 
 <script>
-/* =========================
-   Utilities
-========================= */
+/* =====================
+   UTIL
+===================== */
 const $ = (s)=>document.querySelector(s);
-function escapeHtml(str){
+const $$ = (s)=>document.querySelectorAll(s);
+function esc(str){
   return String(str||"")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+}
+function toast(title,msg,type="success",ms=1600){
+  $("#tTitle").textContent = title;
+  $("#tMsg").textContent = msg;
+  $("#tIcon").textContent = type==="error" ? "❌" : type==="warn" ? "⚠️" : "✅";
+  $("#toast").classList.add("show");
+  setTimeout(()=>$("#toast").classList.remove("show"), ms);
 }
 function writeJSON(key,val){ localStorage.setItem(key, JSON.stringify(val)); }
 function readJSON(key,fallback){
@@ -475,241 +526,538 @@ function readJSON(key,fallback){
   catch{ return fallback; }
 }
 function makeId(prefix="id"){ return prefix+"_"+Math.random().toString(16).slice(2)+Date.now().toString(16); }
-function toast(title,msg,type="success",ms=1600){
-  const t = $("#toast");
-  $("#tTitle").textContent = title;
-  $("#tMsg").textContent = msg;
-  $("#tIcon").textContent = type==="error" ? "❌" : type==="warn" ? "⚠️" : "✅";
-  t.classList.add("show");
-  setTimeout(()=>t.classList.remove("show"), ms);
+function clamp(n,min,max){ return Math.max(min, Math.min(max,n)); }
+
+async function fileToDataUrl(file){
+  return new Promise((resolve,reject)=>{
+    const r = new FileReader();
+    r.onload = ()=>resolve(String(r.result||""));
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
 }
+function setBodyLock(v){ document.body.classList.toggle("lock", !!v); }
 
-/* =========================
-   Storage keys
-========================= */
-const LS_BRAND = "sth_brand_v1";
-const LS_STORE = "sth_store_v1";
-const LS_SERVICES = "sth_services_v1";
-const LS_PRODUCTS = "sth_products_v1";
-const LS_CATS = "sth_categories_v1";
-const LS_ADMIN_CREDS = "sth_admin_creds_v1";
-const LS_PRIV_UNLOCK = "sth_priv_unlock_v1";
-const LS_ADMIN_SESSION = "sth_admin_session_v1";
+/* =====================
+   STORAGE KEYS
+===================== */
+const LS_THEME   = "sth_theme_v2";
+const LS_BRAND   = "sth_brand_v2";
+const LS_STORE   = "sth_store_v2";
+const LS_CATS    = "sth_cats_v2";
+const LS_SERV    = "sth_services_v2";
+const LS_PROD    = "sth_products_v2";
+const LS_PAGES   = "sth_pages_v2";
+const LS_FAQ     = "sth_faq_v2";
+const LS_ADMIN   = "sth_admin_v2";
+const SS_ADMIN   = "sth_admin_session_v2";
+const SS_PRIV    = "sth_priv_unlock_v2";
 
-/* =========================
-   Default data
-========================= */
+/* =====================
+   DEFAULT DATA
+===================== */
+let THEME = readJSON(LS_THEME, {
+  brand:"#3b82f6",
+  accent:"#ec4899",
+  bg:"#070b14",
+  base:14,
+  titleFont:"Poppins",
+  bodyFont:"Hind Siliguri",
+  radius:22
+});
+
 let BRAND = readJSON(LS_BRAND, {
   name:"Saikat Tech Hub",
+  tiny:"Premium Digital Services",
   title:"Assalamu Alaikum 👋",
   tagline:"Saikat Tech Hub এ আপনাকে স্বাগতম। নিচ থেকে Service/Product select করে WhatsApp এ অটো অর্ডার পাঠান। ✅ No password • ✅ Safe • ✅ Fast",
   logoDataUrl:"",
-  coverDataUrl:""
+  coverDataUrl:"",
+  marquee:"🔥 আজই অর্ডার করুন — Fast delivery • Safe process • Best price 🔥"
 });
 
 let STORE = readJSON(LS_STORE, {...FIXED});
 
 let CATEGORIES = readJSON(LS_CATS, ["Gadget","Fashion","Kitchen","Home","Accessories"]);
 
-let SERVICES = readJSON(LS_SERVICES, [
+let SERVICES = readJSON(LS_SERV, [
   { id:"fb_followers", category:"Facebook", icon:"fa-brands fa-facebook", title:"Facebook Followers", desc:"Page/Profile followers • Safe • No password", unitType:"K", pricePerUnit:120, qtyList:[1,2,3,5,10], tags:["Popular","Fast","Safe"] },
   { id:"fb_likes", category:"Facebook", icon:"fa-brands fa-facebook", title:"Facebook Likes", desc:"Page/Post likes • Social proof boost", unitType:"K", pricePerUnit:90, qtyList:[1,2,3,5,10], tags:["Trending","Quick","Boost"] },
+  { id:"fb_reacts", category:"Facebook", icon:"fa-solid fa-heart", title:"Facebook Post Reactions", desc:"Like/Love/Wow • Engagement boost", unitType:"100", pricePerUnit:80, qtyList:[1,2,3,5,10], tags:["Engagement","Safe","Hot"] },
   { id:"yt_subs", category:"YouTube", icon:"fa-brands fa-youtube", title:"YouTube Subscribers", desc:"Channel subs • Promotional growth", unitType:"K", pricePerUnit:350, qtyList:[1,2,3,5], tags:["Growth","Safe","Fast"] },
+  { id:"ig_followers", category:"Instagram", icon:"fa-brands fa-instagram", title:"Instagram Followers", desc:"Followers • Boost profile", unitType:"K", pricePerUnit:220, qtyList:[1,2,3,5,10], tags:["IG","Popular","Safe"] },
   { id:"boosting", category:"Marketing", icon:"fa-solid fa-bolt", title:"Boosting / Promotion", desc:"Boost post/page • Reach & engagement", unitType:"PACK",
     packages:[{label:"Basic Boost",price:300,note:"Target + basic setup"},{label:"Standard Boost",price:700,note:"Better reach + optimize"},{label:"Premium Boost",price:1500,note:"Best reach + guidance"}],
     tags:["Boosting","Ads","Support"]
   }
 ]);
 
-let PRODUCTS = readJSON(LS_PRODUCTS, [
+let PRODUCTS = readJSON(LS_PROD, [
   { id:makeId("p"), category:"Gadget", name:"Bluetooth Speaker", sku:"SPK-01", price:899, desc:"High bass • Portable", imageDataUrl:"" },
   { id:makeId("p"), category:"Home", name:"LED Night Lamp", sku:"LMP-02", price:299, desc:"Soft light • Low power", imageDataUrl:"" }
 ]);
 
-let adminCreds = readJSON(LS_ADMIN_CREDS, {...ADMIN_DEFAULT});
+let PAGES = readJSON(LS_PAGES, {
+  aboutTitle:"About Us",
+  aboutText:"আমরা Saikat Tech Hub — Social growth, boosting, editing এবং marketing service দিয়ে থাকি। দ্রুত সাপোর্ট এবং সেফ প্রসেস আমাদের priority।",
+  howTitle:"How it works",
+  howSteps:[
+    {title:"Select", text:"Service/Product select করুন"},
+    {title:"Payment", text:"Payment complete করে TrxID দিন"},
+    {title:"WhatsApp", text:"Submit করলে WhatsApp এ অর্ডার message যাবে"}
+  ]
+});
 
-/* =========================
-   Render brand + links
-========================= */
-function bindTopLinks(){
-  const wa = `https://wa.me/${STORE.waNumber}`;
-  $("#waBtnTop").href = wa;
-  $("#waBtnContact").href = wa;
-  $("#fbBtnTop").href = STORE.fb;
-  $("#fbBtnContact").href = STORE.fb;
-  $("#emailBtn").href = `mailto:${STORE.email}?subject=${encodeURIComponent("Service Inquiry - " + (BRAND.name||"Saikat Tech Hub"))}`;
-  $("#yearNow").textContent = String(new Date().getFullYear());
+let FAQ = readJSON(LS_FAQ, [
+  {q:"Password লাগবে?", a:"না। কোনো পাসওয়ার্ড প্রয়োজন হয় না।"},
+  {q:"কত সময় লাগে?", a:"সার্ভিস অনুযায়ী সময় ভিন্ন হতে পারে।"},
+  {q:"Payment proof লাগবে?", a:"কখনো প্রয়োজন হলে WhatsApp এ screenshot দিতে পারবেন।"}
+]);
+
+let adminCreds = readJSON(LS_ADMIN, {...ADMIN_DEFAULT});
+
+/* =====================
+   APPLY THEME
+===================== */
+function applyTheme(){
+  document.documentElement.style.setProperty("--brand", THEME.brand);
+  document.documentElement.style.setProperty("--accent", THEME.accent);
+  document.documentElement.style.setProperty("--bg", THEME.bg);
+  document.documentElement.style.setProperty("--radius", THEME.radius + "px");
+  document.documentElement.style.setProperty("--base", THEME.base + "px");
+  document.documentElement.style.setProperty("--hFont", `'${THEME.titleFont}',system-ui,-apple-system,Segoe UI,Roboto,Arial`);
+  document.documentElement.style.setProperty("--bFont", `'${THEME.bodyFont}','Poppins',system-ui`);
 }
+applyTheme();
 
-function renderBrand(){
+/* =====================
+   ROUTER (multi-page)
+===================== */
+const ROUTES = [
+  {id:"home",    label:"Home",    icon:"fa-solid fa-house"},
+  {id:"services",label:"Services",icon:"fa-solid fa-share-nodes"},
+  {id:"products",label:"Products",icon:"fa-solid fa-bag-shopping"},
+  {id:"about",   label:"About",   icon:"fa-solid fa-circle-info"},
+  {id:"faq",     label:"FAQ",     icon:"fa-solid fa-circle-question"},
+  {id:"contact", label:"Contact", icon:"fa-solid fa-headset"},
+];
+
+function getRoute(){
+  const h = (location.hash||"").replace("#/","");
+  return ROUTES.some(r=>r.id===h) ? h : "home";
+}
+function setRoute(id){
+  location.hash = `#/${id}`;
+}
+function renderTabs(){
+  const cur = getRoute();
+  $("#tabs").innerHTML = ROUTES.map(r=>`
+    <span class="tab ${r.id===cur?"active":""}" data-route="${r.id}">
+      <i class="${r.icon}"></i> ${r.label}
+    </span>
+  `).join("");
+}
+$("#tabs").addEventListener("click",(e)=>{
+  const t = e.target.closest("[data-route]");
+  if(!t) return;
+  setRoute(t.getAttribute("data-route"));
+});
+
+/* =====================
+   TOP LINKS + BRAND
+===================== */
+function bindLinks(){
+  const wa = `https://wa.me/${STORE.waNumber}`;
+  $("#waTop").href = wa;
+  $("#fbTop").href = STORE.fb;
+  $("#fabWA").onclick = ()=>window.open(wa,"_blank","noopener,noreferrer");
+}
+function renderBrandTop(){
   $("#brandNameTop").textContent = BRAND.name || "Saikat Tech Hub";
-  $("#brandFooter").textContent = BRAND.name || "Saikat Tech Hub";
-  $("#brandTitle").textContent = BRAND.title || "Assalamu Alaikum 👋";
-  $("#brandTagline").textContent = BRAND.tagline || "";
-
+  $("#brandTinyTop").textContent = BRAND.tiny || "Premium Digital Services";
   const mark = $("#logoMark");
   mark.innerHTML = "";
   if(BRAND.logoDataUrl){
-    const img=document.createElement("img");
-    img.src=BRAND.logoDataUrl; img.alt="Logo";
+    const img = document.createElement("img");
+    img.src = BRAND.logoDataUrl;
+    img.alt = "Logo";
     mark.appendChild(img);
   }else{
     mark.innerHTML = `<span style="font-weight:900">S</span>`;
   }
+}
+bindLinks(); renderBrandTop();
 
-  const cover = $("#coverArea");
-  cover.innerHTML = "";
-  if(BRAND.coverDataUrl){
-    const img=document.createElement("img");
-    img.src=BRAND.coverDataUrl; img.alt="Cover";
-    cover.appendChild(img);
-  }else{
-    cover.innerHTML = `<div class="ph"><i class="fa-solid fa-panorama"></i> Cover</div>`;
-  }
+/* =====================
+   PAGE RENDER
+===================== */
+function render(){
+  renderTabs();
+  const r = getRoute();
+  if(r==="home") return renderHome();
+  if(r==="services") return renderServicesPage();
+  if(r==="products") return renderProductsPage();
+  if(r==="about") return renderAboutPage();
+  if(r==="faq") return renderFaqPage();
+  if(r==="contact") return renderContactPage();
+}
+window.addEventListener("hashchange", render);
 
-  $("#quickInfo").innerHTML = `
-    <div class="card">
-      <span class="tag"><i class="fa-brands fa-whatsapp"></i> WhatsApp</span>
-      <div style="font-weight:900;font-size:14px;margin-top:8px">${escapeHtml(STORE.waRaw)}</div>
-      <div class="muted" style="font-size:12px;margin-top:6px">Fast support</div>
-    </div>
-    <div class="card">
-      <span class="tag"><i class="fa-solid fa-wallet"></i> Payment</span>
-      <div style="font-weight:900;font-size:12.5px;line-height:1.7;margin-top:8px">
-        bKash: ${escapeHtml(STORE.payment.bkash)}<br/>
-        Nagad: ${escapeHtml(STORE.payment.nagad)}
+/* =====================
+   HOME
+===================== */
+function renderHome(){
+  const coverHtml = BRAND.coverDataUrl
+    ? `<img src="${esc(BRAND.coverDataUrl)}" alt="Cover"/><div class="overlayShade"></div>`
+    : `<div class="ph"><i class="fa-solid fa-panorama"></i> Cover</div><div class="overlayShade"></div>`;
+
+  $("#app").innerHTML = `
+    <section class="hero">
+      <div class="cover">
+        ${coverHtml}
       </div>
-    </div>
+      <div class="heroBody">
+        <h1 class="heroTitle">${esc(BRAND.title||"Assalamu Alaikum 👋")}</h1>
+        <p class="heroTagline">${esc(BRAND.tagline||"")}</p>
+
+        <div class="quickGrid">
+          <div class="card">
+            <span class="tag"><i class="fa-brands fa-whatsapp"></i> WhatsApp</span>
+            <div style="margin-top:8px;font-weight:900;font-size:14px">${esc(STORE.waRaw)}</div>
+            <div class="muted" style="margin-top:6px;font-size:12px">Fast support</div>
+          </div>
+          <div class="card">
+            <span class="tag"><i class="fa-solid fa-wallet"></i> Payment</span>
+            <div class="muted bfont" style="margin-top:8px;font-size:12.5px;line-height:1.7">
+              bKash: <b style="color:var(--text)">${esc(STORE.payment.bkash)}</b><br/>
+              Nagad: <b style="color:var(--text)">${esc(STORE.payment.nagad)}</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn accent" id="goServices"><i class="fa-solid fa-layer-group"></i> View Services</button>
+          <button class="btn ghost" id="goProducts"><i class="fa-solid fa-bag-shopping"></i> View Products</button>
+          <a class="btn wa" target="_blank" rel="noreferrer" href="https://wa.me/${esc(STORE.waNumber)}"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <span class="tag"><i class="fa-solid fa-bullhorn"></i> Notice</span>
+          <div class="bfont" style="margin-top:8px;line-height:1.7;color:var(--muted)">
+            ${esc(BRAND.marquee || "🔥 আজই অর্ডার করুন — Fast delivery • Safe process • Best price 🔥")}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Quick Sections</h2>
+      <p>আপনি চাইলে আলাদা pages এ গিয়ে সব দেখুন।</p>
+      <div class="grid">
+        <div class="card item">
+          <span class="tag"><i class="fa-solid fa-share-nodes"></i> Services</span>
+          <h3>Social Media Services</h3>
+          <p>Followers, Likes, Views, Boosting, Editing — সব একসাথে।</p>
+          <div class="actions">
+            <button class="btn accent" data-jump="services"><i class="fa-solid fa-arrow-right"></i> Open</button>
+          </div>
+        </div>
+        <div class="card item">
+          <span class="tag"><i class="fa-solid fa-bag-shopping"></i> Products</span>
+          <h3>Shop Products</h3>
+          <p>Product image, price, SKU সহ—Order WhatsApp।</p>
+          <div class="actions">
+            <button class="btn accent" data-jump="products"><i class="fa-solid fa-arrow-right"></i> Open</button>
+          </div>
+        </div>
+        <div class="card item">
+          <span class="tag"><i class="fa-solid fa-circle-question"></i> FAQ</span>
+          <h3>Frequently Asked</h3>
+          <p>Payment, time, rules—সব common question।</p>
+          <div class="actions">
+            <button class="btn ghost" data-jump="faq"><i class="fa-solid fa-arrow-right"></i> Open</button>
+          </div>
+        </div>
+      </div>
+    </section>
   `;
+
+  $("#goServices").onclick = ()=>setRoute("services");
+  $("#goProducts").onclick = ()=>setRoute("products");
+  $("#app").addEventListener("click",(e)=>{
+    const b = e.target.closest("[data-jump]");
+    if(!b) return;
+    setRoute(b.getAttribute("data-jump"));
+  }, { once:true });
 }
 
-/* =========================
-   Services UI
-========================= */
+/* ========= Placeholders for other pages (Part 2/3 will fill) ========= */
+function renderServicesPage(){ $("#app").innerHTML = `<div class="card">Loading...</div>`; }
+function renderProductsPage(){ $("#app").innerHTML = `<div class="card">Loading...</div>`; }
+function renderAboutPage(){ $("#app").innerHTML = `<div class="card">Loading...</div>`; }
+function renderFaqPage(){ $("#app").innerHTML = `<div class="card">Loading...</div>`; }
+function renderContactPage(){ $("#app").innerHTML = `<div class="card">Loading...</div>`; }
+
+/* ========= Order + Admin placeholders (Part 2/3 will fill) ========= */
+</script>
+
+<!-- Part-2 + Part-3 will continue here -->
+<!-- ===================== PART 1/3 END ===================== -->
+<!-- ===================== PART 2/3 START ===================== -->
+<script>
+/* =====================
+   SERVICES PAGE (premium)
+===================== */
 let svcFilter = "All";
-function serviceCategories(){
+function svcCats(){
   const set = new Set(["All"]);
   SERVICES.forEach(s=>set.add(s.category||"Other"));
   return [...set];
 }
-function renderServiceChips(){
-  const cats = serviceCategories();
-  $("#svcChips").innerHTML = cats.map(c=>`
-    <span class="chip ${c===svcFilter?"active":""}" data-svc="${escapeHtml(c)}">${escapeHtml(c)}</span>
-  `).join("");
-}
-function renderServices(){
-  const list = SERVICES.filter(s => svcFilter==="All" ? true : (s.category===svcFilter));
-  $("#svcGrid").innerHTML = list.map(s=>`
-    <div class="card item">
-      <span class="tag"><i class="${escapeHtml(s.icon||"fa-solid fa-bolt")}"></i> ${escapeHtml(s.category||"Service")}</span>
-      <h3>${escapeHtml(s.title)}</h3>
-      <p>${escapeHtml(s.desc||"")}</p>
-      <div class="actions">
-        <button class="btn pink" data-order-service="${escapeHtml(s.id)}"><i class="fa-solid fa-cart-shopping"></i> Order</button>
-        <button class="btn ghost" data-details-service="${escapeHtml(s.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
-      </div>
-    </div>
-  `).join("") || `<div class="muted">No services</div>`;
-}
-$("#svcChips").addEventListener("click",(e)=>{
-  const ch = e.target.closest("[data-svc]");
-  if(!ch) return;
-  svcFilter = ch.getAttribute("data-svc");
-  renderServiceChips(); renderServices();
-});
+function renderServicesPage(){
+  const cats = svcCats();
+  const list = SERVICES.filter(s=> svcFilter==="All" ? true : (s.category===svcFilter));
+  $("#app").innerHTML = `
+    <section class="section">
+      <h2>Social Media Services</h2>
+      <p>Category filter করে দ্রুত সার্ভিস খুঁজে নিন।</p>
 
-/* =========================
-   Products UI
-========================= */
+      <div class="chips" id="svcChips">
+        ${cats.map(c=>`<span class="chip ${c===svcFilter?"active":""}" data-svc="${esc(c)}">${esc(c)}</span>`).join("")}
+      </div>
+
+      <div class="grid" id="svcGrid">
+        ${list.map(s=>`
+          <div class="card item">
+            <span class="tag"><i class="${esc(s.icon||"fa-solid fa-bolt")}"></i> ${esc(s.category||"Service")}</span>
+            <h3>${esc(s.title)}</h3>
+            <p>${esc(s.desc||"")}</p>
+            <div class="actions">
+              <button class="btn accent" data-order-service="${esc(s.id)}"><i class="fa-solid fa-cart-shopping"></i> Order</button>
+              <button class="btn ghost" data-details-service="${esc(s.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
+            </div>
+          </div>
+        `).join("") || `<div class="card"><div class="muted">No services found</div></div>`}
+      </div>
+    </section>
+  `;
+
+  $("#svcChips").onclick = (e)=>{
+    const b = e.target.closest("[data-svc]");
+    if(!b) return;
+    svcFilter = b.getAttribute("data-svc");
+    renderServicesPage();
+  };
+}
+
+/* =====================
+   PRODUCTS PAGE (premium)
+===================== */
 let prdFilter = "All";
-function productCategories(){
+let prdSearch = "";
+function prdCats(){
   const set = new Set(["All", ...CATEGORIES]);
   PRODUCTS.forEach(p=>set.add(p.category||"Other"));
   return [...set];
 }
-function renderProductChips(){
-  const cats = productCategories();
-  $("#prdChips").innerHTML = cats.map(c=>`
-    <span class="chip ${c===prdFilter?"active":""}" data-prd="${escapeHtml(c)}">${escapeHtml(c)}</span>
-  `).join("");
-}
-function renderProducts(){
-  const list = PRODUCTS.filter(p => prdFilter==="All" ? true : (p.category===prdFilter));
-  $("#prdGrid").innerHTML = list.map(p=>`
-    <div class="card item">
-      <div class="thumb">
-        ${p.imageDataUrl ? `<img src="${escapeHtml(p.imageDataUrl)}" alt="product">` : `<div class="ph">No image</div>`}
-      </div>
-      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:10px">
-        <span class="tag"><i class="fa-solid fa-tag"></i> ${escapeHtml(p.category||"Product")}</span>
-        <span style="font-weight:900">৳${escapeHtml(Number(p.price||0))}</span>
-      </div>
-      <h3>${escapeHtml(p.name)}</h3>
-      <p>${escapeHtml(p.desc||"")}</p>
-      <div class="actions">
-        <button class="btn pink" data-order-product="${escapeHtml(p.id)}"><i class="fa-solid fa-cart-shopping"></i> Order</button>
-        <button class="btn ghost" data-details-product="${escapeHtml(p.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
-      </div>
-    </div>
-  `).join("") || `<div class="muted">No products</div>`;
-}
-$("#prdChips").addEventListener("click",(e)=>{
-  const ch = e.target.closest("[data-prd]");
-  if(!ch) return;
-  prdFilter = ch.getAttribute("data-prd");
-  renderProductChips(); renderProducts();
-});
+function renderProductsPage(){
+  const cats = prdCats();
+  const q = prdSearch.trim().toLowerCase();
+  const list = PRODUCTS
+    .filter(p=> prdFilter==="All" ? true : (p.category===prdFilter))
+    .filter(p=> !q ? true : (
+      (p.name||"").toLowerCase().includes(q) ||
+      (p.sku||"").toLowerCase().includes(q) ||
+      (p.desc||"").toLowerCase().includes(q)
+    ));
 
-/* =========================
-   Order Modal (service + product)
-========================= */
+  $("#app").innerHTML = `
+    <section class="section">
+      <div class="adminPageTitle">
+        <div>
+          <h2 style="margin:0">Products</h2>
+          <p style="margin-top:6px">Search + category filter—একদম shop vibe ✅</p>
+        </div>
+        <div class="searchbar" style="min-width:220px">
+          <i class="fa-solid fa-magnifying-glass muted"></i>
+          <input id="prdSearch" placeholder="Search name / sku..." value="${esc(prdSearch)}" />
+        </div>
+      </div>
+
+      <div class="chips" id="prdChips">
+        ${cats.map(c=>`<span class="chip ${c===prdFilter?"active":""}" data-prd="${esc(c)}">${esc(c)}</span>`).join("")}
+      </div>
+
+      <div class="grid" id="prdGrid">
+        ${list.map(p=>`
+          <div class="card item">
+            <div class="thumb">
+              ${p.imageDataUrl ? `<img src="${esc(p.imageDataUrl)}" alt="product">` : `<div class="ph">No image</div>`}
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:10px">
+              <span class="tag"><i class="fa-solid fa-tag"></i> ${esc(p.category||"Product")}</span>
+              <span style="font-weight:900;font-size:14px">৳${esc(Number(p.price||0))}</span>
+            </div>
+            <h3>${esc(p.name||"")}</h3>
+            <p>${esc(p.desc||"")}</p>
+            <div class="actions">
+              <button class="btn accent" data-order-product="${esc(p.id)}"><i class="fa-solid fa-cart-shopping"></i> Order</button>
+              <button class="btn ghost" data-details-product="${esc(p.id)}"><i class="fa-solid fa-circle-info"></i> Details</button>
+            </div>
+          </div>
+        `).join("") || `<div class="card"><div class="muted">No products found</div></div>`}
+      </div>
+    </section>
+  `;
+
+  $("#prdSearch").oninput = (e)=>{ prdSearch = e.target.value; renderProductsPage(); };
+
+  $("#prdChips").onclick = (e)=>{
+    const b = e.target.closest("[data-prd]");
+    if(!b) return;
+    prdFilter = b.getAttribute("data-prd");
+    renderProductsPage();
+  };
+}
+
+/* =====================
+   ABOUT / FAQ / CONTACT PAGES
+===================== */
+function renderAboutPage(){
+  $("#app").innerHTML = `
+    <section class="section">
+      <h2>${esc(PAGES.aboutTitle||"About Us")}</h2>
+      <p>${esc(PAGES.aboutText||"")}</p>
+
+      <div class="card" style="margin-top:12px">
+        <span class="tag"><i class="fa-solid fa-list-check"></i> How it works</span>
+        <div style="margin-top:10px;display:grid;gap:10px">
+          ${(PAGES.howSteps||[]).map((s,i)=>`
+            <div class="box">
+              <b style="display:flex;align-items:center;gap:10px"><span class="tag">Step ${i+1}</span> ${esc(s.title||"")}</b>
+              <div class="muted bfont" style="margin-top:6px;line-height:1.7">${esc(s.text||"")}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderFaqPage(){
+  $("#app").innerHTML = `
+    <section class="section">
+      <h2>FAQ</h2>
+      <p>কমন প্রশ্নগুলোর উত্তর—কাস্টমার সহজে বুঝতে পারবে।</p>
+
+      <div class="grid">
+        ${FAQ.map((f,idx)=>`
+          <div class="card">
+            <b style="display:flex;gap:10px;align-items:center"><span class="tag">Q${idx+1}</span> ${esc(f.q)}</b>
+            <div class="muted bfont" style="margin-top:10px;line-height:1.7">${esc(f.a)}</div>
+          </div>
+        `).join("")}
+      </div>
+
+      <div class="actions" style="margin-top:12px">
+        <button class="btn accent" onclick="location.hash='#/contact'"><i class="fa-solid fa-headset"></i> Need help?</button>
+      </div>
+    </section>
+  `;
+}
+
+function renderContactPage(){
+  $("#app").innerHTML = `
+    <section class="section">
+      <h2>Contact</h2>
+      <p>Tap করলে সরাসরি open হবে</p>
+
+      <div class="grid">
+        <div class="card item">
+          <span class="tag"><i class="fa-brands fa-whatsapp"></i> WhatsApp</span>
+          <h3>Chat Now</h3>
+          <p>WhatsApp chat ওপেন হবে।</p>
+          <div class="actions">
+            <a class="btn wa" target="_blank" rel="noreferrer" href="https://wa.me/${esc(STORE.waNumber)}"><i class="fa-brands fa-whatsapp"></i> Chat</a>
+          </div>
+        </div>
+
+        <div class="card item">
+          <span class="tag"><i class="fa-brands fa-facebook"></i> Facebook</span>
+          <h3>Visit Page</h3>
+          <p>Facebook page ওপেন হবে।</p>
+          <div class="actions">
+            <a class="btn fb" target="_blank" rel="noreferrer" href="${esc(STORE.fb)}"><i class="fa-brands fa-facebook"></i> Open</a>
+          </div>
+        </div>
+
+        <div class="card item">
+          <span class="tag"><i class="fa-solid fa-envelope"></i> Email</span>
+          <h3>Send Email</h3>
+          <p>Email compose ওপেন হবে।</p>
+          <div class="actions">
+            <a class="btn ghost" href="mailto:${esc(STORE.email)}?subject=${encodeURIComponent("Service Inquiry - " + (BRAND.name||"Saikat Tech Hub"))}">
+              <i class="fa-solid fa-envelope"></i> Email
+            </a>
+          </div>
+        </div>
+
+        <div class="card item">
+          <span class="tag"><i class="fa-solid fa-location-dot"></i> Address</span>
+          <h3>${esc(STORE.address||"")}</h3>
+          <p>Payment info নিচে</p>
+          <div class="box" style="margin-top:10px">
+            <b><i class="fa-solid fa-wallet"></i> Payment</b>
+            <div class="muted bfont" style="margin-top:8px;line-height:1.7">
+              bKash: <b style="color:var(--text)">${esc(STORE.payment.bkash)}</b><br/>
+              Nagad: <b style="color:var(--text)">${esc(STORE.payment.nagad)}</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <span class="tag"><i class="fa-solid fa-shield"></i> Note</span>
+        <div class="muted bfont" style="margin-top:8px;line-height:1.7">
+          URL ঠিকভাবে দিলে কাজ দ্রুত হবে। Screenshot/Example দিলে ভালো হয়।
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+/* =====================
+   ORDER MODAL (service + product)
+===================== */
 const orderOverlay = $("#orderOverlay");
 const orderBody = $("#orderBody");
-const closeOrder = $("#closeOrder");
-const cancelOrder = $("#cancelOrder");
-let currentKind = null;     // "service" | "product"
-let currentItem = null;
-let currentComputed = { label:"", price:0 };
+$("#closeOrder").onclick = closeOrder;
+$("#cancelOrder").onclick = closeOrder;
+orderOverlay.addEventListener("click",(e)=>{ if(e.target===orderOverlay) closeOrder(); });
 
-function openOrder(kind, item){
-  currentKind = kind;
-  currentItem = item;
-  currentComputed = { label:"", price:0 };
+let currentKind=null, currentItem=null, currentComputed={label:"",price:0};
 
+function openOrder(kind,item){
+  currentKind=kind; currentItem=item; currentComputed={label:"",price:0};
   $("#orderTitle").innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Order`;
-
-  if(kind==="service"){
-    orderBody.innerHTML = renderServiceOrderUI(item);
-    hookServiceOrder(item);
-  }else{
-    orderBody.innerHTML = renderProductOrderUI(item);
-    hookProductOrder(item);
-  }
-
+  orderBody.innerHTML = kind==="service" ? serviceOrderUI(item) : productOrderUI(item);
+  hookOrder(kind,item);
   orderOverlay.classList.add("show");
   orderOverlay.setAttribute("aria-hidden","false");
-  document.body.classList.add("admin-open");
+  setBodyLock(true);
 }
-
-function closeOrderFn(){
+function closeOrder(){
   orderOverlay.classList.remove("show");
   orderOverlay.setAttribute("aria-hidden","true");
-  document.body.classList.remove("admin-open");
-  currentKind=null; currentItem=null;
+  setBodyLock(false);
 }
-
-closeOrder.addEventListener("click", closeOrderFn);
-cancelOrder.addEventListener("click", closeOrderFn);
-orderOverlay.addEventListener("click",(e)=>{ if(e.target===orderOverlay) closeOrderFn(); });
-
-function renderPaymentBlock(){
+function paymentBlock(){
   return `
     <div class="box" style="margin-top:12px">
       <b><i class="fa-solid fa-wallet"></i> Payment</b>
-      <div class="muted" style="margin-top:6px;font-size:12.5px;line-height:1.7">
-        bKash: <b style="color:var(--text)">${escapeHtml(STORE.payment.bkash)}</b><br/>
-        Nagad: <b style="color:var(--text)">${escapeHtml(STORE.payment.nagad)}</b>
+      <div class="muted bfont" style="margin-top:6px;font-size:12.5px;line-height:1.7">
+        bKash: <b style="color:var(--text)">${esc(STORE.payment.bkash)}</b><br/>
+        Nagad: <b style="color:var(--text)">${esc(STORE.payment.nagad)}</b>
       </div>
 
       <div class="field">
@@ -733,31 +1081,24 @@ function renderPaymentBlock(){
     </div>
   `;
 }
-
-function renderServiceOrderUI(s){
-  const unit = s.unitType;
-  const priceBlock = `
-    <div class="field">
-      <label>Price</label>
-      <input id="priceShow" readonly value="৳0"/>
-    </div>
-  `;
-  let selectBlock = "";
+function serviceOrderUI(s){
+  const unit=s.unitType;
+  let selector="";
   if(unit==="PACK"){
-    selectBlock = `
+    selector=`
       <div class="field">
         <label>Package</label>
         <select id="pkgSelect">
           <option value="">Select</option>
-          ${(s.packages||[]).map((p,idx)=>`<option value="${idx}">${escapeHtml(p.label)} — ৳${escapeHtml(p.price)}</option>`).join("")}
+          ${(s.packages||[]).map((p,idx)=>`<option value="${idx}">${esc(p.label)} — ৳${esc(p.price)}</option>`).join("")}
         </select>
       </div>
     `;
   }else{
-    const label = unit==="K" ? "Quantity (K)" : "Quantity (x100)";
-    selectBlock = `
+    const lab = unit==="K" ? "Quantity (K)" : "Quantity (x100)";
+    selector=`
       <div class="field">
-        <label>${label}</label>
+        <label>${lab}</label>
         <select id="qtySelect">
           <option value="">Select</option>
           ${(s.qtyList||[]).map(q=>{
@@ -768,71 +1109,99 @@ function renderServiceOrderUI(s){
       </div>
     `;
   }
-
   return `
     <div class="box">
-      <span class="tag"><i class="${escapeHtml(s.icon||"fa-solid fa-bolt")}"></i> ${escapeHtml(s.category||"Service")}</span>
-      <h3 style="margin:10px 0 6px">${escapeHtml(s.title)}</h3>
-      <p class="muted" style="margin:0 0 10px;line-height:1.6;font-size:12.5px">${escapeHtml(s.desc||"")}</p>
+      <span class="tag"><i class="${esc(s.icon||"fa-solid fa-bolt")}"></i> ${esc(s.category||"Service")}</span>
+      <h3 style="margin:10px 0 6px">${esc(s.title)}</h3>
+      <p class="muted bfont" style="margin:0 0 10px;line-height:1.6;font-size:12.5px">${esc(s.desc||"")}</p>
 
-      ${selectBlock}
-      ${priceBlock}
+      ${selector}
+
+      <div class="field">
+        <label>Price</label>
+        <input id="priceShow" readonly value="৳0"/>
+      </div>
 
       <div class="field">
         <label>Link / URL</label>
         <input id="urlInput" placeholder="Paste your URL here" />
       </div>
 
-      <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6">
-        ✅ Password লাগবে না • ✅ URL ঠিক দিলে কাজ দ্রুত হবে
-      </div>
+      <div class="miniNote">✅ Password লাগবে না • ✅ URL ঠিক দিলে কাজ দ্রুত হবে</div>
     </div>
-    ${renderPaymentBlock()}
+    ${paymentBlock()}
   `;
 }
+function productOrderUI(p){
+  return `
+    <div class="box">
+      <span class="tag"><i class="fa-solid fa-bag-shopping"></i> ${esc(p.category||"Product")}</span>
+      <h3 style="margin:10px 0 6px">${esc(p.name||"")}</h3>
+      <p class="muted bfont" style="margin:0 0 10px;line-height:1.6;font-size:12.5px">${esc(p.desc||"")}</p>
 
-function hookServiceOrder(s){
-  const priceShow = $("#priceShow");
-  const payMethod = $("#payMethod");
-  const trxInput = $("#trxInput");
-  const noteInput = $("#noteInput");
-  const urlInput = $("#urlInput");
+      <div class="row">
+        <div class="field">
+          <label>Quantity</label>
+          <input id="prodQty" type="number" min="1" value="1" />
+        </div>
+        <div class="field">
+          <label>Total</label>
+          <input id="priceShow" readonly value="৳${esc(Number(p.price||0))}" />
+        </div>
+      </div>
 
-  const qtySelect = $("#qtySelect");
-  const pkgSelect = $("#pkgSelect");
+      <div class="field">
+        <label>Delivery Address (optional)</label>
+        <textarea id="shipAddr" placeholder="আপনার ঠিকানা লিখুন..."></textarea>
+      </div>
+    </div>
+    ${paymentBlock()}
+  `;
+}
+function hookOrder(kind,item){
+  const payMethod=$("#payMethod");
+  const trxInput=$("#trxInput");
+  const noteInput=$("#noteInput");
+  const priceShow=$("#priceShow");
 
-  if(qtySelect){
-    qtySelect.addEventListener("change", ()=>{
-      const v = qtySelect.value ? Number(qtySelect.value) : 0;
-      if(!v){ priceShow.value="৳0"; currentComputed={label:"",price:0}; return; }
-      let label="", price=0;
-      if(s.unitType==="K"){ label=`${v}K`; price=v*Number(s.pricePerUnit||0); }
-      if(s.unitType==="100"){ label=`${v*100}`; price=v*Number(s.pricePerUnit||0); }
-      currentComputed={label,price};
-      priceShow.value=`৳${price}`;
-    });
-  }
-  if(pkgSelect){
-    pkgSelect.addEventListener("change", ()=>{
-      const idx = pkgSelect.value ? Number(pkgSelect.value) : -1;
-      if(idx<0){ priceShow.value="৳0"; currentComputed={label:"",price:0}; return; }
-      const p = (s.packages||[])[idx];
-      currentComputed={label:p.label, price:Number(p.price||0)};
-      priceShow.value=`৳${Number(p.price||0)}`;
-    });
-  }
+  if(kind==="service"){
+    const s=item;
+    const urlInput=$("#urlInput");
+    const qtySelect=$("#qtySelect");
+    const pkgSelect=$("#pkgSelect");
 
-  $("#sendWaBtn").onclick = ()=>{
-    if(s.unitType==="PACK"){
-      if(!pkgSelect.value) return alert("Package select করুন");
-    }else{
-      if(!qtySelect.value) return alert("Quantity select করুন");
+    if(qtySelect){
+      qtySelect.onchange=()=>{
+        const v = qtySelect.value ? Number(qtySelect.value):0;
+        if(!v){ currentComputed={label:"",price:0}; priceShow.value="৳0"; return; }
+        let label="", price=0;
+        if(s.unitType==="K"){ label=`${v}K`; price=v*Number(s.pricePerUnit||0); }
+        if(s.unitType==="100"){ label=`${v*100}`; price=v*Number(s.pricePerUnit||0); }
+        currentComputed={label,price};
+        priceShow.value=`৳${price}`;
+      };
     }
-    if(!urlInput.value.trim()) return alert("Link/URL দিন");
-    if(!payMethod.value) return alert("Payment method select করুন");
-    if(!trxInput.value.trim()) return alert("Transaction ID দিন");
+    if(pkgSelect){
+      pkgSelect.onchange=()=>{
+        const idx = pkgSelect.value ? Number(pkgSelect.value):-1;
+        if(idx<0){ currentComputed={label:"",price:0}; priceShow.value="৳0"; return; }
+        const p=(s.packages||[])[idx];
+        currentComputed={label:p.label, price:Number(p.price||0)};
+        priceShow.value=`৳${Number(p.price||0)}`;
+      };
+    }
 
-    const msg =
+    $("#sendWaBtn").onclick=()=>{
+      if(s.unitType==="PACK"){
+        if(!pkgSelect.value) return alert("Package select করুন");
+      }else{
+        if(!qtySelect.value) return alert("Quantity select করুন");
+      }
+      if(!urlInput.value.trim()) return alert("Link/URL দিন");
+      if(!payMethod.value) return alert("Payment method select করুন");
+      if(!trxInput.value.trim()) return alert("Transaction ID দিন");
+
+      const msg =
 `Assalamu Alaikum,
 I want to place an order.
 
@@ -854,59 +1223,26 @@ ${noteInput.value.trim() || "N/A"}
 
 -- ${BRAND.name || "Saikat Tech Hub"}`;
 
-    window.open(`https://wa.me/${STORE.waNumber}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
-  };
-}
+      window.open(`https://wa.me/${STORE.waNumber}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+    };
+  }else{
+    const p=item;
+    const qty=$("#prodQty");
+    const ship=$("#shipAddr");
+    const update=()=>{
+      const q=clamp(Number(qty.value||1),1,9999);
+      qty.value=q;
+      priceShow.value=`৳${q*Number(p.price||0)}`;
+    };
+    qty.oninput=update; update();
 
-function renderProductOrderUI(p){
-  return `
-    <div class="box">
-      <span class="tag"><i class="fa-solid fa-bag-shopping"></i> ${escapeHtml(p.category||"Product")}</span>
-      <h3 style="margin:10px 0 6px">${escapeHtml(p.name)}</h3>
-      <p class="muted" style="margin:0 0 10px;line-height:1.6;font-size:12.5px">${escapeHtml(p.desc||"")}</p>
+    $("#sendWaBtn").onclick=()=>{
+      const q=Number(qty.value||1);
+      if(!payMethod.value) return alert("Payment method select করুন");
+      if(!trxInput.value.trim()) return alert("Transaction ID দিন");
 
-      <div class="field">
-        <label>Quantity</label>
-        <input id="prodQty" type="number" min="1" value="1" />
-      </div>
-
-      <div class="field">
-        <label>Price</label>
-        <input id="priceShow" readonly value="৳${escapeHtml(Number(p.price||0))}"/>
-      </div>
-
-      <div class="field">
-        <label>Delivery Address (optional)</label>
-        <textarea id="shipAddr" placeholder="আপনার ঠিকানা লিখুন..."></textarea>
-      </div>
-    </div>
-    ${renderPaymentBlock()}
-  `;
-}
-
-function hookProductOrder(p){
-  const priceShow = $("#priceShow");
-  const qty = $("#prodQty");
-  const payMethod = $("#payMethod");
-  const trxInput = $("#trxInput");
-  const noteInput = $("#noteInput");
-  const shipAddr = $("#shipAddr");
-
-  function update(){
-    const q = Number(qty.value||1);
-    priceShow.value = `৳${q * Number(p.price||0)}`;
-  }
-  qty.addEventListener("input", update);
-  update();
-
-  $("#sendWaBtn").onclick = ()=>{
-    const q = Number(qty.value||1);
-    if(q<1) return alert("Quantity ঠিক করুন");
-    if(!payMethod.value) return alert("Payment method select করুন");
-    if(!trxInput.value.trim()) return alert("Transaction ID দিন");
-
-    const total = q * Number(p.price||0);
-    const msg =
+      const total=q*Number(p.price||0);
+      const msg =
 `Assalamu Alaikum,
 I want to place an order.
 
@@ -922,18 +1258,21 @@ Method: ${payMethod.value}
 TrxID: ${trxInput.value.trim()}
 
 Delivery Address (optional):
-${shipAddr.value.trim() || "N/A"}
+${ship.value.trim() || "N/A"}
 
 Notes:
 ${noteInput.value.trim() || "N/A"}
 
 -- ${BRAND.name || "Saikat Tech Hub"}`;
 
-    window.open(`https://wa.me/${STORE.waNumber}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
-  };
+      window.open(`https://wa.me/${STORE.waNumber}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+    };
+  }
 }
 
-/* clicks */
+/* =====================
+   GLOBAL CLICK HANDLERS
+===================== */
 document.addEventListener("click",(e)=>{
   const os = e.target.closest("[data-order-service]");
   const ds = e.target.closest("[data-details-service]");
@@ -941,81 +1280,92 @@ document.addEventListener("click",(e)=>{
   const dp = e.target.closest("[data-details-product]");
 
   if(os){
-    const id = os.getAttribute("data-order-service");
-    const s = SERVICES.find(x=>x.id===id);
-    if(s) openOrder("service", s);
+    const id=os.getAttribute("data-order-service");
+    const s=SERVICES.find(x=>x.id===id);
+    if(s) openOrder("service",s);
   }
   if(ds){
-    const id = ds.getAttribute("data-details-service");
-    const s = SERVICES.find(x=>x.id===id);
+    const id=ds.getAttribute("data-details-service");
+    const s=SERVICES.find(x=>x.id===id);
     if(!s) return;
     alert(`${s.title}\n\n${s.desc}\n\nCategory: ${s.category}\nUnit: ${s.unitType}`);
   }
   if(op){
-    const id = op.getAttribute("data-order-product");
-    const p = PRODUCTS.find(x=>x.id===id);
-    if(p) openOrder("product", p);
+    const id=op.getAttribute("data-order-product");
+    const p=PRODUCTS.find(x=>x.id===id);
+    if(p) openOrder("product",p);
   }
   if(dp){
-    const id = dp.getAttribute("data-details-product");
-    const p = PRODUCTS.find(x=>x.id===id);
+    const id=dp.getAttribute("data-details-product");
+    const p=PRODUCTS.find(x=>x.id===id);
     if(!p) return;
     alert(`${p.name}\n\n${p.desc}\n\nCategory: ${p.category}\nSKU: ${p.sku || "N/A"}\nPrice: ৳${p.price}`);
   }
 });
-
-/* =========================
-   Admin (only you)
-========================= */
+</script>
+<!-- ===================== PART 2/3 END ===================== -->
+<!-- ===================== PART 3/3 START ===================== -->
+<script>
+/* =====================
+   ADMIN (Pro panel)
+   - Branding (logo/cover/text)
+   - Theme (colors/fonts/radius/text size)
+   - Services CRUD
+   - Products CRUD + image
+   - Categories
+   - Contact/Payment
+   - About/How steps
+   - FAQ CRUD
+   - Backup Export/Import
+   - Privacy: change admin username/password (requires privacy pass)
+===================== */
 const adminOverlay = $("#adminOverlay");
-const adminBody = $("#adminBody");
+const adminBody    = $("#adminBody");
+const adminSaveBtn = $("#adminSaveBtn");
+let adminDraftSave = null;
 
-function isAdmin(){ return sessionStorage.getItem(LS_ADMIN_SESSION)==="1"; }
+function isAdmin(){ return sessionStorage.getItem(SS_ADMIN)==="1"; }
 
 function openAdmin(){
   adminOverlay.classList.add("show");
   adminOverlay.setAttribute("aria-hidden","false");
-  document.body.classList.add("admin-open");
+  setBodyLock(true);
   renderAdmin();
 }
-function closeAdminFn(){
+function closeAdmin(){
   adminOverlay.classList.remove("show");
   adminOverlay.setAttribute("aria-hidden","true");
-  document.body.classList.remove("admin-open");
+  setBodyLock(false);
+  adminSaveBtn.style.display="none";
+  adminDraftSave=null;
 }
-$("#openAdminBtn").addEventListener("click", openAdmin);
-$("#closeAdmin").addEventListener("click", closeAdminFn);
-$("#adminCloseBtn").addEventListener("click", closeAdminFn);
-adminOverlay.addEventListener("click",(e)=>{ if(e.target===adminOverlay) closeAdminFn(); });
+$("#openAdmin").onclick=openAdmin;
+$("#fabAdmin").onclick=openAdmin;
+$("#closeAdmin").onclick=closeAdmin;
+$("#adminCloseBtn").onclick=closeAdmin;
+adminOverlay.addEventListener("click",(e)=>{ if(e.target===adminOverlay) closeAdmin(); });
 
-function adminLogin(user,pass){
-  if(user===adminCreds.user && pass===adminCreds.pass){
-    sessionStorage.setItem(LS_ADMIN_SESSION,"1");
-    toast("Login","Admin access granted ✅","success",1300);
-    renderAdminDashboard();
-  }else{
-    toast("Denied","Wrong username/password","error",1900);
-  }
+function setAdminSave(handler){
+  adminDraftSave = handler;
+  adminSaveBtn.style.display = handler ? "inline-flex" : "none";
 }
-function adminLogout(){
-  sessionStorage.removeItem(LS_ADMIN_SESSION);
-  sessionStorage.removeItem(LS_PRIV_UNLOCK);
-  toast("Logout","Session ended ✅","success",1200);
-  renderAdmin();
-}
+adminSaveBtn.onclick=()=>{
+  if(adminDraftSave) adminDraftSave();
+};
 
 function renderAdmin(){
   if(!isAdmin()) return renderAdminLogin();
-  return renderAdminDashboard();
+  return renderAdminDash();
 }
 
 function renderAdminLogin(){
+  setAdminSave(null);
   adminBody.innerHTML = `
     <div class="box">
       <b style="display:flex;align-items:center;gap:10px"><i class="fa-solid fa-lock"></i> Login</b>
-      <p class="muted" style="margin:6px 0 0;font-size:12.5px;line-height:1.6;font-family:'Hind Siliguri'">
+      <div class="muted bfont" style="margin-top:6px;line-height:1.7">
         শুধু আপনি Admin access পাবেন।
-      </p>
+      </div>
 
       <div class="field">
         <label>Username</label>
@@ -1024,251 +1374,350 @@ function renderAdminLogin(){
 
       <div class="field">
         <label>Password</label>
-        <div style="display:flex;gap:10px;align-items:center">
-          <input id="aPass" type="password" placeholder="********" autocomplete="current-password" style="flex:1"/>
-          <button class="btn ghost" id="togglePass" type="button" style="padding:11px 12px;border-radius:14px">
-            <i class="fa-solid fa-eye"></i>
-          </button>
+        <div class="row" style="align-items:center">
+          <input id="aPass" type="password" placeholder="********" autocomplete="current-password"/>
+          <button class="btn ghost" id="togglePass" type="button" style="padding:12px 14px"><i class="fa-solid fa-eye"></i></button>
         </div>
       </div>
 
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-        <button class="btn pink" id="aLogin" type="button"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+      <div class="actions">
+        <button class="btn accent" id="aLogin" type="button"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
         <button class="btn ghost" id="aClose" type="button"><i class="fa-solid fa-xmark"></i> Close</button>
+      </div>
+
+      <div class="miniNote">
+        Tip: Username/password ভুল হলে login হবে না।
       </div>
     </div>
   `;
 
-  const aPass = $("#aPass");
-  $("#togglePass").addEventListener("click", ()=>{
-    aPass.type = aPass.type==="password" ? "text" : "password";
-    $("#togglePass").innerHTML = aPass.type==="password" ? `<i class="fa-solid fa-eye"></i>` : `<i class="fa-solid fa-eye-slash"></i>`;
-  });
+  const pass = $("#aPass");
+  $("#togglePass").onclick=()=>{
+    pass.type = pass.type==="password" ? "text" : "password";
+    $("#togglePass").innerHTML = pass.type==="password" ? `<i class="fa-solid fa-eye"></i>` : `<i class="fa-solid fa-eye-slash"></i>`;
+  };
+  $("#aClose").onclick=closeAdmin;
 
-  $("#aLogin").addEventListener("click", ()=>{
-    adminLogin($("#aUser").value.trim(), $("#aPass").value);
-  });
-  $("#aClose").addEventListener("click", closeAdminFn);
+  $("#aLogin").onclick=()=>{
+    const u=$("#aUser").value.trim();
+    const p=$("#aPass").value;
+    if(u===adminCreds.user && p===adminCreds.pass){
+      sessionStorage.setItem(SS_ADMIN,"1");
+      toast("Login","Admin access granted ✅","success",1200);
+      renderAdminDash();
+    }else{
+      toast("Denied","Wrong username/password","error",1600);
+    }
+  };
 }
 
-function renderAdminDashboard(){
+function adminLogout(){
+  sessionStorage.removeItem(SS_ADMIN);
+  sessionStorage.removeItem(SS_PRIV);
+  toast("Logout","Session ended ✅","success",1200);
+  renderAdmin();
+}
+
+function renderAdminDash(){
+  setAdminSave(null);
+
   adminBody.innerHTML = `
     <div class="box">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
         <b><i class="fa-solid fa-grid-2"></i> Dashboard</b>
-        <button class="btn ghost" id="aLogout" type="button"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+        <button class="btn ghost" id="aLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px">
-        <button class="btn dark" data-page="branding" type="button"><i class="fa-solid fa-image"></i> Branding (Logo/Cover/Text)</button>
-        <button class="btn dark" data-page="services" type="button"><i class="fa-solid fa-share-nodes"></i> Services (Add/Edit)</button>
-        <button class="btn dark" data-page="products" type="button"><i class="fa-solid fa-bag-shopping"></i> Products (Add/Edit)</button>
-        <button class="btn dark" data-page="categories" type="button"><i class="fa-solid fa-layer-group"></i> Categories</button>
-        <button class="btn dark" data-page="contact" type="button"><i class="fa-solid fa-wallet"></i> Payment/Contact</button>
-        <button class="btn dark" data-page="privacy" type="button"><i class="fa-solid fa-user-shield"></i> Privacy (Change Admin Pass)</button>
+      <div class="kpi">
+        <div class="k"><div class="n">${SERVICES.length}</div><div class="l">Services</div></div>
+        <div class="k"><div class="n">${PRODUCTS.length}</div><div class="l">Products</div></div>
+      </div>
+
+      <div class="miniNote">
+        ✅ সবকিছু আপনার ফোনে (localStorage) save হয়। অন্য ফোনে নিতে চাইলে Backup থেকে Export/Import করুন।
+      </div>
+    </div>
+
+    <div class="box" style="margin-top:12px">
+      <b><i class="fa-solid fa-wand-magic-sparkles"></i> Manage</b>
+      <div class="adminMenu" style="margin-top:10px">
+        ${menuBtn("branding","Branding","Logo/Cover/Text/Notice")}
+        ${menuBtn("theme","Theme","Colors/Fonts/Text size")}
+        ${menuBtn("services","Services","Add/Edit/Delete")}
+        ${menuBtn("products","Products","Image + SKU + Price")}
+        ${menuBtn("categories","Categories","Gadget/Fashion/...")}
+        ${menuBtn("contact","Contact","Payment/WA/FB/Address")}
+        ${menuBtn("about","Pages","About + How it works")}
+        ${menuBtn("faq","FAQ","Add/Edit/Delete")}
+        ${menuBtn("backup","Backup","Export/Import/Reset")}
+        ${menuBtn("privacy","Privacy","Change admin login")}
       </div>
     </div>
 
     <div class="box" style="margin-top:12px" id="adminPage">
-      <div class="muted" style="font-family:'Hind Siliguri'">একটা অপশন সিলেক্ট করুন…</div>
+      <div class="muted bfont">একটা অপশন সিলেক্ট করুন…</div>
     </div>
   `;
 
-  $("#aLogout").addEventListener("click", adminLogout);
+  $("#aLogout").onclick=adminLogout;
 
-  adminBody.addEventListener("click",(e)=>{
-    const b = e.target.closest("[data-page]");
+  adminBody.onclick = (e)=>{
+    const b = e.target.closest("[data-adminpage]");
     if(!b) return;
-    const page = b.getAttribute("data-page");
-    if(page==="branding") return renderBrandingAdmin();
-    if(page==="services") return renderServicesAdmin();
-    if(page==="products") return renderProductsAdmin();
-    if(page==="categories") return renderCategoriesAdmin();
-    if(page==="contact") return renderContactAdmin();
-    if(page==="privacy") return renderPrivacyAdmin();
-  }, { once:true }); // prevent duplicate binding on rerender
+    const page = b.getAttribute("data-adminpage");
+    if(page==="branding") return adminBranding();
+    if(page==="theme") return adminTheme();
+    if(page==="services") return adminServices();
+    if(page==="products") return adminProducts();
+    if(page==="categories") return adminCategories();
+    if(page==="contact") return adminContact();
+    if(page==="about") return adminPages();
+    if(page==="faq") return adminFaq();
+    if(page==="backup") return adminBackup();
+    if(page==="privacy") return adminPrivacy();
+  };
 }
+function menuBtn(id,title,sub){
+  return `
+    <button class="menuBtn" data-adminpage="${id}">
+      <i class="fa-solid fa-circle-right" style="margin-top:2px;color:var(--accent)"></i>
+      <div>
+        ${title}
+        <small>${sub}</small>
+      </div>
+    </button>
+  `;
+}
+function setAdminPage(html){ $("#adminPage").innerHTML = html; }
 
-function adminPageSet(html){
-  $("#adminPage").innerHTML = html;
-}
-
-/* Drag/drop helper */
-function fileToDataUrl(file){
-  return new Promise((resolve,reject)=>{
-    const r = new FileReader();
-    r.onload = ()=>resolve(String(r.result||""));
-    r.onerror = reject;
-    r.readAsDataURL(file);
-  });
-}
-function dropZone(id,label){
+/* Image drop component */
+function dropZone(id,label,previewDataUrl=""){
   return `
     <div class="box" id="${id}" style="border-style:dashed">
-      <b>${escapeHtml(label)}</b>
-      <div class="muted" style="margin-top:6px;font-size:12.5px;font-family:'Hind Siliguri'">Drag & drop অথবা Choose</div>
+      <b>${esc(label)}</b>
+      <div class="muted bfont" style="margin-top:6px;font-size:12.5px">Drag & drop অথবা Choose</div>
       <input type="file" accept="image/*" id="${id}_file" style="display:none"/>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-        <button class="btn pink" id="${id}_choose" type="button"><i class="fa-solid fa-upload"></i> Choose</button>
+      <div class="actions" style="margin-top:10px">
+        <button class="btn accent" id="${id}_choose" type="button"><i class="fa-solid fa-upload"></i> Choose</button>
         <button class="btn ghost" id="${id}_remove" type="button"><i class="fa-solid fa-trash"></i> Remove</button>
       </div>
-      <div class="thumb" style="margin-top:10px" id="${id}_prev"><div class="ph">No image</div></div>
+      <div class="thumb" style="margin-top:10px" id="${id}_prev">
+        ${previewDataUrl ? `<img src="${esc(previewDataUrl)}">` : `<div class="ph">No image</div>`}
+      </div>
     </div>
   `;
 }
-async function hookDrop(id, getter, setter, onSaved){
+function hookDrop(id, get, set){
   const box = document.getElementById(id);
   const file = document.getElementById(id+"_file");
   const prev = document.getElementById(id+"_prev");
   const choose = document.getElementById(id+"_choose");
   const remove = document.getElementById(id+"_remove");
 
-  function setPrev(d){
-    prev.innerHTML = d ? `<img src="${escapeHtml(d)}" alt="img">` : `<div class="ph">No image</div>`;
-  }
-  setPrev(getter()||"");
+  const renderPrev=(d)=> prev.innerHTML = d ? `<img src="${esc(d)}">` : `<div class="ph">No image</div>`;
+  renderPrev(get()||"");
 
-  choose.addEventListener("click", ()=>file.click());
-  file.addEventListener("change", async ()=>{
-    const f = file.files && file.files[0];
-    if(!f) return;
-    const d = await fileToDataUrl(f);
-    setter(d);
-    onSaved();
-    setPrev(d);
-  });
-  remove.addEventListener("click", ()=>{
-    setter("");
-    onSaved();
-    setPrev("");
-  });
+  choose.onclick=()=>file.click();
+  file.onchange=async ()=>{
+    const f=file.files && file.files[0]; if(!f) return;
+    const d=await fileToDataUrl(f);
+    set(d); renderPrev(d);
+  };
+  remove.onclick=()=>{ set(""); renderPrev(""); };
 
-  box.addEventListener("dragover",(e)=>{ e.preventDefault(); box.style.borderColor="rgba(59,130,246,.8)"; });
+  box.addEventListener("dragover",(e)=>{ e.preventDefault(); box.style.borderColor="rgba(59,130,246,.7)"; });
   box.addEventListener("dragleave",()=>{ box.style.borderColor="var(--line)"; });
   box.addEventListener("drop", async (e)=>{
-    e.preventDefault();
-    box.style.borderColor="var(--line)";
-    const f = e.dataTransfer.files && e.dataTransfer.files[0];
-    if(!f) return;
-    const d = await fileToDataUrl(f);
-    setter(d);
-    onSaved();
-    setPrev(d);
+    e.preventDefault(); box.style.borderColor="var(--line)";
+    const f=e.dataTransfer.files && e.dataTransfer.files[0]; if(!f) return;
+    const d=await fileToDataUrl(f);
+    set(d); renderPrev(d);
   });
 }
 
-/* Branding admin */
-function renderBrandingAdmin(){
-  adminPageSet(`
-    <b><i class="fa-solid fa-image"></i> Branding</b>
-    <div class="field"><label>Brand Name</label><input id="bName" value="${escapeHtml(BRAND.name||"")}"></div>
-    <div class="field"><label>Cover Title</label><input id="bTitle" value="${escapeHtml(BRAND.title||"")}"></div>
-    <div class="field"><label>Tagline</label><textarea id="bTag">${escapeHtml(BRAND.tagline||"")}</textarea></div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-      <button class="btn pink" id="saveBrandText" type="button"><i class="fa-solid fa-floppy-disk"></i> Save Text</button>
+/* Branding */
+function adminBranding(){
+  let draft = JSON.parse(JSON.stringify(BRAND));
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-image"></i> Branding</b>
+      <span class="tag"><i class="fa-solid fa-circle-check"></i> Live preview</span>
     </div>
 
+    <div class="field"><label>Brand Name</label><input id="bName" value="${esc(draft.name)}"></div>
+    <div class="field"><label>Small title</label><input id="bTiny" value="${esc(draft.tiny)}"></div>
+    <div class="field"><label>Home Title</label><input id="bTitle" value="${esc(draft.title)}"></div>
+    <div class="field"><label>Tagline</label><textarea id="bTag">${esc(draft.tagline)}</textarea></div>
+    <div class="field"><label>Notice text (marquee)</label><textarea id="bMar">${esc(draft.marquee||"")}</textarea></div>
+
+    <div class="hr"></div>
+    ${dropZone("logoDrop","Logo Upload", draft.logoDataUrl)}
     <div style="height:10px"></div>
-    ${dropZone("logoDrop","Logo Upload")}
-    <div style="height:10px"></div>
-    ${dropZone("coverDrop","Cover Upload")}
+    ${dropZone("coverDrop","Cover Upload", draft.coverDataUrl)}
+
+    <div class="miniNote">Save চাপলে উপরের header + home page update হবে।</div>
   `);
 
-  $("#saveBrandText").addEventListener("click", ()=>{
-    BRAND.name = $("#bName").value.trim() || "Saikat Tech Hub";
-    BRAND.title = $("#bTitle").value.trim() || "Assalamu Alaikum 👋";
-    BRAND.tagline = $("#bTag").value.trim() || "";
+  hookDrop("logoDrop", ()=>draft.logoDataUrl, (d)=>{ draft.logoDataUrl=d; });
+  hookDrop("coverDrop", ()=>draft.coverDataUrl,(d)=>{ draft.coverDataUrl=d; });
+
+  setAdminSave(()=>{
+    draft.name=$("#bName").value.trim()||"Saikat Tech Hub";
+    draft.tiny=$("#bTiny").value.trim()||"Premium Digital Services";
+    draft.title=$("#bTitle").value.trim()||"Assalamu Alaikum 👋";
+    draft.tagline=$("#bTag").value.trim()||"";
+    draft.marquee=$("#bMar").value.trim()||"";
+    BRAND = draft;
     writeJSON(LS_BRAND, BRAND);
-    renderBrand();
-    toast("Saved","Brand updated ✅","success",1200);
+    renderBrandTop(); render();
+    toast("Saved","Branding updated ✅","success",1200);
   });
-
-  hookDrop(
-    "logoDrop",
-    ()=>BRAND.logoDataUrl,
-    (d)=>{ BRAND.logoDataUrl=d; writeJSON(LS_BRAND, BRAND); },
-    ()=>{ renderBrand(); toast("Saved","Logo updated ✅","success",1100); }
-  );
-
-  hookDrop(
-    "coverDrop",
-    ()=>BRAND.coverDataUrl,
-    (d)=>{ BRAND.coverDataUrl=d; writeJSON(LS_BRAND, BRAND); },
-    ()=>{ renderBrand(); toast("Saved","Cover updated ✅","success",1100); }
-  );
 }
 
-/* Categories admin */
-function renderCategoriesAdmin(){
-  adminPageSet(`
-    <b><i class="fa-solid fa-layer-group"></i> Categories</b>
-    <div class="field"><label>Add Category</label><input id="newCat" placeholder="Gadget/Fashion/..."></div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-      <button class="btn pink" id="addCat" type="button"><i class="fa-solid fa-plus"></i> Add</button>
+/* Theme */
+function adminTheme(){
+  let draft = JSON.parse(JSON.stringify(THEME));
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-palette"></i> Theme</b>
+      <span class="tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Pro</span>
     </div>
-    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap" id="catWrap"></div>
+
+    <div class="row">
+      <div class="field"><label>Brand color</label><input id="tBrand" type="color" value="${esc(draft.brand)}"></div>
+      <div class="field"><label>Accent color</label><input id="tAcc" type="color" value="${esc(draft.accent)}"></div>
+      <div class="field"><label>Background</label><input id="tBg" type="color" value="${esc(draft.bg)}"></div>
+    </div>
+
+    <div class="row">
+      <div class="field"><label>Text size</label><input id="tBase" type="number" min="12" max="18" value="${esc(draft.base)}"></div>
+      <div class="field"><label>Radius</label><input id="tRad" type="number" min="16" max="30" value="${esc(draft.radius)}"></div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Title Font</label>
+        <select id="tHF">
+          ${["Poppins","Hind Siliguri","Arial"].map(x=>`<option ${draft.titleFont===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+      </div>
+      <div class="field">
+        <label>Body Font</label>
+        <select id="tBF">
+          ${["Hind Siliguri","Poppins","Arial"].map(x=>`<option ${draft.bodyFont===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+      </div>
+    </div>
+
+    <div class="miniNote">Save করলে পুরো site theme instantly update হবে।</div>
   `);
 
-  function redraw(){
-    $("#catWrap").innerHTML = CATEGORIES.map(c=>`
-      <span class="tag" style="gap:10px">
-        ${escapeHtml(c)}
-        <button class="btn ghost" data-del-cat="${escapeHtml(c)}" style="padding:8px 10px;border-radius:999px">
+  setAdminSave(()=>{
+    draft.brand=$("#tBrand").value;
+    draft.accent=$("#tAcc").value;
+    draft.bg=$("#tBg").value;
+    draft.base=clamp(Number($("#tBase").value||14),12,18);
+    draft.radius=clamp(Number($("#tRad").value||22),16,30);
+    draft.titleFont=$("#tHF").value;
+    draft.bodyFont=$("#tBF").value;
+    THEME=draft;
+    writeJSON(LS_THEME, THEME);
+    applyTheme();
+    render();
+    toast("Saved","Theme updated ✅","success",1200);
+  });
+}
+
+/* Categories */
+function adminCategories(){
+  let draft=[...CATEGORIES];
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-layer-group"></i> Categories</b>
+      <span class="tag"><i class="fa-solid fa-plus"></i> Add/Remove</span>
+    </div>
+
+    <div class="field"><label>Add Category</label><input id="newCat" placeholder="Gadget/Fashion/..."></div>
+    <div class="actions">
+      <button class="btn accent" id="addCat"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+
+    <div class="hr"></div>
+    <div id="catWrap" class="chips"></div>
+  `);
+
+  const draw=()=>{
+    $("#catWrap").innerHTML = draft.map(c=>`
+      <span class="chip active" style="outline:none">
+        ${esc(c)}
+        <button class="pill" data-del="${esc(c)}" style="margin-left:10px;padding:8px 10px;box-shadow:none">
           <i class="fa-solid fa-trash"></i>
         </button>
       </span>
     `).join("");
-  }
-  redraw();
+  };
+  draw();
 
-  $("#addCat").addEventListener("click", ()=>{
-    const v = $("#newCat").value.trim();
-    if(!v) return toast("Missing","Category name দিন","error",1500);
-    if(CATEGORIES.some(x=>x.toLowerCase()===v.toLowerCase())) return toast("Exists","Already আছে","error",1500);
-    CATEGORIES = [...CATEGORIES, v];
-    writeJSON(LS_CATS, CATEGORIES);
-    toast("Added","Category added ✅","success",1200);
-    renderProductChips(); renderProducts();
-    redraw();
-  });
+  $("#addCat").onclick=()=>{
+    const v=$("#newCat").value.trim();
+    if(!v) return toast("Missing","Category name দিন","error",1400);
+    if(draft.some(x=>x.toLowerCase()===v.toLowerCase())) return toast("Exists","Already আছে","error",1400);
+    draft.push(v); $("#newCat").value="";
+    draw();
+    toast("Added","Category added ✅","success",1000);
+  };
 
-  $("#catWrap").addEventListener("click",(e)=>{
-    const b = e.target.closest("[data-del-cat]");
+  $("#catWrap").onclick=(e)=>{
+    const b=e.target.closest("[data-del]");
     if(!b) return;
-    const c = b.getAttribute("data-del-cat");
+    const c=b.getAttribute("data-del");
     if(!confirm(`Delete category: ${c} ?`)) return;
-    CATEGORIES = CATEGORIES.filter(x=>x!==c);
+    draft=draft.filter(x=>x!==c);
+    draw();
+  };
+
+  setAdminSave(()=>{
+    CATEGORIES=draft;
     writeJSON(LS_CATS, CATEGORIES);
-    toast("Deleted","Category removed ✅","success",1200);
-    renderProductChips(); renderProducts();
-    redraw();
+    renderProductsPage();
+    toast("Saved","Categories saved ✅","success",1200);
   });
 }
 
-/* Services admin (simple add + list edit via prompt) */
-function renderServicesAdmin(){
-  adminPageSet(`
-    <b><i class="fa-solid fa-share-nodes"></i> Services</b>
+/* Services CRUD (form based) */
+function adminServices(){
+  let draft = JSON.parse(JSON.stringify(SERVICES));
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-share-nodes"></i> Services</b>
+      <span class="tag"><i class="fa-solid fa-pen"></i> Full control</span>
+    </div>
 
-    <div class="box" style="margin-top:10px">
+    <div class="box">
       <b>+ Add New Service</b>
       <div class="field"><label>Title</label><input id="sTitle" placeholder="Facebook Followers"></div>
       <div class="field"><label>Description</label><textarea id="sDesc" placeholder="Safe • No password"></textarea></div>
-      <div class="field"><label>Category</label><input id="sCat" placeholder="Facebook / YouTube / Marketing"></div>
-      <div class="field"><label>Icon class (FontAwesome)</label><input id="sIcon" placeholder="fa-brands fa-facebook"></div>
-
-      <div class="field">
-        <label>Unit Type</label>
-        <select id="sUnit">
-          <option value="K">K (per 1K)</option>
-          <option value="100">100 (per 100)</option>
-          <option value="PACK">PACK (packages)</option>
-        </select>
+      <div class="row">
+        <div class="field"><label>Category</label><input id="sCat" placeholder="Facebook / YouTube / Marketing"></div>
+        <div class="field"><label>Icon class</label><input id="sIcon" placeholder="fa-brands fa-facebook"></div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Unit Type</label>
+          <select id="sUnit">
+            <option value="K">K (per 1K)</option>
+            <option value="100">100 (per 100)</option>
+            <option value="PACK">PACK (packages)</option>
+          </select>
+        </div>
+        <div class="field"><label>Tags (comma)</label><input id="sTags" placeholder="Popular,Fast,Safe"></div>
       </div>
 
-      <div id="sKBox">
-        <div class="field"><label>Price Per Unit</label><input id="sRate" type="number" min="0" placeholder="120"></div>
-        <div class="field"><label>Qty List (comma separated)</label><input id="sQty" placeholder="1,2,3,5,10"></div>
+      <div id="sRateBox">
+        <div class="row">
+          <div class="field"><label>Price Per Unit</label><input id="sRate" type="number" min="0" placeholder="120"></div>
+          <div class="field"><label>Qty List (comma)</label><input id="sQty" placeholder="1,2,3,5,10"></div>
+        </div>
       </div>
 
       <div id="sPackBox" style="display:none">
@@ -1277,321 +1726,2050 @@ function renderServicesAdmin(){
         </div>
       </div>
 
-      <div class="field"><label>Tags (comma separated)</label><input id="sTags" placeholder="Popular,Fast,Safe"></div>
-
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-        <button class="btn pink" id="addService" type="button"><i class="fa-solid fa-plus"></i> Add Service</button>
+      <div class="actions">
+        <button class="btn accent" id="addSvc"><i class="fa-solid fa-plus"></i> Add</button>
       </div>
     </div>
 
     <div class="box" style="margin-top:12px">
-      <b>Service List</b>
-      <div id="svcList" style="margin-top:10px;display:grid;gap:10px"></div>
+      <div class="adminPageTitle">
+        <b>Service List</b>
+        <span class="tag"><i class="fa-solid fa-arrow-down-short-wide"></i> Drag reorder soon</span>
+      </div>
+      <div id="svcList" style="display:grid;gap:10px;margin-top:10px"></div>
     </div>
   `);
 
-  const sUnit = $("#sUnit");
-  sUnit.addEventListener("change", ()=>{
-    const v = sUnit.value;
-    $("#sKBox").style.display = v==="PACK" ? "none" : "block";
-    $("#sPackBox").style.display = v==="PACK" ? "block" : "none";
-  });
-
-  $("#addService").addEventListener("click", ()=>{
-    const title = $("#sTitle").value.trim();
-    if(!title) return toast("Missing","Title দিন","error",1500);
-    const desc = $("#sDesc").value.trim();
-    const category = $("#sCat").value.trim() || "Social";
-    const icon = $("#sIcon").value.trim() || "fa-solid fa-bolt";
-    const unitType = $("#sUnit").value;
-    const tags = $("#sTags").value.split(",").map(x=>x.trim()).filter(Boolean).slice(0,6);
-
-    let s = { id: makeId("svc"), category, icon, title, desc, unitType, tags };
-
-    if(unitType==="PACK"){
-      try{
-        const packs = JSON.parse($("#sPacks").value || "[]");
-        if(!Array.isArray(packs) || packs.length===0) return toast("Missing","Packages JSON দিন","error",1700);
-        s.packages = packs.map(p=>({label:String(p.label||""), price:Number(p.price||0), note:String(p.note||"")}));
-      }catch{
-        return toast("Error","Packages JSON invalid","error",1700);
-      }
-    }else{
-      const rate = Number($("#sRate").value||0);
-      const qtyList = $("#sQty").value.split(",").map(x=>Number(x.trim())).filter(n=>Number.isFinite(n) && n>0);
-      if(rate<=0) return toast("Missing","Rate দিন","error",1500);
-      if(qtyList.length===0) return toast("Missing","Qty list দিন","error",1500);
-      s.pricePerUnit = rate;
-      s.qtyList = qtyList;
-    }
-
-    SERVICES = [s, ...SERVICES];
-    writeJSON(LS_SERVICES, SERVICES);
-    toast("Added","Service added ✅","success",1200);
-    renderServiceChips(); renderServices();
-    renderServicesAdmin();
-  });
+  const sUnit=$("#sUnit");
+  sUnit.onchange=()=>{
+    const v=sUnit.value;
+    $("#sRateBox").style.display = v==="PACK" ? "none":"block";
+    $("#sPackBox").style.display = v==="PACK" ? "block":"none";
+  };
 
   function redraw(){
-    $("#svcList").innerHTML = SERVICES.map(s=>`
+    $("#svcList").innerHTML = draft.map(s=>`
       <div class="card">
         <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
-          <span class="tag"><i class="${escapeHtml(s.icon||"fa-solid fa-bolt")}"></i> ${escapeHtml(s.category)}</span>
-          <span class="muted" style="font-size:12px">${escapeHtml(s.unitType)}</span>
+          <span class="tag"><i class="${esc(s.icon||"fa-solid fa-bolt")}"></i> ${esc(s.category||"Service")}</span>
+          <span class="muted" style="font-weight:900">${esc(s.unitType)}</span>
         </div>
-        <div style="font-weight:900;margin-top:8px">${escapeHtml(s.title)}</div>
-        <div class="muted" style="margin-top:4px;font-size:12.5px;line-height:1.6">${escapeHtml(s.desc||"")}</div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-          <button class="btn ghost" data-edit-svc="${escapeHtml(s.id)}" style="padding:10px 12px"><i class="fa-solid fa-pen"></i> Edit</button>
-          <button class="btn ghost" data-del-svc="${escapeHtml(s.id)}" style="padding:10px 12px"><i class="fa-solid fa-trash"></i> Delete</button>
+        <div style="font-weight:900;margin-top:8px">${esc(s.title)}</div>
+        <div class="muted bfont" style="margin-top:4px;line-height:1.6">${esc(s.desc||"")}</div>
+        <div class="actions">
+          <button class="btn ghost" data-edit="${esc(s.id)}"><i class="fa-solid fa-pen"></i> Edit</button>
+          <button class="btn ghost" data-del="${esc(s.id)}"><i class="fa-solid fa-trash"></i> Delete</button>
         </div>
       </div>
     `).join("") || `<div class="muted">No services</div>`;
   }
   redraw();
 
-  $("#svcList").addEventListener("click",(e)=>{
-    const del = e.target.closest("[data-del-svc]");
-    const ed = e.target.closest("[data-edit-svc]");
-    if(del){
-      const id = del.getAttribute("data-del-svc");
-      const s = SERVICES.find(x=>x.id===id);
+  $("#addSvc").onclick=()=>{
+    const title=$("#sTitle").value.trim();
+    if(!title) return toast("Missing","Title দিন","error",1400);
+    const s={
+      id: makeId("svc"),
+      title,
+      desc: $("#sDesc").value.trim(),
+      category: $("#sCat").value.trim()||"Social",
+      icon: $("#sIcon").value.trim()||"fa-solid fa-bolt",
+      unitType: $("#sUnit").value,
+      tags: $("#sTags").value.split(",").map(x=>x.trim()).filter(Boolean).slice(0,8)
+    };
+
+    if(s.unitType==="PACK"){
+      try{
+        const packs = JSON.parse($("#sPacks").value || "[]");
+        if(!Array.isArray(packs) || packs.length===0) return toast("Missing","Packages JSON দিন","error",1600);
+        s.packages = packs.map(p=>({label:String(p.label||""),price:Number(p.price||0),note:String(p.note||"")}));
+      }catch{
+        return toast("Error","Packages JSON invalid","error",1600);
+      }
+    }else{
+      const rate=Number($("#sRate").value||0);
+      const qty=$("#sQty").value.split(",").map(x=>Number(x.trim())).filter(n=>Number.isFinite(n)&&n>0);
+      if(rate<=0) return toast("Missing","Rate দিন","error",1400);
+      if(qty.length===0) return toast("Missing","Qty list দিন","error",1400);
+      s.pricePerUnit=rate;
+      s.qtyList=qty;
+    }
+
+    draft=[s, ...draft];
+    redraw();
+    toast("Added","Service added ✅","success",1000);
+  };
+
+  $("#svcList").onclick=(e)=>{
+    const ed=e.target.closest("[data-edit]");
+    const dl=e.target.closest("[data-del]");
+    if(dl){
+      const id=dl.getAttribute("data-del");
+      const s=draft.find(x=>x.id===id);
       if(!s) return;
       if(!confirm(`Delete: ${s.title}?`)) return;
-      SERVICES = SERVICES.filter(x=>x.id!==id);
-      writeJSON(LS_SERVICES, SERVICES);
-      toast("Deleted","Service removed ✅","success",1100);
-      renderServiceChips(); renderServices();
-      renderServicesAdmin();
+      draft=draft.filter(x=>x.id!==id);
+      redraw();
+      return;
     }
     if(ed){
-      const id = ed.getAttribute("data-edit-svc");
-      const idx = SERVICES.findIndex(x=>x.id===id);
-      if(idx<0) return;
-      const s = SERVICES[idx];
-
-      const newTitle = prompt("Title:", s.title) ?? s.title;
-      const newDesc = prompt("Description:", s.desc||"") ?? (s.desc||"");
-      const newCat = prompt("Category:", s.category||"") ?? (s.category||"");
-      const newIcon = prompt("Icon class:", s.icon||"") ?? (s.icon||"");
-
-      SERVICES[idx] = {...s, title:newTitle.trim()||s.title, desc:newDesc.trim(), category:newCat.trim()||s.category, icon:newIcon.trim()||s.icon};
-      writeJSON(LS_SERVICES, SERVICES);
-      toast("Saved","Service updated ✅","success",1100);
-      renderServiceChips(); renderServices();
-      renderServicesAdmin();
+      const id=ed.getAttribute("data-edit");
+      const i=draft.findIndex(x=>x.id===id);
+      if(i<0) return;
+      const s=draft[i];
+      const title=prompt("Title:", s.title) ?? s.title;
+      const desc=prompt("Description:", s.desc||"") ?? (s.desc||"");
+      const cat=prompt("Category:", s.category||"") ?? (s.category||"");
+      const icon=prompt("Icon class:", s.icon||"") ?? (s.icon||"");
+      draft[i]={...s,title:title.trim()||s.title,desc:desc.trim(),category:cat.trim()||s.category,icon:icon.trim()||s.icon};
+      redraw();
     }
+  };
+
+  setAdminSave(()=>{
+    SERVICES=draft;
+    writeJSON(LS_SERV, SERVICES);
+    svcFilter="All";
+    render();
+    toast("Saved","Services saved ✅","success",1200);
   });
 }
 
-/* Products admin (add + list edit via prompt + image upload) */
-function renderProductsAdmin(){
-  adminPageSet(`
-    <b><i class="fa-solid fa-bag-shopping"></i> Products</b>
+/* Products CRUD + image */
+function adminProducts(){
+  let draft = JSON.parse(JSON.stringify(PRODUCTS));
+  let newImg = "";
 
-    <div class="box" style="margin-top:10px">
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-bag-shopping"></i> Products</b>
+      <span class="tag"><i class="fa-solid fa-image"></i> Image supported</span>
+    </div>
+
+    <div class="box">
       <b>+ Add New Product</b>
-      ${dropZone("pDrop","Product Image")}
-      <div class="field"><label>Product Name</label><input id="pName" placeholder="Product name"></div>
-      <div class="field"><label>SKU</label><input id="pSku" placeholder="SKU-001"></div>
-      <div class="field"><label>Category</label>
-        <select id="pCat">${CATEGORIES.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("")}</select>
+      ${dropZone("pDrop","Product Image", "")}
+      <div class="row">
+        <div class="field"><label>Product Name</label><input id="pName" placeholder="Product name"></div>
+        <div class="field"><label>SKU</label><input id="pSku" placeholder="SKU-001"></div>
       </div>
-      <div class="field"><label>Price</label><input id="pPrice" type="number" min="0" placeholder="899"></div>
+      <div class="row">
+        <div class="field">
+          <label>Category</label>
+          <select id="pCat">${CATEGORIES.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("")}</select>
+        </div>
+        <div class="field"><label>Price</label><input id="pPrice" type="number" min="0" placeholder="899"></div>
+      </div>
       <div class="field"><label>Description</label><textarea id="pDesc" placeholder="Product description..."></textarea></div>
 
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-        <button class="btn pink" id="addProduct" type="button"><i class="fa-solid fa-plus"></i> Add Product</button>
+      <div class="actions">
+        <button class="btn accent" id="addPrd"><i class="fa-solid fa-plus"></i> Add</button>
       </div>
     </div>
 
     <div class="box" style="margin-top:12px">
       <b>Product List</b>
-      <div id="prdList" style="margin-top:10px;display:grid;gap:10px"></div>
+      <div id="prdList" style="display:grid;gap:10px;margin-top:10px"></div>
     </div>
   `);
 
-  let newImg = "";
-  hookDrop(
-    "pDrop",
-    ()=>newImg,
-    (d)=>{ newImg=d; },
-    ()=>{}
-  );
-
-  $("#addProduct").addEventListener("click", ()=>{
-    const name = $("#pName").value.trim();
-    const price = Number($("#pPrice").value||0);
-    if(!name) return toast("Missing","Name দিন","error",1500);
-    if(price<=0) return toast("Missing","Price দিন","error",1500);
-
-    const p = {
-      id: makeId("p"),
-      category: $("#pCat").value,
-      name,
-      sku: $("#pSku").value.trim(),
-      price,
-      desc: $("#pDesc").value.trim(),
-      imageDataUrl: newImg
-    };
-    PRODUCTS = [p, ...PRODUCTS];
-    writeJSON(LS_PRODUCTS, PRODUCTS);
-    toast("Added","Product added ✅","success",1100);
-    renderProductChips(); renderProducts();
-    renderProductsAdmin();
-  });
+  hookDrop("pDrop", ()=>newImg, (d)=>{ newImg=d; });
 
   function redraw(){
-    $("#prdList").innerHTML = PRODUCTS.map(p=>`
+    $("#prdList").innerHTML = draft.map(p=>`
       <div class="card">
-        <div class="thumb" style="height:120px">
-          ${p.imageDataUrl ? `<img src="${escapeHtml(p.imageDataUrl)}">` : `<div class="ph">No image</div>`}
+        <div class="thumb" style="height:130px">
+          ${p.imageDataUrl ? `<img src="${esc(p.imageDataUrl)}">` : `<div class="ph">No image</div>`}
         </div>
         <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:10px">
-          <span class="tag"><i class="fa-solid fa-tag"></i> ${escapeHtml(p.category)}</span>
-          <span style="font-weight:900">৳${escapeHtml(Number(p.price||0))}</span>
+          <span class="tag"><i class="fa-solid fa-tag"></i> ${esc(p.category||"Product")}</span>
+          <span style="font-weight:900">৳${esc(Number(p.price||0))}</span>
         </div>
-        <div style="font-weight:900;margin-top:8px">${escapeHtml(p.name)}</div>
-        <div class="muted" style="margin-top:4px;font-size:12.5px;line-height:1.6">${escapeHtml(p.desc||"")}</div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-          <button class="btn ghost" data-edit-prd="${escapeHtml(p.id)}" style="padding:10px 12px"><i class="fa-solid fa-pen"></i> Edit</button>
-          <button class="btn ghost" data-del-prd="${escapeHtml(p.id)}" style="padding:10px 12px"><i class="fa-solid fa-trash"></i> Delete</button>
+        <div style="font-weight:900;margin-top:8px">${esc(p.name||"")}</div>
+        <div class="muted bfont" style="margin-top:4px;line-height:1.6">${esc(p.desc||"")}</div>
+        <div class="actions">
+          <button class="btn ghost" data-edit="${esc(p.id)}"><i class="fa-solid fa-pen"></i> Edit</button>
+          <button class="btn ghost" data-img="${esc(p.id)}"><i class="fa-solid fa-image"></i> Change image</button>
+          <button class="btn ghost" data-del="${esc(p.id)}"><i class="fa-solid fa-trash"></i> Delete</button>
         </div>
       </div>
     `).join("") || `<div class="muted">No products</div>`;
   }
   redraw();
 
-  $("#prdList").addEventListener("click",(e)=>{
-    const del = e.target.closest("[data-del-prd]");
-    const ed = e.target.closest("[data-edit-prd]");
+  $("#addPrd").onclick=()=>{
+    const name=$("#pName").value.trim();
+    const price=Number($("#pPrice").value||0);
+    if(!name) return toast("Missing","Name দিন","error",1400);
+    if(price<=0) return toast("Missing","Price দিন","error",1400);
+    const p={
+      id: makeId("p"),
+      name, price,
+      sku: $("#pSku").value.trim(),
+      category: $("#pCat").value,
+      desc: $("#pDesc").value.trim(),
+      imageDataUrl: newImg
+    };
+    draft=[p,...draft];
+    newImg="";
+    redraw();
+    toast("Added","Product added ✅","success",1000);
+  };
+
+  $("#prdList").onclick=async (e)=>{
+    const del=e.target.closest("[data-del]");
+    const ed =e.target.closest("[data-edit]");
+    const im =e.target.closest("[data-img]");
     if(del){
-      const id = del.getAttribute("data-del-prd");
-      const p = PRODUCTS.find(x=>x.id===id);
+      const id=del.getAttribute("data-del");
+      const p=draft.find(x=>x.id===id);
       if(!p) return;
       if(!confirm(`Delete: ${p.name}?`)) return;
-      PRODUCTS = PRODUCTS.filter(x=>x.id!==id);
-      writeJSON(LS_PRODUCTS, PRODUCTS);
-      toast("Deleted","Product removed ✅","success",1100);
-      renderProductChips(); renderProducts();
-      renderProductsAdmin();
+      draft=draft.filter(x=>x.id!==id);
+      redraw();
+      return;
     }
     if(ed){
-      const id = ed.getAttribute("data-edit-prd");
-      const idx = PRODUCTS.findIndex(x=>x.id===id);
-      if(idx<0) return;
-      const p = PRODUCTS[idx];
-
-      const nn = prompt("Name:", p.name) ?? p.name;
-      const nd = prompt("Description:", p.desc||"") ?? (p.desc||"");
-      const ns = prompt("SKU:", p.sku||"") ?? (p.sku||"");
-      const np = Number(prompt("Price:", String(p.price||0)) ?? p.price);
-
-      PRODUCTS[idx] = {...p, name:nn.trim()||p.name, desc:nd.trim(), sku:ns.trim(), price: Number.isFinite(np)?np:p.price};
-      writeJSON(LS_PRODUCTS, PRODUCTS);
-      toast("Saved","Product updated ✅","success",1100);
-      renderProductChips(); renderProducts();
-      renderProductsAdmin();
+      const id=ed.getAttribute("data-edit");
+      const i=draft.findIndex(x=>x.id===id);
+      if(i<0) return;
+      const p=draft[i];
+      const nn=prompt("Name:", p.name) ?? p.name;
+      const nd=prompt("Description:", p.desc||"") ?? (p.desc||"");
+      const ns=prompt("SKU:", p.sku||"") ?? (p.sku||"");
+      const np=Number(prompt("Price:", String(p.price||0)) ?? p.price);
+      draft[i]={...p,name:nn.trim()||p.name,desc:nd.trim(),sku:ns.trim(),price:Number.isFinite(np)?np:p.price};
+      redraw();
+      return;
     }
+    if(im){
+      const id=im.getAttribute("data-img");
+      const i=draft.findIndex(x=>x.id===id);
+      if(i<0) return;
+      const file = document.createElement("input");
+      file.type="file"; file.accept="image/*";
+      file.onchange=async ()=>{
+        const f=file.files && file.files[0];
+        if(!f) return;
+        draft[i].imageDataUrl = await fileToDataUrl(f);
+        redraw();
+        toast("Updated","Image changed ✅","success",1000);
+      };
+      file.click();
+    }
+  };
+
+  setAdminSave(()=>{
+    PRODUCTS=draft;
+    writeJSON(LS_PROD, PRODUCTS);
+    render();
+    toast("Saved","Products saved ✅","success",1200);
   });
 }
 
-/* Contact/payment admin */
-function renderContactAdmin(){
-  adminPageSet(`
-    <b><i class="fa-solid fa-wallet"></i> Payment/Contact</b>
+/* Contact */
+function adminContact(){
+  let draft = JSON.parse(JSON.stringify(STORE));
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-wallet"></i> Contact/Payment</b>
+      <span class="tag"><i class="fa-solid fa-phone"></i> Update</span>
+    </div>
 
-    <div class="field"><label>WhatsApp (international)</label><input id="stWaNum" value="${escapeHtml(STORE.waNumber)}"></div>
-    <div class="field"><label>WhatsApp display</label><input id="stWaRaw" value="${escapeHtml(STORE.waRaw)}"></div>
-    <div class="field"><label>Email</label><input id="stEmail" value="${escapeHtml(STORE.email)}"></div>
-    <div class="field"><label>Facebook link</label><input id="stFb" value="${escapeHtml(STORE.fb)}"></div>
-    <div class="field"><label>Address</label><input id="stAddr" value="${escapeHtml(STORE.address)}"></div>
+    <div class="field"><label>WhatsApp (international)</label><input id="waNum" value="${esc(draft.waNumber)}"></div>
+    <div class="field"><label>WhatsApp display</label><input id="waRaw" value="${esc(draft.waRaw)}"></div>
+    <div class="field"><label>Email</label><input id="em" value="${esc(draft.email)}"></div>
+    <div class="field"><label>Facebook link</label><input id="fb" value="${esc(draft.fb)}"></div>
+    <div class="field"><label>Address</label><input id="addr" value="${esc(draft.address)}"></div>
 
-    <div class="field"><label>bKash</label><input id="stBkash" value="${escapeHtml(STORE.payment.bkash)}"></div>
-    <div class="field"><label>Nagad</label><input id="stNagad" value="${escapeHtml(STORE.payment.nagad)}"></div>
+    <div class="row">
+      <div class="field"><label>bKash</label><input id="bk" value="${esc(draft.payment.bkash)}"></div>
+      <div class="field"><label>Nagad</label><input id="ng" value="${esc(draft.payment.nagad)}"></div>
+    </div>
 
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-      <button class="btn pink" id="saveStoreBtn" type="button"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+    <div class="miniNote">Save করলে WhatsApp/Payment info update হবে।</div>
+  `);
+
+  setAdminSave(()=>{
+    draft.waNumber=$("#waNum").value.trim()||draft.waNumber;
+    draft.waRaw=$("#waRaw").value.trim()||draft.waRaw;
+    draft.email=$("#em").value.trim()||draft.email;
+    draft.fb=$("#fb").value.trim()||draft.fb;
+    draft.address=$("#addr").value.trim()||draft.address;
+    draft.payment={bkash:$("#bk").value.trim()||draft.payment.bkash,nagad:$("#ng").value.trim()||draft.payment.nagad};
+
+    STORE=draft;
+    writeJSON(LS_STORE, STORE);
+    bindLinks();
+    render();
+    toast("Saved","Contact updated ✅","success",1200);
+  });
+}
+
+/* Pages (About + How steps) */
+function adminPages(){
+  let draft = JSON.parse(JSON.stringify(PAGES));
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-file-lines"></i> Pages</b>
+      <span class="tag"><i class="fa-solid fa-pen"></i> Edit text</span>
+    </div>
+
+    <div class="field"><label>About title</label><input id="at" value="${esc(draft.aboutTitle)}"></div>
+    <div class="field"><label>About text</label><textarea id="ax">${esc(draft.aboutText)}</textarea></div>
+
+    <div class="hr"></div>
+    <b>How it works</b>
+    <div class="field"><label>Section title</label><input id="ht" value="${esc(draft.howTitle)}"></div>
+
+    ${(draft.howSteps||[]).map((s,i)=>`
+      <div class="box" style="margin-top:10px">
+        <b>Step ${i+1}</b>
+        <div class="field"><label>Title</label><input data-hs-title="${i}" value="${esc(s.title)}"></div>
+        <div class="field"><label>Text</label><textarea data-hs-text="${i}">${esc(s.text)}</textarea></div>
+      </div>
+    `).join("")}
+
+    <div class="miniNote">Save করলে About page update হবে।</div>
+  `);
+
+  setAdminSave(()=>{
+    draft.aboutTitle=$("#at").value.trim()||"About Us";
+    draft.aboutText=$("#ax").value.trim()||"";
+    draft.howTitle=$("#ht").value.trim()||"How it works";
+    [...document.querySelectorAll("[data-hs-title]")].forEach(inp=>{
+      const i=Number(inp.getAttribute("data-hs-title"));
+      draft.howSteps[i].title=inp.value.trim();
+    });
+    [...document.querySelectorAll("[data-hs-text]")].forEach(inp=>{
+      const i=Number(inp.getAttribute("data-hs-text"));
+      draft.howSteps[i].text=inp.value.trim();
+    });
+
+    PAGES=draft;
+    writeJSON(LS_PAGES, PAGES);
+    render();
+    toast("Saved","Pages updated ✅","success",1200);
+  });
+}
+
+/* FAQ CRUD */
+function adminFaq(){
+  let draft = JSON.parse(JSON.stringify(FAQ));
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-circle-question"></i> FAQ</b>
+      <span class="tag"><i class="fa-solid fa-plus"></i> Add/Edit</span>
+    </div>
+
+    <div class="box">
+      <b>+ Add FAQ</b>
+      <div class="field"><label>Question</label><input id="fqQ" placeholder="Question..."></div>
+      <div class="field"><label>Answer</label><textarea id="fqA" placeholder="Answer..."></textarea></div>
+      <div class="actions">
+        <button class="btn accent" id="addFaq"><i class="fa-solid fa-plus"></i> Add</button>
+      </div>
+    </div>
+
+    <div class="box" style="margin-top:12px">
+      <b>FAQ List</b>
+      <div id="fqList" style="display:grid;gap:10px;margin-top:10px"></div>
     </div>
   `);
 
-  $("#saveStoreBtn").addEventListener("click", ()=>{
-    STORE.waNumber = $("#stWaNum").value.trim() || STORE.waNumber;
-    STORE.waRaw = $("#stWaRaw").value.trim() || STORE.waRaw;
-    STORE.email = $("#stEmail").value.trim() || STORE.email;
-    STORE.fb = $("#stFb").value.trim() || STORE.fb;
-    STORE.address = $("#stAddr").value.trim() || STORE.address;
-    STORE.payment = { bkash: $("#stBkash").value.trim() || STORE.payment.bkash, nagad: $("#stNagad").value.trim() || STORE.payment.nagad };
-    writeJSON(LS_STORE, STORE);
-    bindTopLinks(); renderBrand();
-    toast("Saved","Contact updated ✅","success",1100);
+  function redraw(){
+    $("#fqList").innerHTML = draft.map((f,i)=>`
+      <div class="card">
+        <b>Q: ${esc(f.q)}</b>
+        <div class="muted bfont" style="margin-top:8px;line-height:1.6">A: ${esc(f.a)}</div>
+        <div class="actions">
+          <button class="btn ghost" data-edit="${i}"><i class="fa-solid fa-pen"></i> Edit</button>
+          <button class="btn ghost" data-del="${i}"><i class="fa-solid fa-trash"></i> Delete</button>
+        </div>
+      </div>
+    `).join("") || `<div class="muted">No FAQ</div>`;
+  }
+  redraw();
+
+  $("#addFaq").onclick=()=>{
+    const q=$("#fqQ").value.trim();
+    const a=$("#fqA").value.trim();
+    if(!q||!a) return toast("Missing","Q/A দিন","error",1400);
+    draft=[{q,a},...draft];
+    $("#fqQ").value=""; $("#fqA").value="";
+    redraw(); toast("Added","FAQ added ✅","success",1000);
+  };
+
+  $("#fqList").onclick=(e)=>{
+    const del=e.target.closest("[data-del]");
+    const ed=e.target.closest("[data-edit]");
+    if(del){
+      const i=Number(del.getAttribute("data-del"));
+      if(!confirm("Delete this FAQ?")) return;
+      draft=draft.filter((_,idx)=>idx!==i);
+      redraw();
+      return;
+    }
+    if(ed){
+      const i=Number(ed.getAttribute("data-edit"));
+      const f=draft[i];
+      const nq=prompt("Question:", f.q) ?? f.q;
+      const na=prompt("Answer:", f.a) ?? f.a;
+      draft[i]={q:nq.trim()||f.q, a:na.trim()||f.a};
+      redraw();
+    }
+  };
+
+  setAdminSave(()=>{
+    FAQ=draft;
+    writeJSON(LS_FAQ, FAQ);
+    render();
+    toast("Saved","FAQ saved ✅","success",1200);
   });
 }
 
-/* Privacy: change admin user/pass (requires privacy pass) */
-function renderPrivacyAdmin(){
-  const unlocked = sessionStorage.getItem(LS_PRIV_UNLOCK)==="1";
+/* Backup (Export/Import/Reset) */
+function adminBackup(){
+  const exportObj = {
+    THEME, BRAND, STORE, CATEGORIES, SERVICES, PRODUCTS, PAGES, FAQ
+  };
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-database"></i> Backup</b>
+      <span class="tag"><i class="fa-solid fa-shield"></i> Safe</span>
+    </div>
+
+    <div class="box">
+      <b>Export</b>
+      <div class="muted bfont" style="margin-top:6px;line-height:1.7">Copy করে Note/Drive এ রাখুন। অন্য ফোনে Import করতে পারবেন।</div>
+      <div class="field"><label>Export JSON</label>
+        <textarea id="exp" style="min-height:180px">${esc(JSON.stringify(exportObj))}</textarea>
+      </div>
+      <div class="actions">
+        <button class="btn accent" id="copyExp"><i class="fa-solid fa-copy"></i> Copy</button>
+      </div>
+    </div>
+
+    <div class="box" style="margin-top:12px">
+      <b>Import</b>
+      <div class="muted bfont" style="margin-top:6px;line-height:1.7">Export JSON paste করে Import দিন।</div>
+      <div class="field"><label>Paste JSON</label><textarea id="imp" style="min-height:180px" placeholder='{"THEME":...}'></textarea></div>
+      <div class="actions">
+        <button class="btn accent" id="doImport"><i class="fa-solid fa-file-import"></i> Import</button>
+        <button class="btn ghost" id="resetAll"><i class="fa-solid fa-triangle-exclamation"></i> Reset</button>
+      </div>
+    </div>
+  `);
+
+  $("#copyExp").onclick=async ()=>{
+    await navigator.clipboard.writeText($("#exp").value);
+    toast("Copied","Export copied ✅","success",1100);
+  };
+
+  $("#doImport").onclick=()=>{
+    try{
+      const obj=JSON.parse($("#imp").value||"{}");
+      if(!obj || typeof obj!=="object") throw new Error("bad");
+      THEME=obj.THEME||THEME;
+      BRAND=obj.BRAND||BRAND;
+      STORE=obj.STORE||STORE;
+      CATEGORIES=obj.CATEGORIES||CATEGORIES;
+      SERVICES=obj.SERVICES||SERVICES;
+      PRODUCTS=obj.PRODUCTS||PRODUCTS;
+      PAGES=obj.PAGES||PAGES;
+      FAQ=obj.FAQ||FAQ;
+
+      writeJSON(LS_THEME, THEME);
+      writeJSON(LS_BRAND, BRAND);
+      writeJSON(LS_STORE, STORE);
+      writeJSON(LS_CATS, CATEGORIES);
+      writeJSON(LS_SERV, SERVICES);
+      writeJSON(LS_PROD, PRODUCTS);
+      writeJSON(LS_PAGES, PAGES);
+      writeJSON(LS_FAQ, FAQ);
+
+      adminCreds = readJSON(LS_ADMIN, adminCreds); // keep creds
+      applyTheme(); renderBrandTop(); bindLinks();
+      render();
+      toast("Imported","All data imported ✅","success",1400);
+    }catch{
+      toast("Error","Invalid JSON","error",1600);
+    }
+  };
+
+  $("#resetAll").onclick=()=>{
+    if(!confirm("Reset all site data?")) return;
+    localStorage.removeItem(LS_THEME);
+    localStorage.removeItem(LS_BRAND);
+    localStorage.removeItem(LS_STORE);
+    localStorage.removeItem(LS_CATS);
+    localStorage.removeItem(LS_SERV);
+    localStorage.removeItem(LS_PROD);
+    localStorage.removeItem(LS_PAGES);
+    localStorage.removeItem(LS_FAQ);
+    location.reload();
+  };
+
+  setAdminSave(null);
+}
+
+/* Privacy: change admin username/password */
+function adminPrivacy(){
+  const unlocked = sessionStorage.getItem(SS_PRIV)==="1";
   if(!unlocked){
-    adminPageSet(`
-      <b><i class="fa-solid fa-user-shield"></i> Privacy</b>
-      <div class="muted" style="margin-top:6px;font-size:12.5px;line-height:1.6;font-family:'Hind Siliguri'">
+    setAdminPage(`
+      <div class="adminPageTitle">
+        <b><i class="fa-solid fa-user-shield"></i> Privacy</b>
+        <span class="tag"><i class="fa-solid fa-lock"></i> Locked</span>
+      </div>
+      <div class="muted bfont" style="margin-top:6px;line-height:1.7">
         Admin username/password change করতে Privacy pass লাগবে।
       </div>
-      <div class="field"><label>Privacy Pass</label><input id="pPass" type="password" placeholder="Enter privacy pass"></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-        <button class="btn pink" id="unlockPriv" type="button"><i class="fa-solid fa-unlock"></i> Unlock</button>
+      <div class="field"><label>Privacy Pass</label><input id="pp" type="password" placeholder="Enter privacy pass"></div>
+      <div class="actions">
+        <button class="btn accent" id="unlock"><i class="fa-solid fa-unlock"></i> Unlock</button>
       </div>
     `);
-
-    $("#unlockPriv").addEventListener("click", ()=>{
-      if($("#pPass").value === PRIVACY_PASS){
-        sessionStorage.setItem(LS_PRIV_UNLOCK,"1");
-        toast("Unlocked","Privacy open ✅","success",1100);
-        renderPrivacyAdmin();
+    $("#unlock").onclick=()=>{
+      if($("#pp").value===PRIVACY_PASS){
+        sessionStorage.setItem(SS_PRIV,"1");
+        toast("Unlocked","Privacy open ✅","success",1200);
+        adminPrivacy();
       }else{
         toast("Denied","Wrong privacy pass ❌","error",1600);
       }
-    });
+    };
+    setAdminSave(null);
     return;
   }
 
-  adminPageSet(`
-    <b><i class="fa-solid fa-user-shield"></i> Privacy</b>
-    <div class="field"><label>Admin Username</label><input id="newAU" value="${escapeHtml(adminCreds.user)}"></div>
-    <div class="field"><label>Admin Password</label><input id="newAP" value="${escapeHtml(adminCreds.pass)}"></div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-      <button class="btn pink" id="saveCreds" type="button"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-      <button class="btn ghost" id="lockPriv" type="button"><i class="fa-solid fa-lock"></i> Lock</button>
+  let draft = { ...adminCreds };
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-user-shield"></i> Privacy</b>
+      <span class="tag"><i class="fa-solid fa-circle-check"></i> Unlocked</span>
     </div>
-    <div class="muted" style="margin-top:10px;font-size:12.5px;line-height:1.6;font-family:'Hind Siliguri'">
-      ✅ Save করলে নতুন username/password দিয়ে আবার login করতে হবে।
+
+    <div class="field"><label>Admin Username</label><input id="au" value="${esc(draft.user)}"></div>
+    <div class="field"><label>Admin Password</label><input id="ap" value="${esc(draft.pass)}"></div>
+
+    <div class="actions">
+      <button class="btn ghost" id="lock"><i class="fa-solid fa-lock"></i> Lock</button>
     </div>
+
+    <div class="miniNote">Save করলে নতুন username/password দিয়ে আবার login করতে হবে।</div>
   `);
 
-  $("#saveCreds").addEventListener("click", ()=>{
-    const u = $("#newAU").value.trim();
-    const p = $("#newAP").value;
-    if(!u || !p) return toast("Missing","Username/password required","error",1600);
-    adminCreds = { user:u, pass:p };
-    writeJSON(LS_ADMIN_CREDS, adminCreds);
-    toast("Saved","Admin login updated ✅","success",1200);
-  });
-  $("#lockPriv").addEventListener("click", ()=>{
-    sessionStorage.removeItem(LS_PRIV_UNLOCK);
+  $("#lock").onclick=()=>{
+    sessionStorage.removeItem(SS_PRIV);
     toast("Locked","Privacy locked ✅","success",1100);
-    renderPrivacyAdmin();
+    adminPrivacy();
+  };
+
+  setAdminSave(()=>{
+    draft.user=$("#au").value.trim();
+    draft.pass=$("#ap").value;
+    if(!draft.user || !draft.pass) return toast("Missing","Username/password required","error",1600);
+    adminCreds=draft;
+    writeJSON(LS_ADMIN, adminCreds);
+    toast("Saved","Admin login updated ✅","success",1200);
   });
 }
 
-/* =========================
-   Init
-========================= */
-(function init(){
-  bindTopLinks();
-  renderBrand();
-  renderServiceChips(); renderServices();
-  renderProductChips(); renderProducts();
+/* =====================
+   INIT
+===================== */
+function init(){
+  bindLinks();
+  renderBrandTop();
+  if(!location.hash) location.hash="#/home";
+  render();
+}
+init();
+</script>
+<!-- ===================== PART 4/4 START ===================== -->
+<style>
+  /* Extra Admin polish */
+  .dragItem{cursor:grab}
+  .dragItem:active{cursor:grabbing}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:7px 10px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+    font-weight:900;font-size:11px;
+  }
+  .badge.good{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.14)}
+  .badge.bad{border-color:rgba(239,68,68,.35);background:rgba(239,68,68,.14)}
+  .miniBtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .miniBtn{
+    padding:9px 12px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+    color:var(--text);font-weight:900;font-size:12px;
+    cursor:pointer;
+  }
+  .miniBtn:active{transform:scale(.98)}
+</style>
+
+<script>
+/* =====================
+   PART 4: EXTRA ADMIN FEATURES
+===================== */
+const LS_ORDERS = "sth_orders_v4";
+let ORDERS = readJSON(LS_ORDERS, []);
+
+/* Hook order send -> save in Orders */
+(function patchOrderLogging(){
+  const oldOpenOrder = openOrder;
+  openOrder = function(kind,item){
+    oldOpenOrder(kind,item);
+
+    // patch send button each time modal opens
+    const oldHandler = $("#sendWaBtn").onclick;
+    $("#sendWaBtn").onclick = ()=>{
+      try{
+        const now = new Date();
+        const record = {
+          id: makeId("ord"),
+          time: now.toISOString(),
+          type: kind,
+          title: kind==="service" ? (item.title||"") : (item.name||""),
+          category: item.category || "",
+          priceText: ($("#priceShow")?.value || "").replace("৳","").trim(),
+          payMethod: ($("#payMethod")?.value || ""),
+          trx: ($("#trxInput")?.value || "").trim(),
+          url: ($("#urlInput")?.value || "").trim(),
+          note: ($("#noteInput")?.value || "").trim(),
+        };
+        // only log when basics are present (avoid junk)
+        if(record.payMethod && record.trx){
+          ORDERS = [record, ...ORDERS].slice(0, 300);
+          writeJSON(LS_ORDERS, ORDERS);
+        }
+      }catch{}
+      // original action
+      if(typeof oldHandler === "function") oldHandler();
+    };
+  };
 })();
+
+/* Add Orders page into admin menu */
+(function patchAdminMenu(){
+  const oldDash = renderAdminDash;
+  renderAdminDash = function(){
+    oldDash();
+
+    // Inject Orders button into menu (top)
+    const menu = document.querySelector(".adminMenu");
+    if(menu && !menu.querySelector('[data-adminpage="orders"]')){
+      const btn = document.createElement("button");
+      btn.className = "menuBtn";
+      btn.setAttribute("data-adminpage","orders");
+      btn.innerHTML = `
+        <i class="fa-solid fa-inbox" style="margin-top:2px;color:var(--brand)"></i>
+        <div>Orders <small>History / Export</small></div>
+      `;
+      menu.prepend(btn);
+    }
+
+    // extend click handler
+    const oldClick = adminBody.onclick;
+    adminBody.onclick = (e)=>{
+      const b = e.target.closest("[data-adminpage]");
+      if(b && b.getAttribute("data-adminpage")==="orders"){
+        adminOrders();
+        return;
+      }
+      if(typeof oldClick === "function") oldClick(e);
+    };
+  };
+})();
+
+/* Orders admin page */
+function adminOrders(){
+  setAdminSave(null);
+
+  const list = ORDERS || [];
+  const total = list.length;
+
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-inbox"></i> Orders Inbox</b>
+      <span class="tag"><i class="fa-solid fa-list"></i> Total: ${total}</span>
+    </div>
+
+    <div class="box">
+      <b>Export</b>
+      <div class="muted bfont" style="margin-top:6px;line-height:1.7">
+        Copy করে রাখুন। (Orders data আপনার ফোনে save থাকে)
+      </div>
+      <div class="field">
+        <label>Orders JSON</label>
+        <textarea id="ordersJson" style="min-height:160px">${esc(JSON.stringify(list))}</textarea>
+      </div>
+      <div class="actions">
+        <button class="btn accent" id="copyOrders"><i class="fa-solid fa-copy"></i> Copy</button>
+        <button class="btn ghost" id="clearOrders"><i class="fa-solid fa-trash"></i> Clear</button>
+      </div>
+    </div>
+
+    <div class="box" style="margin-top:12px">
+      <b>Recent Orders</b>
+      <div class="miniNote">Order পাঠালে auto log হবে (Payment method + TrxID থাকলে)।</div>
+      <div id="ordersList" style="display:grid;gap:10px;margin-top:10px"></div>
+    </div>
+  `);
+
+  $("#copyOrders").onclick=async ()=>{
+    await navigator.clipboard.writeText($("#ordersJson").value);
+    toast("Copied","Orders copied ✅","success",1200);
+  };
+  $("#clearOrders").onclick=()=>{
+    if(!confirm("Clear all orders?")) return;
+    ORDERS=[];
+    writeJSON(LS_ORDERS, ORDERS);
+    toast("Cleared","Orders cleared ✅","success",1200);
+    adminOrders();
+  };
+
+  const wrap = $("#ordersList");
+  wrap.innerHTML = list.slice(0,40).map(o=>{
+    const time = new Date(o.time).toLocaleString();
+    return `
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+          <span class="badge ${o.type==="service"?"good":"badge"}"><i class="fa-solid fa-receipt"></i> ${esc(o.type)}</span>
+          <span class="muted" style="font-weight:900;font-size:12px">${esc(time)}</span>
+        </div>
+        <div style="margin-top:8px;font-weight:900">${esc(o.title)}</div>
+        <div class="muted bfont" style="margin-top:6px;line-height:1.6">
+          Category: <b style="color:var(--text)">${esc(o.category||"")}</b><br/>
+          Price: <b style="color:var(--text)">৳${esc(o.priceText||"")}</b><br/>
+          Payment: <b style="color:var(--text)">${esc(o.payMethod||"")}</b> • Trx: <b style="color:var(--text)">${esc(o.trx||"")}</b>
+          ${o.url ? `<br/>URL: <span style="color:var(--text)">${esc(o.url)}</span>` : ""}
+          ${o.note ? `<br/>Note: <span style="color:var(--text)">${esc(o.note)}</span>` : ""}
+        </div>
+      </div>
+    `;
+  }).join("") || `<div class="muted">No orders yet.</div>`;
+}
+
+/* ======= Hide/Show + Duplicate + Drag reorder (Services + Products) ======= */
+function withFlags(arr){
+  // ensure every item has "active" boolean
+  return arr.map(x=> (typeof x.active==="boolean") ? x : ({...x, active:true}));
+}
+
+/* patch services rendering to respect active */
+(function patchPublicRenderFilters(){
+  const oldSvcPage = renderServicesPage;
+  renderServicesPage = function(){
+    SERVICES = withFlags(SERVICES);
+    // filter out inactive for customers
+    const keep = SERVICES.filter(s=>s.active!==false);
+    const saved = SERVICES;
+    SERVICES = keep;
+    try{ oldSvcPage(); } finally{ SERVICES = saved; }
+  };
+
+  const oldPrdPage = renderProductsPage;
+  renderProductsPage = function(){
+    PRODUCTS = withFlags(PRODUCTS);
+    const keep = PRODUCTS.filter(p=>p.active!==false);
+    const saved = PRODUCTS;
+    PRODUCTS = keep;
+    try{ oldPrdPage(); } finally{ PRODUCTS = saved; }
+  };
+})();
+
+/* upgrade adminServices -> add reorder + hide/show + duplicate + full edit form */
+(function patchAdminServices(){
+  const oldAdminServices = adminServices;
+  adminServices = function(){
+    oldAdminServices();
+
+    // overwrite current list with upgraded view
+    const page = $("#adminPage");
+    if(!page) return;
+
+    // capture original draft from localStorage fresh
+    let draft = withFlags(readJSON(LS_SERV, SERVICES));
+
+    // build improved list UI below existing add box
+    const listBox = document.createElement("div");
+    listBox.className = "box";
+    listBox.style.marginTop="12px";
+    listBox.innerHTML = `
+      <div class="adminPageTitle">
+        <b><i class="fa-solid fa-grip-vertical"></i> Reorder / Manage</b>
+        <span class="tag"><i class="fa-solid fa-hand-pointer"></i> Drag & Drop</span>
+      </div>
+      <div class="miniNote">🔹 Drag করে order change করুন। 🔹 Hide করলে customer page এ show হবে না।</div>
+      <div id="svcAdvList" style="display:grid;gap:10px;margin-top:10px"></div>
+    `;
+    page.appendChild(listBox);
+
+    function draw(){
+      const wrap = $("#svcAdvList");
+      wrap.innerHTML = draft.map(s=>`
+        <div class="card dragItem" draggable="true" data-id="${esc(s.id)}">
+          <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+            <span class="tag"><i class="${esc(s.icon||"fa-solid fa-bolt")}"></i> ${esc(s.category||"")}</span>
+            <span class="badge ${s.active!==false?"good":"bad"}">
+              <i class="fa-solid ${s.active!==false?"fa-eye":"fa-eye-slash"}"></i> ${s.active!==false?"Visible":"Hidden"}
+            </span>
+          </div>
+          <div style="margin-top:8px;font-weight:900">${esc(s.title)}</div>
+          <div class="muted bfont" style="margin-top:6px;line-height:1.6">${esc(s.desc||"")}</div>
+
+          <div class="miniBtns">
+            <button class="miniBtn" data-toggle="${esc(s.id)}"><i class="fa-solid fa-eye"></i> Show/Hide</button>
+            <button class="miniBtn" data-dup="${esc(s.id)}"><i class="fa-solid fa-copy"></i> Duplicate</button>
+            <button class="miniBtn" data-editfull="${esc(s.id)}"><i class="fa-solid fa-pen"></i> Full Edit</button>
+            <button class="miniBtn" data-deladv="${esc(s.id)}"><i class="fa-solid fa-trash"></i> Delete</button>
+          </div>
+        </div>
+      `).join("");
+      hookDrag(wrap, (fromId,toId)=>{
+        const from = draft.findIndex(x=>x.id===fromId);
+        const to   = draft.findIndex(x=>x.id===toId);
+        if(from<0||to<0||from===to) return;
+        const item = draft.splice(from,1)[0];
+        draft.splice(to,0,item);
+        draw();
+      });
+    }
+    draw();
+
+    $("#svcAdvList").onclick=(e)=>{
+      const t = e.target.closest("[data-toggle]");
+      const d = e.target.closest("[data-dup]");
+      const f = e.target.closest("[data-editfull]");
+      const x = e.target.closest("[data-deladv]");
+
+      if(t){
+        const id=t.getAttribute("data-toggle");
+        const i=draft.findIndex(s=>s.id===id);
+        if(i>=0){ draft[i].active = !(draft[i].active!==false); draw(); }
+      }
+      if(d){
+        const id=d.getAttribute("data-dup");
+        const s=draft.find(x=>x.id===id);
+        if(s){
+          const copy = JSON.parse(JSON.stringify(s));
+          copy.id = makeId("svc");
+          copy.title = (copy.title||"") + " (Copy)";
+          draft = [copy, ...draft];
+          draw();
+        }
+      }
+      if(x){
+        const id=x.getAttribute("data-deladv");
+        const s=draft.find(x=>x.id===id);
+        if(!s) return;
+        if(!confirm(`Delete: ${s.title}?`)) return;
+        draft=draft.filter(x=>x.id!==id);
+        draw();
+      }
+      if(f){
+        const id=f.getAttribute("data-editfull");
+        const i=draft.findIndex(x=>x.id===id);
+        if(i<0) return;
+        fullEditService(draft, i, ()=>{ draw(); });
+      }
+    };
+
+    setAdminSave(()=>{
+      SERVICES=draft;
+      writeJSON(LS_SERV, SERVICES);
+      toast("Saved","Services updated ✅","success",1200);
+      render();
+    });
+  };
+})();
+
+/* upgrade adminProducts -> reorder + hide/show + duplicate + full edit form */
+(function patchAdminProducts(){
+  const oldAdminProducts = adminProducts;
+  adminProducts = function(){
+    oldAdminProducts();
+
+    const page = $("#adminPage");
+    if(!page) return;
+
+    let draft = withFlags(readJSON(LS_PROD, PRODUCTS));
+
+    const box = document.createElement("div");
+    box.className="box";
+    box.style.marginTop="12px";
+    box.innerHTML = `
+      <div class="adminPageTitle">
+        <b><i class="fa-solid fa-grip-vertical"></i> Reorder / Manage Products</b>
+        <span class="tag"><i class="fa-solid fa-hand-pointer"></i> Drag & Drop</span>
+      </div>
+      <div class="miniNote">Drag করে product order change করুন • Hide করলে customer page এ show হবে না</div>
+      <div id="prdAdvList" style="display:grid;gap:10px;margin-top:10px"></div>
+    `;
+    page.appendChild(box);
+
+    function draw(){
+      const wrap=$("#prdAdvList");
+      wrap.innerHTML = draft.map(p=>`
+        <div class="card dragItem" draggable="true" data-id="${esc(p.id)}">
+          <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+            <span class="tag"><i class="fa-solid fa-tag"></i> ${esc(p.category||"")}</span>
+            <span class="badge ${p.active!==false?"good":"bad"}">
+              <i class="fa-solid ${p.active!==false?"fa-eye":"fa-eye-slash"}"></i> ${p.active!==false?"Visible":"Hidden"}
+            </span>
+          </div>
+
+          <div style="margin-top:8px;font-weight:900">${esc(p.name||"")}</div>
+          <div class="muted bfont" style="margin-top:6px;line-height:1.6">
+            SKU: <b style="color:var(--text)">${esc(p.sku||"N/A")}</b> • Price: <b style="color:var(--text)">৳${esc(Number(p.price||0))}</b>
+          </div>
+
+          <div class="miniBtns">
+            <button class="miniBtn" data-toggle="${esc(p.id)}"><i class="fa-solid fa-eye"></i> Show/Hide</button>
+            <button class="miniBtn" data-dup="${esc(p.id)}"><i class="fa-solid fa-copy"></i> Duplicate</button>
+            <button class="miniBtn" data-editfull="${esc(p.id)}"><i class="fa-solid fa-pen"></i> Full Edit</button>
+            <button class="miniBtn" data-deladv="${esc(p.id)}"><i class="fa-solid fa-trash"></i> Delete</button>
+          </div>
+        </div>
+      `).join("");
+
+      hookDrag(wrap, (fromId,toId)=>{
+        const from = draft.findIndex(x=>x.id===fromId);
+        const to   = draft.findIndex(x=>x.id===toId);
+        if(from<0||to<0||from===to) return;
+        const item = draft.splice(from,1)[0];
+        draft.splice(to,0,item);
+        draw();
+      });
+    }
+    draw();
+
+    $("#prdAdvList").onclick=(e)=>{
+      const t = e.target.closest("[data-toggle]");
+      const d = e.target.closest("[data-dup]");
+      const f = e.target.closest("[data-editfull]");
+      const x = e.target.closest("[data-deladv]");
+
+      if(t){
+        const id=t.getAttribute("data-toggle");
+        const i=draft.findIndex(p=>p.id===id);
+        if(i>=0){ draft[i].active = !(draft[i].active!==false); draw(); }
+      }
+      if(d){
+        const id=d.getAttribute("data-dup");
+        const p=draft.find(x=>x.id===id);
+        if(p){
+          const copy = JSON.parse(JSON.stringify(p));
+          copy.id = makeId("p");
+          copy.name = (copy.name||"") + " (Copy)";
+          draft = [copy, ...draft];
+          draw();
+        }
+      }
+      if(x){
+        const id=x.getAttribute("data-deladv");
+        const p=draft.find(x=>x.id===id);
+        if(!p) return;
+        if(!confirm(`Delete: ${p.name}?`)) return;
+        draft=draft.filter(x=>x.id!==id);
+        draw();
+      }
+      if(f){
+        const id=f.getAttribute("data-editfull");
+        const i=draft.findIndex(x=>x.id===id);
+        if(i<0) return;
+        fullEditProduct(draft, i, ()=>{ draw(); });
+      }
+    };
+
+    setAdminSave(()=>{
+      PRODUCTS=draft;
+      writeJSON(LS_PROD, PRODUCTS);
+      toast("Saved","Products updated ✅","success",1200);
+      render();
+    });
+  };
+})();
+
+/* Drag helper */
+function hookDrag(container, onDrop){
+  let dragId=null;
+  container.querySelectorAll("[draggable='true']").forEach(el=>{
+    el.ondragstart = ()=>{ dragId = el.getAttribute("data-id"); };
+    el.ondragover = (e)=>{ e.preventDefault(); };
+    el.ondrop = (e)=>{
+      e.preventDefault();
+      const targetId = el.getAttribute("data-id");
+      if(dragId && targetId && dragId!==targetId) onDrop(dragId, targetId);
+      dragId=null;
+    };
+  });
+}
+
+/* Full edit forms (Service/Product) */
+function fullEditService(arr, idx, after){
+  const s = arr[idx];
+  const packs = s.packages ? JSON.stringify(s.packages) : "";
+  const qty = (s.qtyList||[]).join(",");
+  const tags = (s.tags||[]).join(",");
+
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-pen-to-square"></i> Full Edit Service</b>
+      <button class="btn ghost" id="backSvc"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </div>
+
+    <div class="box">
+      <div class="row">
+        <div class="field"><label>Title</label><input id="eTitle" value="${esc(s.title||"")}"></div>
+        <div class="field"><label>Category</label><input id="eCat" value="${esc(s.category||"")}"></div>
+      </div>
+      <div class="field"><label>Description</label><textarea id="eDesc">${esc(s.desc||"")}</textarea></div>
+      <div class="row">
+        <div class="field"><label>Icon class</label><input id="eIcon" value="${esc(s.icon||"")}"></div>
+        <div class="field"><label>Tags (comma)</label><input id="eTags" value="${esc(tags)}"></div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>Unit Type</label>
+          <select id="eUnit">
+            <option value="K" ${s.unitType==="K"?"selected":""}>K (per 1K)</option>
+            <option value="100" ${s.unitType==="100"?"selected":""}>100 (per 100)</option>
+            <option value="PACK" ${s.unitType==="PACK"?"selected":""}>PACK (packages)</option>
+          </select>
+        </div>
+        <div class="field"><label>Active</label>
+          <select id="eActive">
+            <option value="1" ${s.active!==false?"selected":""}>Visible</option>
+            <option value="0" ${s.active===false?"selected":""}>Hidden</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="rateArea">
+        <div class="row">
+          <div class="field"><label>Price Per Unit</label><input id="eRate" type="number" value="${esc(Number(s.pricePerUnit||0))}"></div>
+          <div class="field"><label>Qty List (comma)</label><input id="eQty" value="${esc(qty)}"></div>
+        </div>
+      </div>
+
+      <div id="packArea" style="display:none">
+        <div class="field"><label>Packages (JSON)</label>
+          <textarea id="ePacks" placeholder='[{"label":"Basic","price":300,"note":"..."}]'>${esc(packs)}</textarea>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn accent" id="saveEditSvc"><i class="fa-solid fa-floppy-disk"></i> Apply</button>
+      </div>
+    </div>
+  `);
+
+  const unitSel=$("#eUnit");
+  const toggleAreas=()=>{
+    const v=unitSel.value;
+    $("#rateArea").style.display = v==="PACK"?"none":"block";
+    $("#packArea").style.display = v==="PACK"?"block":"none";
+  };
+  unitSel.onchange=toggleAreas;
+  toggleAreas();
+
+  $("#backSvc").onclick=()=>{ adminServices(); };
+  $("#saveEditSvc").onclick=()=>{
+    const upd={...s};
+    upd.title=$("#eTitle").value.trim();
+    upd.category=$("#eCat").value.trim();
+    upd.desc=$("#eDesc").value.trim();
+    upd.icon=$("#eIcon").value.trim();
+    upd.tags=$("#eTags").value.split(",").map(x=>x.trim()).filter(Boolean).slice(0,8);
+    upd.unitType=$("#eUnit").value;
+    upd.active = $("#eActive").value==="1";
+
+    if(upd.unitType==="PACK"){
+      try{
+        const arrP = JSON.parse($("#ePacks").value || "[]");
+        if(!Array.isArray(arrP) || arrP.length===0) return toast("Error","Packages JSON invalid/empty","error",1600);
+        upd.packages = arrP.map(p=>({label:String(p.label||""),price:Number(p.price||0),note:String(p.note||"")}));
+        delete upd.pricePerUnit; delete upd.qtyList;
+      }catch{ return toast("Error","Packages JSON invalid","error",1600); }
+    }else{
+      upd.pricePerUnit = Number($("#eRate").value||0);
+      upd.qtyList = $("#eQty").value.split(",").map(x=>Number(x.trim())).filter(n=>Number.isFinite(n)&&n>0);
+      delete upd.packages;
+      if(upd.pricePerUnit<=0 || upd.qtyList.length===0) return toast("Error","Rate/Qty required","error",1600);
+    }
+
+    arr[idx]=upd;
+    toast("Applied","Service updated ✅","success",1200);
+    if(typeof after==="function") after();
+    // Return to services admin
+    adminServices();
+  };
+}
+
+function fullEditProduct(arr, idx, after){
+  const p = arr[idx];
+  setAdminPage(`
+    <div class="adminPageTitle">
+      <b><i class="fa-solid fa-pen-to-square"></i> Full Edit Product</b>
+      <button class="btn ghost" id="backPrd"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </div>
+
+    <div class="box">
+      ${dropZone("editProdImg","Product Image", p.imageDataUrl||"")}
+
+      <div class="row">
+        <div class="field"><label>Name</label><input id="pn" value="${esc(p.name||"")}"></div>
+        <div class="field"><label>SKU</label><input id="ps" value="${esc(p.sku||"")}"></div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label>Category</label>
+          <select id="pc">
+            ${CATEGORIES.map(c=>`<option value="${esc(c)}" ${p.category===c?"selected":""}>${esc(c)}</option>`).join("")}
+          </select>
+        </div>
+        <div class="field"><label>Price</label><input id="pp" type="number" value="${esc(Number(p.price||0))}"></div>
+      </div>
+
+      <div class="field"><label>Description</label><textarea id="pd">${esc(p.desc||"")}</textarea></div>
+
+      <div class="row">
+        <div class="field"><label>Active</label>
+          <select id="pa">
+            <option value="1" ${p.active!==false?"selected":""}>Visible</option>
+            <option value="0" ${p.active===false?"selected":""}>Hidden</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn accent" id="saveEditPrd"><i class="fa-solid fa-floppy-disk"></i> Apply</button>
+      </div>
+    </div>
+  `);
+
+  let imgDraft = p.imageDataUrl||"";
+  hookDrop("editProdImg", ()=>imgDraft, (d)=>{ imgDraft=d; });
+
+  $("#backPrd").onclick=()=>{ adminProducts(); };
+  $("#saveEditPrd").onclick=()=>{
+    const upd={...p};
+    upd.imageDataUrl = imgDraft;
+    upd.name=$("#pn").value.trim();
+    upd.sku=$("#ps").value.trim();
+    upd.category=$("#pc").value;
+    upd.price=Number($("#pp").value||0);
+    upd.desc=$("#pd").value.trim();
+    upd.active=$("#pa").value==="1";
+    if(!upd.name || upd.price<=0) return toast("Error","Name + Price required","error",1600);
+
+    arr[idx]=upd;
+    toast("Applied","Product updated ✅","success",1200);
+    if(typeof after==="function") after();
+    adminProducts();
+  };
+}
+
+/* Finish: close html tags */
+</script>
+<!-- ===================== PART 5/5 START ===================== -->
+<style>
+  .stickyBar{
+    position:sticky; top:0; z-index:6;
+    background:rgba(0,0,0,.20);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:18px;
+    padding:10px 10px;
+    backdrop-filter: blur(10px);
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  }
+  .toggle{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:10px 12px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+    font-weight:900;font-size:12px;
+    cursor:pointer;
+  }
+  .toggle input{accent-color:var(--accent)}
+  .pin{color:var(--warn)}
+  .floatTools{
+    position:fixed;
+    left:14px; bottom:18px;
+    z-index:180;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .floatTools .fabbtn{
+    width:46px;height:46px;border-radius:18px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.10);
+    backdrop-filter: blur(10px);
+    color:var(--text);
+    display:grid;place-items:center;
+    box-shadow:var(--shadow2);
+    cursor:pointer;
+  }
+  .floatTools .fabbtn:active{transform:scale(.98)}
+  .saveDot{
+    width:10px;height:10px;border-radius:999px;
+    background:rgba(239,68,68,.9);
+    display:inline-block;
+    box-shadow:0 0 0 6px rgba(239,68,68,.18);
+  }
+  .saveDot.ok{
+    background:rgba(34,197,94,.9);
+    box-shadow:0 0 0 6px rgba(34,197,94,.16);
+  }
+</style>
+
+<script>
+/* =====================
+   PART 5: Pro Admin Tools
+   - Admin Search/Filter
+   - Undo last change
+   - Autosave toggle
+   - Pin items
+   - Scroll helper (top/bottom)
+   - Save indicator
+===================== */
+const LS_UNDO   = "sth_undo_v5";
+const LS_AUTO   = "sth_autosave_v5";
+let AUTOSAVE    = readJSON(LS_AUTO, { enabled:true });
+
+let UNDO = readJSON(LS_UNDO, null); // snapshot
+
+function snapshotState(){
+  return {
+    THEME, BRAND, STORE, CATEGORIES, SERVICES, PRODUCTS, PAGES, FAQ,
+    adminCreds
+  };
+}
+function restoreState(snap){
+  if(!snap) return;
+  THEME=snap.THEME||THEME;
+  BRAND=snap.BRAND||BRAND;
+  STORE=snap.STORE||STORE;
+  CATEGORIES=snap.CATEGORIES||CATEGORIES;
+  SERVICES=snap.SERVICES||SERVICES;
+  PRODUCTS=snap.PRODUCTS||PRODUCTS;
+  PAGES=snap.PAGES||PAGES;
+  FAQ=snap.FAQ||FAQ;
+  adminCreds=snap.adminCreds||adminCreds;
+
+  writeJSON(LS_THEME, THEME);
+  writeJSON(LS_BRAND, BRAND);
+  writeJSON(LS_STORE, STORE);
+  writeJSON(LS_CATS, CATEGORIES);
+  writeJSON(LS_SERV, SERVICES);
+  writeJSON(LS_PROD, PRODUCTS);
+  writeJSON(LS_PAGES, PAGES);
+  writeJSON(LS_FAQ, FAQ);
+  writeJSON(LS_ADMIN, adminCreds);
+
+  applyTheme(); renderBrandTop(); bindLinks(); render();
+}
+
+function pushUndo(){
+  UNDO = snapshotState();
+  writeJSON(LS_UNDO, UNDO);
+}
+function doUndo(){
+  if(!UNDO) return toast("Undo","Nothing to undo","warn",1500);
+  const cur = snapshotState();
+  restoreState(UNDO);
+  UNDO = cur; // swap style (undo/redo-ish)
+  writeJSON(LS_UNDO, UNDO);
+  toast("Undo","Reverted ✅","success",1200);
+}
+
+/* Save indicator */
+let dirty=false;
+function markDirty(v=true){
+  dirty = v;
+  const dot = document.getElementById("saveDot");
+  if(dot){
+    dot.classList.toggle("ok", !dirty);
+  }
+}
+function markSaved(){
+  dirty=false;
+  const dot = document.getElementById("saveDot");
+  if(dot) dot.classList.add("ok");
+}
+
+/* Patch setAdminSave to auto snapshot + optional autosave */
+(function patchSetAdminSave(){
+  const oldSet = setAdminSave;
+  setAdminSave = function(handler){
+    if(!handler) return oldSet(null);
+
+    oldSet(()=>{
+      // before saving -> push undo snapshot
+      pushUndo();
+      handler();
+      markSaved();
+    });
+  };
+})();
+
+/* Global autosave: when inputs change in admin pages */
+function enableAutosaveOn(container, saveFn){
+  if(!container) return;
+  const watch = () => {
+    if(!AUTOSAVE.enabled) return;
+    markDirty(true);
+    // debounce
+    clearTimeout(enableAutosaveOn._t);
+    enableAutosaveOn._t = setTimeout(()=>{
+      try{
+        if(typeof saveFn==="function") saveFn();
+      }catch{}
+    }, 650);
+  };
+  container.querySelectorAll("input,textarea,select").forEach(el=>{
+    el.addEventListener("input", watch);
+    el.addEventListener("change", watch);
+  });
+}
+
+/* Add admin floating scroll tools + top sticky bar */
+(function patchAdminOverlayUI(){
+  const oldOpen = openAdmin;
+  openAdmin = function(){
+    oldOpen();
+
+    // add floating tools if not exists
+    if(!document.getElementById("adminFloatTools")){
+      const wrap = document.createElement("div");
+      wrap.id="adminFloatTools";
+      wrap.className="floatTools";
+      wrap.innerHTML = `
+        <button class="fabbtn" id="goTop" title="Top"><i class="fa-solid fa-arrow-up"></i></button>
+        <button class="fabbtn" id="goBottom" title="Bottom"><i class="fa-solid fa-arrow-down"></i></button>
+      `;
+      document.body.appendChild(wrap);
+
+      const scroller = document.getElementById("adminBody");
+      wrap.querySelector("#goTop").onclick=()=>{ scroller?.scrollTo({top:0,behavior:"smooth"}); };
+      wrap.querySelector("#goBottom").onclick=()=>{ scroller?.scrollTo({top:999999,behavior:"smooth"}); };
+    }
+  };
+
+  const oldClose = closeAdmin;
+  closeAdmin = function(){
+    oldClose();
+    const f = document.getElementById("adminFloatTools");
+    if(f) f.remove();
+  };
+})();
+
+/* Patch admin dashboard to include sticky bar tools */
+(function patchDashTools(){
+  const oldDash = renderAdminDash;
+  renderAdminDash = function(){
+    oldDash();
+
+    const page = document.getElementById("adminPage");
+    if(!page) return;
+
+    // inject sticky tool bar at top of adminPage container (only once)
+    if(!page.querySelector(".stickyBar")){
+      const bar = document.createElement("div");
+      bar.className="stickyBar";
+      bar.innerHTML = `
+        <span class="badge"><span class="saveDot ok" id="saveDot"></span> <span>Save status</span></span>
+        <button class="miniBtn" id="undoBtn"><i class="fa-solid fa-rotate-left"></i> Undo</button>
+        <label class="toggle" title="Autosave on/off">
+          <input type="checkbox" id="autoToggle" ${AUTOSAVE.enabled?"checked":""}/>
+          Autosave
+        </label>
+        <button class="miniBtn" id="jumpHome"><i class="fa-solid fa-house"></i> Home</button>
+        <button class="miniBtn" id="jumpServices"><i class="fa-solid fa-share-nodes"></i> Services</button>
+        <button class="miniBtn" id="jumpProducts"><i class="fa-solid fa-bag-shopping"></i> Products</button>
+      `;
+      page.prepend(bar);
+
+      bar.querySelector("#undoBtn").onclick=doUndo;
+      bar.querySelector("#autoToggle").onchange=(e)=>{
+        AUTOSAVE.enabled = !!e.target.checked;
+        writeJSON(LS_AUTO, AUTOSAVE);
+        toast("Autosave", AUTOSAVE.enabled ? "Enabled ✅" : "Disabled ❌", AUTOSAVE.enabled?"success":"warn", 1200);
+      };
+      bar.querySelector("#jumpHome").onclick=()=>{ closeAdmin(); setRoute("home"); };
+      bar.querySelector("#jumpServices").onclick=()=>{ closeAdmin(); setRoute("services"); };
+      bar.querySelector("#jumpProducts").onclick=()=>{ closeAdmin(); setRoute("products"); };
+    }
+  };
+})();
+
+/* Pin feature (services/products) */
+function togglePin(list, id){
+  const i=list.findIndex(x=>x.id===id);
+  if(i<0) return;
+  list[i].pinned = !list[i].pinned;
+  // move pinned to top
+  list.sort((a,b)=> (b.pinned?1:0) - (a.pinned?1:0));
+}
+
+/* Patch adminServices advanced list to include search + pin */
+(function patchServiceSearchPin(){
+  const old = adminServices;
+  adminServices = function(){
+    old();
+
+    const advWrap = document.getElementById("svcAdvList");
+    const page = document.getElementById("adminPage");
+    if(!advWrap || !page) return;
+
+    // Add search bar above adv list
+    if(!page.querySelector("#svcSearchBox")){
+      const sb = document.createElement("div");
+      sb.id="svcSearchBox";
+      sb.className="searchbar";
+      sb.style.marginTop="12px";
+      sb.innerHTML = `<i class="fa-solid fa-magnifying-glass muted"></i><input id="svcSearch" placeholder="Search services..." />`;
+      advWrap.parentElement.insertBefore(sb, advWrap);
+    }
+
+    let q="";
+    const input = document.getElementById("svcSearch");
+    input.oninput=()=>{ q=input.value.toLowerCase(); filter(); };
+
+    function filter(){
+      const cards = advWrap.querySelectorAll("[data-id]");
+      cards.forEach(c=>{
+        const id=c.getAttribute("data-id");
+        const s = SERVICES.find(x=>x.id===id);
+        const hay = ((s?.title||"")+" "+(s?.category||"")+" "+(s?.desc||"")).toLowerCase();
+        c.style.display = !q || hay.includes(q) ? "block" : "none";
+      });
+    }
+
+    // add pin buttons into each card if not exists
+    advWrap.querySelectorAll("[data-id]").forEach(card=>{
+      if(card.querySelector("[data-pin]")) return;
+      const id = card.getAttribute("data-id");
+      const btn = document.createElement("button");
+      btn.className="miniBtn";
+      btn.setAttribute("data-pin", id);
+      btn.innerHTML = `<i class="fa-solid fa-thumbtack pin"></i> Pin`;
+      const mb = card.querySelector(".miniBtns");
+      if(mb) mb.prepend(btn);
+    });
+
+    advWrap.onclick = (e)=>{
+      const pin = e.target.closest("[data-pin]");
+      if(pin){
+        pushUndo();
+        const id = pin.getAttribute("data-pin");
+        togglePin(SERVICES, id);
+        writeJSON(LS_SERV, SERVICES);
+        toast("Pinned","Service updated ✅","success",1000);
+        adminServices();
+        return;
+      }
+    };
+  };
+})();
+
+/* Patch adminProducts advanced list to include search + pin */
+(function patchProductSearchPin(){
+  const old = adminProducts;
+  adminProducts = function(){
+    old();
+
+    const advWrap = document.getElementById("prdAdvList");
+    const page = document.getElementById("adminPage");
+    if(!advWrap || !page) return;
+
+    if(!page.querySelector("#prdSearchBox")){
+      const sb = document.createElement("div");
+      sb.id="prdSearchBox";
+      sb.className="searchbar";
+      sb.style.marginTop="12px";
+      sb.innerHTML = `<i class="fa-solid fa-magnifying-glass muted"></i><input id="prdSearchAdmin" placeholder="Search products (name/sku)..." />`;
+      advWrap.parentElement.insertBefore(sb, advWrap);
+    }
+
+    let q="";
+    const input = document.getElementById("prdSearchAdmin");
+    input.oninput=()=>{ q=input.value.toLowerCase(); filter(); };
+
+    function filter(){
+      const cards = advWrap.querySelectorAll("[data-id]");
+      cards.forEach(c=>{
+        const id=c.getAttribute("data-id");
+        const p = PRODUCTS.find(x=>x.id===id);
+        const hay = ((p?.name||"")+" "+(p?.sku||"")+" "+(p?.category||"")+" "+(p?.desc||"")).toLowerCase();
+        c.style.display = !q || hay.includes(q) ? "block" : "none";
+      });
+    }
+
+    advWrap.querySelectorAll("[data-id]").forEach(card=>{
+      if(card.querySelector("[data-pin]")) return;
+      const id = card.getAttribute("data-id");
+      const btn = document.createElement("button");
+      btn.className="miniBtn";
+      btn.setAttribute("data-pin", id);
+      btn.innerHTML = `<i class="fa-solid fa-thumbtack pin"></i> Pin`;
+      const mb = card.querySelector(".miniBtns");
+      if(mb) mb.prepend(btn);
+    });
+
+    advWrap.onclick = (e)=>{
+      const pin = e.target.closest("[data-pin]");
+      if(pin){
+        pushUndo();
+        const id = pin.getAttribute("data-pin");
+        togglePin(PRODUCTS, id);
+        writeJSON(LS_PROD, PRODUCTS);
+        toast("Pinned","Product updated ✅","success",1000);
+        adminProducts();
+        return;
+      }
+    };
+  };
+})();
+
+/* Make pinned items show on top in customer pages */
+(function patchPinnedSortPublic(){
+  const oldSvc = renderServicesPage;
+  renderServicesPage = function(){
+    SERVICES = withFlags(SERVICES).sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0));
+    oldSvc();
+  };
+  const oldPrd = renderProductsPage;
+  renderProductsPage = function(){
+    PRODUCTS = withFlags(PRODUCTS).sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0));
+    oldPrd();
+  };
+})();
+
+/* Autosave enable on each admin page render:
+   We hook into setAdminPage so any page added can autosave if enabled */
+(function patchSetAdminPageAutosave(){
+  const old = setAdminPage;
+  setAdminPage = function(html){
+    old(html);
+    // attach autosave watchers with current Save button callback
+    const container = document.getElementById("adminPage");
+    if(container){
+      // when autosave is enabled, try to press Save if available
+      enableAutosaveOn(container, ()=>{
+        if(adminDraftSave){ adminDraftSave(); }
+      });
+      markDirty(false);
+      markSaved();
+    }
+  };
+})();
+
+/* Done */
+toast("Upgraded","PART 5 features added ✅","success",1200);
+</script>
+<!-- ===================== PART 6/6 START ===================== -->
+<style>
+  .statusPill{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:7px 10px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+    font-weight:900;font-size:12px;
+  }
+  .statusPill.pending{border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.14)}
+  .statusPill.done{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.14)}
+  .statusPill.cancel{border-color:rgba(239,68,68,.35);background:rgba(239,68,68,.14)}
+
+  .seg{
+    display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+    padding:10px;border-radius:18px;
+    border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.06);
+  }
+  .seg button{
+    padding:9px 12px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+    color:var(--text);font-weight:900;font-size:12px;
+    cursor:pointer;
+  }
+  .seg button.active{
+    border-color:rgba(59,130,246,.45);
+    background:rgba(59,130,246,.18);
+  }
+
+  .orderFab{
+    position:fixed;
+    right:14px; bottom:18px;
+    z-index:190;
+    padding:14px 16px;border-radius:999px;
+    border:0; cursor:pointer;
+    font-weight:900;color:#fff;
+    box-shadow:var(--shadow2);
+    background:linear-gradient(135deg,#ec4899,#3b82f6);
+    display:flex;align-items:center;gap:10px;
+  }
+
+  /* Simple order page form */
+  .formCard{
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, var(--card1), var(--card2));
+    box-shadow:var(--shadow);
+    padding:18px;
+  }
+</style>
+
+<script>
+/* =====================
+   PART 6: Premium Upgrades
+   1) Image Auto Compress (logo/cover/product)
+   2) Orders Status + Filter/Search
+   3) Customer Quick Order Form page + Floating Order button
+===================== */
+
+/* ---------- 1) IMAGE AUTO COMPRESS ---------- */
+async function compressDataURL(dataUrl, opts={}){
+  const maxW = opts.maxW ?? 1400;
+  const maxH = opts.maxH ?? 1400;
+  const quality = opts.quality ?? 0.82;
+  const mime = opts.mime ?? "image/jpeg"; // jpeg smaller
+
+  return new Promise((resolve)=>{
+    const img = new Image();
+    img.onload = ()=>{
+      let w = img.width, h = img.height;
+      const ratio = Math.min(maxW / w, maxH / h, 1);
+      w = Math.round(w * ratio);
+      h = Math.round(h * ratio);
+
+      const canvas = document.createElement("canvas");
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, w, h);
+
+      const out = canvas.toDataURL(mime, quality);
+      resolve(out);
+    };
+    img.onerror = ()=> resolve(dataUrl);
+    img.src = dataUrl;
+  });
+}
+
+/* Patch hookDrop so every uploaded image gets compressed automatically */
+(function patchHookDropCompress(){
+  const oldHookDrop = hookDrop;
+  hookDrop = function(id, getCurrent, setNew){
+    oldHookDrop(id, getCurrent, async (d)=>{
+      try{
+        const compressed = await compressDataURL(d, {maxW:1400,maxH:1400,quality:0.82,mime:"image/jpeg"});
+        setNew(compressed);
+        toast("Optimized","Image compressed ✅","success",900);
+      }catch{
+        setNew(d);
+      }
+    });
+  };
+})();
+
+/* ---------- 2) ORDERS STATUS + FILTER/SEARCH ---------- */
+const LS_ORDERS_STATUS = "sth_orders_v6"; // keep compatible
+(function migrateOrders(){
+  // ORDERS already exists from Part 4, but ensure status exists
+  try{
+    const list = readJSON(LS_ORDERS, []);
+    if(Array.isArray(list)){
+      const fixed = list.map(o=> ({ status:o.status||"Pending", ...o }));
+      writeJSON(LS_ORDERS, fixed);
+      ORDERS = fixed;
+    }
+  }catch{}
+})();
+
+/* Patch adminOrders page with status + filter + search */
+(function patchAdminOrdersV6(){
+  const oldAdminOrders = adminOrders;
+  adminOrders = function(){
+    setAdminSave(null);
+
+    ORDERS = readJSON(LS_ORDERS, ORDERS||[]);
+    let filterStatus = "All";
+    let q = "";
+
+    const renderUI = ()=>{
+      const list = ORDERS || [];
+      const total = list.length;
+
+      const filtered = list.filter(o=>{
+        const okStatus = (filterStatus==="All") ? true : (String(o.status||"Pending")===filterStatus);
+        const hay = (
+          (o.title||"") + " " +
+          (o.category||"") + " " +
+          (o.payMethod||"") + " " +
+          (o.trx||"") + " " +
+          (o.url||"")
+        ).toLowerCase();
+        const okQ = !q || hay.includes(q);
+        return okStatus && okQ;
+      });
+
+      setAdminPage(`
+        <div class="adminPageTitle">
+          <b><i class="fa-solid fa-inbox"></i> Orders Inbox (Pro)</b>
+          <span class="tag"><i class="fa-solid fa-list"></i> Total: ${total} • Showing: ${filtered.length}</span>
+        </div>
+
+        <div class="box">
+          <div class="row">
+            <div class="searchbar" style="flex:1">
+              <i class="fa-solid fa-magnifying-glass muted"></i>
+              <input id="ordSearch" placeholder="Search (title / trx / url)..." value="${esc(q)}"/>
+            </div>
+          </div>
+
+          <div class="seg" style="margin-top:10px">
+            <span class="muted" style="font-weight:900">Filter:</span>
+            ${["All","Pending","Done","Cancelled"].map(s=>`
+              <button class="${filterStatus===s?"active":""}" data-st="${esc(s)}">${esc(s)}</button>
+            `).join("")}
+            <span style="margin-left:auto"></span>
+            <button id="exportOrders"><i class="fa-solid fa-copy"></i> Export Copy</button>
+            <button id="clearOrders"><i class="fa-solid fa-trash"></i> Clear</button>
+          </div>
+
+          <div class="field" style="margin-top:10px">
+            <label>Orders JSON</label>
+            <textarea id="ordersJson" style="min-height:140px">${esc(JSON.stringify(filtered))}</textarea>
+          </div>
+        </div>
+
+        <div class="box" style="margin-top:12px">
+          <b>Orders List</b>
+          <div class="miniNote">Status change করলে সাথে সাথে save হবে ✅</div>
+          <div id="ordersList" style="display:grid;gap:10px;margin-top:10px"></div>
+        </div>
+      `);
+
+      // events
+      $("#ordSearch").oninput=(e)=>{ q = e.target.value.toLowerCase(); renderUI(); };
+
+      $(".seg").onclick=(e)=>{
+        const b = e.target.closest("[data-st]");
+        if(b){
+          filterStatus = b.getAttribute("data-st");
+          renderUI();
+        }
+      };
+
+      $("#exportOrders").onclick=async ()=>{
+        await navigator.clipboard.writeText($("#ordersJson").value);
+        toast("Copied","Export copied ✅","success",1100);
+      };
+      $("#clearOrders").onclick=()=>{
+        if(!confirm("Clear all orders?")) return;
+        ORDERS=[];
+        writeJSON(LS_ORDERS, ORDERS);
+        toast("Cleared","Orders cleared ✅","success",1200);
+        renderUI();
+      };
+
+      // list draw
+      const wrap = $("#ordersList");
+      wrap.innerHTML = filtered.slice(0,60).map(o=>{
+        const time = new Date(o.time).toLocaleString();
+        const st = String(o.status||"Pending");
+        const stClass = st==="Done" ? "done" : (st==="Cancelled" ? "cancel" : "pending");
+        return `
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+              <span class="statusPill ${stClass}"><i class="fa-solid fa-circle-check"></i> ${esc(st)}</span>
+              <span class="muted" style="font-weight:900;font-size:12px">${esc(time)}</span>
+            </div>
+
+            <div style="margin-top:8px;font-weight:900">${esc(o.title||"")}</div>
+            <div class="muted bfont" style="margin-top:6px;line-height:1.65">
+              Category: <b style="color:var(--text)">${esc(o.category||"")}</b><br/>
+              Price: <b style="color:var(--text)">৳${esc(o.priceText||"")}</b><br/>
+              Payment: <b style="color:var(--text)">${esc(o.payMethod||"")}</b> • Trx: <b style="color:var(--text)">${esc(o.trx||"")}</b>
+              ${o.url ? `<br/>URL: <span style="color:var(--text)">${esc(o.url)}</span>` : ""}
+            </div>
+
+            <div class="row" style="margin-top:10px">
+              <div class="field" style="flex:1">
+                <label>Update Status</label>
+                <select data-upst="${esc(o.id)}">
+                  ${["Pending","Done","Cancelled"].map(s=>`<option value="${esc(s)}" ${st===s?"selected":""}>${esc(s)}</option>`).join("")}
+                </select>
+              </div>
+              <div class="field" style="flex:1">
+                <label>Quick Note</label>
+                <input data-upnote="${esc(o.id)}" value="${esc(o.note||"")}"/>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("") || `<div class="muted">No matching orders.</div>`;
+
+      wrap.onchange=(e)=>{
+        const stSel = e.target.closest("[data-upst]");
+        if(stSel){
+          const id = stSel.getAttribute("data-upst");
+          const i = ORDERS.findIndex(x=>x.id===id);
+          if(i>=0){
+            ORDERS[i].status = stSel.value;
+            writeJSON(LS_ORDERS, ORDERS);
+            toast("Saved","Status updated ✅","success",900);
+          }
+        }
+      };
+      wrap.oninput=(e)=>{
+        const note = e.target.closest("[data-upnote]");
+        if(note){
+          const id = note.getAttribute("data-upnote");
+          const i = ORDERS.findIndex(x=>x.id===id);
+          if(i>=0){
+            ORDERS[i].note = note.value;
+            clearTimeout(wrap._t);
+            wrap._t=setTimeout(()=>{
+              writeJSON(LS_ORDERS, ORDERS);
+              toast("Saved","Note updated ✅","success",700);
+            }, 550);
+          }
+        }
+      };
+    };
+
+    renderUI();
+  };
+})();
+
+/* ---------- 3) CUSTOMER QUICK ORDER FORM PAGE ---------- */
+(function addOrderRouteAndFab(){
+  // Add route: #order
+  const oldRoute = setRoute;
+  setRoute = function(r){
+    oldRoute(r);
+    if(r==="order"){
+      renderOrderPage();
+    }
+  };
+
+  // Add Order FAB on customer pages (always)
+  function ensureFab(){
+    if(document.getElementById("orderFab")) return;
+    const b = document.createElement("button");
+    b.id="orderFab";
+    b.className="orderFab";
+    b.innerHTML = `<i class="fa-solid fa-bolt"></i> Quick Order`;
+    b.onclick=()=>{ setRoute("order"); window.scrollTo({top:0,behavior:"smooth"}); };
+    document.body.appendChild(b);
+  }
+  ensureFab();
+
+  // add nav link if navbar exists
+  const tryAddNav = ()=>{
+    const nav = document.querySelector("nav");
+    if(nav && !nav.querySelector('a[href="#order"]')){
+      const a = document.createElement("a");
+      a.href="#order";
+      a.textContent="Quick Order";
+      nav.appendChild(a);
+    }
+  };
+  setTimeout(tryAddNav, 400);
+})();
+
+function renderOrderPage(){
+  const app = document.getElementById("app");
+  if(!app) return;
+
+  const services = (withFlags(SERVICES||[])).filter(x=>x.active!==false);
+  const products = (withFlags(PRODUCTS||[])).filter(x=>x.active!==false);
+
+  app.innerHTML = `
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div>
+            <h1>Quick Order ✨</h1>
+            <p>এখান থেকে সহজে order তৈরি করুন—তারপর WhatsApp এ auto message যাবে। Order history admin inbox এ save হবে ✅</p>
+
+            <div class="hero-actions">
+              <a class="btn ghost" href="#services"><i class="fa-solid fa-layer-group"></i> Services</a>
+              <a class="btn ghost" href="#products"><i class="fa-solid fa-bag-shopping"></i> Products</a>
+            </div>
+          </div>
+
+          <aside class="hero-right">
+            <div class="kv"><b>WhatsApp</b><span>${esc(SAIKAT.waRaw)}</span></div>
+            <div class="kv"><b>Payment</b>
+              <span style="font-size:14px;line-height:1.7;color:var(--muted);font-weight:700">
+                bKash: <span style="color:var(--text);font-weight:900">${esc(SAIKAT.payment.bkash)}</span><br/>
+                Nagad: <span style="color:var(--text);font-weight:900">${esc(SAIKAT.payment.nagad)}</span>
+              </span>
+            </div>
+            <div class="mini"><b>Tip:</b> URL ঠিক দিন + TrxID ঠিক দিন।</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="formCard">
+          <div class="row">
+            <div class="field" style="flex:1">
+              <label>Order Type</label>
+              <select id="qoType">
+                <option value="service">Service</option>
+                <option value="product">Product</option>
+              </select>
+            </div>
+            <div class="field" style="flex:2">
+              <label>Select Item</label>
+              <select id="qoItem"></select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field" style="flex:1">
+              <label>Quantity / Package</label>
+              <input id="qoQty" placeholder="e.g. 1K / Basic Boost / 2 pcs" />
+            </div>
+            <div class="field" style="flex:1">
+              <label>Price (৳)</label>
+              <input id="qoPrice" type="number" placeholder="e.g. 500" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Link / URL</label>
+            <input id="qoUrl" placeholder="Paste URL here" />
+          </div>
+
+          <div class="row">
+            <div class="field" style="flex:1">
+              <label>Payment Method</label>
+              <select id="qoPay">
+                <option value="">Select</option>
+                <option value="bKash">bKash</option>
+                <option value="Nagad">Nagad</option>
+              </select>
+            </div>
+            <div class="field" style="flex:1">
+              <label>Transaction ID</label>
+              <input id="qoTrx" placeholder="e.g. A1B2C3D4" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Notes (optional)</label>
+            <textarea id="qoNote" placeholder="Target country / speed / any notes..."></textarea>
+          </div>
+
+          <div class="actions">
+            <button class="btn accent" id="qoSend"><i class="fa-brands fa-whatsapp"></i> Send to WhatsApp</button>
+            <button class="btn ghost" id="qoBack"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+
+  const typeSel = document.getElementById("qoType");
+  const itemSel = document.getElementById("qoItem");
+
+  const fillItems = ()=>{
+    const t = typeSel.value;
+    const arr = (t==="service") ? services : products;
+    itemSel.innerHTML = arr.map(x=>{
+      const name = t==="service" ? x.title : x.name;
+      const cat  = x.category || "";
+      return `<option value="${esc(x.id)}">${esc(name)} — ${esc(cat)}</option>`;
+    }).join("") || `<option value="">No items</option>`;
+  };
+  fillItems();
+  typeSel.onchange = fillItems;
+
+  document.getElementById("qoBack").onclick = ()=> history.back();
+
+  document.getElementById("qoSend").onclick=()=>{
+    const t = typeSel.value;
+    const arr = (t==="service") ? services : products;
+    const id = itemSel.value;
+    const it = arr.find(x=>x.id===id);
+    if(!it) return alert("Item select করুন");
+
+    const qty = document.getElementById("qoQty").value.trim();
+    const price = Number(document.getElementById("qoPrice").value||0);
+    const url = document.getElementById("qoUrl").value.trim();
+    const pay = document.getElementById("qoPay").value;
+    const trx = document.getElementById("qoTrx").value.trim();
+    const note = document.getElementById("qoNote").value.trim();
+
+    if(!qty) return alert("Quantity/Package দিন");
+    if(price<=0) return alert("Price দিন");
+    if(!url) return alert("URL দিন");
+    if(!pay) return alert("Payment method select করুন");
+    if(!trx) return alert("TrxID দিন");
+
+    const title = (t==="service") ? it.title : it.name;
+    const cat = it.category || "";
+
+    // log to orders
+    const record = {
+      id: makeId("ord"),
+      time: new Date().toISOString(),
+      type: t,
+      title,
+      category: cat,
+      priceText: String(price),
+      payMethod: pay,
+      trx,
+      url,
+      note,
+      status: "Pending"
+    };
+    try{
+      ORDERS = [record, ...(readJSON(LS_ORDERS, [])||[])].slice(0,300);
+      writeJSON(LS_ORDERS, ORDERS);
+    }catch{}
+
+    const msg =
+`Assalamu Alaikum,
+I want to place an order.
+
+Type: ${t.toUpperCase()}
+Item: ${title}
+Category: ${cat}
+Qty/Package: ${qty}
+Price: ৳${price}
+
+Payment:
+Method: ${pay}
+TrxID: ${trx}
+
+Link/URL:
+${url}
+
+Notes:
+${note || "N/A"}
+
+-- Saikat Tech Hub`;
+
+    window.open(`https://wa.me/${SAIKAT.waNumber}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+  };
+}
+
+/* final toast */
+toast("Added","PART 6 enabled ✅ (Compress + Orders Status + Quick Order)", "success", 1400);
 </script>
 
 </body>
